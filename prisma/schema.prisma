@@ -58,7 +58,7 @@ model Book {
 }
 
 model Order {
-  id          BigInt   @id
+  id          BigInt   @id @default(autoincrement())
   book        Book     @relation(fields: [bookId], references: [id])
   bookId      BigInt   @map("book_id")
   user        User     @relation(fields: [userId], references: [id])
