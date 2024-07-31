@@ -1,3 +1,4 @@
+import { kStringMaxLength } from 'buffer';
 import styles from './login-form.module.css';
 import {useEffect, useState} from 'react';
 
@@ -21,7 +22,8 @@ const SignUpForm = () => {
     };
 
     const req = http.request(options, function (res) {
-        const chunks = [];
+        
+        const chunks:any[] = [];
 
         res.on('data', function (chunk) {
             chunks.push(chunk);
@@ -29,7 +31,7 @@ const SignUpForm = () => {
 
         res.on('end', function () {
             const body = Buffer.concat(chunks);
-            const stringData = body.toString();
+            const stringData:string = body.toString();
             const emoji = stringData.match(/\p{Emoji}+/gu);
             let i=1;
             let codes = [];
