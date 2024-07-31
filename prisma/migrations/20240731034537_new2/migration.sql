@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE `orders` MODIFY `id` BIGINT NOT NULL AUTO_INCREMENT;
