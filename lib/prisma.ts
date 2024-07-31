@@ -17,7 +17,7 @@ declare global {
 
 let prisma: PrismaClient
 
-const { TIDB_USER, TIDB_PASSWORD, TIDB_HOST, TIDB_PORT, TIDB_DB_NAME = 'test', DATABASE_URL } = process.env;
+const { TIDB_USER, TIDB_PASSWORD, TIDB_HOST, TIDB_PORT, TIDB_DB_NAME = 'db', DATABASE_URL } = process.env;
 // Notice: When using TiDb Cloud Serverless Tier, you **MUST** set the following flags to enable tls connection.
 const SSL_FLAGS = 'pool_timeout=60&sslaccept=accept_invalid_certs';
 const databaseURL = DATABASE_URL

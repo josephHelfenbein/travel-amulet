@@ -58,7 +58,7 @@ model Book {
 }
 
 model Order {
-  id          BigInt   @id @default(autoincrement())
+  id          BigInt   @id
   book        Book     @relation(fields: [bookId], references: [id])
   bookId      BigInt   @map("book_id")
   user        User     @relation(fields: [userId], references: [id])
@@ -84,7 +84,9 @@ model Rating {
 }
 
 model User {
-  id       BigInt   @id
+  id       BigInt   @id @unique
+  email    String   @db.VarChar(255) @unique
+  password  String  @db.VarChar(255)
   balance  Decimal  @default(0.0) @db.Decimal(15, 2)
   nickname String   @unique(map: "nickname") @db.VarChar(100)
   ratings  Rating[]
