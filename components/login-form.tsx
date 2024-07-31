@@ -7,7 +7,7 @@ interface Values{
 export default function LoginForm() {
     return (
         <div className={styles.login_box + ' card p-5 '}>
-            <h1 className="display-6 mb-3">Login/Sign Up</h1>
+            <h1 className="display-6 mb-3">Login</h1>
             <Formik
                 initialValues={{
                     username: '',
@@ -33,11 +33,11 @@ export default function LoginForm() {
                     </div>
                     
                     <div className='row g-3'>
-                        <div className='col-md-6'>
+                        <div className='col-md-8'>
                             <button type="submit" className="btn btn-primary">Login</button>
                         </div>
-                        <div className='col-md-6'>
-                            <button className='btn btn-secondary'>Sign Up</button>
+                        <div className='col-md-4'>
+                            <a href='./signup'>Sign Up</a>
                         </div> 
                     </div>
                     

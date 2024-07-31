@@ -87,6 +87,8 @@ model User {
   id       BigInt   @id @unique
   email    String   @db.VarChar(255) @unique
   password  String  @db.VarChar(255)
+  name    String    @db.VarChar(255)
+  country   String  @db.VarChar(2)
   balance  Decimal  @default(0.0) @db.Decimal(15, 2)
   nickname String   @unique(map: "nickname") @db.VarChar(100)
   ratings  Rating[]

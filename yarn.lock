@@ -1407,6 +1407,11 @@ hoist-non-react-statics@^3.3.0:
   dependencies:
     react-is "^16.7.0"
 
+html-parser@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.npmjs.org/html-parser/-/html-parser-0.11.0.tgz"
+  integrity sha512-5DHyuxRhTBm4fzeMf9HGj2FpZ7gqwcOxT2RXqZ0uPXt0YRU41QKun0yhIeepnMhLXokUOiwJbRpTzRHgnOEpvQ==
+
 ignore@^5.2.0:
   version "5.2.0"
   resolved "https://registry.npmjs.org/ignore/-/ignore-5.2.0.tgz"
@@ -2151,6 +2156,11 @@ resolve@^2.0.0-next.3:
     is-core-module "^2.9.0"
     path-parse "^1.0.7"
     supports-preserve-symlinks-flag "^1.0.0"
+
+respond@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.npmjs.org/respond/-/respond-0.9.0.tgz"
+  integrity sha512-z1c74Taq8JRQleE/oxoNGOujDez3eXRMLYZCj4pdvMJOUarHF+L6OGcb4UeUCMuhEjc9MYLET0aie+lq+TczDg==
 
 reusify@^1.0.4:
   version "1.0.4"
