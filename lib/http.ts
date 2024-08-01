@@ -10,10 +10,10 @@ export async function fetchUserExistsEmail(email: string): Promise<{
     if (response.status !== 200) {
       throw new Error(`${response.status} - ${response.data}`);
     }
-    return { content: response.data as boolean };
+    return { content: true };
   } catch (error) {
     console.error(error);
-    return { error, content: {} as boolean };
+    return { error, content: false };
   }
 }
 
