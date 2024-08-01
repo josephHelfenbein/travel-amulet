@@ -7,6 +7,6 @@ export default async function handler(
     res: NextApiResponse
 ) {
     const email = req.query.toString();
-    const user = await prisma.user.findUnique({where: {email:email}});
+    const user = await prisma.user.findFirst({where: {email: email,}});
     return user ? res.send(user) : res.status(400).end();
 }
