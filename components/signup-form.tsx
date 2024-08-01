@@ -222,6 +222,7 @@ const SignUpForm = () => {
             onSubmit={ (values: Values,
                 { setSubmitting }: FormikHelpers<Values>
             ) => {
+                setTimeout(
                 (async () => {
                     let userExists = await fetchUserExistsEmail(values.username);
                     if(userExists.error){
@@ -231,7 +232,7 @@ const SignUpForm = () => {
                     else alert('post user');
                     alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
-                });
+                }), 500);
             }}
         >
             <Form>
