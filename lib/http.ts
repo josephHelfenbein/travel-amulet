@@ -1,6 +1,24 @@
 import axios from 'axios';
 import { BookProps, BookDetailProps, BookRatingsProps } from 'const';
 
+export async function fetchUserExistsEmail(email: string): Promise<{
+  content: boolean;
+  error?: any;
+}>{
+  try {
+    const response = await axios.get(`/users/email/${email}`);
+    if (response.status !== 200) {
+      throw new Error(`${response.status} - ${response.data}`);
+    }
+    return { content: response.data as boolean };
+  } catch (error) {
+    console.error(error);
+    return { error, content: {} as boolean };
+  }
+}
+
+
+
 export async function fetchBooks(data: {
   page?: number;
   size?: number;

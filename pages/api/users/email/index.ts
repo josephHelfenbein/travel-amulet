@@ -8,5 +8,5 @@ export default async function handler(
 ) {
     const email = req.query.toString();
     const user = await prisma.user.findUnique({where: {email:email}});
-    return user ? res.send(user) : res.status(400).end();
+    return user ? true:false;
 }

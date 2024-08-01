@@ -3,8 +3,7 @@ import { Formik, Field, Form, FormikHelpers } from 'formik';
 import FormikSelect from "./FormikSelect";
 import validationSchema from "./validationSchema";
 
-
-
+import { fetchUserExistsEmail } from 'lib/http';
 
 interface Values{
     username: string;
@@ -220,13 +219,19 @@ const SignUpForm = () => {
                 password: '',
             }}
             validationSchema={validationSchema}
-            onSubmit={(values: Values,
+            onSubmit={ (values: Values,
                 { setSubmitting }: FormikHelpers<Values>
             ) => {
-                setTimeout(() => {
+                (async () => {
+                    let userExists = await fetchUserExistsEmail(values.username);
+                    if(userExists.error){
+                        setSubmitting(false);
+                    }
+                    if(userExists.content) alert('user exists');
+                    else alert('post user');
                     alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
-                }, 500);
+                });
             }}
         >
             <Form>
