@@ -234,10 +234,6 @@ const SignUpForm = () => {
                     if(userExists.content) setError('Account already exists.');
                     else {
                         let userPost = await postUser({name: values.name, email: values.username, country: values.singleSelect, password:values.password});
-                        if(userPost.error){
-                            setSubmitting(false);
-                            setError('Error creating account, try again');
-                        }
                     }
                     alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
