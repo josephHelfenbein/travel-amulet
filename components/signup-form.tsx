@@ -233,7 +233,7 @@ const SignUpForm = () => {
                     }
                     if(userExists.content) setError('Account already exists.');
                     else {
-                        let userPost = await postUser({name: values.name, email: values.username, country: values.singleSelect, password:values.password});
+                        let userPost = await postUser({name: values.name, email: values.username, country: values.singleSelect, password:values.password, preferences:'', results:''});
                     }
                     setSubmitting(false);
                 }), 500);

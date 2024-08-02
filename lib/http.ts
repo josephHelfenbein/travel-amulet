@@ -17,7 +17,7 @@ export async function fetchUserExistsEmail(email: string): Promise<{
   }
 }
 export async function postUser(
-  params: {name: string, email: string, country: string, password:string}
+  params: {name: string, email: string, country: string, password:string, preferences:string, results:string}
 ): Promise<{
   content?: { userID: Number; success: boolean };
   error?: any;
