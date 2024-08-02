@@ -60,9 +60,7 @@ CREATE TABLE `users` (
     `name` VARCHAR(255) NOT NULL,
     `country` VARCHAR(2) NOT NULL,
     `balance` DECIMAL(15, 2) NOT NULL DEFAULT 0.0,
-    `nickname` VARCHAR(100) NOT NULL,
 
     UNIQUE INDEX `users_email_key`(`email`),
-    UNIQUE INDEX `nickname`(`nickname`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

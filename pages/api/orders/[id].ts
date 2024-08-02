@@ -41,7 +41,6 @@ async function getOrderDetail(req: NextApiRequest) {
             user: {
                 select: {
                     id: true,
-                    nickname: true
                 }
             },
             book: true

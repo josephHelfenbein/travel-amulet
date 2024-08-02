@@ -33,7 +33,6 @@ async function getOrderList(req: NextApiRequest) {
       user: {
         select: {
             id: true,
-            nickname: true
         }
       },
       book: true

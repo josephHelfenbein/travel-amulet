@@ -171,12 +171,10 @@ const ReviewsTable = (props: {
                       <div className='avatar placeholder'>
                         <div className='bg-neutral-focus text-neutral-content mask mask-squircle w-12 h-12'>
                           <span className='text-3xl'>
-                            {item.user.nickname.substring(0, 1)}
                           </span>
                         </div>
                       </div>
                       <div>
-                        <div className='font-bold'>{item.user.nickname}</div>
                         <div className='text-sm opacity-50'>
                           User ID: {item.user.id}
                         </div>
