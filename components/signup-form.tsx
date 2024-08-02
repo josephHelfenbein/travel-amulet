@@ -235,7 +235,6 @@ const SignUpForm = () => {
                     else {
                         let userPost = await postUser({name: values.name, email: values.username, country: values.singleSelect, password:values.password});
                     }
-                    alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
                 }), 500);
             }}

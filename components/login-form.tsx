@@ -1,10 +1,14 @@
 import { Formik, Field, Form, FormikHelpers } from 'formik'; 
 import styles from './login-form.module.css';
+import { fetchUserExistsEmail } from 'lib/http';
+import { useState } from 'react';
+
 interface Values{
     username: string;
     password: string;
 }
 export default function LoginForm() {
+    const [error, setError] = useState('');
     return (
         <div className={styles.login_box + ' card p-5 '}>
             <h1 className="display-6 mb-3">Login</h1>
@@ -16,10 +20,15 @@ export default function LoginForm() {
                 onSubmit={(values: Values,
                     { setSubmitting }: FormikHelpers<Values>
                 ) => {
-                    setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
+                    setTimeout((async () => {
+                        let userExists = await fetchUserExistsEmail(values.username);
+                        if(userExists.error) setSubmitting(false);
+                        if(userExists.content) {
+                            // check credentials
+                        }
+                        else setError('An account with this email cannot be found.');
                         setSubmitting(false);
-                    }, 500);
+                    }), 500);
                 }}
             >
                 <Form>
@@ -31,6 +40,9 @@ export default function LoginForm() {
                         <Field className="form-control" type="password" id="password" name="password" placeholder="Password" required/>
                         <label htmlFor="password">Password</label>
                     </div>
+                    {error != '' &&
+                    <p className='Error'>{error}</p>
+                    }
                     
                     <div className='row g-3'>
                         <div className='col-md-8'>
