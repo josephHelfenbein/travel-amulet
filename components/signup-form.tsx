@@ -4,8 +4,7 @@ import FormikSelect from "./FormikSelect";
 import validationSchema from "./validationSchema";
 import {useState} from 'react';
 
-import { fetchUserExistsEmail } from 'lib/http';
-import { error } from 'console';
+import { fetchUserExistsEmail, postUser } from 'lib/http';
 
 interface Values{
     username: string;
@@ -232,9 +231,13 @@ const SignUpForm = () => {
                     if(userExists.error){
                         setSubmitting(false);
                     }
-                    if(userExists.content) setError('error');
+                    if(userExists.content) setError('Account already exists.');
                     else {
-                        alert('post user');
+                        let userPost = await postUser({name: values.name, email: values.username, country: values.singleSelect, password:values.password});
+                        if(userPost.error){
+                            setSubmitting(false);
+                            setError('Error creating account, try again');
+                        }
                     }
                     alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
@@ -265,7 +268,7 @@ const SignUpForm = () => {
                     <label htmlFor="password">Password</label>
                 </div>
                 {error != '' &&
-                    <p className='Error'>Account already exists.</p>
+                    <p className='Error'>{error}</p>
                 }
                 
                 <div className='row g-3'>
