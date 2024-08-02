@@ -6,13 +6,13 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-    const {emailReq} = req.query;
-    const emailStr = emailReq?.toString();
-    if (!emailStr) return res.status(404).end();
+    const {email} = req.query;
+    const emailStr = email?.toString();
+    if(emailStr == undefined) return res.status(410).end();
     const user = await prisma.user.findUnique({
         where: {
           email: emailStr,
         },
       });
-    return user ? res.send(user) : res.status(404).end();
+    return user ? res.send(user) : res.status(410).end();
 }
