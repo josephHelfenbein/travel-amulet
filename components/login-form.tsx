@@ -1,7 +1,8 @@
 import { Formik, Field, Form, FormikHelpers } from 'formik'; 
 import styles from './login-form.module.css';
 import { fetchUserExistsEmail } from 'lib/http';
-import { useState } from 'react';
+import { signIn } from "next-auth/react";
+import React, { useState } from 'react';
 
 interface Values{
     username: string;
@@ -25,6 +26,15 @@ export default function LoginForm() {
                         if(userExists.error) setSubmitting(false);
                         if(userExists.content) {
                             // check credentials
+                            let res = await signIn("credentials", {
+                                email:values.username,
+                                password:values.password,
+                                callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}`,
+                                redirect:false,
+                            });
+                            if(res?.ok){console.log("logged in");return;}
+                            else setError('The password you entered is invalid. Try again.');
+                            return res;
                         }
                         else setError('An account with this email cannot be found.');
                         setSubmitting(false);
