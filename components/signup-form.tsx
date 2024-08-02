@@ -2,8 +2,10 @@ import styles from './login-form.module.css';
 import { Formik, Field, Form, FormikHelpers } from 'formik'; 
 import FormikSelect from "./FormikSelect";
 import validationSchema from "./validationSchema";
+import {useState} from 'react';
 
 import { fetchUserExistsEmail } from 'lib/http';
+import { error } from 'console';
 
 interface Values{
     username: string;
@@ -209,6 +211,7 @@ const countryOptions = [
     { value: "ZW", label: "Zimbabwe 🇿🇼" },
 ];
 const SignUpForm = () => {
+    const [error, setError] = useState('');
     return (<div className={styles.login_box + ' card p-5 '}>
         <h1 className="display-6 mb-3">Sign Up</h1>
         <Formik
@@ -219,6 +222,7 @@ const SignUpForm = () => {
                 password: '',
             }}
             validationSchema={validationSchema}
+
             onSubmit={ (values: Values,
                 { setSubmitting }: FormikHelpers<Values>
             ) => {
@@ -228,8 +232,10 @@ const SignUpForm = () => {
                     if(userExists.error){
                         setSubmitting(false);
                     }
-                    if(userExists.content) alert('user exists');
-                    else alert('post user');
+                    if(userExists.content) setError('error');
+                    else {
+                        alert('post user');
+                    }
                     alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
                 }), 500);
@@ -258,6 +264,9 @@ const SignUpForm = () => {
                     <Field className="form-control" type="password" id="password" name="password" placeholder="Password" required/>
                     <label htmlFor="password">Password</label>
                 </div>
+                {error != '' &&
+                    <p className='Error'>Account already exists.</p>
+                }
                 
                 <div className='row g-3'>
                     <div className='col-md-8'>

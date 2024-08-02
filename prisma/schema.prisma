@@ -84,7 +84,7 @@ model Rating {
 }
 
 model User {
-  id       BigInt   @id @unique
+  id       BigInt   @id @default(autoincrement())
   email    String   @db.VarChar(255) @unique
   password  String  @db.VarChar(255)
   name    String    @db.VarChar(255)
