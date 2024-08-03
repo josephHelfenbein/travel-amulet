@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import prisma from '../../../../lib/prisma';
-import exclude from '../auth';
+import exclude from '../login';
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse

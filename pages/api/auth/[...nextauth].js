@@ -48,7 +48,6 @@ const options = {
   pages: {
     signIn: "/login",
     signOut: "/login",
-    error: "/login",
   },
 
   callbacks: {

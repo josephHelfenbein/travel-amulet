@@ -1,6 +1,5 @@
 import { SHA256 as sha256 } from "crypto-js";
 import prisma from '../../../lib/prisma';
-import hashPassword from './index';
 
 export default async function handle(req, res){
     if(req.method === "POST"){
@@ -35,3 +34,6 @@ function exclude(user, keys){
     }
     return user;
 }
+const hashPassword = (string) => {
+    return sha256(string).toString();
+};
