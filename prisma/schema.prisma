@@ -24,6 +24,16 @@ datasource db {
 // 
 // https://www.prisma.io/docs/concepts/components/prisma-schema/data-model
 
+model Session {
+  id           String   @id @default(cuid())
+  userId       Int
+  expires      DateTime
+  sessionToken String   @unique
+  accessToken  String   @unique
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  user         User     @relation(fields: [userId], references: [id])
+}
 
 model User {
   id       Int   @id @default(autoincrement())
@@ -33,6 +43,7 @@ model User {
   country   String  @db.VarChar(2)
   preferences String @db.VarChar(255)
   results String @db.VarChar(255)
+  sessions Session[]
 
 	@@map("users")
 }

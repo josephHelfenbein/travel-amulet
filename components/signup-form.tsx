@@ -5,6 +5,7 @@ import validationSchema from "./validationSchema";
 import {useState} from 'react';
 
 import { fetchUserExistsEmail, postUser } from 'lib/http';
+import { useRouter } from 'next/router';
 
 interface Values{
     username: string;
@@ -211,6 +212,7 @@ const countryOptions = [
 ];
 const SignUpForm = () => {
     const [error, setError] = useState('');
+    const router = useRouter();
     return (<div className={styles.login_box + ' card p-5 '}>
         <h1 className="display-6 mb-3">Sign Up</h1>
         <Formik
@@ -234,6 +236,7 @@ const SignUpForm = () => {
                     if(userExists.content) setError('Account already exists.');
                     else {
                         let userPost = await postUser({name: values.name, email: values.username, country: values.singleSelect, password:values.password, preferences:'', results:''});
+                        router.push('/login');
                     }
                     setSubmitting(false);
                 }), 500);
