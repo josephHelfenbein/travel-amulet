@@ -11,16 +11,14 @@ async function loginUserHandler(req, res){
     if(!email || !password) return res.status(400).json({message: "invalid inputs"});
     try{
         const user = await prisma.user.findUnique({
-            where: {
-              email: email,
-            },
+            where: { email: email },
             select: {
-                id: true,
-                name: true,
-                email: true,
-                password: true,
+              id: true,
+              name: true,
+              email: true,
+              password: true,
             },
-        });
+          });
         if(user && user.password === hashPassword(password))
             return res.status(200).json(exclude(user, ["password"]));
         else return res.status(401).json({message: "invalid credentials"});

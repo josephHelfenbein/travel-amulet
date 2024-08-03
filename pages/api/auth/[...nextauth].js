@@ -1,3 +1,4 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import NextAuth from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -8,17 +9,17 @@ const options = {
     CredentialsProvider({
       id: "credentials",
       name: "Credentials",
+      credentials: {
+        email: {label:"Email", type:"text"},
+        password: {label:"Password", type:"password"}
+      },
       async authorize(credentials, req) {
-        const userCredentials = {
-          email: credentials.email,
-          password: credentials.password,
-        };
 
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/user/login`,
           {
             method: "POST",
-            body: JSON.stringify(userCredentials),
+            body: JSON.stringify(credentials),
             headers: {
               "Content-Type": "application/json",
             },
