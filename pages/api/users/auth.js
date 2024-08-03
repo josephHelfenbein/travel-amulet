@@ -16,11 +16,11 @@ async function loginUserHandler(req, res){
               email: email,
             },
         });
-        if(user && user.password == hashPassword(password))
+        if(user && user.password === hashPassword(password))
             return res.status(200).json(exclude(user, ["password"]));
         else return res.status(401).json({message: "invalid credentials"});
     }catch (e) {
-        throw new Error(e);
+        return null;
     }
 }
 function exclude(user, keys){
