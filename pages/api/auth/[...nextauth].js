@@ -10,8 +10,8 @@ const options = {
       id: "credentials",
       name: "Credentials",
       credentials: {
-        email: {label:"Email", type:"text"},
-        password: {label:"Password", type:"password"}
+        email: {label:"email", type:"text"},
+        password: {label:"password", type:"password"}
       },
       async authorize(credentials, req) {
 

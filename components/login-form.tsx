@@ -29,8 +29,8 @@ export default function LoginForm() {
                         if(userExists.content) {
                             // check credentials
                             let res = await signIn("credentials", {
-                                email:values.username,
-                                password:values.password,
+                                email:values.username.toString(),
+                                password:values.password.toString(),
                                 callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}`,
                                 redirect:false,
                             });
