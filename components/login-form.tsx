@@ -3,6 +3,7 @@ import styles from './login-form.module.css';
 import { fetchUserExistsEmail } from 'lib/http';
 import { signIn } from "next-auth/react";
 import React, { useState } from 'react';
+import { useRouter } from "next/router";
 
 interface Values{
     username: string;
@@ -34,6 +35,7 @@ export default function LoginForm() {
                             });
                             if(res?.ok){console.log("logged in");return;}
                             else setError('The password you entered is invalid. Try again.');
+                            console.log(res);
                             return res;
                         }
                         else setError('An account with this email cannot be found.');
