@@ -1,3 +1,4 @@
+import { User } from '@prisma/client';
 import axios from 'axios';
 import { StringSchema } from 'yup';
 
@@ -24,6 +25,24 @@ export async function postUser(
 }> {
   try {
     const response = await axios.post(`/api/user`, params);
+    if (response.status !== 200) {
+      throw new Error(`${response.status} - ${response.data}`);
+    }
+    return { content: response.data };
+  } catch (error) {
+    console.error(error);
+    return { error };
+  }
+}
+
+export async function tryLogin(
+  params: {email: string, password:string}
+): Promise<{
+  content?: { user: User; success: boolean };
+  error?: any;
+}> {
+  try {
+    const response = await axios.post(`/api/user/login`, params);
     if (response.status !== 200) {
       throw new Error(`${response.status} - ${response.data}`);
     }
