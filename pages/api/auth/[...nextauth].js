@@ -48,18 +48,23 @@ const options = {
   pages: {
     signIn: "/login",
     signOut: "/login",
+    error: "/login",
   },
 
   callbacks: {
     async session(session, user, token) {
       if (user !== null) {
-        
         session.user = user;
       }
       return await session;
     },
 
     async jwt({ token, user }) {
+        const isSignedIn = user ? true : false;
+        if(isSignedIn){
+            token.accessToken =
+                user.id.toString() + "-" + user.email + "-" + user.name;
+        }
        return await token;
     },
   },

@@ -11,6 +11,7 @@ interface Values{
 }
 export default function LoginForm() {
     const [error, setError] = useState('');
+    const router = useRouter();
     return (
         <div className={styles.login_box + ' card p-5 '}>
             <h1 className="display-6 mb-3">Login</h1>
@@ -35,9 +36,13 @@ export default function LoginForm() {
                                 callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}`,
                                 redirect:false,
                             });
-                            if(res?.ok){console.log("logged in");return;}
+                            if(res?.ok){
+                                console.log("logged in");
+                                router.push("/");
+                                return;
+                            }
                             else setError('The password you entered is invalid. Try again.');
-                            console.log(res);
+                            console.log("Failed", res);
                             return res;
                         }
                         else setError('An account with this email cannot be found.');
