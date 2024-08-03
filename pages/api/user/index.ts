@@ -14,7 +14,7 @@ export default async function handler(
         createUserHandler(req, res);
     }
 }
-export const hashPassword = (string) => {
+export const hashPassword = (string:string) => {
     return sha256(string).toString();
 };
 async function createUserHandler(req: NextApiRequest, res: NextApiResponse){

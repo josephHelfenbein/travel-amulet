@@ -6,7 +6,7 @@ export async function fetchUserExistsEmail(email: string): Promise<{
   error?: any;
 }>{
   try {
-    const response = await axios.get(`/api/users/${email}`);
+    const response = await axios.get(`/api/user/${email}`);
     if (response.status !== 200) {
       throw new Error(`${response.status} - ${response.data}`);
     }
@@ -23,7 +23,7 @@ export async function postUser(
   error?: any;
 }> {
   try {
-    const response = await axios.post(`/api/users`, params);
+    const response = await axios.post(`/api/user`, params);
     if (response.status !== 200) {
       throw new Error(`${response.status} - ${response.data}`);
     }

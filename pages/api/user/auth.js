@@ -15,6 +15,12 @@ async function loginUserHandler(req, res){
             where: {
               email: email,
             },
+            select: {
+                id: true,
+                name: true,
+                email: true,
+                password: true,
+            },
         });
         if(user && user.password === hashPassword(password))
             return res.status(200).json(exclude(user, ["password"]));
