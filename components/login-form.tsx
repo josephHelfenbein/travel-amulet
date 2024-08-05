@@ -28,7 +28,7 @@ export default function LoginForm() {
                         if(userExists.error) setSubmitting(false);
                         if(userExists.content) {
                             // check credentials
-                            fetch(`${process.env.NEXTAUTH_URL}/api/auth/providers`)
+                            fetch(`https://tidb-hackathon-2024.vercel.app/api/auth/providers`)
                             .then(response => {
                                 console.log('Response status:', response.status);
                                 console.log('Response headers:', response.headers);
