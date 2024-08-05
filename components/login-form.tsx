@@ -28,7 +28,7 @@ export default function LoginForm() {
                         if(userExists.error) setSubmitting(false);
                         if(userExists.content) {
                             // check credentials
-                            fetch(`/api/auth/providers`)
+                            fetch(`https://tidb-hackathon-2024.vercel.app/api/auth/providers`)
                             .then(response => {
                                 if (!response.ok) {
                                 throw new Error('Network response was not ok');
@@ -46,7 +46,7 @@ export default function LoginForm() {
                             let res = await signIn("credentials", {
                                 email:values.username,
                                 password:values.password,
-                                callbackUrl: `${process.env.NEXTAUTH_URL}`,
+                                callbackUrl: `https://tidb-hackathon-2024.vercel.app`,
                                 redirect:false,
                             });
                             if(res?.ok){
