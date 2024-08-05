@@ -11,28 +11,27 @@ const options = {
     CredentialsProvider({
       id: 'credentials',
       name: 'Credentials',
-      credentials: {
-        email: { label: 'Email', type: 'text' },
-        password: { label: 'Password', type: 'password' },
-      },
       async authorize(credentials) {
           if(!credentials?.email||!credentials?.password)
-            throw new Error('Invalid credentials');
-  
-          //const res = await tryLogin(credentials.email, credentials.password);
-          const res = await prisma.$queryRaw`SELECT * FROM User WHERE email=${credentials?.email}`;
-          
-          //const user = res?.content?.user; 
-          const user = response.rows[0];
-          const passwordCorrect = user.password === sha256(credentials?.password).toString();
-
-          if (user && passwordCorrect) {
-            return {
-              id: user.id,
-              email: user.email,
-            };
+          throw new Error('Invalid credentials');
+          const userCredentials ={
+            email: credentials.email,
+            password: credentials.password,
+          };
+          const res = await fetch(
+            `${process.env.VERCEL_URL}/api/user/login`,
+            {
+              method: "POST",
+              body: JSON.stringify(userCredentials),
+              headers:{
+                "Content-Type": "application/json",
+              },
+            }
+          )
+          const user = await res.json();
+          if (user && res.ok) {
+            return user;
           }
-          console.log("credentials", credentials);
           return null;
         },
     }),
@@ -64,15 +63,4 @@ const options = {
     },
   },
 };
-export default async (req, res) => {
-  try {
-    const result = await NextAuth(req, res, options);
-    res.setHeader('Content-Type', 'application/json');
-    if (!res.headersSent) {
-      res.status(200).json(result);
-    }
-  } catch (error) {
-    console.error('NextAuth error:', error.message);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-};
+export default (req, res) => NextAuth(req, res, options);

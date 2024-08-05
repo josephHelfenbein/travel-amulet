@@ -28,7 +28,7 @@ export default function LoginForm() {
                         if(userExists.error) setSubmitting(false);
                         if(userExists.content) {
                             // check credentials
-                            fetch(`${process.env.VERCEL_URL}/api/auth/providers`)
+                            fetch(`/api/auth/providers`)
                             .then(response => {
                                 console.log('Response status:', response.status);
                                 console.log('Response headers:', response.headers);
