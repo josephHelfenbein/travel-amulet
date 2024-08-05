@@ -28,7 +28,7 @@ export default function LoginForm() {
                         if(userExists.error) setSubmitting(false);
                         if(userExists.content) {
                             // check credentials
-                            fetch(`${process.env.NEXTAUTH_URL}/api/auth/providers`)
+                            fetch(`/api/auth/providers`)
                             .then(response => {
                                 if (!response.ok) {
                                 throw new Error('Network response was not ok');
