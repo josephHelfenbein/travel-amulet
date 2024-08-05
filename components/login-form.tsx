@@ -30,6 +30,9 @@ export default function LoginForm() {
                             // check credentials
                             fetch(`https://tidb-hackathon-2024.vercel.app/api/auth/providers`)
                             .then(response => {
+                                console.log('Response status:', response.status);
+                                console.log('Response headers:', response.headers);
+
                                 if (!response.ok) {
                                 throw new Error('Network response was not ok');
                                 }
