@@ -28,15 +28,15 @@ export default function LoginForm() {
                         if(userExists.error) setSubmitting(false);
                         if(userExists.content) {
                             // check credentials
-                            fetch(`https://tidb-hackathon-2024.vercel.app/api/auth/providers`)
+                            fetch(`/api/auth/providers`)
                             .then(response => {
                                 console.log('Response status:', response.status);
                                 console.log('Response headers:', response.headers);
 
                                 if (!response.ok) {
-                                throw new Error('Network response was not ok');
+                                console.log('Network response was not ok');
                                 }
-                                return response.json();
+                                else console.log(response.json());
                             })
                             .then(data => {
                                 console.log('Received providers:', data);
@@ -49,7 +49,7 @@ export default function LoginForm() {
                             let res = await signIn("credentials", {
                                 email:values.username,
                                 password:values.password,
-                                callbackUrl: `https://tidb-hackathon-2024.vercel.app`,
+                                callbackUrl: `${process.env.NEXTAUTH_URL}`,
                                 redirect:false,
                             });
                             if(res?.ok){
