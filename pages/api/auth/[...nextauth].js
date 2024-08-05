@@ -6,14 +6,13 @@ import prisma from '../../../lib/prisma';
 import {tryLogin} from '../../../lib/http';
 import { SHA256 as sha256 } from 'crypto-js';
 
+let userAcc;
 const options = {
   providers: [
     CredentialsProvider({
-      id: 'credentials',
-      name: 'Credentials',
-      async authorize(credentials) {
-          if(!credentials?.email||!credentials?.password)
-          throw new Error('Invalid credentials');
+      id: "credentials",
+      name: "Credentials",
+      async authorize(credentials, req) {
           const userCredentials ={
             email: credentials.email,
             password: credentials.password,
@@ -30,6 +29,7 @@ const options = {
           )
           const user = await res.json();
           if (user && res.ok) {
+            userAcc = user;
             return user;
           }
           return null;
@@ -42,6 +42,7 @@ const options = {
   session: { strategy: 'jwt', maxAge: 24 * 60 * 60 },
 
   jwt: {
+    secret: process.env.NEXTAUTH_SECRET,
     maxAge: 60 * 60 * 24 * 30,
     encryption: true,
   },
@@ -53,13 +54,14 @@ const options = {
   },
 
   callbacks: {
-    async jwt({ token, user }) {
-        if(user) token.user = user;
-       return token;
+    async session(session, user, token) {
+      if(user!==null) session.user = user;
+      return await session;
     },
-    async session(session, token) {
-      session.user = token.user;
-      return session;
+    async jwt({ token, user }) {
+        const isSignedIn = user?true:false;
+        if(isSignedIn) token.accessToken = user.id.toString() + "-" + user.email + "-" + user.name;
+       return await token;
     },
   },
 };

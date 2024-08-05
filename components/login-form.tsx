@@ -28,24 +28,6 @@ export default function LoginForm() {
                         if(userExists.error) setSubmitting(false);
                         if(userExists.content) {
                             // check credentials
-                            fetch(`/api/auth/providers`)
-                            .then(response => {
-                                console.log('Response status:', response.status);
-                                console.log('Response headers:', response.headers);
-
-                                if (!response.ok) {
-                                console.log('Network response was not ok');
-                                }
-                                else console.log(response.json());
-                            })
-                            .then(data => {
-                                console.log('Received providers:', data);
-                            })
-                            .catch(error => {
-                                console.error('Fetch error:', error);
-                            });
-
-
                             let res = await signIn("credentials", {
                                 email:values.username,
                                 password:values.password,
@@ -57,8 +39,10 @@ export default function LoginForm() {
                                 router.push("/");
                                 return;
                             }
-                            else setError('The password you entered is invalid. Try again.');
-                            console.log("Failed", res);
+                            else {
+                                setError('The password you entered is invalid. Try again.');
+                                console.log("Failed", res);
+                            }
                             return res;
                         }
                         else setError('An account with this email cannot be found.');

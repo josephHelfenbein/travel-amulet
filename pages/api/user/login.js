@@ -9,20 +9,17 @@ export default async function handle(req, res){
 async function loginUserHandler(req, res){
     const {email, password} = req.body;
     if(!email || !password) return res.status(400).json({message: "invalid inputs"});
-    const emailStr = email?.toString();
-    if(emailStr == undefined) return res.status(410).end();
-    const passwordStr = password?.toString();
-    if(passwordStr == undefined) return res.status(410).end();
     try{
         const user = await prisma.user.findUnique({
             where: {
-              email: emailStr,
+              email: email,
             },
           });
         if(user && user.password === hashPassword(password))
             return res.status(200).json(exclude(user,["password"]));
         else return res.status(401).json({message: "invalid credentials"});
     }catch (e) {
+        console.log(e);
         throw new Error(e);
     }
 }
