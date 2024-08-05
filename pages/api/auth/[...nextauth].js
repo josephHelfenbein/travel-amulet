@@ -4,6 +4,7 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import CredentialsProvider from 'next-auth/providers/credentials';
 import prisma from '../../../lib/prisma';
 import {tryLogin} from '../../../lib/http';
+import { SHA256 as sha256 } from 'crypto-js';
 
 const options = {
   providers: [
@@ -15,23 +16,25 @@ const options = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        try{
           if(!credentials?.email||!credentials?.password)
             throw new Error('Invalid credentials');
   
-          const res = await tryLogin(credentials.email, credentials.password);
-          const user = res?.content?.user; 
-  
-          if (user) {
-            return user;
-          } else {
-            throw new Error('Invalid email or password');
+          //const res = await tryLogin(credentials.email, credentials.password);
+          const res = await prisma.$queryRaw`SELECT * FROM User WHERE email=${credentials?.email}`;
+          
+          //const user = res?.content?.user; 
+          const user = response.rows[0];
+          const passwordCorrect = user.password === sha256(credentials?.password).toString();
+
+          if (user && passwordCorrect) {
+            return {
+              id: user.id,
+              email: user.email,
+            };
           }
-        }
-      catch (error) {
-        console.error('Authorization error:', error.message);
-        throw new Error('Authorization error');
-      }},
+          console.log("credentials", credentials);
+          return null;
+        },
     }),
   ],
 
