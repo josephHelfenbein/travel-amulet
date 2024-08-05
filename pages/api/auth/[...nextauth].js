@@ -54,7 +54,7 @@ const options = {
 };
 
 export default async (req, res) => {
-  fetch('/api/auth/providers')
+  fetch(`${process.env.NEXTAUTH_URL}/api/auth/providers`)
     .then(response =>{
       if(!response.ok) console.log('Network response was not ok');
     return response.json();
