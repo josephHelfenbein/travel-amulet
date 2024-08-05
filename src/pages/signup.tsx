@@ -1,4 +1,4 @@
-import SignUpForm from 'components/signup-form'
+import SignUpForm from 'src/components/signup-form'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 

@@ -1,4 +1,4 @@
-import LoginForm from 'components/login-form'
+import LoginForm from 'src/components/login-form'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 

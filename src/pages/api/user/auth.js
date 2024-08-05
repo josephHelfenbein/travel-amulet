@@ -1,5 +1,5 @@
 import { SHA256 as sha256 } from "crypto-js";
-import prisma from '../../../lib/prisma';
+import prisma from '../../../../lib/prisma';
 
 export default async function handle(req, res){
     if(req.method === "POST"){
