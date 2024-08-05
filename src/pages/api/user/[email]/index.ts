@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import prisma from '../../../../../lib/prisma';
-import exclude from '../auth';
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -15,4 +15,10 @@ export default async function handler(
         },
       });
     return user ? res.send(exclude(user, ["password"])) : res.status(410).end();
+}
+function exclude(user:any, keys:any){
+  for (let key of keys){
+      delete user[key];
+  }
+  return user;
 }
