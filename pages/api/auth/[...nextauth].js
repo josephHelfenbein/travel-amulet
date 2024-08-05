@@ -57,19 +57,17 @@ export default async (req, res) => {
   try {
     console.log('Request received:', req.url);
 
-    res.setHeader('Content-Type', 'application/json');
+    // Capture the result of NextAuth and log it
     const result = await NextAuth(req, res, options);
+    console.log('NextAuth result:', result);
 
-    // Log the response before sending it
-    if (result) {
-      console.log('NextAuth response:', JSON.stringify(result, null, 2));
-    } else {
-      console.log('NextAuth response is undefined or null');
+    // Manually end the response to avoid any issues with double sending
+    if (!res.headersSent) {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).end(JSON.stringify(result));
     }
-
-    return result;
   } catch (error) {
     console.error("NextAuth error:", error);
     res.status(500).json({ message: 'Internal server error' });
   }
-}
+};
