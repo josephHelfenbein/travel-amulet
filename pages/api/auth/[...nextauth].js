@@ -10,19 +10,24 @@ const options = {
     CredentialsProvider({
       id: "credentials",
       name: "Credentials",
-      async authorize(credentials, req) {
-        if(!credentials?.email||!credentials?.password)
-          return null;
-
-        const res = await tryLogin(credentials.email, credentials.password);
-        const user = res?.content?.user; 
-
-        if (user) {
-          return user;
-        } else {
-          return null;
+      async authorize(credentials) {
+        try{
+          if(!credentials?.email||!credentials?.password)
+            throw new Error('Invalid credentials');
+  
+          const res = await tryLogin(credentials.email, credentials.password);
+          const user = res?.content?.user; 
+  
+          if (user) {
+            return user;
+          } else {
+            throw new Error('Invalid email or password');
+          }
         }
-      },
+      catch (error) {
+        console.error("Authorization error:", error.message);
+        throw new Error('Authorization error');
+      }},
     }),
   ],
 
@@ -52,22 +57,19 @@ const options = {
     },
   },
 };
-
 export default async (req, res) => {
   try {
     console.log('Request received:', req.url);
-
-    // Capture the result of NextAuth and log it
+    
     const result = await NextAuth(req, res, options);
     console.log('NextAuth result:', result);
 
-    // Manually end the response to avoid any issues with double sending
+    res.setHeader('Content-Type', 'application/json');
     if (!res.headersSent) {
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).end(JSON.stringify(result));
+      res.status(200).json(result);
     }
   } catch (error) {
-    console.error("NextAuth error:", error);
+    console.error("NextAuth error:", error.message);
     res.status(500).json({ message: 'Internal server error' });
   }
 };

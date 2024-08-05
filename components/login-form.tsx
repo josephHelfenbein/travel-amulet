@@ -28,7 +28,7 @@ export default function LoginForm() {
                         if(userExists.error) setSubmitting(false);
                         if(userExists.content) {
                             // check credentials
-                            fetch(`/api/auth/providers`)
+                            fetch(`${process.env.NEXTAUTH_URL}/api/auth/providers`)
                             .then(response => {
                                 console.log('Response status:', response.status);
                                 console.log('Response headers:', response.headers);
