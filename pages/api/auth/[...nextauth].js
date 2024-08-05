@@ -54,23 +54,22 @@ const options = {
 };
 
 export default async (req, res) => {
-  fetch(`${process.env.NEXTAUTH_URL}/api/auth/providers`)
-    .then(response =>{
-      if(!response.ok) console.log('Network response was not ok');
-    return response.json();
-    })
-    .then(data => {
-      console.log('Providers:', data);
-    })
-    .catch(error =>{
-      console.log('Fetch error');
-    });
+  try {
+    console.log('Request received:', req.url);
 
-  try{
     res.setHeader('Content-Type', 'application/json');
-    await NextAuth(req, res, options);
-  }
-  catch(error){
-    res.status(500).json({message: 'Internal server error'});
+    const result = await NextAuth(req, res, options);
+
+    // Log the response before sending it
+    if (result) {
+      console.log('NextAuth response:', JSON.stringify(result, null, 2));
+    } else {
+      console.log('NextAuth response is undefined or null');
+    }
+
+    return result;
+  } catch (error) {
+    console.error("NextAuth error:", error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 }
