@@ -31,7 +31,7 @@ export default function LoginForm() {
                             let res = await signIn("credentials", {
                                 email:values.username,
                                 password:values.password,
-                                callbackUrl: `${process.env.VERCEL_URL}`,
+                                callbackUrl: `${process.env.NEXTAUTH_URL}`,
                                 redirect:false,
                             });
                             if(res?.ok){
