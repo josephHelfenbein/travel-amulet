@@ -2,9 +2,7 @@ import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 export default function HeaderMain(){
     const {data:session, status} = useSession();
-    const [login, setLogin] = useState(false);
-    if(status === "authenticated")
-     setLogin(true);
+    const [login, setLogin] = useState((status === "authenticated")?true:false);
     return (
         <nav className="navbar sticky-top bg-body-tertiary">
         <div className="container-fluid">
