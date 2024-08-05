@@ -7,7 +7,7 @@ export default async function handle(req, res){
     } else return res.status(405);
 }
 async function loginUserHandler(req, res){
-    const {email, password} = req.body;
+    const {email, password} = req.body.userCredentials;
     if(!email || !password) return res.status(400).json({message: "invalid inputs"});
     try{
         const user = await prisma.user.findUnique({
@@ -16,7 +16,7 @@ async function loginUserHandler(req, res){
             },
           });
         if(user && user.password === hashPassword(password))
-            return res.status(200).json(exclude(user,["password"]));
+            return res.status(200).json();
         else return res.status(401).json({message: "invalid credentials"});
     }catch (e) {
         console.log(e);

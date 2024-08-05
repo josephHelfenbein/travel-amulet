@@ -12,6 +12,10 @@ const options = {
     CredentialsProvider({
       id: "credentials",
       name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials, req) {
           const userCredentials ={
             email: credentials.email,
@@ -21,7 +25,7 @@ const options = {
             `${process.env.VERCEL_URL}/api/user/login`,
             {
               method: "POST",
-              body: JSON.stringify(userCredentials),
+              body: JSON.stringify({userCredentials}),
               headers:{
                 "Content-Type": "application/json",
               },
