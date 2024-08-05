@@ -28,6 +28,7 @@
     "bootstrap": "^5.3.3",
     "crypto-js": "^4.2.0",
     "dotenv": "^16.0.3",
+    "dotenv-expand": "^11.0.6",
     "formik": "^2.4.6",
     "html-parser": "^0.11.0",
     "lodash": "^4.17.21",

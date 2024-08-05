@@ -3,8 +3,6 @@ import NextAuth, {AuthOptions} from 'next-auth';
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import CredentialsProvider from 'next-auth/providers/credentials';
 import prisma from '../../../lib/prisma';
-import {tryLogin} from '../../../lib/http';
-import { SHA256 as sha256 } from 'crypto-js';
 
 let userAcc;
 const options = {
