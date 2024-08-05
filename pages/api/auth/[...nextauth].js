@@ -20,7 +20,7 @@ const options = {
             password: credentials.password,
           };
           const res = await fetch(
-            `${process.env.VERCEL_URL}/api/user/login`,
+            `${process.env.VERCEL_URL}/api/user/auth`,
             {
               method: "POST",
               body: JSON.stringify({userCredentials}),
