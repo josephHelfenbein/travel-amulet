@@ -31,7 +31,7 @@ export default function LoginForm() {
                             let res = await signIn("credentials", {
                                 email:values.username,
                                 password:values.password,
-                                callbackUrl: `${process.env.NEXTAUTH_URL}`,
+                                callbackUrl: `/`,
                                 redirect:false,
                             });
                             if(res?.ok){
