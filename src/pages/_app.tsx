@@ -3,7 +3,7 @@ import { RecoilRoot, useRecoilSnapshot } from "recoil";
 import { useEffect } from "react";
 import { SnackbarProvider } from "notistack";
 import 'bootstrap/dist/css/bootstrap.css';
-import "../styles/globals.css";
+import '../app/globals.css';
 import { SessionProvider } from "next-auth/react";
 
 
