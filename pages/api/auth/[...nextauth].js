@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import NextAuth from "next-auth";
+import NextAuth, {AuthOptions} from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import CredentialsProvider from "next-auth/providers/credentials";
 import prisma from '../../../lib/prisma';
@@ -11,14 +11,13 @@ const options = {
       id: "credentials",
       name: "Credentials",
       async authorize(credentials, req) {
-        const userCredentials = {
-            email: credentials.email,
-            password: credentials.password,
-          };
-        const res = await tryLogin(userCredentials.email, userCredentials.password);
-        const user = res.content.user;
+        if(!credentials?.email||!credentials?.password)
+          return null;
 
-        if (res && user) {
+        const res = await tryLogin(credentials.email, credentials.password);
+        const user = res?.content?.user; 
+
+        if (user) {
           return user;
         } else {
           return null;
@@ -47,11 +46,19 @@ const options = {
         if(user) token.user = user;
        return token;
     },
-    async session(session, user, token) {
+    async session(session, token) {
       session.user = token.user;
       return session;
     },
   },
 };
 
-export default (req, res) => NextAuth(req, res, options);
+export default async (req, res) => {
+  try{
+    res.setHeader('Content-Type', 'application/json');
+    await NextAuth(req, res, options);
+  }
+  catch(error){
+    res.status(500).json({message: 'Internal server error'});
+  }
+}
