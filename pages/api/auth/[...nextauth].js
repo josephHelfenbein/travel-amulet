@@ -1,15 +1,19 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import NextAuth, {AuthOptions} from "next-auth";
-import { PrismaAdapter } from "@next-auth/prisma-adapter"
-import CredentialsProvider from "next-auth/providers/credentials";
+import { NextApiRequest, NextApiResponse } from 'next';
+import NextAuth, {AuthOptions} from 'next-auth';
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
+import CredentialsProvider from 'next-auth/providers/credentials';
 import prisma from '../../../lib/prisma';
 import {tryLogin} from '../../../lib/http';
 
 const options = {
   providers: [
     CredentialsProvider({
-      id: "credentials",
-      name: "Credentials",
+      id: 'credentials',
+      name: 'Credentials',
+      credentials: {
+        email: { label: 'Email', type: 'text' },
+        password: { label: 'Password', type: 'password' },
+      },
       async authorize(credentials) {
         try{
           if(!credentials?.email||!credentials?.password)
@@ -25,7 +29,7 @@ const options = {
           }
         }
       catch (error) {
-        console.error("Authorization error:", error.message);
+        console.error('Authorization error:', error.message);
         throw new Error('Authorization error');
       }},
     }),
@@ -33,7 +37,7 @@ const options = {
 
   adapter: PrismaAdapter(prisma),
   secret: process.env.NEXTAUTH_SECRET,
-  session: { strategy: "jwt", maxAge: 24 * 60 * 60 },
+  session: { strategy: 'jwt', maxAge: 24 * 60 * 60 },
 
   jwt: {
     maxAge: 60 * 60 * 24 * 30,
@@ -41,9 +45,9 @@ const options = {
   },
 
   pages: {
-    signIn: "/login",
-    signOut: "/login",
-    error: "/login",
+    signIn: '/login',
+    signOut: '/login',
+    error: '/login',
   },
 
   callbacks: {
@@ -59,17 +63,13 @@ const options = {
 };
 export default async (req, res) => {
   try {
-    console.log('Request received:', req.url);
-    
     const result = await NextAuth(req, res, options);
-    console.log('NextAuth result:', result);
-
     res.setHeader('Content-Type', 'application/json');
     if (!res.headersSent) {
       res.status(200).json(result);
     }
   } catch (error) {
-    console.error("NextAuth error:", error.message);
+    console.error('NextAuth error:', error.message);
     res.status(500).json({ message: 'Internal server error' });
   }
 };
