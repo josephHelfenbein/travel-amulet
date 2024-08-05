@@ -54,6 +54,18 @@ const options = {
 };
 
 export default async (req, res) => {
+  fetch('/api/auth/providers')
+    .then(response =>{
+      if(!response.ok) console.log('Network response was not ok');
+    return response.json();
+    })
+    .then(data => {
+      console.log('Providers:', data);
+    })
+    .catch(error =>{
+      console.log('Fetch error');
+    });
+
   try{
     res.setHeader('Content-Type', 'application/json');
     await NextAuth(req, res, options);
