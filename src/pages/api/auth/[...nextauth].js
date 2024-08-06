@@ -56,14 +56,16 @@ const options = {
 
   callbacks: {
     async session(session, user, token) {
-      if(user!==null) session.user = token.user;
+      if(user!==null) {
+        session.user = user;
+        session.name = user.name;
+      }
       return await session;
     },
     async jwt({ token, user }) {
         const isSignedIn = user?true:false;
         if(isSignedIn) token.accessToken = user.id.toString() + "-" + user.email + "-" + user.name;
-        token.user = user;
-        return await token;
+       return await token;
     },
   },
 };
