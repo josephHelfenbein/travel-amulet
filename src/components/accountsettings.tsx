@@ -11,9 +11,11 @@ export default function AccountSettings(){
         },
     });
     const [name, setName] = useState('');
-    console.log('1. ' + session);
-    console.log('2. ' + session?.user);
-    console.log('3. ' + session?.user?.name);
+    async function getName(){
+        const newSession = await getSession();
+        console.log(newSession);
+    }
+    
     return (
         <div className='card p-5'>
             <h1 className="display-6 mb-3">Hello, {name}</h1>
