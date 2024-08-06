@@ -1,5 +1,5 @@
 import {useRouter} from "next/router";
-import {useSession, getSession} from 'next-auth/react';
+import {useSession} from 'next-auth/react';
 import { useState } from "react";
 
 export default function AccountSettings(){
@@ -12,11 +12,11 @@ export default function AccountSettings(){
     });
     const [name, setName] = useState('');
     async function sessionUser () {
-        const session = await getSession();
-        console.log(session!.user!.name);
+
+        console.log(session?.user);
         console.log(session);
         console.log(session!.user);
-        setName(session!.user!.name!);
+        setName(session?.user?.name!);
     }
     sessionUser();
     
