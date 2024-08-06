@@ -4,7 +4,7 @@ import { useState } from "react";
 import { getSession } from "next-auth/react";
 export default function AccountSettings(){
     const router = useRouter();
-    const {data:session, status} = useSession({
+    const {data:session, data:token, status} = useSession({
         required:true,
         onUnauthenticated() {
             router.push('/login');
@@ -12,11 +12,9 @@ export default function AccountSettings(){
     });
     const [name, setName] = useState('');
     async function sessionUser () {
-        const sessionGot = await getSession();
-        console.log(session?.user);
-        console.log(session);
-        console.log(sessionGot?.user);
-        console.log(sessionGot);
+        console.log(token);
+        console.log(token?.user);
+        console.log(token?.user?.name);
     }
     sessionUser();
     
