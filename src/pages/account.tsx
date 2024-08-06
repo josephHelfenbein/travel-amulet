@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Account Settings</title>
+        <title>Account</title>
         <meta name='description' content='Account' />
         <link rel='icon' href='/favicon.ico' />
       </Head>

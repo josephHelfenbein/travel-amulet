@@ -13,10 +13,10 @@ export default function AccountSettings(){
     const [name, setName] = useState('');
     async function sessionUser () {
         const session = await getSession();
-        console.log(session?.user?.name);
+        console.log(session!.user!.name);
         console.log(session);
-        console.log(session?.user);
-        setName(session?.user?.name!);
+        console.log(session!.user);
+        setName(session!.user!.name!);
     }
     sessionUser();
     
