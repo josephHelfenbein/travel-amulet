@@ -56,7 +56,13 @@ const options = {
 
   callbacks: {
     async session(session, user, token) {
-      if(user!==null) session.user = user;
+      if(user!==null) session = {
+        ...session,
+        user: {
+          name:user.name,
+          email:user.email,
+        }
+      };
       return await session;
     },
     async jwt({ token, user }) {
