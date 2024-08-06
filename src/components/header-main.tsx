@@ -1,12 +1,13 @@
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
-async function checkAuth(){
-    const {data:session, status} = useSession();
-    return status === "authenticated";
-}
-export default async function HeaderMain(){
-    const authenticated = await checkAuth();
-    const [login, setLogin] = useState(authenticated);
+export default function HeaderMain(){
+    const [login, setLogin] = useState(true);
+    const {status} = useSession({
+        required:true,
+        onUnauthenticated() {
+            setLogin(false);
+        },
+    });
     return (
         <nav className="navbar sticky-top bg-body-tertiary">
         <div className="container-fluid">
