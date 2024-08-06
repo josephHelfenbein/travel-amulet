@@ -1,3 +1,4 @@
+'use client';
 import {useRouter} from "next/router";
 import {useSession} from 'next-auth/react';
 import { useState } from "react";
@@ -10,9 +11,10 @@ export default function AccountSettings(){
             router.push('/login');
         },
     });
+    let nameSession;
+    if(session) nameSession = session.user;
+    console.log(nameSession);
     const [name, setName] = useState('');
-    const newSession = getSession();
-    newSession.then((obj) => {console.log(obj?.user?.name);console.log(obj);});
     
     return (
         <div className='card p-5'>
