@@ -54,13 +54,13 @@ export default function HeaderMain(){
         <nav className="navbar sticky-top bg-body-tertiary">
         <div className="container-fluid">
             <a className="navbar-brand p-2" href="#">App Name</a>
-                {login &&
+                {!login &&
                     <form className='d-flex'>
                     <a href="./login"><button className="btn btn-outline-success m-2" type="button">Login</button></a>
                     <a href="./signup"><button className="btn btn-outline-success m-2" type="button">Sign Up</button></a>
                     </form>
                 }
-                {!login &&
+                {login &&
                     
                         <div className='dropdown d-flex'>
                             <Dropdown />
