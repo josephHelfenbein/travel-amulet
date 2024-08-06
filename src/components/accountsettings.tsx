@@ -7,14 +7,16 @@ export default function AccountSettings(){
     const {data, status} = useSession({
         required:true,
         onUnauthenticated() {
-            //router.push('/login');
+            router.push('/login');
         },
     });
     const sessionEmail = data?.user?.email!;
-    const sessionUser = fetchUserByEmail(sessionEmail?.toString());
+    const sessionUser = async () => {
+        await fetchUserByEmail(sessionEmail?.toString());
+    }
     return (
         <div className='card p-5'>
-            <h1 className="display-6 mb-3">Hello, {data?.user?.name}</h1>
+            <h1 className="display-6 mb-3">Hello, {sessionUser.name}</h1>
         </div>
     );
 }

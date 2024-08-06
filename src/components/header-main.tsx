@@ -4,16 +4,6 @@ import { signOut } from 'next-auth/react';
 import { Router, useRouter } from 'next/router';
 import React from 'react';
 
-function signout(){
-   const router = useRouter();
-   const logout = async ()=>{
-    const data = await signOut({
-        callbackUrl: `/`,
-        redirect:true,
-    })
-   }
-   router.push('/');
-}
 class Dropdown extends React.Component{
     state = {
         isOpen: false
