@@ -17,6 +17,7 @@ export default function AccountSettings(){
         console.log(newSession!.user);
         console.log(newSession?.user);
     }
+    getName();
     
     return (
         <div className='card p-5'>
