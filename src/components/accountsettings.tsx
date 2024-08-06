@@ -2,7 +2,6 @@
 import {useRouter} from "next/router";
 import {useSession} from 'next-auth/react';
 import { useState, useEffect } from "react";
-import { fetchServerResponse } from "next/dist/client/components/router-reducer/fetch-server-response";
 
 export default function AccountSettings(){
     const router = useRouter();
@@ -21,7 +20,8 @@ export default function AccountSettings(){
         };
         fetchSession();
     }, []);
-
+    console.log(session);
+    console.log(session?.user);
 
     return (
         <div className='card p-5'>
