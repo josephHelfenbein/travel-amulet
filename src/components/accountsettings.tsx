@@ -16,6 +16,7 @@ export default function AccountSettings(){
     useEffect(() => {
         axios.get('/api/auth/session').then((res) =>{
             setName(res.data.session.user.name);
+            console.log(res.data.session);
         })
     }, []);
 
