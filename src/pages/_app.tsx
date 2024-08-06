@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { SnackbarProvider } from "notistack";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../app/globals.css';
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider } from "../components/nextAuthProvider";
 
 
 function MyApp({ Component, pageProps:{session, ...pageProps} }) {
