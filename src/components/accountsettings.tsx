@@ -2,7 +2,7 @@
 import {useRouter} from "next/router";
 import {useSession} from 'next-auth/react';
 import { useState } from "react";
-import { getSession } from "next-auth/react";
+
 export default function AccountSettings(){
     const router = useRouter();
     const {data:session, status} = useSession({
@@ -12,9 +12,12 @@ export default function AccountSettings(){
         },
     });
     let nameSession;
-    if(session) nameSession = session.user;
-    console.log(nameSession);
-    const [name, setName] = useState('');
+    let emailSession;
+    if(session && session.user) {
+        nameSession = session.user.name;
+        emailSession = session.user.email;
+    }
+    const [name, setName] = useState(nameSession);
     
     return (
         <div className='card p-5'>
