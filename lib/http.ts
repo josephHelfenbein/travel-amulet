@@ -17,6 +17,21 @@ export async function fetchUserExistsEmail(email: string): Promise<{
     return { error, content: false };
   }
 }
+export async function fetchUserByEmail(email:string): Promise<{
+  content:User|null;
+  error?: any;
+}>{
+  try {
+    const response = await axios.get(`/api/user/${email}`);
+    if (response.status !== 200) {
+      throw new Error(`${response.status} - ${response.data}`);
+    }
+    return { content: response.data };
+  } catch (error) {
+    console.error(error);
+    return { error, content: null };
+  }
+}
 export async function postUser(
   params: {name: string, email: string, country: string, password:string, preferences:string, results:string}
 ): Promise<{
