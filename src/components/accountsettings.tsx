@@ -11,14 +11,8 @@ export default function AccountSettings(){
         },
     });
     const [name, setName] = useState('');
-    async function getName(){
-        const newSession = await getSession();
-        const newNewSession = newSession;
-        console.log(newNewSession);
-        console.log(newNewSession!.user);
-        console.log(newNewSession!.user!.name);
-    }
-    getName();
+    const newSession = getSession();
+    newSession.then((obj) => {console.log(obj?.user?.name);console.log(obj);});
     
     return (
         <div className='card p-5'>
