@@ -51,7 +51,7 @@ export default function HeaderMain(){
     return (
         <nav className="navbar sticky-top bg-body-tertiary">
         <div className="container-fluid">
-            <a className="navbar-brand p-2" href="#">App Name</a>
+            <a className="navbar-brand p-2" href="/">App Name</a>
                 {!login &&
                     <form className='d-flex'>
                     <a href="./login"><button className="btn btn-outline-success m-2" type="button">Login</button></a>

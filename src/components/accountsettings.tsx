@@ -15,8 +15,8 @@ export default function AccountSettings(){
         const newSession = await getSession();
         const newNewSession = newSession;
         console.log(newNewSession);
-        console.log(newNewSession?.user);
-        console.log(newNewSession?.user?.name);
+        console.log(newNewSession!.user);
+        console.log(newNewSession!.user!.name);
     }
     getName();
     
