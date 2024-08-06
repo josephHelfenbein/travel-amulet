@@ -36,7 +36,14 @@ class Dropdown extends React.Component{
                 </svg>
             </a>
             <div style={{left:-110}} className={menuClass} aria-labelledby="dropdownMenuButton">
-                <button className="dropdown-item" type="button" onClick={signout}>Sign Out</button>
+                <button className="dropdown-item" type="button" onClick={
+                    async () => {
+                        await signOut(
+                            {
+                                callbackUrl: `/`,
+                                redirect:true,
+                            })
+                }}>Sign Out</button>
             </div>
           </div>
         );
