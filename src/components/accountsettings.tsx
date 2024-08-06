@@ -12,7 +12,6 @@ export default function AccountSettings(){
     });
     const [name, setName] = useState('');
     async function sessionUser () {
-        setName(data?.user?.name!);
         console.log(data?.user);
         console.log(data);
     

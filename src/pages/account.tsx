@@ -10,7 +10,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Account Settings</title>
-        <meta name='description' content='Account Settings' />
+        <meta name='description' content='Account' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
