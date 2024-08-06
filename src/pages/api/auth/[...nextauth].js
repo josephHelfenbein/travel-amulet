@@ -55,7 +55,7 @@ const options = {
   },
 
   callbacks: {
-    async session(session, token) {
+    async session(session, user, token) {
       session.user = token.user;
       return await session;
     },
