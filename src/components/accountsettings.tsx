@@ -17,6 +17,9 @@ export default function AccountSettings(){
         nameSession = session.user.name;
         emailSession = session.user.email;
     }
+    console.log(nameSession);
+    console.log(session?.user);
+    console.log(session);
     const [name, setName] = useState(nameSession);
     
     return (
