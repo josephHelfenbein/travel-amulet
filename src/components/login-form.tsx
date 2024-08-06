@@ -4,7 +4,7 @@ import { fetchUserExistsEmail } from 'lib/http';
 import { signIn } from "next-auth/react";
 import React, { useState } from 'react';
 import { useRouter } from "next/router";
-
+import { useSession } from 'next-auth/react';
 interface Values{
     username: string;
     password: string;
@@ -12,6 +12,8 @@ interface Values{
 export default function LoginForm() {
     const [error, setError] = useState('');
     const router = useRouter();
+    const {data:session, status} = useSession();
+    if(status === "authenticated") router.push("/");
     return (
         <div className={styles.login_box + ' card p-5 '}>
             <h1 className="display-6 mb-3">Login</h1>

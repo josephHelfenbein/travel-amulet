@@ -6,6 +6,7 @@ import {useState} from 'react';
 
 import { fetchUserExistsEmail, postUser } from 'lib/http';
 import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/react';
 
 interface Values{
     username: string;
@@ -236,7 +237,22 @@ const SignUpForm = () => {
                     if(userExists.content) setError('Account already exists.');
                     else {
                         let userPost = await postUser({name: values.name, email: values.username, country: values.singleSelect, password:values.password, preferences:'', results:''});
-                        router.push('/login');
+                        let res = await signIn("credentials", {
+                            email:values.username,
+                            password:values.password,
+                            callbackUrl: `/`,
+                            redirect:false,
+                        });
+                        if(res?.ok){
+                            console.log("logged in");
+                            router.push("/");
+                            return;
+                        }
+                        else {
+                            setError('The password you entered is invalid. Try again.');
+                            console.log("Failed", res);
+                        }
+                        return res;
                     }
                     setSubmitting(false);
                 }), 500);
