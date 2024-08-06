@@ -12,18 +12,16 @@ export default function AccountSettings(){
             router.push('/login');
         },
     });
-    const [session, setSession] = useState('');
+    const [name, setName] = useState('');
     useEffect(() => {
         axios.get('/api/auth/session').then((res) =>{
-            setSession(res.data.session.user.name);
-            console.log(res.data.session);
-            console.log(res.data.session.user);
+            setName(res.data.session.user.name);
         })
     }, []);
 
     return (
         <div className='card p-5'>
-            <h1 className="display-6 mb-3">Hello, {session}</h1>
+            <h1 className="display-6 mb-3">Hello, {name}</h1>
         </div>
     );
 }
