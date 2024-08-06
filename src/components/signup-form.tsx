@@ -6,7 +6,7 @@ import {useState} from 'react';
 
 import { fetchUserExistsEmail, postUser } from 'lib/http';
 import { useRouter } from 'next/router';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 
 interface Values{
     username: string;
@@ -214,6 +214,8 @@ const countryOptions = [
 const SignUpForm = () => {
     const [error, setError] = useState('');
     const router = useRouter();
+    const {data:session, status} = useSession();
+    if(status === "authenticated") router.push("/");
     return (<div className={styles.login_box + ' card p-5 '}>
         <h1 className="display-6 mb-3">Sign Up</h1>
         <Formik
