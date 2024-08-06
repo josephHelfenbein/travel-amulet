@@ -26,11 +26,16 @@ class Dropdown extends React.Component{
                 </svg>
             </a>
             <div style={{left:-110}} className={menuClass} aria-labelledby="dropdownMenuButton">
+            <button className="dropdown-item" type="button" onClick={
+                    () => {
+                        const router = useRouter();
+                        router.push('/account');
+                }}>Account</button>
                 <button className="dropdown-item" type="button" onClick={
                     async () => {
                         await signOut(
                             {
-                                callbackUrl: `/`,
+                                callbackUrl: `/login`,
                                 redirect:true,
                             })
                 }}>Sign Out</button>

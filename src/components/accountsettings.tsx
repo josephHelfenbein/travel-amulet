@@ -13,10 +13,13 @@ export default function AccountSettings(){
     });
     const sessionEmail = data?.user?.email!;
     const [name, setName] = useState('');
-    const sessionUser = async () => {
+    async function sessionUser () {
         const nameAwait = await fetchUserByEmail(sessionEmail?.toString());
         setName(nameAwait?.content?.name!);
+        console.log(nameAwait?.content);
     }
+    sessionUser();
+    
     return (
         <div className='card p-5'>
             <h1 className="display-6 mb-3">Hello, {name}</h1>
