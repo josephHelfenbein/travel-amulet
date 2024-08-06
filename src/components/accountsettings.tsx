@@ -1,6 +1,5 @@
 import {useRouter} from "next/router";
 import {useSession} from 'next-auth/react';
-import {fetchUserByEmail} from '../../lib/http';
 import { useState } from "react";
 
 export default function AccountSettings(){
@@ -11,10 +10,12 @@ export default function AccountSettings(){
             router.push('/login');
         },
     });
-    const sessionEmail = data?.user?.email!;
     const [name, setName] = useState('');
     async function sessionUser () {
+        setName(data?.user?.name!);
+        console.log(data?.user);
         console.log(data);
+    
     }
     sessionUser();
     
