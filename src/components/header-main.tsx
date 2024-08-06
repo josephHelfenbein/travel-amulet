@@ -26,11 +26,7 @@ class Dropdown extends React.Component{
                 </svg>
             </a>
             <div style={{left:-110}} className={menuClass} aria-labelledby="dropdownMenuButton">
-            <button className="dropdown-item" type="button" onClick={
-                    () => {
-                        const router = useRouter();
-                        router.push('/account');
-                }}>Account</button>
+                <a className="dropdown-item" type="button" href="./account">Account</a>
                 <button className="dropdown-item" type="button" onClick={
                     async () => {
                         await signOut(

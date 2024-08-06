@@ -14,9 +14,12 @@ export default function AccountSettings(){
     const sessionEmail = data?.user?.email!;
     const [name, setName] = useState('');
     async function sessionUser () {
-        const nameAwait = await fetchUserByEmail(sessionEmail?.toString());
+        const nameAwait = await fetchUserByEmail(sessionEmail);
         setName(nameAwait?.content?.name!);
         console.log(nameAwait?.content);
+        console.log(sessionEmail);
+        console.log(data?.user);
+        console.log(await fetchUserByEmail(sessionEmail));
     }
     sessionUser();
     
