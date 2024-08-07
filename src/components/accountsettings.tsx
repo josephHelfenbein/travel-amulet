@@ -32,14 +32,17 @@ export default function AccountSettings(){
         })
     }, []);
     useEffect(()=>{
-        axios.get(`/api/user/${email}`).then(async (userRes) =>{
-            console.log(userRes);
-            console.log(userRes.data.session.user);
-            console.log(userRes.data.session.user.country);
-            setCountry(userRes.data.session.user.country);
-            setUser(userRes.data.session.user);
-            console.log(country);
-        })
+        if(email!=='')
+            axios.get(`/api/user/${email}`).then(async (userRes) =>{
+                if(userRes){
+                    console.log(userRes);
+                    console.log(userRes.data.session.user);
+                    console.log(userRes.data.session.user.country);
+                    setCountry(userRes.data.session.user.country);
+                    setUser(userRes.data.session.user);
+                    console.log(country);
+                }
+            })
     }, []);
     
 
