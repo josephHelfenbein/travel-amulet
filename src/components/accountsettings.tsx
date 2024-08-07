@@ -28,9 +28,9 @@ export default function AccountSettings(){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
                 fetchUserByEmail(res.data.session.user.email).then((user) => {
-                    console.log(user?.content?.country!);
                     setUser(user.content);
-                    setCountry(user?.content?.country!.toString()!);
+                    setCountry(user?.content?.country!);
+                    console.log(country);
                 });
             }
         })
