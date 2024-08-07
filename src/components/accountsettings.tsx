@@ -28,21 +28,18 @@ export default function AccountSettings(){
             if(res){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
+                axios.get(`/api/user/${email}`).then(async (userRes) =>{
+                    if(userRes){
+                        console.log(userRes);
+                        console.log(userRes.data.user);
+                        console.log(userRes.data.user.country);
+                        setCountry(userRes.data.user.country);
+                        setUser(userRes.data.user);
+                        console.log(country);
+                    }
+                })
             }
         })
-    }, []);
-    useEffect(()=>{
-        if(email!=='')
-            axios.get(`/api/user/${email}`).then(async (userRes) =>{
-                if(userRes){
-                    console.log(userRes);
-                    console.log(userRes.data.session.user);
-                    console.log(userRes.data.session.user.country);
-                    setCountry(userRes.data.session.user.country);
-                    setUser(userRes.data.session.user);
-                    console.log(country);
-                }
-            })
     }, []);
     
 
