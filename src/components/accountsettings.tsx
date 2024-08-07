@@ -19,25 +19,22 @@ export default function AccountSettings(){
         },
     });
     const [name, setName] = useState('');
-    const [user, setUser] = useState(data?.user);
+    const [user, setUser] = useState<User|null>(null);
     const [email, setEmail] = useState('');
-    
+    const [country, setCountry] = useState('');
     const [error, setError] = useState('');
-    let userObj;
-    let countryName = '';
     useEffect(() => {
         axios.get('/api/auth/session').then(async (res) =>{
             if(res){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
-                userObj = await fetchUserByEmail(res.data.session.user.email);
-                countryName = await userObj.content.country;
-                console.log(countryName);
-                console.log(userObj);
+                const userRes = await axios.get(`/api/user/${res.data.session.user.email}`);
+                setCountry(userRes.data.session.user.country);
+                setUser(userRes.data.session.user);
             }
         })
     }, []);
-    const [country, setCountry] = useState(countryName);
+    
 
     interface Values{
         name: string;
