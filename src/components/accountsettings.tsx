@@ -32,11 +32,9 @@ export default function AccountSettings(){
                 userObj = await fetchUserByEmail(res.data.session.user.email);
             }
         }).finally(()=>{
-            console.log(userObj);
-            console.log(userObj.content);
-            console.log(userObj.country);
-            console.log(userObj.content.country);
-            setCountry(userObj.country);
+            setCountry(userObj.content.country.toString());
+            console.log(userObj.content.country.toString());
+            console.log(country);
         })
     }, []);
     interface Values{
