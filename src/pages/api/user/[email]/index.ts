@@ -18,7 +18,7 @@ export default async function handler(
     return user ? res.send(exclude(user, ["password"])) : res.status(410).end();
   }
   else if(req.method === 'PUT'){
-    const {email, country, name} = req.query;
+    const {email, country, name} = req.body;
     const emailStr = email?.toString();
     const countryStr = country?.toString();
     const nameStr = name?.toString();
