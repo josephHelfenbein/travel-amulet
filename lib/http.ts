@@ -1,6 +1,7 @@
 import { User } from '@prisma/client';
 import axios from 'axios';
 import { StringSchema } from 'yup';
+import prisma from './prisma';
 
 export async function fetchUserExistsEmail(email: string): Promise<{
   content: boolean;
@@ -25,7 +26,7 @@ export async function changeUserName(email: string, name: string): Promise<{
     const emailStr = email.toString();
     const nameStr = name.toString();
     if(!emailStr||!nameStr) throw new Error(`Incorrect strings`);
-    const response = await prisma?.user.update({
+    const response = await prisma.user.update({
       where:{
         email: email,
       },
@@ -50,7 +51,7 @@ export async function changeUserCountry(email: string, country: string): Promise
     const emailStr = email.toString();
     const countryStr = country.toString();
     if(!emailStr||!countryStr) throw new Error(`Incorrect strings`);
-    const response = await prisma?.user.update({
+    const response = await prisma.user.update({
       where:{
         email: email,
       },
