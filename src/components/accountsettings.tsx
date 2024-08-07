@@ -28,9 +28,10 @@ export default function AccountSettings(){
             if(res){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
-                const userRes = await axios.get(`/api/user/${res.data.session.user.email}`);
-                setCountry(userRes.data.session.user.country);
-                setUser(userRes.data.session.user);
+                axios.get(`/api/user/${res.data.session.user.email}`).then(async (userRes) =>{
+                    setCountry(userRes.data.session.user.country);
+                    setUser(userRes.data.session.user);
+                })
             }
         })
     }, []);
