@@ -56,6 +56,12 @@ export default function AccountSettings(){
                         if(name===values.name&&country===values.singleSelect)
                             setError('Nothing was changed!');
                         else{
+                            if(country !== values.singleSelect){
+                                const changed = await changeUserCountry({email:email, country:values.singleSelect});
+                                if (changed){
+                                    setError('Updated!');
+                                }
+                            }
                             if(name !== values.name){
                                 const changed = await changeUserName({email:email, name:values.name});
                                 if(changed){
@@ -67,13 +73,7 @@ export default function AccountSettings(){
                                         },
                                     };
                                     await update(newSession);
-                                    setError('Updated!');
-                                }
-                            }
-                            if(country !== values.singleSelect){
-                                const changed = await changeUserCountry({email:email, country:values.singleSelect});
-                                if (changed){
-                                    setError('Updated!');
+                                    setError("Updated! You'll have to log in again to see changes to your name.");
                                 }
                             }
                         }   
