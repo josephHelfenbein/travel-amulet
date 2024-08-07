@@ -21,10 +21,10 @@ export default function AccountSettings(){
     const [name, setName] = useState('');
     const [user, setUser] = useState(data?.user);
     const [email, setEmail] = useState('');
-    const [country, setCountry] = useState('');
+    
     const [error, setError] = useState('');
     let userObj;
-    let countryName;
+    let countryName = '';
     useEffect(() => {
         axios.get('/api/auth/session').then(async (res) =>{
             if(res){
@@ -32,10 +32,10 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 userObj = await fetchUserByEmail(res.data.session.user.email);
                 countryName = await userObj.content.country;
-                setCountry(countryName);
             }
         })
     }, []);
+    const [country, setCountry] = useState(countryName);
 
     interface Values{
         name: string;
