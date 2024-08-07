@@ -27,7 +27,8 @@ export default function AccountSettings(){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
                 const userRes = await axios.get(`/api/user/${res.data.session.user.email}`)
-                const countryStr = userRes.data.country;
+                //const countryStr = userRes.data.country;
+                const countryStr = "US";
                 console.log('Country:', countryStr);
                 setCountry(countryStr);
                 console.log('Country state set to:', countryStr);
