@@ -35,6 +35,9 @@ export default function AccountSettings(){
             }
         })
     }, []);
+    useEffect(()=>{
+        console.log('Country state changed: ', country);
+    }, [country]);
 
     interface Values{
         name: string;
