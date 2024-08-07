@@ -30,9 +30,7 @@ export default function AccountSettings(){
                 axios.get(`/api/user/${res.data.session.user.email}`).then(async (userRes) =>{
                     if(userRes){
                         const countryStr=userRes.data.country;
-                        setCountry(countryStr);
-                        console.log(countryStr);
-                        console.log(country);
+                        useEffect(()=>{setCountry(countryStr);}, []);
                     }
                 })
             }
