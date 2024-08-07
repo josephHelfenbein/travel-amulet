@@ -21,7 +21,8 @@ export default function AccountSettings(){
     const [name, setName] = useState('');
     const [userObj, setUser] = useState<User|null>(null);
     const [email, setEmail] = useState('');
-    const [country, setCountry] = useState('');
+    const [country, setCountry] = useState<string>('');
+    const [error, setError] = useState('');
     useEffect(() => {
         axios.get('/api/auth/session').then((res) =>{
             if(res){
@@ -29,8 +30,11 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 fetchUserByEmail(res.data.session.user.email).then((user) => {
                     setUser(user.content);
-                    setCountry(userObj?.country!);
+                    if(userObj)
+                        setCountry(userObj?.country);
+                    console.log(userObj);
                     console.log(country);
+                    console.log(userObj?.country);
                 });
             }
         })
@@ -61,6 +65,11 @@ export default function AccountSettings(){
                             
                         if(country !== values.singleSelect)
                             changeUserValue(email, 'country', country);
+
+                        if(name==values.name&&country==values.singleSelect)
+                            setError('Nothing was changed!')
+                        else
+                            setError('Updated!');
                     }), 500);
                 }}
             >
@@ -79,6 +88,9 @@ export default function AccountSettings(){
                     <div className='col-md-8'>
                         <button type="submit" className="btn btn-primary">Save</button>
                     </div>
+                    {error != '' &&
+                    <p>{error}</p>
+                    }
                 </Form>
                 
             </Formik>
