@@ -28,8 +28,9 @@ export default function AccountSettings(){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
                 fetchUserByEmail(res.data.session.user.email).then((user) => {
+                    console.log(user.content);
                     setUser(user.content);
-                    setCountry(userObj?.country!);
+                    setCountry(user?.content?.country!);
                 });
             }
         })
@@ -69,10 +70,11 @@ export default function AccountSettings(){
                             name="singleSelect"
                             label="Country..."
                             options={countryOptions}
+                            value={country}
                         />
                     </div>
                     <div className="form-floating mb-3">
-                        <Field className="form-control" id="name" name="name" placeholder="Name" />
+                        <Field className="form-control" id="name" name="name" placeholder="Name" value={name} />
                         <label htmlFor="name">Name</label>
                     </div>
                     <div className='col-md-8'>
