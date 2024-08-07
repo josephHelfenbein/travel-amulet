@@ -31,17 +31,13 @@ export default function AccountSettings(){
                 axios.get(`/api/user/${res.data.session.user.email}`).then(async (userRes) =>{
                     if(userRes){
                         setUser(userRes.data);
-                        console.log(user);
                     }
                 }).finally(()=>{
-                    setCountry(user?.country!);
-                    console.log(user?.country);
-                    console.log(country);
+                    console.log(user);
                 })
             }
         })
     }, []);
-    console.log(country);
 
     interface Values{
         name: string;
@@ -53,7 +49,7 @@ export default function AccountSettings(){
             <p className="m-2">Email: {email}</p>
             <Formik
                 initialValues={{
-                    singleSelect: `${country}`,
+                    singleSelect: `${user?.country}`,
                     name: `${name}`,
                 }}
                 validationSchema={validationSchema}
@@ -66,10 +62,10 @@ export default function AccountSettings(){
                             changeUserValue(email, 'name', name);
                             update({name:name});
                         }
-                        if(country !== values.singleSelect)
-                            changeUserValue(email, 'country', country);
+                        if(user?.country !== values.singleSelect)
+                            changeUserValue(email, 'country', user?.country!);
 
-                        if(name==values.name&&country==values.singleSelect)
+                        if(name===values.name&&user?.country===values.singleSelect)
                             setError('Nothing was changed!')
                         else
                             setError('Updated!');
