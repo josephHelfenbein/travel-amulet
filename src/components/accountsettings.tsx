@@ -22,7 +22,6 @@ export default function AccountSettings(){
     const [email, setEmail] = useState('');
     const [country, setCountry] = useState('');
     const [error, setError] = useState('');
-    let countryStr;
     useEffect(() => {
         axios.get('/api/auth/session').then(async (res) =>{
             if(res){
@@ -30,9 +29,9 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 axios.get(`/api/user/${res.data.session.user.email}`).then(async (userRes) =>{
                     if(userRes){
-                        countryStr=userRes.data.country;
-                        console.log(countryStr);
+                        const countryStr=userRes.data.country;
                         setCountry(countryStr);
+                        console.log(countryStr);
                         console.log(country);
                     }
                 })
