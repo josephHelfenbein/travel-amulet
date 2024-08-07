@@ -30,7 +30,7 @@ export default function AccountSettings(){
                 fetchUserByEmail(res.data.session.user.email).then((user) => {
                     console.log(user?.content?.country!);
                     setUser(user.content);
-                    setCountry(user?.content?.country!);
+                    setCountry(user?.content?.country!.toString()!);
                 });
             }
         })
@@ -54,12 +54,12 @@ export default function AccountSettings(){
                     { setSubmitting }: FormikHelpers<Values>
                 ) => {setTimeout(
                     (async () => {
-                        if(`${name}` !== values.name){
+                        if(name !== values.name){
                             changeUserValue(email, 'name', name);
                             update({name:name});
                         }
                             
-                        if(`${country}` !== values.singleSelect)
+                        if(country !== values.singleSelect)
                             changeUserValue(email, 'country', country);
                     }), 500);
                 }}
