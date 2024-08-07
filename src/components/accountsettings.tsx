@@ -31,11 +31,10 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 userObj = await fetchUserByEmail(res.data.session.user.email);
             }
-        }).finally(()=>{
-            setCountry(userObj.content.country.toString());
-            console.log(userObj.content.country.toString());
-            console.log(country);
         })
+        setCountry(userObj.content.country.toString());
+        console.log(userObj.content.country.toString());
+        console.log(country);
     }, []);
     interface Values{
         name: string;
