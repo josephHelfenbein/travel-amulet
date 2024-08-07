@@ -3,8 +3,7 @@ import {useRouter} from "next/router";
 import {useSession} from 'next-auth/react';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {fetchUserByEmail, changeUserValue} from '../../lib/http';
-import { User } from "@prisma/client";
+import {changeUserValue} from '../../lib/http';
 import { Form, Formik, FormikHelpers, Field } from "formik";
 import FormikSelect from "./FormikSelect";
 import { countryOptions } from "./signup-form";
@@ -29,8 +28,10 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 axios.get(`/api/user/${res.data.session.user.email}`).then(async (userRes) =>{
                     if(userRes){
-                        const countryStr=userRes.data.country;
-                        useEffect(()=>{setCountry(countryStr);}, []);
+                        const countryStr = userRes.data.country;
+                        console.log('Country:', countryStr);
+                        setCountry(countryStr);
+                        console.log('Country state set to:', countryStr);
                     }
                 })
             }
