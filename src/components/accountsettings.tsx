@@ -35,13 +35,13 @@ export default function AccountSettings(){
                         console.log(userRes.data.country);
                         setCountry(userRes.data.country);
                         setUser(userRes.data);
-                        console.log(country);
+                        console.log(user);
                     }
                 })
             }
         })
     }, []);
-    
+    console.log(user);
 
     interface Values{
         name: string;
