@@ -32,10 +32,13 @@ export default function AccountSettings(){
                 userObj = await fetchUserByEmail(res.data.session.user.email);
             }
         })
-        setCountry(userObj.content.country.toString());
+    }, []);
+    async function defineCountry(){
+        if(userObj)
+            setCountry(userObj.content.country.toString());
         console.log(userObj.content.country.toString());
         console.log(country);
-    }, []);
+    }defineCountry();
     interface Values{
         name: string;
         singleSelect: string;
