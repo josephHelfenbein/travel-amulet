@@ -30,12 +30,12 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 axios.get(`/api/user/${res.data.session.user.email}`).then(async (userRes) =>{
                     if(userRes){
-                        userObj = userRes.data;
+                        setCountry(userRes.data.country);
+                        console.log(country);
+                        console.log(userRes.data.country);
                     }
                 })
             }
-        }).finally(()=>{
-            setCountry(userObj.country);
         })
     }, []);
 
@@ -58,17 +58,17 @@ export default function AccountSettings(){
                     { setSubmitting }: FormikHelpers<Values>
                 ) => {setTimeout(
                     (async () => {
-                        if(name !== values.name){
-                            changeUserValue(email, 'name', name);
-                            update({name:name});
-                        }
-                        if(country !== values.singleSelect)
-                            changeUserValue(email, 'country', country);
-
                         if(name===values.name&&country===values.singleSelect)
-                            setError('Nothing was changed!')
-                        else
+                            setError('Nothing was changed!');
+                        else{
+                            if(name !== values.name){
+                                changeUserValue(email, 'name', name);
+                                update({name:name});
+                            }
+                            if(country !== values.singleSelect)
+                                changeUserValue(email, 'country', country);
                             setError('Updated!');
+                        }   
                         setSubmitting(false);
                     }), 500);
                 }}
