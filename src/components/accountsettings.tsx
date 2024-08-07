@@ -32,10 +32,9 @@ export default function AccountSettings(){
                     if(userRes){
                         countryStr=userRes.data.country;
                         console.log(countryStr);
+                        setCountry(countryStr);
+                        console.log(country);
                     }
-                }).finally(()=>{
-                    setCountry(countryStr);
-                    console.log(country);
                 })
             }
         })
