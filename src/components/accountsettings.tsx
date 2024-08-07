@@ -68,6 +68,7 @@ export default function AccountSettings(){
                             setError('Nothing was changed!')
                         else
                             setError('Updated!');
+                        setSubmitting(false);
                     }), 500);
                 }}
             >
