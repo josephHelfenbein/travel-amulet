@@ -59,7 +59,14 @@ export default function AccountSettings(){
                             if(name !== values.name){
                                 const changed = await changeUserName({email:email, name:values.name});
                                 if(changed){
-                                    update({name:values.name});
+                                    const newSession = {
+                                        ...data,
+                                        user:{
+                                            ...data?.user,
+                                            name: values.name
+                                        },
+                                    };
+                                    await update(newSession);
                                     setError('Updated!');
                                 }
                             }
