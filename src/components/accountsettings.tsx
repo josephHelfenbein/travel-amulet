@@ -21,7 +21,7 @@ export default function AccountSettings(){
     const [name, setName] = useState('');
     const [user, setUser] = useState(data?.user);
     const [email, setEmail] = useState('');
-    const [country, setCountry] = useState<string>('');
+    const [country, setCountry] = useState('');
     const [error, setError] = useState('');
     let userObj;
     let countryName;
@@ -32,12 +32,11 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 userObj = await fetchUserByEmail(res.data.session.user.email);
                 countryName = userObj.content.country;
-                console.log(countryName);
-                setCountry(countryName);
-                console.log(country);
             }
         })
     }, []);
+    if(countryName)
+        setCountry(countryName);
 
     interface Values{
         name: string;
