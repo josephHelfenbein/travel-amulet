@@ -29,7 +29,7 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 fetchUserByEmail(res.data.session.user.email).then((user) => {
                     setUser(user.content);
-                    setCountry(user?.content?.country!);
+                    setCountry(userObj?.country!);
                     console.log(country);
                 });
             }
