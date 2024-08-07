@@ -28,7 +28,7 @@ export default function AccountSettings(){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
                 fetchUserByEmail(res.data.session.user.email).then((user) => {
-                    console.log(user.content);
+                    console.log(user?.content?.country!);
                     setUser(user.content);
                     setCountry(user?.content?.country!);
                 });
@@ -68,7 +68,6 @@ export default function AccountSettings(){
                     <div className='mb-3'>
                         <FormikSelect
                             name="singleSelect"
-                            initialValue={country}
                             label="Country..."
                             options={countryOptions}
                         />
