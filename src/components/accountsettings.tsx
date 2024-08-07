@@ -28,7 +28,7 @@ export default function AccountSettings(){
             if(res){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
-                axios.get(`/api/user/${email}`).then(async (userRes) =>{
+                axios.get(`/api/user/${res.data.session.user.email}`).then(async (userRes) =>{
                     if(userRes){
                         console.log(userRes);
                         console.log(userRes.data.user);
