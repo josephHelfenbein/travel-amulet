@@ -270,6 +270,7 @@ const SignUpForm = () => {
                     <FormikSelect
                         name="singleSelect"
                         label="Country..."
+                        initialValue=''
                         options={countryOptions}
                     />
                 </div>

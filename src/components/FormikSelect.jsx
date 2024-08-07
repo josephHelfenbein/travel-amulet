@@ -1,7 +1,7 @@
 import {useField} from 'formik';
 import {TextField, MenuItem} from '@mui/material';
 
-const FormikSelect = ({label, ...props}) => {
+const FormikSelect = ({label, initialValue, ...props}) => {
     const [field, meta] = useField(props);
     const errorText = meta.error && meta.touched ? meta.error : "";
 
@@ -17,7 +17,7 @@ const FormikSelect = ({label, ...props}) => {
         >
             {
                 props.options.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
+                    <MenuItem key={option.value} value={option.value} placeholder={initialValue}>
                         {option.label}
                     </MenuItem>
                 ))

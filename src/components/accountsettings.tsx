@@ -68,9 +68,9 @@ export default function AccountSettings(){
                     <div className='mb-3'>
                         <FormikSelect
                             name="singleSelect"
+                            initialValue={country}
                             label="Country..."
                             options={countryOptions}
-                            value={country}
                         />
                     </div>
                     <div className="form-floating mb-3">
