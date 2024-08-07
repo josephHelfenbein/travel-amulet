@@ -59,10 +59,12 @@ const options = {
       session.user = user;
       return await session;
     },
-    async jwt({ token, user }) {
+    async jwt({ token, trigger, session, user }) {
         const isSignedIn = user?true:false;
         if(isSignedIn) token.accessToken = user.id.toString() + "-" + user.email + "-" + user.name;
-       return await token;
+        if(trigger === "update" && session?.name)
+          token.user.name = session.name;
+        return await token;
     },
   },
 };
