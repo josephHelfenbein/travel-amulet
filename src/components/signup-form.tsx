@@ -14,7 +14,7 @@ interface Values{
     name: string;
     singleSelect: string;
 }
-const countryOptions = [
+export const countryOptions = [
     { value: "AD", label: "Andorra 🇦🇩" },
     { value: "AE", label: "United Arab Emirates 🇦🇪" },
     { value: "AF", label: "Afghanistan 🇦🇫" },

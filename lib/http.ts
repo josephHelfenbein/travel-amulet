@@ -17,6 +17,21 @@ export async function fetchUserExistsEmail(email: string): Promise<{
     return { error, content: false };
   }
 }
+export async function changeUserValue(email: string, param: string, newParam: string): Promise<{
+  content: boolean;
+  error?: any;
+}>{
+  try {
+    const response = await axios.put(`/api/user/${email}`, {email:email, variable:param, value:newParam});
+    if (response.status !== 200) {
+      throw new Error(`${response.status} - ${response.data}`);
+    }
+    return { content: response.data };
+  } catch (error) {
+    console.error(error);
+    return { error, content: false };
+  }
+}
 export async function fetchUserByEmail(email:string): Promise<{
   content:User|null;
   error?: any;
