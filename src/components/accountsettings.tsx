@@ -32,6 +32,8 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 userObj = await fetchUserByEmail(res.data.session.user.email);
                 countryName = await userObj.content.country;
+                console.log(countryName);
+                console.log(userObj);
             }
         })
     }, []);
@@ -60,7 +62,6 @@ export default function AccountSettings(){
                             changeUserValue(email, 'name', name);
                             update({name:name});
                         }
-                            
                         if(country !== values.singleSelect)
                             changeUserValue(email, 'country', country);
 
