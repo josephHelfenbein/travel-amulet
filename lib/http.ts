@@ -17,16 +17,51 @@ export async function fetchUserExistsEmail(email: string): Promise<{
     return { error, content: false };
   }
 }
-export async function changeUserValue(email: string, param: string, newParam: string): Promise<{
+export async function changeUserName(email: string, name: string): Promise<{
   content: boolean;
   error?: any;
 }>{
   try {
-    const response = await axios.put(`/api/user/${email}`, {email:email, variable:param, value:newParam});
-    if (response.status !== 200) {
-      throw new Error(`${response.status} - ${response.data}`);
+    const emailStr = email.toString();
+    const nameStr = name.toString();
+    if(!emailStr||!nameStr) throw new Error(`Incorrect strings`);
+    const response = await prisma?.user.update({
+      where:{
+        email: email,
+      },
+      data:{
+        name:name,
+      },
+    })
+    if (!response) {
+      throw new Error(`Unable to update user`);
     }
-    return { content: response.data };
+    return { content: response?true:false };
+  } catch (error) {
+    console.error(error);
+    return { error, content: false };
+  }
+}
+export async function changeUserCountry(email: string, country: string): Promise<{
+  content: boolean;
+  error?: any;
+}>{
+  try {
+    const emailStr = email.toString();
+    const countryStr = country.toString();
+    if(!emailStr||!countryStr) throw new Error(`Incorrect strings`);
+    const response = await prisma?.user.update({
+      where:{
+        email: email,
+      },
+      data:{
+        country:countryStr,
+      },
+    })
+    if (!response) {
+      throw new Error(`Unable to update user`);
+    }
+    return { content: response?true:false };
   } catch (error) {
     console.error(error);
     return { error, content: false };

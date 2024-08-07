@@ -3,7 +3,7 @@ import {useRouter} from "next/router";
 import {useSession} from 'next-auth/react';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {changeUserValue} from '../../lib/http';
+import {changeUserName, changeUserCountry} from '../../lib/http';
 import { Form, Formik, FormikHelpers, Field } from "formik";
 import FormikSelect from "./FormikSelect";
 import { countryOptions } from "./signup-form";
@@ -28,15 +28,10 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 const userRes = await axios.get(`/api/user/${res.data.session.user.email}`)
                 const countryStr = userRes.data.country;
-                console.log('Country:', countryStr);
                 setCountry(countryStr);
-                console.log('Country state set to:', countryStr);
             }
         })
     }, []);
-    useEffect(()=>{
-        console.log('Country state changed: ', country);
-    }, [country]);
 
     interface Values{
         name: string;
@@ -62,12 +57,18 @@ export default function AccountSettings(){
                             setError('Nothing was changed!');
                         else{
                             if(name !== values.name){
-                                changeUserValue(email, 'name', name);
-                                update({name:name});
+                                const changed = await changeUserName(email, name);
+                                if(changed){
+                                    update({name:name});
+                                    setError('Updated!');
+                                }
                             }
-                            if(country !== values.singleSelect)
-                                changeUserValue(email, 'country', country);
-                            setError('Updated!');
+                            if(country !== values.singleSelect){
+                                const changed = await changeUserCountry(email, country);
+                                if (changed){
+                                    setError('Updated!');
+                                }
+                            }
                         }   
                         setSubmitting(false);
                     }), 500);
