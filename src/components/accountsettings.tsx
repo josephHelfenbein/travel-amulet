@@ -19,7 +19,6 @@ export default function AccountSettings(){
         },
     });
     const [name, setName] = useState('');
-    const [user, setUser] = useState<User|null>(null);
     const [email, setEmail] = useState('');
     const [country, setCountry] = useState('');
     const [error, setError] = useState('');
@@ -33,10 +32,10 @@ export default function AccountSettings(){
                     if(userRes){
                         userObj = userRes.data;
                     }
-                }).finally(()=>{
-                    console.log(userObj);
                 })
             }
+        }).finally(()=>{
+            setCountry(userObj.country);
         })
     }, []);
 
@@ -50,7 +49,7 @@ export default function AccountSettings(){
             <p className="m-2">Email: {email}</p>
             <Formik
                 initialValues={{
-                    singleSelect: `${userObj?.country}`,
+                    singleSelect: `${country}`,
                     name: `${name}`,
                 }}
                 validationSchema={validationSchema}
@@ -63,10 +62,10 @@ export default function AccountSettings(){
                             changeUserValue(email, 'name', name);
                             update({name:name});
                         }
-                        if(user?.country !== values.singleSelect)
-                            changeUserValue(email, 'country', user?.country!);
+                        if(country !== values.singleSelect)
+                            changeUserValue(email, 'country', country);
 
-                        if(name===values.name&&user?.country===values.singleSelect)
+                        if(name===values.name&&country===values.singleSelect)
                             setError('Nothing was changed!')
                         else
                             setError('Updated!');
