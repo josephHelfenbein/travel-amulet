@@ -22,7 +22,7 @@ export default async function handler(
     const emailStr = email?.toString();
     const countryStr = country?.toString();
     const nameStr = name?.toString();
-    if(emailStr == undefined) return res.status(410).end();
+    if(emailStr == undefined) return res.status(405).end();
     let newUser;
     if(nameStr)
       newUser = await prisma.user.update({
@@ -42,7 +42,7 @@ export default async function handler(
           country:countryStr,
         },
       });
-    else return res.status(410).end(); 
+    else return res.status(401).end(); 
     return newUser ? res.send(exclude(newUser, ["password"])) : res.status(410).end();
   }
 }

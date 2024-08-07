@@ -83,7 +83,7 @@ export default function AccountSettings(){
                         />
                     </div>
                     <div className="form-floating mb-3">
-                        <Field className="form-control" id="name" name="name" placeholder="Name" value={name} />
+                        <Field className="form-control" id="name" name="name" placeholder="Name" />
                         <label htmlFor="name">Name</label>
                     </div>
                     <div className='col-md-8'>
