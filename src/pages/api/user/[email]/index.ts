@@ -27,24 +27,24 @@ export default async function handler(
     if(nameStr){
       newUser = await prisma.user.update({
         where: {
-          email:email,
+          email:emailStr,
         },
         data: {
-          name: name,
+          name: nameStr,
         },
       });
-      return newUser ? res.send(exclude(newUser, ["password"])) : res.status(410).end();
+      return newUser ? res.status(200).json(exclude(newUser, ["password"])) : res.status(410).end();
     }
     else if(countryStr){
       newUser = await prisma.user.update({
         where: {
-          email:email,
+          email:emailStr,
         },
         data: {
-          country:country,
+          country:countryStr,
         },
       });
-      return newUser ? res.send(exclude(newUser, ["password"])) : res.status(410).end();
+      return newUser ? res.status(200).json(exclude(newUser, ["password"])) : res.status(410).end();
     }
     else return res.status(401).end(); 
   }
