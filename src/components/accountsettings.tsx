@@ -23,6 +23,7 @@ export default function AccountSettings(){
     const [email, setEmail] = useState('');
     const [country, setCountry] = useState('');
     const [error, setError] = useState('');
+    let userObj;
     useEffect(() => {
         axios.get('/api/auth/session').then(async (res) =>{
             if(res){
@@ -30,10 +31,10 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 axios.get(`/api/user/${res.data.session.user.email}`).then(async (userRes) =>{
                     if(userRes){
-                        setUser(userRes.data);
+                        userObj = userRes.data;
                     }
                 }).finally(()=>{
-                    console.log(user);
+                    console.log(userObj);
                 })
             }
         })
@@ -49,7 +50,7 @@ export default function AccountSettings(){
             <p className="m-2">Email: {email}</p>
             <Formik
                 initialValues={{
-                    singleSelect: `${user?.country}`,
+                    singleSelect: `${userObj?.country}`,
                     name: `${name}`,
                 }}
                 validationSchema={validationSchema}
