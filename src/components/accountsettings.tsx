@@ -27,8 +27,7 @@ export default function AccountSettings(){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
                 const userRes = await axios.get(`/api/user/${res.data.session.user.email}`)
-                //const countryStr = userRes.data.country;
-                const countryStr = "US";
+                const countryStr = userRes.data.country;
                 console.log('Country:', countryStr);
                 setCountry(countryStr);
                 console.log('Country state set to:', countryStr);
@@ -48,6 +47,7 @@ export default function AccountSettings(){
             <h1 className="display-6 mb-3">Hello, {name}</h1>
             <p className="m-2">Email: {email}</p>
             <Formik
+                enableReinitialize
                 initialValues={{
                     singleSelect: `${country}`,
                     name: `${name}`,
