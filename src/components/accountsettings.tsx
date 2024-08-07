@@ -26,14 +26,11 @@ export default function AccountSettings(){
             if(res){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
-                axios.get(`/api/user/${res.data.session.user.email}`).then(async (userRes) =>{
-                    if(userRes){
-                        const countryStr = userRes.data.country;
-                        console.log('Country:', countryStr);
-                        setCountry(countryStr);
-                        console.log('Country state set to:', countryStr);
-                    }
-                })
+                const userRes = await axios.get(`/api/user/${res.data.session.user.email}`)
+                const countryStr = userRes.data.country;
+                console.log('Country:', countryStr);
+                setCountry(countryStr);
+                console.log('Country state set to:', countryStr);
             }
         })
     }, []);
