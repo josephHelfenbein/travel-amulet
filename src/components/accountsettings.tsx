@@ -30,12 +30,12 @@ export default function AccountSettings(){
                 setEmail(res.data.session.user.email);
                 fetchUserByEmail(res.data.session.user.email).then((user) => {
                     setUser(user.content);
-                    if(user.content)
-                        setCountry(user.content.country);
-                    console.log(user.content);
-                    console.log(user.content?.country);
                 });
             }
+        }).finally(()=>{
+            console.log(userObj);
+            console.log(userObj?.country);
+            setCountry(userObj?.country!);
         })
     }, []);
     interface Values{
