@@ -25,33 +25,25 @@ export default async function handler(
     if(emailStr == undefined) return res.status(405).end();
     let newUser;
     if(nameStr){
-      /*newUser = await prisma.user.update({
+      newUser = await prisma.user.update({
         where: {
           email:emailStr,
         },
         data: {
           name: nameStr,
         },
-      });*/
-      newUser = await prisma.$queryRaw`
-      UPDATE users
-      SET name = ${nameStr}
-      WHERE email = ${emailStr};`
+      });
       return newUser ? res.send(exclude(newUser, ["password"])) : res.status(410).end();
     }
     else if(countryStr){
-      /*newUser = await prisma.user.update({
+      newUser = await prisma.user.update({
         where: {
           email:emailStr,
         },
         data: {
           country:countryStr,
         },
-      });*/
-      newUser = await prisma.$queryRaw`
-      UPDATE users
-      SET country = ${countryStr}
-      WHERE email = ${emailStr};`
+      });
       return newUser ? res.send(exclude(newUser, ["password"])) : res.status(410).end();
     }
     else return res.status(401).end(); 
