@@ -25,17 +25,17 @@ export default function AccountSettings(){
     const [error, setError] = useState('');
     let userObj;
     useEffect(() => {
-        axios.get('/api/auth/session').then((res) =>{
+        axios.get('/api/auth/session').then(async (res) =>{
             if(res){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
-                fetchUserByEmail(res.data.session.user.email).then((userOutput) => {
-                    console.log(userOutput);
-                    console.log(userOutput.content);
-                    setUser(userOutput.content);
-                });
+                userObj = await fetchUserByEmail(res.data.session.user.email);
+                console.log(userObj);
+                console.log(userObj.content)
+                setUser(userObj.content);
             }
         }).finally(()=>{
+            console.log(user);
             setCountry(user?.country!);
         })
     }, []);
