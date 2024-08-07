@@ -19,7 +19,7 @@ export default function AccountSettings(){
         },
     });
     const [name, setName] = useState('');
-    const [user, setUser] = useState<User|null>(null);
+    const [user, setUser] = useState(data?.user);
     const [email, setEmail] = useState('');
     const [country, setCountry] = useState<string>('');
     const [error, setError] = useState('');
@@ -30,13 +30,10 @@ export default function AccountSettings(){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
                 userObj = await fetchUserByEmail(res.data.session.user.email);
-                console.log(userObj);
-                console.log(userObj.content)
-                setUser(userObj.content);
             }
         }).finally(()=>{
-            console.log(user);
-            setCountry(user?.country!);
+            console.log(userObj);
+            setCountry(userObj.content.country);
         })
     }, []);
     interface Values{
