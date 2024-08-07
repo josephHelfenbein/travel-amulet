@@ -24,21 +24,21 @@ export default function AccountSettings(){
     const [country, setCountry] = useState<string>('');
     const [error, setError] = useState('');
     let userObj;
+    let countryName;
     useEffect(() => {
         axios.get('/api/auth/session').then(async (res) =>{
             if(res){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
                 userObj = await fetchUserByEmail(res.data.session.user.email);
+                countryName = userObj.content.country;
+                console.log(countryName);
+                setCountry(countryName);
+                console.log(country);
             }
         })
     }, []);
-    async function defineCountry(){
-        if(userObj)
-            setCountry(userObj.content.country.toString());
-        console.log(userObj.content.country.toString());
-        console.log(country);
-    }defineCountry();
+
     interface Values{
         name: string;
         singleSelect: string;
