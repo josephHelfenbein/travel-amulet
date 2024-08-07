@@ -42,7 +42,6 @@ export async function changeUserCountry(params: {email: string, country: string}
     if (response.status !== 200) {
       throw new Error(`${response.status} - ${response.data}`);
     }
-    console.log(response);
     return { content: response?true:false };
   } catch (error) {
     console.error(error);
