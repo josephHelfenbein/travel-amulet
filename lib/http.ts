@@ -23,19 +23,9 @@ export async function changeUserName(email: string, name: string): Promise<{
   error?: any;
 }>{
   try {
-    const emailStr = email.toString();
-    const nameStr = name.toString();
-    if(!emailStr||!nameStr) throw new Error(`Incorrect strings`);
-    const response = await prisma.user.update({
-      where:{
-        email: email,
-      },
-      data:{
-        name:name,
-      },
-    })
-    if (!response) {
-      throw new Error(`Unable to update user`);
+    const response = await axios.put(`/api/user/${email}`, {email, name});
+    if (response.status !== 200) {
+      throw new Error(`${response.status} - ${response.data}`);
     }
     return { content: response?true:false };
   } catch (error) {
@@ -48,19 +38,9 @@ export async function changeUserCountry(email: string, country: string): Promise
   error?: any;
 }>{
   try {
-    const emailStr = email.toString();
-    const countryStr = country.toString();
-    if(!emailStr||!countryStr) throw new Error(`Incorrect strings`);
-    const response = await prisma.user.update({
-      where:{
-        email: email,
-      },
-      data:{
-        country:countryStr,
-      },
-    })
-    if (!response) {
-      throw new Error(`Unable to update user`);
+    const response = await axios.put(`/api/user/${email}`, {email, country});
+    if (response.status !== 200) {
+      throw new Error(`${response.status} - ${response.data}`);
     }
     return { content: response?true:false };
   } catch (error) {
