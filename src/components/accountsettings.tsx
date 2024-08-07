@@ -33,7 +33,10 @@ export default function AccountSettings(){
             }
         }).finally(()=>{
             console.log(userObj);
-            setCountry(userObj.content.country);
+            console.log(userObj.content);
+            console.log(userObj.country);
+            console.log(userObj.content.country);
+            setCountry(userObj.country);
         })
     }, []);
     interface Values{
