@@ -31,15 +31,11 @@ export default function AccountSettings(){
                 setName(res.data.session.user.name);
                 setEmail(res.data.session.user.email);
                 userObj = await fetchUserByEmail(res.data.session.user.email);
-                countryName = userObj.content.country;
-                console.log(countryName);
+                countryName = await userObj.content.country;
+                setCountry(countryName);
             }
         })
     }, []);
-    if(countryName)
-        setCountry(countryName);
-    console.log(countryName);
-    console.log(country);
 
     interface Values{
         name: string;
@@ -55,7 +51,7 @@ export default function AccountSettings(){
                     name: `${name}`,
                 }}
                 validationSchema={validationSchema}
-
+                
                 onSubmit={ (values: Values,
                     { setSubmitting }: FormikHelpers<Values>
                 ) => {setTimeout(
