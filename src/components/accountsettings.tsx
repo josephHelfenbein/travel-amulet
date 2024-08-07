@@ -57,14 +57,14 @@ export default function AccountSettings(){
                             setError('Nothing was changed!');
                         else{
                             if(name !== values.name){
-                                const changed = await changeUserName(email, name);
+                                const changed = await changeUserName({email:email, name:name});
                                 if(changed){
                                     update({name:name});
                                     setError('Updated!');
                                 }
                             }
                             if(country !== values.singleSelect){
-                                const changed = await changeUserCountry(email, country);
+                                const changed = await changeUserCountry({email:email, country:country});
                                 if (changed){
                                     setError('Updated!');
                                 }

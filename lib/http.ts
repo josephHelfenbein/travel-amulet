@@ -18,12 +18,12 @@ export async function fetchUserExistsEmail(email: string): Promise<{
     return { error, content: false };
   }
 }
-export async function changeUserName(email: string, name: string): Promise<{
+export async function changeUserName(params: {email: string, name: string}): Promise<{
   content: boolean;
   error?: any;
 }>{
   try {
-    const response = await axios.put(`/api/user/${email}`, {email, name});
+    const response = await axios.put(`/api/user/${params.email}`, params);
     if (response.status !== 200) {
       throw new Error(`${response.status} - ${response.data}`);
     }
@@ -33,12 +33,12 @@ export async function changeUserName(email: string, name: string): Promise<{
     return { error, content: false };
   }
 }
-export async function changeUserCountry(email: string, country: string): Promise<{
+export async function changeUserCountry(params: {email: string, country: string}): Promise<{
   content: boolean;
   error?: any;
 }>{
   try {
-    const response = await axios.put(`/api/user/${email}`, {email, country});
+    const response = await axios.put(`/api/user/${params.email}`, params);
     if (response.status !== 200) {
       throw new Error(`${response.status} - ${response.data}`);
     }
