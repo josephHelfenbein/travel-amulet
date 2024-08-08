@@ -25,7 +25,7 @@ interface Values{
     governmentSelect: string,
     language: string,
     religion: string,
-    continentList: [],
+    continentList: string[],
     blacklistCountries: string[],
 }
 const continentOptions = [
@@ -78,7 +78,7 @@ export default function QuizForm(){
                 governmentSelect: '',
                 language: '',
                 religion: '',
-                continentList: [],
+                continentList: [''],
                 blacklistCountries: ["BD", "LY", "LB", "AF", "SO", "IR", "YE", "SY", "RU", "MM", "VE", "IQ", "SS", "ML", "CF", "BF", "HT", "BY", "KP", "UA", "SD", "MX", "IL", "PS"],
             }}
             validationSchema={validationSchema}
