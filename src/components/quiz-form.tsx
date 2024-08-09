@@ -157,6 +157,7 @@ export default function QuizForm(){
             axios.get('/api/auth/session').then(async (res) =>{
                 if(res){
                     setEmail(res.data.session.user.email);
+                    console.log(res.data.session.user.email);
                     const userRes = await axios.get(`/api/user/${res.data.session.user.email}`);
                     const countryStr = userRes.data.country;
                     
