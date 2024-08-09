@@ -32,12 +32,12 @@ interface Values{
     blacklistCountries: string[],
 }
 const continentOptions = [
-    { value: "NA", label: "North America" },
-    { value: "SA", label: "South America" },
-    { value: "EU", label: "Europe" },
-    { value: "AS", label: "Asia" },
-    { value: "AF", label: "Africa" },
-    { value: "OC", label: "Oceania" },
+    { value: "North America", label: "North America" },
+    { value: "South America", label: "South America" },
+    { value: "Europe", label: "Europe" },
+    { value: "Asia", label: "Asia" },
+    { value: "Africa", label: "Africa" },
+    { value: "Oceania", label: "Oceania" },
 ];
 const defaultOptions = [
     { value: "2", label: "Important" },
@@ -124,6 +124,73 @@ function decodeAnswers(preferencesStr:string){
     }; 
     return values;
 }
+const countriesMap = new Map();
+for(let i=0; i<countryOptions.length; i++){
+    const newName = countryOptions[i].label.substring(0, countryOptions[i].label.length-5);
+    countriesMap.set(countryOptions[i].value, newName);
+}
+function countryCodeToName(code:string){
+    return countriesMap.get(code);
+}
+function createPrompt(values:Values){
+    let prompt = "Find a country ";
+    if(values.languageSpeak === "2") prompt += "with people that speak " + values.language + ", ";
+    else if(values.languageSpeak === "3") prompt += "that mostly speaks " + values.language + ", ";
+    if(values.temperatureSelect === "2") prompt += "with cold weather, ";
+    else if(values.temperatureSelect === "3") prompt += "with cool weather, ";
+    else if(values.temperatureSelect === "4") prompt += "with warm weather, ";
+    else if(values.temperatureSelect === "5") prompt += "with hot weather, ";
+    if(values.spicySelect === "2") prompt += "with mild food, ";
+    else if(values.spicySelect === "3") prompt += "with medium spicy food, ";
+    else if(values.spicySelect === "4") prompt += "with hot spicy food, ";
+    else if(values.spicySelect === "5") prompt += "with extra hot spicy food, ";
+    if(values.lgbtqSelect === "2") prompt += "with an LGBTQ+ equality index of over 60, ";
+    else if(values.lgbtqSelect === "3") prompt += "with an LGBTQ+ equality index of over 75, ";
+    if(values.religionSelect === "2") prompt += "with people that follow " + values.religion + ", ";
+    else if(values.religionSelect === "3") prompt += "with people that mostly follow " + values.religion + ", ";
+    if(values.crimeSelect === "2") prompt += "with a crime index of under 6, ";
+    else if(values.crimeSelect === "3") prompt += "with a crime index of under 4.5, ";
+    if(values.visitSelect === "2") prompt += "with landmarks, ";
+    else if(values.visitSelect === "3") prompt += "with many landmarks, ";
+    if(values.hikingSelect === "2") prompt += "with places for hiking, ";
+    else if(values.hikingSelect === "3") prompt += "with many places for hiking, ";
+    if(values.beachesSelect === "2") prompt += "with beaches, ";
+    else if(values.beachesSelect === "3") prompt += "with many beaches, ";
+    if(values.broadbandSelect === "2") prompt += "with broadband download speed of over 50 Mbps, ";
+    else if(values.broadbandSelect === "3") prompt += "with broadband download speed of over 100 Mbps, ";
+    if(values.mobileSelect === "2") prompt += "with mobile download speed of over 40 Mbps, ";
+    else if(values.mobileSelect === "3") prompt += "with mobile download speed of over 80 Mbps, ";
+    if(values.waterSelect === "2") prompt += "with a tap water index of over 60, ";
+    else if(values.waterSelect === "3") prompt += "with a tap water index of over 80, ";
+    if(values.conflictSelect === "2") prompt += "with no ongoing conflicts, ";
+    else if(values.conflictSelect === "3") prompt += "with no ongoing conflicts or regional tensions, ";
+    if(values.stabilitySelect === "2") prompt += "with political stability, ";
+    else if(values.stabilitySelect === "3") prompt += "with political stability and no political tensions, ";
+    if(values.governmentSelect === "2") prompt += "with a government that has a voting system, ";
+    else if(values.governmentSelect === "3") prompt += "with a democracy, ";
+    if(values.continentList.length > 1) {
+        prompt += "not in the continents of ";
+        for(let i=1; i<values.continentList.length; i++){
+            if (values.continentList.length == 2) prompt += values.continentList[i]+", ";
+            else if(i==values.continentList.length-1) prompt += "or "+values.continentList[i] + ", ";
+            else prompt+=values.continentList[i]+", ";
+        }
+    }
+    if(values.blacklistCountries.length > 0){
+        if(values.blacklistCountries[0] !== '' || values.blacklistCountries.length > 1){
+            prompt += "and specifically not ";
+            for(let i=0; i<values.blacklistCountries.length; i++){
+                if(values.blacklistCountries[i] === '') {}
+                else if(values.blacklistCountries.length == 2 && (values.blacklistCountries[0] === '' || values.blacklistCountries[1] === '')) prompt += countryCodeToName(values.blacklistCountries[i])+".";
+                else if (values.blacklistCountries.length == 1 && values.blacklistCountries[0] !== '') prompt += countryCodeToName(values.blacklistCountries[i])+".";
+                else if(i==values.blacklistCountries.length-1 && values.blacklistCountries[values.blacklistCountries.length-1] !== '') prompt += "or "+countryCodeToName(values.blacklistCountries[i]) + ".";
+                else if(i==values.blacklistCountries.length-2 && values.blacklistCountries[values.blacklistCountries.length-1] === '') prompt += "or "+countryCodeToName(values.blacklistCountries[i]) + ".";
+                else prompt+=countryCodeToName(values.blacklistCountries[i])+", ";
+            }
+        }
+    }
+    return prompt;
+}
 export default function QuizForm(){
     const [error, setError] = useState('');
     const [saveUpdate, setSaveUpdate] = useState('');
@@ -153,21 +220,19 @@ export default function QuizForm(){
     const [stabilitySelect, setStabilitySelect] = useState('');
     const [governmentSelect, setGovernmentSelect] = useState('');
     useEffect(() => {
-            axios.get('/api/auth/session').then(async (res) =>{
-                if(res){
-                    setEmail(res.data.session.user.email);
-                    console.log(res.data.session.user.email);
-                    const userRes = await axios.get(`/api/user/${res.data.session.user.email}`);
-                    const countryStr = userRes.data.country;
-                    console.log(userRes);
-                    
-                    setCountry(countryStr);
-                    const saveStr = userRes.data.preferences;
-                    setPreferences(saveStr);
-                }
-            }).catch(error => {
-                console.log('Not logged in');
-            })
+        axios.get('/api/auth/session').then(async (res) =>{
+            if(res){
+                setEmail(res.data.session.user.email);
+                const userRes = await axios.get(`/api/user/${res.data.session.user.email}`);
+                const countryStr = userRes.data.country;
+       
+                setCountry(countryStr);
+                const saveStr = userRes.data.preferences;
+                setPreferences(saveStr);
+            }
+        }).catch(error => {
+            console.log('Not logged in');
+        })
     }, []);
     useEffect(()=>{
         if(preferences !== ''){
@@ -214,12 +279,12 @@ export default function QuizForm(){
                 continentList: [''],
                 blacklistCountries: ["BD", "LY", "LB", "AF", "SO", "IR", "YE", "SY", "RU", "MM", "VE", "IQ", "SS", "ML", "CF", "BF", "HT", "BY", "KP", "UA", "SD", "MX", "IL", "PS", `${country}`],
             }}
-            validationSchema={validationSchema}
             onSubmit={(values: Values,
                 { setSubmitting }: FormikHelpers<Values>
             ) => {
                 setTimeout((async () => {
-                    
+                    const prompt = createPrompt(values);
+                    alert(prompt);
                     setSubmitting(false);
                 }), 500);
             }}
@@ -354,7 +419,7 @@ export default function QuizForm(){
                             label="Choose an option..."
                             options={defaultOptions}
                         />
-                        <p className='mt-3'>Is it important that the country has a democracy/republic/parliament?</p>
+                        <p className='mt-3'>Is it important that the country has a democracy?</p>
                         <FormikSelect
                             name="governmentSelect"
                             label="Choose an option..."
