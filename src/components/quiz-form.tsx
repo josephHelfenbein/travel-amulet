@@ -58,12 +58,12 @@ const spicyOptions = [
     { value: "5", label: "Extra Hot" },
     { value: "1", label: "No Preference" },
 ];
+function answerToEncodable(answer:string){
+    if(answer == '') return '0';
+    else return answer;
+}
 function encodeAnswers(values:Values){
     let returnStr = '';
-    function answerToEncodable(answer:string){
-        if(answer == '') return '0';
-        else return answer;
-    }
     returnStr+=answerToEncodable(values.languageSpeak);
     returnStr+=answerToEncodable(values.temperatureSelect);
     returnStr+=answerToEncodable(values.spicySelect);
@@ -81,11 +81,11 @@ function encodeAnswers(values:Values){
     returnStr+=answerToEncodable(values.governmentSelect);
     return returnStr;
 }
+function answerToDecodable(answer:string){
+    if(answer == '0') return '';
+    else return answer;
+}
 function decodeAnswers(preferencesStr:string){
-    function answerToDecodable(answer:string){
-        if(answer == '0') return '';
-        else return answer;
-    }
     const languageSpeak = answerToDecodable(preferencesStr[0]);
     const temperatureSelect = answerToDecodable(preferencesStr[1]);
     const spicySelect = answerToDecodable(preferencesStr[2]);
@@ -151,43 +151,47 @@ export default function QuizForm(){
     const [conflictSelect, setConflictSelect] = useState('');
     const [stabilitySelect, setStabilitySelect] = useState('');
     const [governmentSelect, setGovernmentSelect] = useState('');
-    if(status === 'authenticated'){
-        useEffect(() => {
-            axios.get('/api/auth/session').then(async (res) =>{
-                if(res){
-                    setEmail(res.data.session.user.email);
-                    const userRes = await axios.get(`/api/user/${res.data.session.user.email}`);
-                    const countryStr = userRes.data.country;
-                    
-                    setCountry(countryStr);
-                    if(userRes.data.preferences !== ''){
-                        const saveStr = userRes.data.preferences;
-                        setPreferences(saveStr);
+    useEffect(() => {
+        if(status=='authenticated'){
+            try{
+                axios.get('/api/auth/session').then(async (res) =>{
+                    if(res){
+                        setEmail(res.data.session.user.email);
+                        const userRes = await axios.get(`/api/user/${res.data.session.user.email}`);
+                        const countryStr = userRes.data.country;
+                        
+                        setCountry(countryStr);
+                        if(userRes.data.preferences !== ''){
+                            const saveStr = userRes.data.preferences;
+                            setPreferences(saveStr);
+                        }
                     }
-                }
-            })
-        }, []);
-        useEffect(()=>{
-            if(preferences !== ''){
-                const foundValues:Values = decodeAnswers(preferences);
-                setLanguageSpeak(foundValues.languageSpeak);
-                setTemperatureSelect(foundValues.temperatureSelect);
-                setSpicySelect(foundValues.spicySelect);
-                setLgbtqSelect(foundValues.lgbtqSelect);
-                setReligionSelect(foundValues.religionSelect);
-                setCrimeSelect(foundValues.crimeSelect);
-                setVisitSelect(foundValues.visitSelect);
-                setHikingSelect(foundValues.hikingSelect);
-                setBeachesSelect(foundValues.beachesSelect);
-                setBroadbandSelect(foundValues.broadbandSelect);
-                setMobileSelect(foundValues.mobileSelect);
-                setWaterSelect(foundValues.waterSelect);
-                setConflictSelect(foundValues.conflictSelect);
-                setStabilitySelect(foundValues.stabilitySelect);
-                setGovernmentSelect(foundValues.governmentSelect);
+                })
             }
-        })
-    }
+            catch(err){
+            }
+        }
+    }, []);
+    useEffect(()=>{
+        if(preferences !== ''){
+            const foundValues:Values = decodeAnswers(preferences);
+            setLanguageSpeak(foundValues.languageSpeak);
+            setTemperatureSelect(foundValues.temperatureSelect);
+            setSpicySelect(foundValues.spicySelect);
+            setLgbtqSelect(foundValues.lgbtqSelect);
+            setReligionSelect(foundValues.religionSelect);
+            setCrimeSelect(foundValues.crimeSelect);
+            setVisitSelect(foundValues.visitSelect);
+            setHikingSelect(foundValues.hikingSelect);
+            setBeachesSelect(foundValues.beachesSelect);
+            setBroadbandSelect(foundValues.broadbandSelect);
+            setMobileSelect(foundValues.mobileSelect);
+            setWaterSelect(foundValues.waterSelect);
+            setConflictSelect(foundValues.conflictSelect);
+            setStabilitySelect(foundValues.stabilitySelect);
+            setGovernmentSelect(foundValues.governmentSelect);
+        }
+    })
     return (
         <div className={styles.quiz_box + ' card p-5 mb-5 '}>
             <Formik
