@@ -126,6 +126,7 @@ function decodeAnswers(preferencesStr:string){
 }
 export default function QuizForm(){
     const [error, setError] = useState('');
+    const [saveUpdate, setSaveUpdate] = useState('');
     const {data, status} = useSession({
         required:true,
         onUnauthenticated() {
@@ -235,12 +236,16 @@ export default function QuizForm(){
                     }
                     {error == '' &&
                         <div className='col-md-2 mb-2'>
-                        <button type="button" onClick={()=>{
-                            changeUserPreferences({email, preferences:encodeAnswers(props.values)});
+                        <button type="button" onClick={async ()=>{
+                            const changed = await changeUserPreferences({email, preferences:encodeAnswers(props.values)});
+                            if(changed) setSaveUpdate('Saved!');
                         }} className="btn btn-primary">Save</button>
                         </div>
                     }
                     </div>
+                    {saveUpdate != '' &&
+                        <p className='Error col-md-4'>{saveUpdate}</p>
+                    }
                     <div className='mb-3'>
                         <h5>Language</h5>
                         <p>Is it important for the majority of the country to speak a language you speak?</p>
