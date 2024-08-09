@@ -153,20 +153,21 @@ export default function QuizForm(){
     const [stabilitySelect, setStabilitySelect] = useState('');
     const [governmentSelect, setGovernmentSelect] = useState('');
     useEffect(() => {
-        if(status==='authenticated'){
             axios.get('/api/auth/session').then(async (res) =>{
                 if(res){
                     setEmail(res.data.session.user.email);
                     console.log(res.data.session.user.email);
                     const userRes = await axios.get(`/api/user/${res.data.session.user.email}`);
                     const countryStr = userRes.data.country;
+                    console.log(userRes);
                     
                     setCountry(countryStr);
                     const saveStr = userRes.data.preferences;
                     setPreferences(saveStr);
                 }
+            }).catch(error => {
+                console.log('Not logged in');
             })
-        }
     }, []);
     useEffect(()=>{
         if(preferences !== ''){
