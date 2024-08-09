@@ -2,7 +2,6 @@ import { Formik, Field, Form, FormikHelpers } from 'formik';
 import styles from './login-form.module.css';
 import FormikSelect from './FormikSelect';
 import FormikMultiSelect from './FormikMultiSelect';
-import validationSchema from './validationSchema';
 import { countryOptions } from './signup-form';
 import { Tooltip, IconButton } from '@mui/material';
 import { useSession } from 'next-auth/react';
@@ -283,6 +282,7 @@ export default function QuizForm(){
                 { setSubmitting }: FormikHelpers<Values>
             ) => {
                 setTimeout((async () => {
+                    if(error == '') changeUserPreferences({email, preferences:encodeAnswers(values)});
                     const prompt = createPrompt(values);
                     alert(prompt);
                     setSubmitting(false);
