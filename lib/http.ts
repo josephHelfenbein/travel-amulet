@@ -33,6 +33,21 @@ export async function changeUserName(params: {email: string, name: string}): Pro
     return { error, content: false };
   }
 }
+export async function changeUserPreferences(params: {email: string, preferences: string}): Promise<{
+  content: boolean;
+  error?: any;
+}>{
+  try {
+    const response = await axios.put(`/api/user/${params.email}`, params);
+    if (response.status !== 200) {
+      throw new Error(`${response.status} - ${response.data}`);
+    }
+    return { content: response?true:false };
+  } catch (error) {
+    console.error(error);
+    return { error, content: false };
+  }
+}
 export async function changeUserCountry(params: {email: string, country: string}): Promise<{
   content: boolean;
   error?: any;

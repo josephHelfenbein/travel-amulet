@@ -18,10 +18,11 @@ export default async function handler(
     return user ? res.send(exclude(user, ["password"])) : res.status(410).end();
   }
   else if(req.method === 'PUT'){
-    const {email, country, name} = req.body;
+    const {email, country, name, preferences} = req.body;
     const emailStr = email?.toString();
     const countryStr = country?.toString();
     const nameStr = name?.toString();
+    const preferencesStr = preferences?.toString();
     if(emailStr == undefined) return res.status(405).end();
     let newUser;
     if(nameStr){
@@ -42,6 +43,17 @@ export default async function handler(
         },
         data: {
           country:countryStr,
+        },
+      });
+      return newUser ? res.status(200).json(exclude(newUser, ["password"])) : res.status(410).end();
+    }
+    else if (preferencesStr){
+      newUser = await prisma.user.update({
+        where: {
+          email:emailStr,
+        },
+        data: {
+          preferences:preferencesStr,
         },
       });
       return newUser ? res.status(200).json(exclude(newUser, ["password"])) : res.status(410).end();

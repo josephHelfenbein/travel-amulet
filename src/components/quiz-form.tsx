@@ -5,7 +5,10 @@ import FormikMultiSelect from './FormikMultiSelect';
 import validationSchema from './validationSchema';
 import { countryOptions } from './signup-form';
 import { Tooltip, IconButton } from '@mui/material';
-
+import { useSession } from 'next-auth/react';
+import { useState, useEffect } from 'react';
+import { changeUserPreferences } from 'lib/http';
+import axios from 'axios';
 
 interface Values{
     languageSpeak: string,
@@ -37,49 +40,178 @@ const continentOptions = [
     { value: "OC", label: "Oceania" },
 ];
 const defaultOptions = [
-    { value: "1", label: "Important" },
-    { value: "2", label: "Very Important" },
-    { value: "0", label: "No Preference" },
+    { value: "2", label: "Important" },
+    { value: "3", label: "Very Important" },
+    { value: "1", label: "No Preference" },
 ];
 const temperatureOptions = [
-    { value: "1", label: "Cold" },
-    { value: "2", label: "Cool" },
-    { value: "3", label: "Warm" },
-    { value: "4", label: "Hot" },
-    { value: "0", label: "No Preference" },
+    { value: "2", label: "Cold" },
+    { value: "3", label: "Cool" },
+    { value: "4", label: "Warm" },
+    { value: "5", label: "Hot" },
+    { value: "1", label: "No Preference" },
 ];
 const spicyOptions = [
-    { value: "1", label: "Mild" },
-    { value: "2", label: "Medium" },
-    { value: "3", label: "Hot" },
-    { value: "4", label: "Extra Hot" },
-    { value: "0", label: "No Preference" },
+    { value: "2", label: "Mild" },
+    { value: "3", label: "Medium" },
+    { value: "4", label: "Hot" },
+    { value: "5", label: "Extra Hot" },
+    { value: "1", label: "No Preference" },
 ];
+function encodeAnswers(values:Values){
+    let returnStr = '';
+    function answerToEncodable(answer:string){
+        if(answer == '') return '0';
+        else return answer;
+    }
+    returnStr+=answerToEncodable(values.languageSpeak);
+    returnStr+=answerToEncodable(values.temperatureSelect);
+    returnStr+=answerToEncodable(values.spicySelect);
+    returnStr+=answerToEncodable(values.lgbtqSelect);
+    returnStr+=answerToEncodable(values.religionSelect);
+    returnStr+=answerToEncodable(values.crimeSelect);
+    returnStr+=answerToEncodable(values.visitSelect);
+    returnStr+=answerToEncodable(values.hikingSelect);
+    returnStr+=answerToEncodable(values.beachesSelect);
+    returnStr+=answerToEncodable(values.broadbandSelect);
+    returnStr+=answerToEncodable(values.mobileSelect);
+    returnStr+=answerToEncodable(values.waterSelect);
+    returnStr+=answerToEncodable(values.conflictSelect);
+    returnStr+=answerToEncodable(values.stabilitySelect);
+    returnStr+=answerToEncodable(values.governmentSelect);
+    return returnStr;
+}
+function decodeAnswers(preferencesStr:string){
+    function answerToDecodable(answer:string){
+        if(answer == '0') return '';
+        else return answer;
+    }
+    const languageSpeak = answerToDecodable(preferencesStr[0]);
+    const temperatureSelect = answerToDecodable(preferencesStr[1]);
+    const spicySelect = answerToDecodable(preferencesStr[2]);
+    const lgbtqSelect = answerToDecodable(preferencesStr[3]);
+    const religionSelect = answerToDecodable(preferencesStr[4]);
+    const crimeSelect = answerToDecodable(preferencesStr[5]);
+    const visitSelect = answerToDecodable(preferencesStr[6]);
+    const hikingSelect = answerToDecodable(preferencesStr[7]);
+    const beachesSelect = answerToDecodable(preferencesStr[8]);
+    const broadbandSelect = answerToDecodable(preferencesStr[9]);
+    const mobileSelect = answerToDecodable(preferencesStr[10]);
+    const waterSelect = answerToDecodable(preferencesStr[11]);
+    const conflictSelect = answerToDecodable(preferencesStr[12]);
+    const stabilitySelect = answerToDecodable(preferencesStr[13]);
+    const governmentSelect = answerToDecodable(preferencesStr[14]);
+    const values:Values = {
+        languageSpeak,
+        temperatureSelect,
+        spicySelect,
+        lgbtqSelect,
+        religionSelect,
+        crimeSelect,
+        visitSelect,
+        hikingSelect,
+        beachesSelect,
+        broadbandSelect,
+        mobileSelect,
+        waterSelect,
+        conflictSelect,
+        stabilitySelect,
+        governmentSelect,
+        language: '',
+        religion: '',
+        continentList: [''],
+        blacklistCountries: [''],
+    }; 
+    return values;
+}
 export default function QuizForm(){
+    const [error, setError] = useState('');
+    const {data, status} = useSession({
+        required:true,
+        onUnauthenticated() {
+            setError('You can save your progress if you log in.');
+        },
+    });
+    const [country, setCountry] = useState('');
+    const [preferences, setPreferences] = useState('');
+    const [email, setEmail] = useState('');
+
+    const [languageSpeak, setLanguageSpeak] = useState('');
+    const [temperatureSelect, setTemperatureSelect] = useState('');
+    const [spicySelect, setSpicySelect] = useState('');
+    const [lgbtqSelect, setLgbtqSelect] = useState('');
+    const [religionSelect, setReligionSelect] = useState('');
+    const [crimeSelect, setCrimeSelect] = useState('');
+    const [visitSelect, setVisitSelect] = useState('');
+    const [hikingSelect, setHikingSelect] = useState('');
+    const [beachesSelect, setBeachesSelect] = useState('');
+    const [broadbandSelect, setBroadbandSelect] = useState('');
+    const [mobileSelect, setMobileSelect] = useState('');
+    const [waterSelect, setWaterSelect] = useState('');
+    const [conflictSelect, setConflictSelect] = useState('');
+    const [stabilitySelect, setStabilitySelect] = useState('');
+    const [governmentSelect, setGovernmentSelect] = useState('');
+    if(status === 'authenticated'){
+        useEffect(() => {
+            axios.get('/api/auth/session').then(async (res) =>{
+                if(res){
+                    setEmail(res.data.session.user.email);
+                    const userRes = await axios.get(`/api/user/${res.data.session.user.email}`);
+                    const countryStr = userRes.data.country;
+                    
+                    setCountry(countryStr);
+                    if(userRes.data.preferences !== ''){
+                        const saveStr = userRes.data.preferences;
+                        setPreferences(saveStr);
+                    }
+                }
+            })
+        }, []);
+        useEffect(()=>{
+            if(preferences !== ''){
+                const foundValues:Values = decodeAnswers(preferences);
+                setLanguageSpeak(foundValues.languageSpeak);
+                setTemperatureSelect(foundValues.temperatureSelect);
+                setSpicySelect(foundValues.spicySelect);
+                setLgbtqSelect(foundValues.lgbtqSelect);
+                setReligionSelect(foundValues.religionSelect);
+                setCrimeSelect(foundValues.crimeSelect);
+                setVisitSelect(foundValues.visitSelect);
+                setHikingSelect(foundValues.hikingSelect);
+                setBeachesSelect(foundValues.beachesSelect);
+                setBroadbandSelect(foundValues.broadbandSelect);
+                setMobileSelect(foundValues.mobileSelect);
+                setWaterSelect(foundValues.waterSelect);
+                setConflictSelect(foundValues.conflictSelect);
+                setStabilitySelect(foundValues.stabilitySelect);
+                setGovernmentSelect(foundValues.governmentSelect);
+            }
+        })
+    }
     return (
         <div className={styles.quiz_box + ' card p-5 mb-5 '}>
-            <h1 className="display-6 mb-3">Quiz</h1>
             <Formik
+            enableReinitialize
             initialValues={{
-                languageSpeak: '',
-                temperatureSelect: '',
-                spicySelect: '',
-                lgbtqSelect: '',
-                religionSelect: '',
-                crimeSelect: '',
-                visitSelect: '',
-                hikingSelect: '',
-                beachesSelect: '',
-                broadbandSelect: '',
-                mobileSelect: '',
-                waterSelect: '',
-                conflictSelect: '',
-                stabilitySelect: '',
-                governmentSelect: '',
+                languageSpeak: `${languageSpeak}`,
+                temperatureSelect: `${temperatureSelect}`,
+                spicySelect: `${spicySelect}`,
+                lgbtqSelect: `${lgbtqSelect}`,
+                religionSelect: `${religionSelect}`,
+                crimeSelect: `${crimeSelect}`,
+                visitSelect: `${visitSelect}`,
+                hikingSelect: `${hikingSelect}`,
+                beachesSelect: `${beachesSelect}`,
+                broadbandSelect: `${broadbandSelect}`,
+                mobileSelect: `${mobileSelect}`,
+                waterSelect: `${waterSelect}`,
+                conflictSelect: `${conflictSelect}`,
+                stabilitySelect: `${stabilitySelect}`,
+                governmentSelect: `${governmentSelect}`,
                 language: '',
                 religion: '',
                 continentList: [''],
-                blacklistCountries: ["BD", "LY", "LB", "AF", "SO", "IR", "YE", "SY", "RU", "MM", "VE", "IQ", "SS", "ML", "CF", "BF", "HT", "BY", "KP", "UA", "SD", "MX", "IL", "PS"],
+                blacklistCountries: ["BD", "LY", "LB", "AF", "SO", "IR", "YE", "SY", "RU", "MM", "VE", "IQ", "SS", "ML", "CF", "BF", "HT", "BY", "KP", "UA", "SD", "MX", "IL", "PS", `${country}`],
             }}
             validationSchema={validationSchema}
             onSubmit={(values: Values,
@@ -90,8 +222,21 @@ export default function QuizForm(){
                     setSubmitting(false);
                 }), 500);
             }}
-            >
+            >{ props => (
                 <Form>
+                    <div className='row g-3 justify-content-between align-items-end'>
+                    <h1 className="display-6 col-md-4 mb-3">Quiz</h1>
+                    {error != '' &&
+                            <p className='Error col-md-6'>{error}</p>
+                    }
+                    {error == '' &&
+                        <div className='col-md-2 mb-2'>
+                        <button type="button" onClick={()=>{
+                            changeUserPreferences({email, preferences:encodeAnswers(props.values)});
+                        }} className="btn btn-primary">Save</button>
+                        </div>
+                    }
+                    </div>
                     <div className='mb-3'>
                         <h5>Language</h5>
                         <p>Is it important for the majority of the country to speak a language you speak?</p>
@@ -225,7 +370,7 @@ export default function QuizForm(){
                             label="Select countries..."
                             options={countryOptions}
                         />
-                        <Tooltip title="Countries with a US DoS travel advisory of either Level 4 or Level 4 on parts of the country are automatically disabled, but can be enabled if you wish." placement="right">
+                        <Tooltip title="Countries with a US DoS travel advisory of either Level 4 or Level 4 on parts of the country are automatically disabled, but can be enabled if you wish. If signed in, the user's country is also automatically disabled." placement="right">
                             <IconButton>
                                 <svg 
                                 viewBox="0 0 16 16"
@@ -246,7 +391,7 @@ export default function QuizForm(){
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </div>
                     </div>
-                </Form>
+                </Form> )}
             </Formik>
         </div>
     );
