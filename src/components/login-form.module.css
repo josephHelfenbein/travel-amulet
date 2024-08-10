@@ -7,11 +7,47 @@
     background-color: #fff;
 }
 .mainHeaderWeb{
-    background-image: linear-gradient(to right, #003d55ff, #005f73ff, #0a9396ff);
+    background-image: linear-gradient(to top right, #003d55ff, #005f73ff, #0a9396ff);
+    box-shadow: 0px 0px 2px black;
+}
+.mainHeaderWeb_index{
+    background-color: #00000000;
 }
 .headerButton{
     color:#005f73ff;
 }
 .headerButton:hover{
     color: #003d55ff;
+}
+.threecontainer{
+    width: 100vw;
+    height: 100vh; 
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:2;
+}
+.infoCard{
+   
+    height:650px;
+    width:100%;
+    top:0;
+    left:0;
+    padding:50px;
+    box-shadow: 0px 1px 2px black;
+    position: absolute;
+    overflow: hidden;
+    z-index:4;
+}
+.infoCardBG{
+    z-index:1;
+    height:650px;
+    width:100%;
+    top:0;
+    left:0;
+    padding:50px;
+    background-color: #005873;
+    background-image:  linear-gradient(to top, #003d55ff, #005f73ff, #0a9396ff);
+    position:absolute;
+    overflow: hidden;
 }
