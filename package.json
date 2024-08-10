@@ -45,6 +45,7 @@
     "react-popper": "^2.3.0",
     "recoil": "^0.7.5",
     "respond": "^0.9.0",
+    "three": "^0.167.1",
     "yup": "^1.4.0"
   },
   "devDependencies": {
