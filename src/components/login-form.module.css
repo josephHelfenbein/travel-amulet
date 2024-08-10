@@ -6,3 +6,12 @@
     width:800px;
     background-color: #fff;
 }
+.mainHeaderWeb{
+    background-image: linear-gradient(to right, #003d55ff, #005f73ff, #0a9396ff);
+}
+.headerButton{
+    color:#005f73ff;
+}
+.headerButton:hover{
+    color: #003d55ff;
+}
