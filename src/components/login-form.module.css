@@ -45,13 +45,33 @@
     left:0;
     padding:0px;
     padding-top: 45px;
+    margin-left:-30px;
     position: absolute;
     overflow: hidden;
     z-index:4;
 }
+.coverEnd{
+    height:100%;
+    width:100%;
+    background-image: linear-gradient(to top, #012e41, #35635d);
+    padding:100px;
+    padding-left:0px;
+    padding-right:0px;
+    position:fixed;
+    left:0;top:0;
+    z-index: 50;
+}
+.coverEnd>div>div>h5{
+    font-size: 19px;
+   line-height: 21px;
+   font-weight: 400;
+}
+.coverEnd>div>img{
+    box-shadow: 0px 5px 15px #2d3d3a;
+}
 .infoCardRel{
     height:200px;
-    width:50%;
+    width:70%;
     left:0;
     margin:10px;
     border-radius: 20px;
@@ -78,12 +98,18 @@
 #num3{
     top:2000px;
 }
-.infoCardRel>div>p{
-   font-size: 18px;
+.infoCardRel>div>div>div>p{
+   font-size: 19px;
    line-height: 21px;
-   color: #021e29;
+   color: #005f73ff;
    font-weight: 300;
 }
+.infoCardRelMobile>div>div>div>p{
+    font-size: 19px;
+    line-height: 21px;
+    color: #005f73ff;
+    font-weight: 300;
+ }
 .infoCardBG{
     z-index:1;
     height:650px;
@@ -103,11 +129,11 @@
     top:3500px;
     position: relative;
     overflow: hidden;
-    z-index:4;
+    z-index:55;
 }
 .bottomtext>div>p{
     font-size: 18px;
     line-height: 21px;
-    color: #021e29;
+    color: #005f73ff;
     text-align: center;
  }

@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 import ThreeScene from '../components/threescene';
 import styles from '../components/login-form.module.css';
 import { IntroCard } from 'src/components/info-card';
-import { InfoTextCard, InfoTextCard2, InfoTextCard3 } from 'src/components/infoTextCard';
+import { InfoTextCard, InfoTextCard2, InfoTextCard3, EndingInfoScreen } from 'src/components/infoTextCard';
 import { BottomText } from 'src/components/bottom-text';
 
 const Home: NextPage = () => {
@@ -29,6 +29,7 @@ const Home: NextPage = () => {
           <InfoTextCard />
           <InfoTextCard2 />
           <InfoTextCard3 />
+          <EndingInfoScreen />
           <BottomText />
         </Suspense>
       </main>

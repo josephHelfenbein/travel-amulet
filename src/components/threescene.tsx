@@ -162,7 +162,6 @@ const CloudGeometry6 = () => {
             ref.current.position.x = -18;
             ref.current.position.y = -8;
             ref.current.position.z = -14;
-            ref.current.rotation.z = 180 * Math.PI / 180;
             const cloudScale = 4;
             ref.current.scale.set(cloudScale, cloudScale, cloudScale);
         }
@@ -188,7 +187,6 @@ const CloudGeometry7 = () => {
     return <primitive object={cloud} ref={ref} />;
 }
 
-
 const CameraController = () => {
     const {camera} = useThree();
     const [scrollY, setScrollY] = useState(0);
@@ -202,7 +200,7 @@ const CameraController = () => {
     useFrame(()=>{
         if(camera.position.y - scrollY / 200 > -15){
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-                camera.position.y = -scrollY / 250;
+                camera.position.y = 2-scrollY / 180;
             }
             else camera.position.y = -scrollY / 200;
             camera.updateProjectionMatrix();
@@ -214,9 +212,9 @@ const CameraController = () => {
 const Scene = () => {
     return (
         <Canvas camera={{ position: [0, 0, 5], fov:50 }}>
-        <ambientLight intensity={4.0} />
+        <ambientLight intensity={3.0} />
         <directionalLight intensity={5.0} position={[5, 8, -15]}/>
-        <directionalLight intensity={7.0} position={[-5, -10, 20]}/>
+        <directionalLight intensity={6.0} position={[-5, -10, 20]}/>
         <PlaneModel />
         <EarthModel />
         <CloudGeometry />
