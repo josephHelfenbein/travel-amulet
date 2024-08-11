@@ -9,7 +9,9 @@ class Dropdown extends React.Component{
     state = {
         isOpen: false
       };
+    
       toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
+    
       render() {
         const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
         return (
@@ -39,7 +41,7 @@ class Dropdown extends React.Component{
         );
       }
 }
-export default function HeaderMain(){
+export default function HeaderSecondary(){
     const [login, setLogin] = useState(true);
     const {status} = useSession({
         required:true,
@@ -47,20 +49,11 @@ export default function HeaderMain(){
             setLogin(false);
         },
     });
-    const [onMobile, setOnMobile] = useState(false);
-    useEffect(()=>{if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-        setOnMobile(true);
-    }}, []);
     return (
-        <nav className={styles.mainHeaderWeb_index+' navbar'}>
+        <nav className={styles.mainHeaderWeb+' navbar sticky-top'}>
         <div className="container-fluid">
             <a className="navbar-brand p-2" href="/">
-                {onMobile && 
-                    <img width="150" src='/header-logo-white.svg' />
-                }
-                {!onMobile && 
-                    <img width="250" src='/header-logo-white.svg' />
-                }
+                <img width="250" src='/header-logo-white.svg' />
             </a>
                 {!login &&
                     <form className='d-flex'>
