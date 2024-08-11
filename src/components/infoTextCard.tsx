@@ -141,20 +141,28 @@ export function EndingInfoScreen (){
     }, []);
     const [opacity, setOpacity] = useState(0);
     const [position, setPosition] = useState(0);
+    
+    const [inView, setInView] = useState(false);
     useEffect(()=>{
         if(scrollY + movementY > 2400){
             setOpacity(Math.min(Math.max(scrollY - 2400, 0)/4, 100));
             setPosition(200-Math.max(scrollY - 2400, 0)/6);
         }
+        if(scrollY + movementY > 4500) setInView(true);
+        else setInView(false);
+        
     })    
     return(
         <div className={styles.coverEnd} style={{opacity:`${opacity}%`}}>
             <div className='column g-0 text-center p-5' style={{marginTop:`${position}px`}}>
                 <img src="/travelamulet-icon.svg" />
-                <div className="p-4">
-                    <h5 className="text-white mt-3">Try TravelAmulet now. It works like magic.</h5>
-                    <a href="quiz" className="btn btn-outline-light m-3">Start the Quiz</a>
-                </div>
+                {inView &&
+                    <div className="p-4">
+                        <h5 className="text-white mt-3">Try TravelAmulet now. It works like magic.</h5>
+                        <a href="quiz" className="btn btn-outline-light m-3">Start the Quiz</a>
+                    </div>
+                }
+                
             </div>
             
         </div>
