@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import HeaderMain from 'src/components/header-main';
+import HeaderSecondary from 'src/components/header-secondary';
 import AccountSettings from 'src/components/accountsettings';
 
 const Home: NextPage = () => {
@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-        <HeaderMain />
+        <HeaderSecondary />
         <AccountSettings />
       </main>
     </>
