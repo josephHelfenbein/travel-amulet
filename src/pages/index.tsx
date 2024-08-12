@@ -21,6 +21,9 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <HeaderMain />
+        <style dangerouslySetInnerHTML={{__html: `
+          html, body { background-color: #bae6f7; }
+        `}} />
         <Suspense fallback={'Loading scene...'}>
           <div className={styles.threecontainer}>
             <ThreeScene />

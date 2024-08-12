@@ -50,7 +50,7 @@
 .headerButton{
    background-color: #046b6b;
    border-radius: 10px;
-   border-style: solid;
+   border: 2px solid #e4e4e4;
 }
 .headerButton:hover{
     background-color: #084747;
@@ -101,16 +101,12 @@
 .buttonQuiz#save:hover{
     background-color: #244283;
 }
-.loginBG{
-    background-color: #fafafa;
-    height:130vh;
-}
 .extraInputForm{
     color:#646464;
 }
 .mainHeaderWeb{
-    background-image: linear-gradient(to top right, #003d55ff, #0a9396ff);
-    box-shadow: 0px 0px 2px black;
+    background-color: #fafafa;
+    z-index:10;
 }
 .mainHeaderWeb_index{
     background-color: #00000000;
