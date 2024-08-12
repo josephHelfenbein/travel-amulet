@@ -14,8 +14,8 @@ const Home : NextPage = () => {
                 <link rel="icon" href="favicon.png" />
                 <link rel='stylesheet' href='src/components/quiz.module.css' />
             </Head>
-            <main className={styles.quizBG}>
-                <HeaderMain />
+            <main className={styles.loginBG}>
+                <HeaderSecondary />
                 <div className="d-flex mt-5 justify-content-center">
                     <QuizForm />
                 </div>

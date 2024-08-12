@@ -103,7 +103,7 @@ export default function AccountSettings(){
                         <button type="submit" className={styles.saveButton+" btn btn-success"}>Save</button>
                     </div>
                     {error != '' &&
-                    <p>{error}</p>
+                    <p className="mt-2">{error}</p>
                     }
                 </Form>
                 

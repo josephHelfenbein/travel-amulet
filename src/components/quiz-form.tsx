@@ -261,7 +261,7 @@ export default function QuizForm(){
         }
     })
     return (
-        <div className={styles.quiz_box + ' p-5 pt-0 mb-5 '}>
+        <div className={styles.quiz_box + ' pb-4 '}>
             <Formik
             enableReinitialize
             initialValues={{
@@ -297,22 +297,40 @@ export default function QuizForm(){
             }}
             >{ props => (
                 <Form>
-                    <div className='row g-2 justify-content-between align-items-end mb-4'>
+                    <div className='row g-2 justify-content-between mb-4 mt-2'>
                     {onMobile && 
-                        <h1 className="display-6 col">Quiz</h1>
+                        <svg className="col-1 p-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#505050" height="48px" >
+                            <path d="M560-360q17 0 29.5-12.5T602-402q0-17-12.5-29.5T560-444q-17 0-29.5 12.5T518-402q0 17 12.5 29.5T560-360Zm-30-128h60q0-29 6-42.5t28-35.5q30-30 40-48.5t10-43.5q0-45-31.5-73.5T560-760q-41 0-71.5 23T446-676l54 22q9-25 24.5-37.5T560-704q24 0 39 13.5t15 36.5q0 14-8 26.5T578-596q-33 29-40.5 45.5T530-488ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"></path>                        
+                        </svg>
                     }
                     {!onMobile && 
-                        <h1 className="display-6 col-md-4">Quiz</h1>
+                        <svg className="col-1 p-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#505050" height="48px" >
+                            <path d="M560-360q17 0 29.5-12.5T602-402q0-17-12.5-29.5T560-444q-17 0-29.5 12.5T518-402q0 17 12.5 29.5T560-360Zm-30-128h60q0-29 6-42.5t28-35.5q30-30 40-48.5t10-43.5q0-45-31.5-73.5T560-760q-41 0-71.5 23T446-676l54 22q9-25 24.5-37.5T560-704q24 0 39 13.5t15 36.5q0 14-8 26.5T578-596q-33 29-40.5 45.5T530-488ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"></path>                        
+                        </svg>
+                    }
+                    {onMobile && 
+                        <h1 className="display-6 col-4" style={{fontWeight:400, color:'#505050'}}>Quiz</h1>
+                    }
+                    {!onMobile && 
+                        <h1 className="display-6 col-4" style={{fontWeight:400, color:'#505050'}}>Quiz</h1>
                     }
                     {error != '' &&
-                            <p className='Error col-md-6'>{error}</p>
+                            <p className='Error col-7' style={{fontWeight:300, color:'#505050'}}>{error}</p>
                     }
-                    {error == '' &&
-                        <div className='col-3 '>
+                    {error == '' && !onMobile &&
+                        <div className='col-3'>
                         <button type="button" onClick={async ()=>{
                             const changed = await changeUserPreferences({email, preferences:encodeAnswers(props.values)});
                             if(changed) setSaveUpdate('Saved!');
-                        }} className="btn btn-primary">Save</button>
+                        }} id={styles.save} className={styles.buttonQuiz+" btn btn-secondary"}>Save</button>
+                        </div>
+                    }
+                    {error == '' && onMobile &&
+                        <div className='col-4'>
+                        <button type="button" onClick={async ()=>{
+                            const changed = await changeUserPreferences({email, preferences:encodeAnswers(props.values)});
+                            if(changed) setSaveUpdate('Saved!');
+                        }} id={styles.save} className={styles.buttonQuiz+" btn btn-secondary"}>Save</button>
                         </div>
                     }
                     </div>
@@ -329,7 +347,7 @@ export default function QuizForm(){
                             options={defaultOptions}
                         />
                         <div className="form-floating mt-3">
-                        <Field className='form-control' id="language" name="language" placeholder="What languages?" type="text"/>
+                        <Field className={styles.inputForm+" form-control"} id="language" name="language" placeholder="What languages?" type="text"/>
                         <label className={styles.extraInputForm} htmlFor="language">What languages do you speak?</label>
                         </div>
                     </div>
@@ -372,7 +390,7 @@ export default function QuizForm(){
                                 options={defaultOptions}
                             />
                             <div className="form-floating mt-3">
-                            <Field className='form-control' id="religion" name="religion" placeholder="What religions?" type="text"/>
+                            <Field className={styles.inputForm+" form-control"} id="religion" name="religion" placeholder="What religions?" type="text"/>
                             <label className={styles.extraInputForm} htmlFor="religion">What religion do you follow?</label>
                             </div>
                             <p className='mt-3'>Is it important that the country has a low crime rate?</p>
@@ -485,47 +503,47 @@ export default function QuizForm(){
                         </div>
                     }
                     {!onMobile &&
-                        <div className='row g-3 mt-3 justify-content-end position-fixed bottom-0 mb-4' style={{width:'800px'}}>
+                        <div className='row g-0 justify-content-end mt-4 position-fixed bottom-0 mb-4' style={{width:'700px'}}>
                             {quizIndex>0 &&
-                                    <div className='col-1 '>
-                                        <button type="button" className="btn btn-dark" onClick={()=>{
+                                    <div className='col-3'>
+                                        <button type="button" id={styles.secondary} className={styles.buttonQuiz+" btn btn-secondary"} onClick={()=>{
                                             setQuizIndex(quizIndex-1);
                                         }}>Back</button>
                                     </div>
                             }
                             {quizIndex<7 &&
-                                    <div className='col-1'>
-                                        <button type="button" className="btn btn-success" onClick={()=>{
+                                    <div className='col-3'>
+                                        <button type="button" id={styles.primary} className={styles.buttonQuiz+" btn btn-secondary"} onClick={()=>{
                                             setQuizIndex(quizIndex+1);
                                         }}>Next</button>
                                     </div>
                             }
                             {quizIndex==7 &&
-                                    <div className='col-1'>
-                                        <button type="submit" className="btn btn-success">Submit</button>
+                                    <div className='col-3'>
+                                        <button type="submit" id={styles.primary} className={styles.buttonQuiz+" btn btn-secondary"}>Submit</button>
                                     </div>
                             }
                         </div>
                     }
-                    {onMobile && 
-                        <div className='row g-3 mt-3 justify-content-end position-fixed bottom-0 mb-4' style={{width:'80%'}}>
+                    {onMobile &&
+                        <div className='row g-0 justify-content-end mt-4 position-fixed bottom-0 mb-4' style={{width:'70%'}}>
                             {quizIndex>0 &&
-                                    <div className='col-3'>
-                                        <button type="button" className="btn btn-dark" onClick={()=>{
+                                    <div className='col-6'>
+                                        <button type="button" id={styles.secondary} className={styles.buttonQuiz+" btn btn-secondary"} onClick={()=>{
                                             setQuizIndex(quizIndex-1);
                                         }}>Back</button>
                                     </div>
                             }
                             {quizIndex<7 &&
                                     <div className='col-3'>
-                                        <button type="button" className="btn btn-success" onClick={()=>{
+                                        <button type="button" id={styles.primary} className={styles.buttonQuiz+" btn btn-secondary"} onClick={()=>{
                                             setQuizIndex(quizIndex+1);
                                         }}>Next</button>
                                     </div>
                             }
                             {quizIndex==7 &&
                                     <div className='col-3'>
-                                        <button type="submit" className="btn btn-success">Submit</button>
+                                        <button type="submit" id={styles.primary} className={styles.buttonQuiz+" btn btn-secondary"}>Submit</button>
                                     </div>
                             }
                         </div>

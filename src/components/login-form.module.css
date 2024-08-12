@@ -19,13 +19,12 @@
     border: 2px solid #e4e4e4;
 }
 .quiz_box{
-    width:800px;
-    color:white;
-    height:800px;
-}
-.quizBG{
-    background-color: #153969;
-    height:130vh;
+    width: 600px;
+    background-image: linear-gradient(to top, #fafafa, #ffffff);
+    box-shadow: 0px 15px 15px #e6e6e6;
+    padding:30px;
+    padding-bottom:20px;
+    border-radius: 35px;
 }
 .buttonLogin{
     width:125px;
@@ -71,12 +70,43 @@
 .buttonLogin#secondary:hover{
     background-color: #f5f5f5;
 }
+.buttonQuiz{
+    width:125px;
+    margin-left:5px;
+    border-radius: 10px;
+    border-style: solid;
+    padding:10px;
+    font-weight: 600;
+}
+.buttonQuiz#primary{
+    background-color: #046b6b;
+    border: 2px solid #e4e4e4;
+}
+.buttonQuiz#primary:hover{
+    background-color: #084747;
+}
+.buttonQuiz#secondary{
+    background-color: #ffffff;
+    color: #303030;
+    border: 2px solid #e4e4e4;
+}
+.buttonQuiz#secondary:hover{
+    background-color: #f5f5f5;
+}
+.buttonQuiz#save{
+    background-color: #3258aa;
+    width: 100px;
+    border: 2px solid #e4e4e4;
+}
+.buttonQuiz#save:hover{
+    background-color: #244283;
+}
 .loginBG{
     background-color: #fafafa;
     height:130vh;
 }
 .extraInputForm{
-    color:#121d50;
+    color:#646464;
 }
 .mainHeaderWeb{
     background-image: linear-gradient(to top right, #003d55ff, #0a9396ff);
