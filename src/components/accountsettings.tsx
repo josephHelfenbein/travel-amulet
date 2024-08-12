@@ -8,6 +8,7 @@ import { Form, Formik, FormikHelpers, Field } from "formik";
 import FormikSelect from "./FormikSelect";
 import { countryOptions } from "./signup-form";
 import validationSchema from "./validationSchema";
+import styles from './login-form.module.css';
 
 export default function AccountSettings(){
     const router = useRouter();
@@ -38,7 +39,7 @@ export default function AccountSettings(){
         singleSelect: string;
     }
     return (
-        <div className='card p-5'>
+        <div className={styles.quiz_box + ' p-5'}>
             <h1 className="display-6 mb-3">Hello, {name}</h1>
             <p className="m-2">Email: {email}</p>
             <Formik
@@ -89,7 +90,7 @@ export default function AccountSettings(){
                             options={countryOptions}
                         />
                     </div>
-                    <div className="form-floating mb-3">
+                    <div className={styles.extraInputForm + " form-floating mb-3"}>
                         <Field className="form-control" id="name" name="name" placeholder="Name" />
                         <label htmlFor="name">Name</label>
                     </div>
