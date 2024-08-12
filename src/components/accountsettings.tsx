@@ -6,7 +6,7 @@ import axios from "axios";
 import {changeUserName, changeUserCountry} from '../../lib/http';
 import { Form, Formik, FormikHelpers, Field } from "formik";
 import FormikSelect from "./FormikSelect";
-import { countryOptions } from "./signup-form";
+import { countryOptions } from "./countryoptions";
 import validationSchema from "./validationSchema";
 import styles from './login-form.module.css';
 
