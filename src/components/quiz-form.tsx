@@ -218,6 +218,13 @@ export default function QuizForm(){
     const [conflictSelect, setConflictSelect] = useState('');
     const [stabilitySelect, setStabilitySelect] = useState('');
     const [governmentSelect, setGovernmentSelect] = useState('');
+
+    const [quizIndex, setQuizIndex] = useState(0);
+    const [onMobile, setOnMobile] = useState(false);
+    useEffect(()=> {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent))
+            setOnMobile(true);
+    })
     useEffect(() => {
         axios.get('/api/auth/session').then(async (res) =>{
             if(res){
@@ -254,7 +261,7 @@ export default function QuizForm(){
         }
     })
     return (
-        <div className={styles.quiz_box + ' card p-5 mb-5 '}>
+        <div className={styles.quiz_box + ' p-5 pt-0 mb-5 '}>
             <Formik
             enableReinitialize
             initialValues={{
@@ -290,13 +297,18 @@ export default function QuizForm(){
             }}
             >{ props => (
                 <Form>
-                    <div className='row g-3 justify-content-between align-items-end'>
-                    <h1 className="display-6 col-md-4 mb-3">Quiz</h1>
+                    <div className='row g-2 justify-content-between align-items-end mb-4'>
+                    {onMobile && 
+                        <h1 className="display-6 col">Quiz</h1>
+                    }
+                    {!onMobile && 
+                        <h1 className="display-6 col-md-4">Quiz</h1>
+                    }
                     {error != '' &&
                             <p className='Error col-md-6'>{error}</p>
                     }
                     {error == '' &&
-                        <div className='col-md-2 mb-2'>
+                        <div className='col-3 '>
                         <button type="button" onClick={async ()=>{
                             const changed = await changeUserPreferences({email, preferences:encodeAnswers(props.values)});
                             if(changed) setSaveUpdate('Saved!');
@@ -307,7 +319,8 @@ export default function QuizForm(){
                     {saveUpdate != '' &&
                         <p className='Error col-md-4'>{saveUpdate}</p>
                     }
-                    <div className='mb-3'>
+                    {quizIndex==0 &&
+                        <div className='mb-3'>
                         <h5>Language</h5>
                         <p>Is it important for the majority of the country to speak a language you speak?</p>
                         <FormikSelect
@@ -316,151 +329,208 @@ export default function QuizForm(){
                             options={defaultOptions}
                         />
                         <div className="form-floating mt-3">
-                        <Field className="form-control" id="language" name="language" placeholder="What languages?" type="text"/>
-                        <label htmlFor="language">If important, what languages do you speak?</label>
+                        <Field className='form-control' id="language" name="language" placeholder="What languages?" type="text"/>
+                        <label className={styles.extraInputForm} htmlFor="language">What languages do you speak?</label>
                         </div>
                     </div>
-                    <div className='mb-3'>
-                        <h5>Weather</h5>
-                        <p>What temperature would you prefer?</p>
-                        <FormikSelect
-                            name="temperatureSelect"
-                            label="Choose an option..."
-                            options={temperatureOptions}
-                        />
-                    </div>
-                    <div className='mb-3'>
-                        <h5>Food</h5>
-                        <p>What is your preference for spiciness?</p>
-                        <FormikSelect
-                            name="spicySelect"
-                            label="Choose an option..."
-                            options={spicyOptions}
-                        />
-                    </div>
-                    <div className='mb-3'>
-                        <h5>Society</h5>
-                        <p>How important to you is LGBTQ+ equality in the country?</p>
-                        <FormikSelect
-                            name="lgbtqSelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                        <p className='mt-3'>Is it important that the majority of the country matches your religion?</p>
-                        <FormikSelect
-                            name="religionSelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                        <div className="form-floating mt-3">
-                        <Field className="form-control" id="religion" name="religion" placeholder="What religions?" type="text"/>
-                        <label htmlFor="religion">If important, what religion do you follow?</label>
+                    }
+                    {quizIndex==1 &&
+                        <div className='mb-3'>
+                            <h5>Weather</h5>
+                            <p>What temperature would you prefer?</p>
+                            <FormikSelect
+                                name="temperatureSelect"
+                                label="Choose an option..."
+                                options={temperatureOptions}
+                            />
                         </div>
-                        <p className='mt-3'>Is it important that the country has a low crime rate?</p>
-                        <FormikSelect
-                            name="crimeSelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                    </div>
-                    <div className='mb-3'>
-                        <h5>Places to Visit</h5>
-                        <p>Is it important that the country has many landmarks?</p>
-                        <FormikSelect
-                            name="visitSelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                        <p className='mt-3'>Is it important that the country has places for hiking?</p>
-                        <FormikSelect
-                            name="hikingSelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                        <p className='mt-3'>Is it important that the country has beaches?</p>
-                        <FormikSelect
-                            name="beachesSelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                    </div>
-                    <div className='mb-3'>
-                        <h5>Technology</h5>
-                        <p>Is it important that the country has fast broadband internet speeds?</p>
-                        <FormikSelect
-                            name="broadbandSelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                        <p className='mt-3'>Is it important that the country has fast mobile internet speeds?</p>
-                        <FormikSelect
-                            name="mobileSelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                        <p className='mt-3'>Is it important that the country has clean tap water?</p>
-                        <FormikSelect
-                            name="waterSelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                    </div>
-                    <div className='mb-3'>
-                        <h5>Politics</h5>
-                        <p>Is it important that the country has no ongoing conflicts?</p>
-                        <FormikSelect
-                            name="conflictSelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                        <p className='mt-3'>Is it important that the country has political stability?</p>
-                        <FormikSelect
-                            name="stabilitySelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                        <p className='mt-3'>Is it important that the country has a democracy?</p>
-                        <FormikSelect
-                            name="governmentSelect"
-                            label="Choose an option..."
-                            options={defaultOptions}
-                        />
-                    </div>
-                    <div className='mb-3'>
-                        <h5>Extra</h5>
-                        <p>Are there any continents you want to avoid specifically?</p>
-                        <FormikMultiSelect
-                            name="continentList"
-                            label="Select continents..."
-                            options={continentOptions}
-                        />
-                        <p className='mt-3'>Are there any countries you want to avoid specifically?</p>
-                        <FormikMultiSelect
-                            name="blacklistCountries"
-                            label="Select countries..."
-                            options={countryOptions}
-                        />
-                        <Tooltip title="Countries with a US DoS travel advisory of either Level 4 or Level 4 on parts of the country are automatically disabled, but can be enabled if you wish. If signed in, the user's country is also automatically disabled." placement="right">
-                            <IconButton>
-                                <svg 
-                                viewBox="0 0 16 16"
-                                width="24"
-                                height="24"
-                                fill="gray"
-                                >
-                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16">
-                                    </path>
-                                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0">
-                                    </path>
-                                </svg>
-                            </IconButton>
-                        </Tooltip>
-                    </div>
-                    <div className='row g-3 mt-3'>
-                        <div className='col-md-8'>
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                    }
+                    {quizIndex==2 &&
+                        <div className='mb-3'>
+                            <h5>Food</h5>
+                            <p>What is your preference for spiciness?</p>
+                            <FormikSelect
+                                name="spicySelect"
+                                label="Choose an option..."
+                                options={spicyOptions}
+                            />
                         </div>
-                    </div>
+                    }
+                    {quizIndex==3 &&
+                        <div className='mb-3'>
+                            <h5>Society</h5>
+                            <p>How important to you is LGBTQ+ equality in the country?</p>
+                            <FormikSelect
+                                name="lgbtqSelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                            <p className='mt-3'>Is it important that the majority of the country matches your religion?</p>
+                            <FormikSelect
+                                name="religionSelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                            <div className="form-floating mt-3">
+                            <Field className='form-control' id="religion" name="religion" placeholder="What religions?" type="text"/>
+                            <label className={styles.extraInputForm} htmlFor="religion">If important, what religion do you follow?</label>
+                            </div>
+                            <p className='mt-3'>Is it important that the country has a low crime rate?</p>
+                            <FormikSelect
+                                name="crimeSelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                        </div>
+                    }
+                    {quizIndex==4 &&
+                        <div className='mb-3'>
+                            <h5>Places to Visit</h5>
+                            <p>Is it important that the country has many landmarks?</p>
+                            <FormikSelect
+                                name="visitSelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                            <p className='mt-3'>Is it important that the country has places for hiking?</p>
+                            <FormikSelect
+                                name="hikingSelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                            <p className='mt-3'>Is it important that the country has beaches?</p>
+                            <FormikSelect
+                                name="beachesSelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                        </div>
+                    }
+                    {quizIndex==5 &&
+                        <div className='mb-3'>
+                            <h5>Technology</h5>
+                            <p>Is it important that the country has fast broadband internet speeds?</p>
+                            <FormikSelect
+                                name="broadbandSelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                            <p className='mt-3'>Is it important that the country has fast mobile internet speeds?</p>
+                            <FormikSelect
+                                name="mobileSelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                            <p className='mt-3'>Is it important that the country has clean tap water?</p>
+                            <FormikSelect
+                                name="waterSelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                        </div>
+                    }
+                    {quizIndex==6 &&
+                        <div className='mb-3'>
+                            <h5>Politics</h5>
+                            <p>Is it important that the country has no ongoing conflicts?</p>
+                            <FormikSelect
+                                name="conflictSelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                            <p className='mt-3'>Is it important that the country has political stability?</p>
+                            <FormikSelect
+                                name="stabilitySelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                            <p className='mt-3'>Is it important that the country has a democracy?</p>
+                            <FormikSelect
+                                name="governmentSelect"
+                                label="Choose an option..."
+                                options={defaultOptions}
+                            />
+                        </div>
+                    }
+                    {quizIndex==7 &&
+                        <div className='mb-3'>
+                            <h5>Extra</h5>
+                            <p>Are there any continents you want to avoid specifically?</p>
+                            <FormikMultiSelect
+                                name="continentList"
+                                label="Select continents..."
+                                options={continentOptions}
+                            />
+                            <p className='mt-3'>Are there any countries you want to avoid specifically?</p>
+                            <FormikMultiSelect
+                                name="blacklistCountries"
+                                label="Select countries..."
+                                options={countryOptions}
+                            />
+                            <Tooltip title="Countries with a US DoS travel advisory of either Level 4 or Level 4 on parts of the country are automatically disabled, but can be enabled if you wish. If signed in, the user's country is also automatically disabled." placement="bottom">
+                                <IconButton>
+                                    <svg 
+                                    viewBox="0 0 16 16"
+                                    width="24"
+                                    height="24"
+                                    fill="gray"
+                                    >
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16">
+                                        </path>
+                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0">
+                                        </path>
+                                    </svg>
+                                </IconButton>
+                            </Tooltip>
+                        </div>
+                    }
+                    {!onMobile &&
+                        <div className='row g-3 mt-3 justify-content-end position-fixed bottom-0 mb-4' style={{width:'80%'}}>
+                            {quizIndex>0 &&
+                                    <div className='col-1'>
+                                        <button type="button" className="btn btn-secondary" onClick={()=>{
+                                            setQuizIndex(quizIndex-1);
+                                        }}>Back</button>
+                                    </div>
+                            }
+                            {quizIndex<7 &&
+                                    <div className='col-2'>
+                                        <button type="button" className="btn btn-primary" onClick={()=>{
+                                            setQuizIndex(quizIndex+1);
+                                        }}>Next</button>
+                                    </div>
+                            }
+                            {quizIndex==7 &&
+                                    <div className='col-2'>
+                                        <button type="submit" className="btn btn-primary">Submit</button>
+                                    </div>
+                            }
+                        </div>
+                    }
+                    {onMobile && 
+                        <div className='row g-3 mt-3 justify-content-end position-fixed bottom-0 mb-4' style={{width:'80%'}}>
+                            {quizIndex>0 &&
+                                    <div className='col-3'>
+                                        <button type="button" className="btn btn-secondary" onClick={()=>{
+                                            setQuizIndex(quizIndex-1);
+                                        }}>Back</button>
+                                    </div>
+                            }
+                            {quizIndex<7 &&
+                                    <div className='col-3'>
+                                        <button type="button" className="btn btn-primary" onClick={()=>{
+                                            setQuizIndex(quizIndex+1);
+                                        }}>Next</button>
+                                    </div>
+                            }
+                            {quizIndex==7 &&
+                                    <div className='col-3'>
+                                        <button type="submit" className="btn btn-primary">Submit</button>
+                                    </div>
+                            }
+                        </div>
+                    }
+                    
                 </Form> )}
             </Formik>
         </div>

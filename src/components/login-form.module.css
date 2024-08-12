@@ -4,10 +4,18 @@
 }
 .quiz_box{
     width:800px;
-    background-color: #fff;
+    color:white;
+    height:800px;
+}
+.quizBG{
+    background-color: #13151a;
+    height:120vh;
+}
+.extraInputForm{
+    color:#1f1f1f;
 }
 .mainHeaderWeb{
-    background-image: linear-gradient(to top right, #003d55ff, #005f73ff, #0a9396ff);
+    background-image: linear-gradient(to top right, #003d55ff, #0a9396ff);
     box-shadow: 0px 0px 2px black;
 }
 .mainHeaderWeb_index{
