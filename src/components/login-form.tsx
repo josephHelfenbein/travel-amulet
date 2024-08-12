@@ -15,7 +15,7 @@ export default function LoginForm() {
     const {data:session, status} = useSession();
     if(status === "authenticated") router.push("/");
     return (
-        <div className={styles.login_box + ' card p-5 '}>
+        <div className={styles.login_box + ' p-5 '}>
             <h1 className="display-6 mb-3">Login</h1>
             <Formik
                 initialValues={{
@@ -65,12 +65,12 @@ export default function LoginForm() {
                     <p className='Error'>{error}</p>
                     }
                     
-                    <div className='row g-3'>
-                        <div className='col-md-8'>
-                            <button type="submit" className="btn btn-primary">Login</button>
-                        </div>
+                    <div className='row g-3 justify-content-around'>
                         <div className='col-md-4'>
-                            <a href='./signup'>Sign Up</a>
+                            <button type="submit" className="btn btn-success">Login</button>
+                        </div>
+                        <div className='col-md-5'>
+                            <a href='./signup' className="btn btn-secondary">Sign Up</a>
                         </div> 
                     </div>
                     

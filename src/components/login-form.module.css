@@ -1,6 +1,7 @@
 .login_box{
     width: 340px;
     background-color: #fff;
+    box-shadow: 0px 2px 5px #191c35;
 }
 .quiz_box{
     width:800px;
@@ -8,11 +9,11 @@
     height:800px;
 }
 .quizBG{
-    background-color: #13151a;
+    background-color: #243469;
     height:120vh;
 }
 .extraInputForm{
-    color:#1f1f1f;
+    color:#1e1e35;
 }
 .mainHeaderWeb{
     background-image: linear-gradient(to top right, #003d55ff, #0a9396ff);

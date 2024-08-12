@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import AccountSettings from 'src/components/accountsettings';
-import HeaderMain from 'src/components/header-main'
+import HeaderMain from 'src/components/header-main';
 import styles from 'src/components/login-form.module.css';
 
 const Home: NextPage = () => {

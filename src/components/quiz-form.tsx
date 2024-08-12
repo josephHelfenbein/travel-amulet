@@ -488,21 +488,21 @@ export default function QuizForm(){
                         <div className='row g-3 mt-3 justify-content-end position-fixed bottom-0 mb-4' style={{width:'80%'}}>
                             {quizIndex>0 &&
                                     <div className='col-1'>
-                                        <button type="button" className="btn btn-secondary" onClick={()=>{
+                                        <button type="button" className="btn btn-dark" onClick={()=>{
                                             setQuizIndex(quizIndex-1);
                                         }}>Back</button>
                                     </div>
                             }
                             {quizIndex<7 &&
                                     <div className='col-2'>
-                                        <button type="button" className="btn btn-primary" onClick={()=>{
+                                        <button type="button" className="btn btn-success" onClick={()=>{
                                             setQuizIndex(quizIndex+1);
                                         }}>Next</button>
                                     </div>
                             }
                             {quizIndex==7 &&
                                     <div className='col-2'>
-                                        <button type="submit" className="btn btn-primary">Submit</button>
+                                        <button type="submit" className="btn btn-success">Submit</button>
                                     </div>
                             }
                         </div>

@@ -95,7 +95,7 @@ export default function AccountSettings(){
                         <label htmlFor="name">Name</label>
                     </div>
                     <div className='col-md-8'>
-                        <button type="submit" className="btn btn-primary">Save</button>
+                        <button type="submit" className="btn btn-success">Save</button>
                     </div>
                     {error != '' &&
                     <p>{error}</p>
