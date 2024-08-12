@@ -20,8 +20,13 @@ export default function LoginForm() {
     const {data:session, status} = useSession();
     if(status === "authenticated") router.push("/");
     return (
-        <div className={styles.login_box + ' p-5 '}>
-            <h1 className="display-6 mb-3">Login</h1>
+        <div className={styles.login_box}>
+            <div className='d-flex mb-5 justify-content-center'>
+                <svg className="bd-highlight p-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#505050" height="48px" >
+                    <path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"></path>
+                </svg>
+                <h1 className="bd-highlight display-6" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>Login</h1>
+            </div>
             <Formik
                 initialValues={{
                     username: '',
@@ -59,34 +64,34 @@ export default function LoginForm() {
             >
                 <Form>
                     <div className="form-floating mb-3">
-                        <Field className="form-control" id="username" name="username" placeholder="Email" type="email" aria-describedby="usernameHelp" required/>
+                        <Field className={styles.inputForm+" form-control"} id="username" name="username" placeholder="Email" type="email" aria-describedby="usernameHelp" required/>
                         <label htmlFor="username">Email</label>
                     </div>
                     <div className="form-floating mb-3">
-                        <Field className="form-control" type="password" id="password" name="password" placeholder="Password" required/>
+                        <Field className={styles.inputForm+" form-control"} type="password" id="password" name="password" placeholder="Password" required/>
                         <label htmlFor="password">Password</label>
                     </div>
                     {error != '' &&
                     <p className='Error'>{error}</p>
                     }
                     {!onMobile &&
-                        <div className='row g-3 justify-content-around'>
-                            <div className='col-md-4'>
-                                <button type="submit" className="btn btn-success">Login</button>
-                            </div>
-                            <div className='col-md-5'>
-                                <a href='./signup' className="btn btn-secondary">Sign Up</a>
+                        <div className='row g-0 justify-content-between mt-4'>
+                            <div className='col'>
+                                <a href='./signup' id={styles.secondary} className={styles.buttonLogin+" btn btn-secondary"}>Sign Up</a>
                             </div> 
+                            <div className='col'>
+                                <button type="submit" id={styles.primary} className={styles.buttonLogin+" btn btn-success"}>Login</button>
+                            </div>
                         </div>
                     }
                     {onMobile &&
-                        <div className='row g-3 justify-content-around'>
-                            <div className='col-6'>
-                                <button type="submit" className="btn btn-success">Login</button>
-                            </div>
-                            <div className='col-6'>
-                                <a href='./signup' className="btn btn-secondary">Sign Up</a>
+                        <div className='row g-0 justify-content-between mt-4'>
+                            <div className='col'>
+                                <a href='./signup' style={{width:'110px'}} id={styles.secondary} className={styles.buttonLogin+" btn btn-secondary"}>Sign Up</a>
                             </div> 
+                            <div className='col'>
+                                <button type="submit" style={{width:'110px'}}id={styles.primary} className={styles.buttonLogin+" btn btn-success"}>Login</button>
+                            </div>
                         </div>
                     }
 

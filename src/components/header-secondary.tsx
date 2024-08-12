@@ -49,16 +49,25 @@ export default function HeaderSecondary(){
             setLogin(false);
         },
     });
+    const [onMobile, setOnMobile] = useState(false);
+    useEffect(()=>{if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+        setOnMobile(true);
+    }}, []);
     return (
-        <nav className={styles.mainHeaderWeb+' navbar sticky-top'}>
+        <nav className={styles.mainHeaderWeb_index+' navbar sticky-top'}>
         <div className="container-fluid">
             <a className="navbar-brand p-2" href="/">
-                <img width="250" src='/header-logo-white.svg' />
+                {onMobile && 
+                    <img width="150" src='/travelamuletlogo-header.svg' />
+                }
+                {!onMobile && 
+                    <img width="250" src='/travelamuletlogo-header.svg' />
+                }
             </a>
                 {!login &&
                     <form className='d-flex'>
-                    <a href="./login"><button className={'btn btn-outline-light m-2'} type="button">Login</button></a>
-                    <a href="./signup"><button className={'btn btn-outline-light m-2'} type="button">Sign Up</button></a>
+                    <a href="./login"><button className={styles.headerButton+' btn btn-primary m-1'} type="button">Login</button></a>
+                    <a href="./signup"><button className={styles.headerButton+' btn btn-primary m-1'} type="button">Sign Up</button></a>
                     </form>
                 }
                 {login &&

@@ -1,7 +1,22 @@
 .login_box{
     width: 340px;
-    background-color: #fff;
-    box-shadow: 0px 2px 5px #191c35;
+    background-image: linear-gradient(to top, #fafafa, #ffffff);
+    box-shadow: 0px 15px 15px #e6e6e6;
+    padding:30px;
+    padding-bottom:20px;
+    border-radius: 35px;
+}
+.account_box{
+    width: 540px;
+    background-image: linear-gradient(to top, #fafafa, #ffffff);
+    box-shadow: 0px 15px 15px #e6e6e6;
+    padding:30px;
+    padding-bottom:20px;
+    border-radius: 35px;
+}
+.inputForm{
+    border-radius: 10px;
+    border: 2px solid #e4e4e4;
 }
 .quiz_box{
     width:800px;
@@ -10,6 +25,54 @@
 }
 .quizBG{
     background-color: #153969;
+    height:130vh;
+}
+.buttonLogin{
+    width:125px;
+    margin-left:5px;
+    border-radius: 10px;
+    border-style: solid;
+    padding:10px;
+    font-weight: 600;
+}
+.saveButton{
+    width:80%;
+    margin-left:5px;
+    border-radius: 10px;
+    border-style: solid;
+    padding:10px;
+    font-weight: 600;
+    background-color: #046b6b;
+    border: 2px solid #e4e4e4;
+}
+.saveButton:hover{
+    background-color: #084747;
+}
+.headerButton{
+   background-color: #046b6b;
+   border-radius: 10px;
+   border-style: solid;
+}
+.headerButton:hover{
+    background-color: #084747;
+}
+.buttonLogin#primary{
+    background-color: #046b6b;
+    border: 2px solid #e4e4e4;
+}
+.buttonLogin#primary:hover{
+    background-color: #084747;
+}
+.buttonLogin#secondary{
+    background-color: #ffffff;
+    color: #303030;
+    border: 2px solid #e4e4e4;
+}
+.buttonLogin#secondary:hover{
+    background-color: #f5f5f5;
+}
+.loginBG{
+    background-color: #fafafa;
     height:130vh;
 }
 .extraInputForm{
@@ -22,12 +85,6 @@
 .mainHeaderWeb_index{
     background-color: #00000000;
     z-index:10;
-}
-.headerButton{
-    color:#005f73ff;
-}
-.headerButton:hover{
-    color: #003d55ff;
 }
 .threecontainer{
     width: 100vw;

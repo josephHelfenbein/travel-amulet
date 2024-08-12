@@ -13,7 +13,7 @@ const FormikSelect = ({label, ...props}) => {
             helperText={errorText}
             error={!!errorText}
             variant="outlined"
-            style={{ borderRadius:'5px', backgroundColor:"white" }}
+            style={{ backgroundColor:"white" }}
             fullWidth
         >
             {
