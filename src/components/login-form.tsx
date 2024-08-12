@@ -2,7 +2,7 @@ import { Formik, Field, Form, FormikHelpers } from 'formik';
 import styles from './login-form.module.css';
 import { fetchUserExistsEmail } from 'lib/http';
 import { signIn } from "next-auth/react";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
 import { useSession } from 'next-auth/react';
 interface Values{
@@ -12,6 +12,11 @@ interface Values{
 export default function LoginForm() {
     const [error, setError] = useState('');
     const router = useRouter();
+    const [onMobile, setOnMobile] = useState(false);
+    useEffect(()=> {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent))
+            setOnMobile(true);
+    })
     const {data:session, status} = useSession();
     if(status === "authenticated") router.push("/");
     return (
@@ -64,17 +69,26 @@ export default function LoginForm() {
                     {error != '' &&
                     <p className='Error'>{error}</p>
                     }
-                    
-                    <div className='row g-3 justify-content-around'>
-                        <div className='col-md-4'>
-                            <button type="submit" className="btn btn-success">Login</button>
+                    {!onMobile &&
+                        <div className='row g-3 justify-content-around'>
+                            <div className='col-md-4'>
+                                <button type="submit" className="btn btn-success">Login</button>
+                            </div>
+                            <div className='col-md-5'>
+                                <a href='./signup' className="btn btn-secondary">Sign Up</a>
+                            </div> 
                         </div>
-                        <div className='col-md-5'>
-                            <a href='./signup' className="btn btn-secondary">Sign Up</a>
-                        </div> 
-                    </div>
-                    
-                    
+                    }
+                    {onMobile &&
+                        <div className='row g-3 justify-content-around'>
+                            <div className='col-6'>
+                                <button type="submit" className="btn btn-success">Login</button>
+                            </div>
+                            <div className='col-6'>
+                                <a href='./signup' className="btn btn-secondary">Sign Up</a>
+                            </div> 
+                        </div>
+                    }
 
                 </Form>
             </Formik>
