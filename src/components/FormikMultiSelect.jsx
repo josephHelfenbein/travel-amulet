@@ -8,7 +8,7 @@ const FormikMultiSelect = ({label, ...props}) => {
     const [widthUsing, setWidthUsing] = useState("100%");
     useEffect(()=> {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent))
-            setWidthUsing('294px');
+            setWidthUsing('75vw');
     })
     return (
         <TextField
