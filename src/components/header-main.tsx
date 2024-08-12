@@ -64,8 +64,8 @@ export default function HeaderMain(){
             </a>
                 {!login &&
                     <form className='d-flex'>
-                    <a href="./login"><button className={'btn btn-outline-light m-2'} type="button">Login</button></a>
-                    <a href="./signup"><button className={'btn btn-outline-light m-2'} type="button">Sign Up</button></a>
+                    <a href="./login"><button className={'btn btn-outline-light m-1'} type="button">Login</button></a>
+                    <a href="./signup"><button className={'btn btn-outline-light m-1'} type="button">Sign Up</button></a>
                     </form>
                 }
                 {login &&

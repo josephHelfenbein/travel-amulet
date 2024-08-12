@@ -373,7 +373,7 @@ export default function QuizForm(){
                             />
                             <div className="form-floating mt-3">
                             <Field className='form-control' id="religion" name="religion" placeholder="What religions?" type="text"/>
-                            <label className={styles.extraInputForm} htmlFor="religion">If important, what religion do you follow?</label>
+                            <label className={styles.extraInputForm} htmlFor="religion">What religion do you follow?</label>
                             </div>
                             <p className='mt-3'>Is it important that the country has a low crime rate?</p>
                             <FormikSelect
