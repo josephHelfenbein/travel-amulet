@@ -21,13 +21,9 @@ export default function LoginForm() {
     const {data:session, status} = useSession();
     if(status === "authenticated") router.push("/");
 
-    useEffect(()=>{async()=>{
-        const testSession = await getSession();
-        const testUser = session?.user;
-        console.log(testUser);
-    }
-    })
-    
+    const testSession = getSession();
+    const testUser = session?.user;
+    console.log(testUser);
 
 
     return (
