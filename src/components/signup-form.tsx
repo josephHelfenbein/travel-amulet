@@ -123,7 +123,6 @@ const SignUpForm = () => {
                     </div>
                 }
                 <button type="button" onClick={async ()=>{
-                    "use server";
                     await signIn("google", {callbackUrl: `/account`,});
                 }} style={{width:'265px'}} id={styles.google} className={styles.buttonLogin+" btn btn-primary mt-3"}>
                     <svg xmlns="http://www.w3.org/2000/svg" style={{marginRight:"5px"}} height="24" viewBox="0 0 24 24" >

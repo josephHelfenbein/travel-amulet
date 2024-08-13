@@ -4,7 +4,7 @@ import { fetchUserExistsEmail } from 'lib/http';
 import { signIn } from "next-auth/react";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
-import { useSession } from 'next-auth/react';
+import { useSession, getSession } from 'next-auth/react';
 
 interface Values{
     username: string;
@@ -20,6 +20,15 @@ export default function LoginForm() {
     })
     const {data:session, status} = useSession();
     if(status === "authenticated") router.push("/");
+
+    useEffect(()=>{async()=>{
+        const testSession = await getSession();
+        const testUser = session?.user;
+        console.log(testUser);
+    }
+    })
+    
+
 
     return (
         <div className={styles.login_box}>
@@ -100,7 +109,6 @@ export default function LoginForm() {
                         </div>
                     }
                     <button type="button" onClick={async ()=>{
-                    "use server";
                     await signIn("google", {callbackUrl: `/account`,});
                 }} style={{width:'265px'}} id={styles.google} className={styles.buttonLogin+" btn btn-primary mt-3"}>
                     <svg xmlns="http://www.w3.org/2000/svg" style={{marginRight:"5px"}} height="24" viewBox="0 0 24 24" >
