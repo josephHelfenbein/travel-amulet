@@ -1,7 +1,7 @@
 import { Formik, Field, Form, FormikHelpers } from 'formik'; 
 import styles from './login-form.module.css';
 import { fetchUserExistsEmail } from 'lib/http';
-import { signIn } from "next-auth/react";
+import {signIn} from '../pages/api/auth/[...nextauth]';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
 import { useSession, getSession } from 'next-auth/react';
