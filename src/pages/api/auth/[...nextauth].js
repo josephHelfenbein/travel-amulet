@@ -1,6 +1,7 @@
-import NextAuth, {AuthOptions} from 'next-auth';
+import NextAuth, {AuthOptions, getServerSession} from 'next-auth';
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
 import prisma from '../../../../lib/prisma';
 
 let userAcc;
@@ -35,6 +36,10 @@ const options = {
           }
           return null;
         },
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
 
