@@ -72,35 +72,33 @@ const options = {
           token.user.name = session.name;
         return await token;
     },
-    async signIn({profile}){
-      try{
-        let userExists = await fetchUserExistsEmail(profile.email);
-        if(userExists) {
-          const user = await fetchUserByEmail(profile.email);
-        }
-        if(!userExists) {
-          const generatePassword = () =>{
-            let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()0123456789';
-            let newPassword = "";
-            for(let i=0; i<12; i++){
-              newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
-            }
-            return password;
+    async signIn({account, profile}){
+      if(!profile?.email)
+        throw new Error('no profile');
+      
+      let userExists = await fetchUserExistsEmail(profile.email);
+      if(userExists) {
+        const user = await fetchUserByEmail(profile.email);
+      }
+      if(!userExists) {
+        const generatePassword = () =>{
+          let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()0123456789';
+          let newPassword = "";
+          for(let i=0; i<12; i++){
+            newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
           }
-          const user = await postUser({
-            name: profile.name, 
-            email: profile.email, 
-            country: '', 
-            password: generatePassword(), 
-            preferences:'', 
-            results:''
-          });
+          return newPassword;
         }
-        return true;
+        const user = await postUser({
+          name: profile.name, 
+          email: profile.email, 
+          country: '', 
+          password: generatePassword(), 
+          preferences:'', 
+          results:''
+        });
       }
-      catch(error){
-
-      }
+      return true;
     }
   },
 };
