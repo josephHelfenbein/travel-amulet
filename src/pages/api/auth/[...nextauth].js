@@ -3,6 +3,7 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import prisma from '../../../../lib/prisma';
+import { lte } from 'lodash';
 
 let userAcc;
 const options = {
@@ -41,6 +42,36 @@ const options = {
       id: "google",
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      async profile(profile){
+          let userExists = await fetchUserExistsEmail(profile.email);
+          let user = null;
+          if(userExists) {
+             user = await fetchUserByEmail(profile.email);
+          }
+          if(!userExists) {
+            const generatePassword = () =>{
+              let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()0123456789';
+              let newPassword = "";
+              for(let i=0; i<12; i++){
+                newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
+              }
+              return newPassword;
+            }
+            user = await postUser({
+              name: profile.name, 
+              email: profile.email, 
+              country: '', 
+              password: generatePassword(), 
+              preferences:'', 
+              results:''
+            });
+          }
+          if(user){
+            userAcc = user;
+            return user;
+          }
+          return null;
+      }
     }),
   ],
 
@@ -72,34 +103,6 @@ const options = {
           token.user.name = session.name;
         return await token;
     },
-    async signIn({account, profile}){
-      if(!profile?.email)
-        throw new Error('no profile');
-      
-      let userExists = await fetchUserExistsEmail(profile.email);
-      if(userExists) {
-        const user = await fetchUserByEmail(profile.email);
-      }
-      if(!userExists) {
-        const generatePassword = () =>{
-          let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()0123456789';
-          let newPassword = "";
-          for(let i=0; i<12; i++){
-            newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
-          }
-          return newPassword;
-        }
-        const user = await postUser({
-          name: profile.name, 
-          email: profile.email, 
-          country: '', 
-          password: generatePassword(), 
-          preferences:'', 
-          results:''
-        });
-      }
-      return true;
-    }
   },
 };
 export default (req, res) => NextAuth(req, res, options);
