@@ -43,34 +43,34 @@ const options = {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       async profile(profile){
-          let userExists = await fetchUserExistsEmail(profile.email);
-          let user = null;
-          if(userExists) {
-             user = await fetchUserByEmail(profile.email);
-          }
-          if(!userExists) {
-            const generatePassword = () =>{
-              let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()0123456789';
-              let newPassword = "";
-              for(let i=0; i<12; i++){
-                newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
-              }
-              return newPassword;
+        let userExists = await fetchUserExistsEmail(profile.email);
+        let user = null;
+        if(userExists) {
+           user = await fetchUserByEmail(profile.email);
+        }
+        if(!userExists) {
+          const generatePassword = () =>{
+            let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()0123456789';
+            let newPassword = "";
+            for(let i=0; i<12; i++){
+              newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
             }
-            user = await postUser({
-              name: profile.name, 
-              email: profile.email, 
-              country: '', 
-              password: generatePassword(), 
-              preferences:'', 
-              results:''
-            });
+            return newPassword;
           }
-          if(user){
-            userAcc = user;
-            return user;
-          }
-          return null;
+          user = await postUser({
+            name: profile.name, 
+            email: profile.email, 
+            country: '', 
+            password: generatePassword(), 
+            preferences:'', 
+            results:''
+          });
+        }
+        if(user){
+          userAcc = user;
+          return user;
+        }
+        return null;
       }
     }),
   ],
