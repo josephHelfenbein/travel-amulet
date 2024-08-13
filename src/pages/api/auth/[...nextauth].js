@@ -38,6 +38,7 @@ const options = {
         },
     }),
     GoogleProvider({
+      id: "google",
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
@@ -71,6 +72,36 @@ const options = {
           token.user.name = session.name;
         return await token;
     },
+    async signIn({profile}){
+      try{
+        let userExists = await fetchUserExistsEmail(profile.email);
+        if(userExists) {
+          const user = await fetchUserByEmail(profile.email);
+        }
+        if(!userExists) {
+          const generatePassword = () =>{
+            let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()0123456789';
+            let newPassword = "";
+            for(let i=0; i<12; i++){
+              newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+            return password;
+          }
+          const user = await postUser({
+            name: profile.name, 
+            email: profile.email, 
+            country: '', 
+            password: generatePassword(), 
+            preferences:'', 
+            results:''
+          });
+        }
+        return true;
+      }
+      catch(error){
+
+      }
+    }
   },
 };
 export default (req, res) => NextAuth(req, res, options);
