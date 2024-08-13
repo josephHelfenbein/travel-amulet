@@ -70,6 +70,18 @@ const options = {
     error: '/login',
   },
 
+  cookies: {
+    pkceCodeVerifier: {
+      name: "next-auth.pkce.code_verifier",
+      options: {
+        httpOnly: true,
+        sameSite: "none",
+        path: "/",
+        secure: true,
+      },
+    },
+  },
+
   callbacks: {
     async session(session, user, token) {
       session.user = user;
