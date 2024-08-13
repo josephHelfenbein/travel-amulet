@@ -1,10 +1,9 @@
 import { Formik, Field, Form, FormikHelpers } from 'formik'; 
 import styles from './login-form.module.css';
 import { fetchUserExistsEmail } from 'lib/http';
-import {signIn} from '../pages/api/auth/[...nextauth]';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
-import { useSession, getSession } from 'next-auth/react';
+import { useSession, signIn } from 'next-auth/react';
 
 interface Values{
     username: string;
@@ -20,7 +19,6 @@ export default function LoginForm() {
     })
     const {data:session, status} = useSession();
     if(status === "authenticated") router.push("/");
-
 
 
     return (

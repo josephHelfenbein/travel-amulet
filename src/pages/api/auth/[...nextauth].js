@@ -6,7 +6,7 @@ import GithubProvider from 'next-auth/providers/github';
 import prisma from '../../../../lib/prisma';
 
 let userAcc;
-export const {handlers, signIn, signOut, auth} = NextAuth({
+const options = {
   providers: [
     CredentialsProvider({
       id: "credentials",
@@ -109,4 +109,5 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
   async redirect({url, baseUrl}){
     return baseUrl;
   },
-});
+};
+export default (req, res) => NextAuth(req, res, options);
