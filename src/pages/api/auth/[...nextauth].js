@@ -42,36 +42,6 @@ const options = {
       id: "google",
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      async profile(profile){
-        let userExists = await fetchUserExistsEmail(profile.email);
-        let user = null;
-        if(userExists) {
-           user = await fetchUserByEmail(profile.email);
-        }
-        if(!userExists) {
-          const generatePassword = () =>{
-            let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()0123456789';
-            let newPassword = "";
-            for(let i=0; i<12; i++){
-              newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
-            }
-            return newPassword;
-          }
-          user = await postUser({
-            name: profile.name, 
-            email: profile.email, 
-            country: '', 
-            password: generatePassword(), 
-            preferences:'', 
-            results:''
-          });
-        }
-        if(user){
-          userAcc = user;
-          return user;
-        }
-        return null;
-      }
     }),
   ],
 
@@ -103,6 +73,33 @@ const options = {
           token.user.name = session.name;
         return await token;
     },
+    async signIn({user, account}){
+      if(account?.provider==="google"){
+        const {email, name, image, id} = user;
+        let userExists = await fetchUserExistsEmail(email);
+        if(!userExists) {
+          const generatePassword = () =>{
+            let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()0123456789';
+            let newPassword = "";
+            for(let i=0; i<12; i++){
+              newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+            return newPassword;
+          }
+          const newUser = await postUser({
+            name: name, 
+            email: email, 
+            country: '', 
+            password: generatePassword(), 
+            preferences:'', 
+            results:''
+          });
+        }
+        return true;
+      }
+      if(account?.provider === "credentials") return true;
+      else return false;
+    }
   },
 };
 export default (req, res) => NextAuth(req, res, options);

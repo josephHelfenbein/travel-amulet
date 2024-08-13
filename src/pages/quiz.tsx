@@ -12,7 +12,6 @@ const Home : NextPage = () => {
                 <title>Quiz</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="favicon.png" />
-                <link rel='stylesheet' href='src/components/quiz.module.css' />
             </Head>
             <main className={styles.loginBG}>
                 <HeaderSecondary />
