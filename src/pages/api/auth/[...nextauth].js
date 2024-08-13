@@ -78,9 +78,9 @@ const options = {
           token.user.name = session.name;
         return await token;
     },
-    async signIn({user, account}){
+    signIn: async ({user, account, profile}) => {
       if(account.provider==="google" || account.provider==="github"){
-        const {email, name, image, id} = user;
+        const {email, name, image, id} = profile;
         let userExists = await fetchUserExistsEmail(email);
         if(!userExists) {
           const generatePassword = () =>{
@@ -106,5 +106,8 @@ const options = {
       else return false;
     }
   },
+  async redirect({url, baseUrl}){
+    return baseUrl;
+  }
 };
 export default (req, res) => NextAuth(req, res, options);
