@@ -78,12 +78,17 @@ const options = {
 
   callbacks: {
     async session(session, user, token) {
-      session.user = user;
+      if(user)
+        session.user = user;
+      else if(token.user)
+        session.user = token.user;
       return await session;
     },
     async jwt({ token, trigger, session, user }) {
         const isSignedIn = user?true:false;
-        if(isSignedIn) token.accessToken = user.id.toString() + "-" + user.email + "-" + user.name;
+        if(isSignedIn) {token.accessToken = user.id.toString() + "-" + user.email + "-" + user.name;
+          token.user = user;
+        }
         if(trigger === "update" && session?.name)
           token.user.name = session.name;
         return await token;
