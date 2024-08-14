@@ -99,7 +99,7 @@ const options = {
       console.log(user);
       console.log(profile);
       if(account.provider==="google" || account.provider==="github"){
-        const accountHolder = null;
+        let accountHolder = null;
         if(account.email) accountHolder=account;
         else if(profile.email) accountHolder=profile;
         else if(user.email) accountHolder=user;
