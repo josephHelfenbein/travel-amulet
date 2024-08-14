@@ -26,27 +26,25 @@ const Home: NextPage = () => {
           html, body { background-color: #bae6f7; }
         `}} />
           <Suspense fallback={ <div
-              className='d-flex mt-5 pt-5 justify-content-center'
+              className='position-absolute top-50 start-50 translate-middle'
               style={{zIndex:600, position:'fixed'}}>
                 <GridLoader
-                color="#1a2c62"
+                color="#ffffff"
                 margin={2}
-                size={25}   
+                size={50}   
                 />
             </div>
           }>
-            
-            
-          <div className={styles.threecontainer}>
-            <ThreeScene />
-            </div>
-          <IntroCard />
-          <InfoTextCard />
-          <InfoTextCard2 />
-          <InfoTextCard3 />
-          <EndingInfoScreen />
-          <BottomText />
-        </Suspense>
+            <div className={styles.threecontainer}>
+              <ThreeScene />
+              </div>
+            <IntroCard />
+            <InfoTextCard />
+            <InfoTextCard2 />
+            <InfoTextCard3 />
+            <EndingInfoScreen />
+            <BottomText />
+          </Suspense>
       </main>
     </>
   );
