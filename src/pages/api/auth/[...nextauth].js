@@ -96,6 +96,7 @@ const options = {
     async signIn ({user, account, profile}) {
       try{if(account.provider==="google" || account.provider==="github"){
         const {email, name, image, id} = profile;
+        if(!email) throw new Error('Email not provided by OAuth');
         const userExists = await fetch(
           `${process.env.NEXTAUTH_URL}/api/user/${email}`,{
             method: "GET",
