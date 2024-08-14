@@ -8,6 +8,7 @@ import styles from '../components/login-form.module.css';
 import { IntroCard } from 'src/components/info-card';
 import { InfoTextCard, InfoTextCard2, InfoTextCard3, EndingInfoScreen } from 'src/components/infoTextCard';
 import { BottomText } from 'src/components/bottom-text';
+import { GridLoader } from 'react-spinners';
 
 const Home: NextPage = () => {
 
@@ -24,10 +25,21 @@ const Home: NextPage = () => {
         <style dangerouslySetInnerHTML={{__html: `
           html, body { background-color: #bae6f7; }
         `}} />
-        <Suspense fallback={'Loading scene...'}>
+          <Suspense fallback={ <div
+              className='d-flex mt-5 pt-5 justify-content-center'
+              style={{zIndex:600, position:'fixed'}}>
+                <GridLoader
+                color="#1a2c62"
+                margin={2}
+                size={25}   
+                />
+            </div>
+          }>
+            
+            
           <div className={styles.threecontainer}>
             <ThreeScene />
-          </div>
+            </div>
           <IntroCard />
           <InfoTextCard />
           <InfoTextCard2 />

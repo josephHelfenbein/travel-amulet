@@ -14,6 +14,9 @@
     padding-bottom:20px;
     border-radius: 35px;
 }
+.dropdownIcon:active>svg{
+    fill:white;
+}
 .inputForm{
     border-radius: 10px;
     border: 2px solid #e4e4e4;
