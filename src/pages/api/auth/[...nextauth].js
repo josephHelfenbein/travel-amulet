@@ -130,7 +130,7 @@ const options = {
             data:{
               provider: account.provider,
               providerAccountId: account.providerAccountId,
-              userId: dbUser.id
+              user: {connect:{id:dbUser.id}}
             }
           });
         }
