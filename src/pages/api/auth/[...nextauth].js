@@ -95,8 +95,15 @@ const options = {
         return await token;
     },
     signIn: async ({user, account, profile}) => {
+      console.log(account);
+      console.log(user);
+      console.log(profile);
       if(account.provider==="google" || account.provider==="github"){
-        const {email, name, image, id} = profile;
+        const accountHolder = null;
+        if(account.email) accountHolder=account;
+        else if(profile.email) accountHolder=profile;
+        else if(user.email) accountHolder=user;
+        const {email, name, image, id} = accountHolder;
         let userExists = await fetchUserExistsEmail(email);
         if(!userExists) {
           const generatePassword = () =>{
