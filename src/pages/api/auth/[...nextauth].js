@@ -93,15 +93,10 @@ const options = {
       try{if(account.provider==="google" || account.provider==="github"){
         const {email, name, image, id} = profile;
         if(!email) throw new Error('Email not provided by OAuth');
-        const userExists = await fetch(
-          `${process.env.NEXTAUTH_URL}/api/user/${email}`,{
-            method: "GET",
-            headers:{
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        if (userExists.status !== 200){
+        let dbUser = await prisma.user.findUnique({
+          where: { email }
+        });
+        if (!dbUser){
           const generatePassword = () =>{
             let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()0123456789';
             let newPassword = "";
@@ -110,23 +105,36 @@ const options = {
             }
             return newPassword;
           }
-          const newUser = await fetch(
-            `${process.env.NEXTAUTH_URL}/api/user`,{
-              method: "POST",
-              body: {
-                name: name, 
-                email: email, 
-                country: '', 
-                password: generatePassword(), 
-                preferences:'', 
-                results:''
-              },
-              headers:{
-                "Content-Type": "application/json",
-              },
+          dbUser = await prisma.user.create({
+            data: {
+              email,
+              name,
+              image,
+              country: '',
+              password: generatePassword(),
+              preferences: '',
+              results:''
             }
-          );
+          });
         }
+        const existingAccount = await prisma.account.findUnique({
+          where: {
+            provider_providerAccountId: {
+              provider: account.provider,
+              providerAccountId: account.providerAccountId,
+            }
+          }
+        });
+        if(!existingAccount){
+          await prisma.account.create({
+            data:{
+              provider: account.provider,
+              providerAccountId: account.providerAccountId,
+              userId: dbUser.id
+            }
+          });
+        }
+        
         return true;
       }
       if(account.provider === "credentials") return true;
