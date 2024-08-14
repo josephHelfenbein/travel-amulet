@@ -39,18 +39,12 @@ const options = {
         },
     }),
     GoogleProvider({
-      id: "google",
-      clientId: `${process.env.GOOGLE_CLIENT_ID}`,
-      clientSecret: `${process.env.GOOGLE_CLIENT_SECRET}`, 
-      allowDangerousEmailAccountLinking: true,
-      checks: ['none'],
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
     }),
     GithubProvider({
-      id: "github",
-      clientId: `${process.env.GITHUB_CLIENT_ID}`,
-      clientSecret: `${process.env.GITHUB_CLIENT_SECRET}`,
-      allowDangerousEmailAccountLinking: true,
-      checks: ['none'],
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
   ],
 
@@ -94,16 +88,9 @@ const options = {
           token.user.name = session.name;
         return await token;
     },
-    signIn: async ({user, account, profile}) => {
-      console.log(account);
-      console.log(user);
-      console.log(profile);
-      if(account.provider==="google" || account.provider==="github"){
-        let accountHolder = null;
-        if(account.email) accountHolder=account;
-        else if(profile.email) accountHolder=profile;
-        else if(user.email) accountHolder=user;
-        const {email, name, image, id} = accountHolder;
+    async signIn ({user, account, profile}) {
+      try{if(account.provider==="google" || account.provider==="github"){
+        const {email, name, image, id} = profile;
         let userExists = await fetchUserExistsEmail(email);
         if(!userExists) {
           const generatePassword = () =>{
@@ -126,7 +113,10 @@ const options = {
         return true;
       }
       if(account.provider === "credentials") return true;
-      else return false;
+      else return false;}
+      catch(error){console.error("Sign-in error:", error);
+        return false;
+      }
     }
   },
   async redirect({url, baseUrl}){
