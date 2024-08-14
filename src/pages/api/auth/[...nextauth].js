@@ -4,7 +4,6 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import GithubProvider from 'next-auth/providers/github';
 import prisma from '../../../../lib/prisma';
-import {fetchUserExistsEmail, postUser} from '../../../../lib/http';
 
 let userAcc;
 const options = {

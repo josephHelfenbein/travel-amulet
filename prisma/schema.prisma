@@ -43,6 +43,7 @@ model User {
   country   String  @db.VarChar(2)
   preferences String @db.VarChar(255)
   results String @db.VarChar(255)
+  image   String? @db.VarChar(255)
   sessions Session[]
 
 	@@map("users")
