@@ -130,7 +130,8 @@ const options = {
             data:{
               provider: account.provider,
               providerAccountId: account.providerAccountId,
-              user: {connect:{id:dbUser.id}}
+              user: {connect:{id:dbUser.id}},
+              type: 'oauth',
             }
           });
         }
