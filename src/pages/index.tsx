@@ -29,7 +29,7 @@ const Home: NextPage = () => {
               className='position-absolute top-50 start-50 translate-middle'
               style={{zIndex:600, position:'fixed'}}>
                 <GridLoader
-                color="#ffffff"
+                color="#0a9396"
                 margin={2}
                 size={50}   
                 />
