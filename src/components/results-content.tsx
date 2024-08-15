@@ -6,6 +6,7 @@ import axios from "axios";
 import { countryOptions } from "./countryoptions";
 import styles from './login-form.module.css';
 import {fetchCountryData, gptRequest} from '../../lib/http';
+import { SyncLoader } from "react-spinners";
 
 const countriesMap = new Map();
 for(let i=0; i<countryOptions.length; i++){
@@ -132,8 +133,16 @@ export default function ResultsContent(){
                 <p>{description}</p>
                </div>
                <div className='mb-5'>
+                
                <h5  className="bd-highlight" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>{`Why ${countryCodeToName(foundCountry)}?`}</h5>
-                <p>{explanation}</p>
+                {explanation != '' && 
+                    <p>{explanation}</p>
+                }
+                {explanation == '' &&
+                <div className='d-flex justify-content-center p-3'>
+                    <SyncLoader color="#b4b4b4" />
+                    </div>
+                }
                </div>
                
                <div className='d-flex justify-content-center mb-1'>
