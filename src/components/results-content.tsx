@@ -67,18 +67,13 @@ export default function ResultsContent(){
         setFoundCountry(randomCountry().value);
     }, []);
     useEffect(()=>{
-        if(foundCountry!=='')
-        {
-            const prompt = "How does the country "+foundCountry+" fit this prompt? Keep it short and simple, and in paragraph form. Don't mention that it's a prompt. Prompt: "+"Find a country with cold weather, with hot spicy food, with an LGBTQ+ equality index of over 75, with a crime index of under 4.5, with landmarks, with broadband download speed of over 50 Mbps, with a tap water index of over 60, with political stability and no political tensions, and specifically not Bangladesh, Libya, Lebanon, Afghanistan, Somalia, Iran, Yemen, Syria, Russia, Myanmar, Venezuela, Iraq, South Sudan, Mali, Central African Republic, Burkina Faso, Haiti, Belarus, North Korea, Ukraine, Sudan, Mexico, Israel, Palestine State, or United States.";
+        if(foundCountry!==''){
+            const prompt = "Explain how "+foundCountry+" fit this prompt. Don't find another country, use "+foundCountry+". Keep it short and simple, and in paragraph form. Don't mention that it's a prompt. Prompt: "+"Find a country with cold weather, with hot spicy food, with an LGBTQ+ equality index of over 75, with a crime index of under 4.5, with landmarks, with broadband download speed of over 50 Mbps, with a tap water index of over 60, with political stability and no political tensions, and specifically not Bangladesh, Libya, Lebanon, Afghanistan, Somalia, Iran, Yemen, Syria, Russia, Myanmar, Venezuela, Iraq, South Sudan, Mali, Central African Republic, Burkina Faso, Haiti, Belarus, North Korea, Ukraine, Sudan, Mexico, Israel, Palestine State, or United States.";
             gptRequest({prompt}).then(async(res)=>{
                 if(res.content){
                     setExplanation(res.content);
                 }
             });
-        }
-    }, [foundCountry]);
-    useEffect(()=>{
-        if(foundCountry!=='')
         fetchCountryData(foundCountry).then(async(res)=>{
             if(res.content){
                 let bufferItem = res.content.description;
@@ -104,6 +99,7 @@ export default function ResultsContent(){
                 setPolitics(bufferString);
             }
         })
+    }
     }, [foundCountry]);
     return (
         <div>
