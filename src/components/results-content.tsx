@@ -3,12 +3,7 @@ import {useRouter} from "next/router";
 import {useSession} from 'next-auth/react';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {changeUserName, changeUserCountry} from '../../lib/http';
-import { Form, Formik, FormikHelpers, Field } from "formik";
-import FormikSelect from "./FormikSelect";
 import { countryOptions } from "./countryoptions";
-import validationSchema from "./validationSchema";
-import styles from './login-form.module.css';
 import {fetchCountryData} from '../../lib/http';
 
 const countriesMap = new Map();
@@ -97,7 +92,7 @@ export default function ResultsContent(){
         })
     }, [foundCountry]);
     return (
-        <div className={styles.results_box}>
+        <div>
                 {onMobile &&
                 <div className='d-flex mb-5 justify-content-center'>
                     <svg className="bd-highlight p-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#505050" height="52px" >
@@ -120,7 +115,7 @@ export default function ResultsContent(){
                         style={{boxShadow: '0px 0px 10px #d6d6d6'}}
                         src={`https://flagcdn.com/${foundCountry.toLowerCase()}.svg`}
                         width="128"
-                        alt={`${foundCountry}`}
+                        alt={`${countryCodeToName(foundCountry)}`}
                         />
                 </div>
                <div className='mb-5'>
