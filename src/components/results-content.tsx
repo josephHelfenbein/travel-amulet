@@ -4,7 +4,8 @@ import {useSession} from 'next-auth/react';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { countryOptions } from "./countryoptions";
-import {fetchCountryData} from '../../lib/http';
+import styles from './login-form.module.css';
+import {fetchCountryData, gptRequest} from '../../lib/http';
 
 const countriesMap = new Map();
 for(let i=0; i<countryOptions.length; i++){
@@ -60,9 +61,22 @@ export default function ResultsContent(){
     const [currency, setCurrency] = useState('');
     const [language, setLanguage] = useState('');
     const [politics, setPolitics] = useState('');
+
+    const[explanation, setExplanation] = useState('');
     useEffect(()=>{
         setFoundCountry(randomCountry().value);
     }, []);
+    useEffect(()=>{
+        if(foundCountry!=='')
+        {
+            const prompt = "How does the country "+foundCountry+" fit this prompt? Keep it short and simple, and in paragraph form. Don't mention that it's a prompt. Prompt: "+"Find a country with cold weather, with hot spicy food, with an LGBTQ+ equality index of over 75, with a crime index of under 4.5, with landmarks, with broadband download speed of over 50 Mbps, with a tap water index of over 60, with political stability and no political tensions, and specifically not Bangladesh, Libya, Lebanon, Afghanistan, Somalia, Iran, Yemen, Syria, Russia, Myanmar, Venezuela, Iraq, South Sudan, Mali, Central African Republic, Burkina Faso, Haiti, Belarus, North Korea, Ukraine, Sudan, Mexico, Israel, Palestine State, or United States.";
+            gptRequest({prompt}).then(async(res)=>{
+                if(res.content){
+                    setExplanation(res.content);
+                }
+            });
+        }
+    }, [foundCountry]);
     useEffect(()=>{
         if(foundCountry!=='')
         fetchCountryData(foundCountry).then(async(res)=>{
@@ -120,6 +134,10 @@ export default function ResultsContent(){
                 </div>
                <div className='mb-5'>
                 <p>{description}</p>
+               </div>
+               <div className='mb-5'>
+               <h5  className="bd-highlight" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>{`Why ${countryCodeToName(foundCountry)}?`}</h5>
+                <p>{explanation}</p>
                </div>
                
                <div className='d-flex justify-content-center mb-1'>

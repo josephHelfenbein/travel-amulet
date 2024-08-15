@@ -95,6 +95,23 @@ export async function fetchCountryData(id:string): Promise<{
     return {error, content:null};
   }
 }
+export async function gptRequest(params:{prompt:string}): Promise<{
+  content:string|null;
+  error?:any;
+}>{
+  try{
+    const response = await axios.post(`/api/openai`, params);
+    if (response.status !== 200) {
+      throw new Error(`${response.status} - ${response.data}`);
+    }
+    if(!response) throw new Error('Not found!');
+    return {content: response.data};
+  }
+  catch(error){
+    console.error(error);
+    return {error, content:null};
+  }
+}
 export async function postUser(
   params: {name: string, email: string, country: string, password:string, preferences:string, results:string}
 ): Promise<{
