@@ -3,7 +3,7 @@ import {useRouter} from "next/router";
 import {useSession} from 'next-auth/react';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {changeUserName, changeUserCountry} from '../../lib/http';
+import {changeUserName, changeUserCountry, clearResults} from '../../lib/http';
 import { Form, Formik, FormikHelpers, Field } from "formik";
 import FormikSelect from "./FormikSelect";
 import { countryOptions } from "./countryoptions";
@@ -18,15 +18,26 @@ for(let i=0; i<countryOptions.length; i++){
 function countryCodeToName(code:string){
     return countriesMap.get(code);
 }
-function resultsList(results:string){
-    let returnList = [<div></div>];
-    for(let i=0; i<results.length; i+=2){
+function resultsList(results:string, email:string, setError:Function){
+    let returnList = [<div key='0'></div>];
+    let currentKey=1;
+    for(let i=results.length-1; i>=0; i-=2){
         returnList.push(
-            <div style={{backgroundColor:'#fefefe', borderRadius: '10px', borderStyle: 'solid', border: '2px solid #e4e4e4'}} className="mb-1 m-3 p-3">
-                <p className='mb-1'>{countryCodeToName(results.substring(i, i+2))}</p>
+            <div key={`${currentKey++}`} style={{backgroundColor:'#fefefe', borderRadius: '10px', borderStyle: 'solid', border: '2px solid #e4e4e4'}} className="mb-1 m-3 p-3">
+                <p key={`${currentKey++}`} className='mb-1'>{countryCodeToName(results.substring(i-1, i+1))}</p>
             </div>
         )
     }
+    returnList.push(
+        <div key={`${currentKey++}`} onClick={
+            async ()=>{
+                const res = await clearResults({email:email, clearResults:true});
+                if(res.content) setError('Results list cleared.');
+            }
+        }style={{borderRadius: '10px', borderStyle: 'solid', border: '2px solid #e4e4e4', width:'100%', padding:'25px'}} className="mb-1 p-3 btn btn-danger">
+                <p key={`${currentKey++}`} className='mb-1'>Clear Result List</p>
+        </div>
+    )
     return returnList;
 }
 
@@ -45,6 +56,7 @@ export default function AccountSettings(){
 
     const [showResults, setResultsShow] = useState(false);
     const [results, setResults] = useState('');
+    const [resultsError, setResultsError] = useState('');
     useEffect(() => {
         axios.get('/api/auth/session').then(async (res) =>{
             if(res){
@@ -146,8 +158,11 @@ export default function AccountSettings(){
                     </svg>}
                     </a>
                     {showResults && 
-                        resultsList(results)
-                        }
+                        resultsList(results, email, setResultsError)
+                    }{
+                        resultsError!=='' && 
+                            <p className="mt-2">{resultsError}</p>
+                    }
                     </div>
                 </Form>
                 
