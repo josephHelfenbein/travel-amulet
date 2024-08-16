@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { countryOptions } from "./countryoptions";
 import styles from './login-form.module.css';
-import {fetchCountryData, gptRequest} from '../../lib/http';
+import {fetchCountryData, gptRequest, newResult} from '../../lib/http';
 import { SyncLoader } from "react-spinners";
 
 const countriesMap = new Map();
@@ -79,6 +79,8 @@ export default function ResultsContent(){
             const prompt = "Explain how "+foundCountry+" fit this prompt. Do not find another country, explain only "+foundCountry+". Keep it short and simple, and in paragraph form. Don't mention that it's a prompt, say it's from quiz results. Prompt: "+"Find a country with cold weather, with hot spicy food, with an LGBTQ+ equality index of over 75, with a crime index of under 4.5, with landmarks, with broadband download speed of over 50 Mbps, with a tap water index of over 60, with political stability and no political tensions, and specifically not Bangladesh, Libya, Lebanon, Afghanistan, Somalia, Iran, Yemen, Syria, Russia, Myanmar, Venezuela, Iraq, South Sudan, Mali, Central African Republic, Burkina Faso, Haiti, Belarus, North Korea, Ukraine, Sudan, Mexico, Israel, Palestine State, or United States.";
             gptRequest({prompt}).then(async(res)=>{
                 if(res.content){
+                    if(email)
+                        await newResult({country:foundCountry, email});
                     setExplanation(res.content);
                 }
             });

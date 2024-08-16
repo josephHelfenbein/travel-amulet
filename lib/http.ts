@@ -112,6 +112,21 @@ export async function gptRequest(params:{prompt:string}): Promise<{
     return {error, content:null};
   }
 }
+export async function newResult(params:{country:string, email:string}): Promise<{
+  content?:boolean;
+  error?:any;
+}>{
+  try {
+    const response = await axios.put(`/api/results`, params);
+    if (response.status !== 200) {
+      throw new Error(`${response.status} - ${response.data}`);
+    }
+    return { content: true };
+  } catch (error) {
+    console.error(error);
+    return { content:false, error };
+  }
+}
 export async function postUser(
   params: {name: string, email: string, country: string, password:string, preferences:string, results:string}
 ): Promise<{
