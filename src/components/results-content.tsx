@@ -63,13 +63,20 @@ export default function ResultsContent(){
     const [language, setLanguage] = useState('');
     const [politics, setPolitics] = useState('');
 
+    const [climateShow, setShowClimate] = useState(false);
+    const [cuisineShow, setShowCuisine] = useState(false);
+    const [cultureShow, setShowCulture] = useState(false);
+    const [currencyShow, setShowCurrency] = useState(false);
+    const [languageShow, setShowLanguage] = useState(false);
+    const [politicsShow, setShowPolitics] = useState(false);
+
     const[explanation, setExplanation] = useState('');
     useEffect(()=>{
         setFoundCountry(randomCountry().value);
     }, []);
     useEffect(()=>{
         if(foundCountry!==''){
-            const prompt = "Explain how "+foundCountry+" fit this prompt. Don't find another country, use "+foundCountry+". Keep it short and simple, and in paragraph form. Don't mention that it's a prompt. Prompt: "+"Find a country with cold weather, with hot spicy food, with an LGBTQ+ equality index of over 75, with a crime index of under 4.5, with landmarks, with broadband download speed of over 50 Mbps, with a tap water index of over 60, with political stability and no political tensions, and specifically not Bangladesh, Libya, Lebanon, Afghanistan, Somalia, Iran, Yemen, Syria, Russia, Myanmar, Venezuela, Iraq, South Sudan, Mali, Central African Republic, Burkina Faso, Haiti, Belarus, North Korea, Ukraine, Sudan, Mexico, Israel, Palestine State, or United States.";
+            const prompt = "Explain how "+foundCountry+" fit this prompt. Do not find another country, explain only "+foundCountry+". Keep it short and simple, and in paragraph form. Don't mention that it's a prompt, say it's from quiz results. Prompt: "+"Find a country with cold weather, with hot spicy food, with an LGBTQ+ equality index of over 75, with a crime index of under 4.5, with landmarks, with broadband download speed of over 50 Mbps, with a tap water index of over 60, with political stability and no political tensions, and specifically not Bangladesh, Libya, Lebanon, Afghanistan, Somalia, Iran, Yemen, Syria, Russia, Myanmar, Venezuela, Iraq, South Sudan, Mali, Central African Republic, Burkina Faso, Haiti, Belarus, North Korea, Ukraine, Sudan, Mexico, Israel, Palestine State, or United States.";
             gptRequest({prompt}).then(async(res)=>{
                 if(res.content){
                     setExplanation(res.content);
@@ -145,47 +152,115 @@ export default function ResultsContent(){
                 }
                </div>
                
-               <div className='d-flex justify-content-center mb-1'>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e08550" height="52px" >
-                        <path d="M440-760v-160h80v160h-80Zm266 110-56-56 113-114 56 57-113 113Zm54 210v-80h160v80H760Zm3 299L650-254l56-56 114 112-57 57ZM254-650 141-763l57-57 112 114-56 56Zm-14 450h180q25 0 42.5-17.5T480-260q0-25-17-42.5T421-320h-51l-20-48q-14-33-44-52.5T240-440q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T40-320q0-83 58.5-141.5T240-520q60 0 109.5 32.5T423-400q58 0 97.5 43T560-254q-2 57-42.5 95.5T420-120H240Zm320-134q-5-20-10-39t-10-39q45-19 72.5-59t27.5-89q0-66-47-113t-113-47q-60 0-105 39t-53 99q-20-5-41-9t-41-9q14-88 82.5-144T480-720q100 0 170 70t70 170q0 77-44 138.5T560-254Zm-79-226Z"></path>
-                </svg>
-                </div>
-                <p className='mb-5'>{climate}</p>
+               <div style={{backgroundColor:'#fefefe', borderRadius: '10px', borderStyle: 'solid', border: '2px solid #e4e4e4'}} className="mb-1 m-3 p-3">
+                    <a onClick={()=>{
+                        setShowClimate(!climateShow);
+                    }} className='d-flex justify-content-center p-2'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e08550" height="52px" >
+                            <path d="M440-760v-160h80v160h-80Zm266 110-56-56 113-114 56 57-113 113Zm54 210v-80h160v80H760Zm3 299L650-254l56-56 114 112-57 57ZM254-650 141-763l57-57 112 114-56 56Zm-14 450h180q25 0 42.5-17.5T480-260q0-25-17-42.5T421-320h-51l-20-48q-14-33-44-52.5T240-440q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T40-320q0-83 58.5-141.5T240-520q60 0 109.5 32.5T423-400q58 0 97.5 43T560-254q-2 57-42.5 95.5T420-120H240Zm320-134q-5-20-10-39t-10-39q45-19 72.5-59t27.5-89q0-66-47-113t-113-47q-60 0-105 39t-53 99q-20-5-41-9t-41-9q14-88 82.5-144T480-720q100 0 170 70t70 170q0 77-44 138.5T560-254Zm-79-226Z"></path>
+                    </svg>
+                    <h5  className="bd-highlight p-2" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>Climate</h5>
+                    {!climateShow && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+                    </svg>}
+                    {climateShow && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                            <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"></path>
+                    </svg>}
+                    </a>
 
-               <div className='d-flex justify-content-center mb-1'>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a05050" height="52px" >
-                        <path d="M280-80v-366q-51-14-85.5-56T160-600v-280h80v280h40v-280h80v280h40v-280h80v280q0 56-34.5 98T360-446v366h-80Zm400 0v-320H560v-280q0-83 58.5-141.5T760-880v800h-80Z"></path>
-                </svg>
-                </div>
-                <p className='mb-5'>{cuisine}</p>
-
-                <div className='d-flex justify-content-center mb-1'>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#5050a0" height="52px" >
-                        <path d="M0-240v-63q0-43 44-70t116-27q13 0 25 .5t23 2.5q-14 21-21 44t-7 48v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780Zm-455-80h311q-10-20-55.5-35T480-370q-55 0-100.5 15T325-320ZM160-440q-33 0-56.5-23.5T80-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-440Zm640 0q-33 0-56.5-23.5T720-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-440Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm0-80q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Zm1 240Zm-1-280Z"></path>
-                </svg>
-                </div>
-                <p className='mb-5'>{culture}</p>
+                {climateShow && <p className='mb-5'>{climate}</p>}
+               </div>
                
-                <div className='d-flex justify-content-center mb-1'>
+               <div style={{backgroundColor:'#fefefe', borderRadius: '10px', borderStyle: 'solid', border: '2px solid #e4e4e4'}} className="mb-1 m-3 p-3">
+                    <a onClick={()=>{
+                        setShowCuisine(!cuisineShow);
+                    }} className='d-flex justify-content-center p-2'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a05050" height="52px" >
+                            <path d="M280-80v-366q-51-14-85.5-56T160-600v-280h80v280h40v-280h80v280h40v-280h80v280q0 56-34.5 98T360-446v366h-80Zm400 0v-320H560v-280q0-83 58.5-141.5T760-880v800h-80Z"></path>
+                    </svg>
+                    <h5  className="bd-highlight p-2" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>Cuisine</h5>
+                        {!cuisineShow&& <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+                    </svg>}
+                    {cuisineShow&& <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                            <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"></path>
+                    </svg>}
+                    </a>
+                    {cuisineShow && <p className='mb-5'>{cuisine}</p>}
+                </div>
+               
+                <div style={{backgroundColor:'#fefefe', borderRadius: '10px', borderStyle: 'solid', border: '2px solid #e4e4e4'}} className="mb-1 m-3 p-3">
+                    <a onClick={()=>{
+                        setShowCulture(!cultureShow);
+                    }} className='d-flex justify-content-center p-2'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#5050a0" height="52px" >
+                            <path d="M0-240v-63q0-43 44-70t116-27q13 0 25 .5t23 2.5q-14 21-21 44t-7 48v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780Zm-455-80h311q-10-20-55.5-35T480-370q-55 0-100.5 15T325-320ZM160-440q-33 0-56.5-23.5T80-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-440Zm640 0q-33 0-56.5-23.5T720-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-440Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm0-80q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Zm1 240Zm-1-280Z"></path>
+                    </svg>
+                    <h5  className="bd-highlight p-2" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>Society</h5>
+                    {!cultureShow && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+                    </svg>}
+                    {cultureShow && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                            <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"></path>
+                    </svg>}
+                    </a>
+                    {cultureShow && <p className='mb-5'>{culture}</p>}
+                </div>
+                
+                <div style={{backgroundColor:'#fefefe', borderRadius: '10px', borderStyle: 'solid', border: '2px solid #e4e4e4'}} className="mb-1 m-3 p-3">
+                    <a onClick={()=>{
+                        setShowCurrency(!currencyShow);
+                    }} className='d-flex justify-content-center p-2'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#509050" height="52px" >
                         <path d="M560-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM280-320q-33 0-56.5-23.5T200-400v-320q0-33 23.5-56.5T280-800h560q33 0 56.5 23.5T920-720v320q0 33-23.5 56.5T840-320H280Zm80-80h400q0-33 23.5-56.5T840-480v-160q-33 0-56.5-23.5T760-720H360q0 33-23.5 56.5T280-640v160q33 0 56.5 23.5T360-400Zm440 240H120q-33 0-56.5-23.5T40-240v-440h80v440h680v80ZM280-400v-320 320Z"></path>
                 </svg>
-                </div>
-                <p className='mb-5'>{currency}</p>
-              
-                <div className='d-flex justify-content-center mb-1'>
+                <h5  className="bd-highlight p-2" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>Currency</h5>
+                {!currencyShow && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+                </svg>}
+                {currencyShow && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                            <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"></path>
+                    </svg>}
+                </a>
+                {currencyShow && <p className='mb-5'>{currency}</p>}
+               </div>
+                
+               <div style={{backgroundColor:'#fefefe', borderRadius: '10px', borderStyle: 'solid', border: '2px solid #e4e4e4'}} className="mb-1 m-3 p-3">
+                    <a onClick={()=>{
+                        setShowLanguage(!languageShow);
+                    }} className='d-flex justify-content-center p-2'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#6090c0" height="52px" >
                         <path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Zm0-82q26-36 45-75t31-83H404q12 44 31 83t45 75Zm-104-16q-18-33-31.5-68.5T322-320H204q29 50 72.5 87t99.5 55Zm208 0q56-18 99.5-55t72.5-87H638q-9 38-22.5 73.5T584-178ZM170-400h136q-3-20-4.5-39.5T300-480q0-21 1.5-40.5T306-560H170q-5 20-7.5 39.5T160-480q0 21 2.5 40.5T170-400Zm216 0h188q3-20 4.5-39.5T580-480q0-21-1.5-40.5T574-560H386q-3 20-4.5 39.5T380-480q0 21 1.5 40.5T386-400Zm268 0h136q5-20 7.5-39.5T800-480q0-21-2.5-40.5T790-560H654q3 20 4.5 39.5T660-480q0 21-1.5 40.5T654-400Zm-16-240h118q-29-50-72.5-87T584-782q18 33 31.5 68.5T638-640Zm-234 0h152q-12-44-31-83t-45-75q-26 36-45 75t-31 83Zm-200 0h118q9-38 22.5-73.5T376-782q-56 18-99.5 55T204-640Z"></path>
                 </svg>
-                </div>
-                <p className='mb-5'>{language}</p>
-               
-                <div className='d-flex justify-content-center mb-1'>
+                <h5  className="bd-highlight p-2" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>Language</h5>
+                {!languageShow && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+                </svg>}
+                {languageShow && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                            <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"></path>
+                    </svg>}
+                </a>
+                {languageShow && <p className='mb-5'>{language}</p>}
+              </div>
+                
+              <div style={{backgroundColor:'#fefefe', borderRadius: '10px', borderStyle: 'solid', border: '2px solid #e4e4e4'}} className="mb-1 m-3 p-3">
+                    <a onClick={()=>{
+                        setShowPolitics(!politicsShow);
+                    }} className='d-flex justify-content-center p-2'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#7050a0" height="52px" >
                         <path d="M200-280v-280h80v280h-80Zm240 0v-280h80v280h-80ZM80-120v-80h800v80H80Zm600-160v-280h80v280h-80ZM80-640v-80l400-200 400 200v80H80Zm178-80h444-444Zm0 0h444L480-830 258-720Z"></path>
                 </svg>
-                </div>
-                <p className='mb-5'>{politics}</p>
+                <h5  className="bd-highlight p-2" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>Politics</h5>
+                {!politicsShow && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+                </svg>}
+                {politicsShow && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#a0a0a0" height="32px" >
+                            <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"></path>
+                    </svg>}
+                </a>
+                {politicsShow && <p className='mb-5'>{politics}</p>}
+               </div>
+                
         </div>
     );
 }

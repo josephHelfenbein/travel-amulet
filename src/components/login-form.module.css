@@ -51,10 +51,10 @@
     margin-left:5px;
     border-radius: 10px;
     border-style: solid;
+    border: 2px solid #e4e4e4;
     padding:10px;
     font-weight: 600;
     background-color: #046b6b;
-    border: 2px solid #e4e4e4;
 }
 .saveButton:hover{
     background-color: #084747;
