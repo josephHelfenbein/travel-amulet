@@ -291,7 +291,13 @@ export default function QuizForm() {
                     setTimeout((async () => {
                         if (error == '') changeUserPreferences({ email, preferences: encodeAnswers(values) });
                         const prompt = createPrompt(values);
-                        alert(prompt);
+
+                        // alert(prompt);
+                        
+                        axios.get('../api/vector_search', { params: { prompt } }).then((res) => {
+                            console.log(res.data);
+                        })
+
                         setSubmitting(false);
                     }), 500);
                 }}
