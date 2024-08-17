@@ -1,0 +1,1129 @@
+Andorra
+Continent: Europe
+Crime_Index: 3.22
+
+United Arab Emirates
+Continent: Asia
+Crime_Index: 6.37
+Download_Speed: 283.34
+Tap_Water_Index: 51.7
+
+Afghanistan
+Continent: Asia
+Crime_Index: 7.1
+Download_Speed: 3.56
+Tap_Water_Index: 27.8
+
+Antigua and Barbuda
+Continent: North America
+Crime_Index: 2.98
+Download_Speed: 40.24
+Tap_Water_Index: 45.2
+
+Albania
+Continent: Europe
+Crime_Index: 5.17
+Download_Speed: 63.61
+Tap_Water_Index: 50.3
+
+Armenia
+Continent: Asia
+Crime_Index: 2.82
+Download_Speed: 56.42
+Tap_Water_Index: 61.7
+
+Angola
+Continent: Africa
+Crime_Index: 5.58
+Download_Speed: 19.47
+Tap_Water_Index: 12
+
+Argentina
+Continent: South America
+Crime_Index: 5
+Download_Speed: 84.76
+Tap_Water_Index: 59.5
+
+Austria
+Continent: Europe
+Crime_Index: 4.13
+Download_Speed: 99.72
+Tap_Water_Index: 100
+
+Australia
+Continent: Oceania
+Crime_Index: 4
+Download_Speed: 66.58
+Tap_Water_Index: 81.2
+
+Azerbaijan
+Continent: Asia
+Crime_Index: 4.8
+Download_Speed: 39.87
+Tap_Water_Index: 46.5
+
+Bosnia and Herzegovina
+Continent: Europe
+Crime_Index: 5.85
+Download_Speed: 32.54
+Tap_Water_Index: 57.3
+
+Barbados
+Continent: North America
+Crime_Index: 3.07
+Download_Speed: 94.25
+Tap_Water_Index: 47.8
+
+Bangladesh
+Continent: Asia
+Crime_Index: 5.12
+Download_Speed: 47.43
+Tap_Water_Index: 26.9
+
+Belgium
+Continent: Europe
+Crime_Index: 4.43
+Download_Speed: 96.97
+Tap_Water_Index: 93
+
+Burkina Faso
+Continent: Africa
+Crime_Index: 5.92
+Download_Speed: 42.59
+Tap_Water_Index: 7.9
+
+Bulgaria
+Continent: Europe
+Crime_Index: 5.65
+Download_Speed: 80.76
+Tap_Water_Index: 58
+
+Bahrain
+Continent: Asia
+Crime_Index: 4.95
+Download_Speed: 84.51
+Tap_Water_Index: 50.1
+
+Burundi
+Continent: Africa
+Crime_Index: 4.87
+Tap_Water_Index: 5.4
+
+Benin
+Continent: Africa
+Crime_Index: 5.32
+Download_Speed: 24.23
+Tap_Water_Index: 13.6
+
+Brunei
+Continent: Asia
+Crime_Index: 2.85
+Download_Speed: 77.50
+Tap_Water_Index: 79.9
+
+Bolivia
+Continent: South America
+Crime_Index: 4.95
+Download_Speed: 33.19
+Tap_Water_Index: 38.5
+
+Brazil
+Continent: South America
+Crime_Index: 6.77
+Download_Speed: 160.82
+Tap_Water_Index: 45.2
+
+Bahamas
+Continent: North America
+Crime_Index: 3.75
+Download_Speed: 61.91
+Tap_Water_Index: 47.8
+
+Bhutan
+Continent: Asia
+Crime_Index: 3.9
+Tap_Water_Index: 31.5
+
+Botswana
+Continent: Africa
+Crime_Index: 4.35
+Download_Speed: 8.13
+Tap_Water_Index: 20.2
+
+Belarus
+Continent: Europe
+Crime_Index: 5.87
+Download_Speed: 63.06
+Tap_Water_Index: 60.7
+
+Belize
+Continent: North America
+Crime_Index: 4.87
+Download_Speed: 47.95
+Tap_Water_Index: 39.6
+
+Canada
+Continent: North America
+Crime_Index: 3.88
+Download_Speed: 189.74
+Tap_Water_Index: 90.9
+
+Democratic Republic of the Congo
+Continent: Africa
+Crime_Index: 7.35
+Download_Speed: 42.93
+Tap_Water_Index: 13.4
+
+Central African Republic
+Continent: Africa
+Crime_Index: 6.75
+
+Republic of the Congo
+Continent: Africa
+Crime_Index: 4.78
+Download_Speed: 44.92
+Tap_Water_Index: 14.5
+
+Switzerland
+Continent: Europe
+Crime_Index: 4.87
+Download_Speed: 203.52
+Tap_Water_Index: 100
+
+Côte dIvoire
+Continent: Africa
+Crime_Index: 6.02
+Download_Speed: 63.79
+Tap_Water_Index: 17
+
+Chile
+Continent: South America
+Crime_Index: 5.18
+Download_Speed: 274.46
+Tap_Water_Index: 66.8
+
+Cameroon
+Continent: Africa
+Crime_Index: 6.27
+Download_Speed: 10.48
+Tap_Water_Index: 7.5
+
+China
+Continent: Asia
+Crime_Index: 6.37
+Download_Speed: 233.38
+Tap_Water_Index: 58.4
+
+Colombia
+Continent: South America
+Crime_Index: 7.75
+Download_Speed: 143.68
+Tap_Water_Index: 50.1
+
+Costa Rica
+Continent: North America
+Crime_Index: 5.53
+Download_Speed: 93.99
+Tap_Water_Index: 55.3
+
+Cuba
+Continent: North America
+Crime_Index: 3.37
+Download_Speed: 12.85
+Tap_Water_Index: 46
+
+Cabo Verde
+Continent: Africa
+Crime_Index: 4.28
+Download_Speed: 13.06
+Tap_Water_Index: 34.5
+
+Cyprus
+Continent: Asia
+Crime_Index: 4.43
+Download_Speed: 80.77
+Tap_Water_Index: 91.7
+
+Czechia
+Continent: Europe
+Crime_Index: 4.68
+Download_Speed: 69.90
+Tap_Water_Index: 65.2
+
+Germany
+Continent: Europe
+Crime_Index: 5.33
+Download_Speed: 87.03
+Tap_Water_Index: 98.6
+
+Djibouti
+Continent: Africa
+Crime_Index: 4.65
+Download_Speed: 17.07
+Tap_Water_Index: 18.2
+
+Denmark
+Continent: Europe
+Crime_Index: 4.02
+Download_Speed: 228.46
+Tap_Water_Index: 95.8
+
+Dominica
+Continent: North America
+Crime_Index: 2.63
+Download_Speed: 87.57
+Tap_Water_Index: 43.5
+
+Dominican Republic
+Continent: North America
+Crime_Index: 5.02
+Download_Speed: 34.85
+Tap_Water_Index: 35.2
+
+Algeria
+Continent: Africa
+Crime_Index: 4.88
+Download_Speed: 12.28
+Tap_Water_Index: 49.1
+
+Ecuador
+Continent: South America
+Crime_Index: 7.07
+Download_Speed: 86.22
+Tap_Water_Index: 46.7
+
+Estonia
+Continent: Europe
+Crime_Index: 4.25
+Download_Speed: 81.26
+Tap_Water_Index: 59.2
+
+Egypt
+Continent: Africa
+Crime_Index: 5.05
+Download_Speed: 59.71
+Tap_Water_Index: 36.7
+
+Eritrea
+Continent: Africa
+Crime_Index: 3.97
+Tap_Water_Index: 6.4
+
+Spain
+Continent: Europe
+Crime_Index: 5.9
+Download_Speed: 188.49
+Tap_Water_Index: 94.8
+
+Ethiopia
+Continent: Africa
+Crime_Index: 5.68
+Download_Speed: 8.77
+Tap_Water_Index: 11.3
+
+Finland
+Continent: Europe
+Crime_Index: 2.98
+Download_Speed: 115.47
+Tap_Water_Index: 100
+
+Fiji
+Continent: Oceania
+Crime_Index: 4.15
+Download_Speed: 16.99
+Tap_Water_Index: 32
+
+Micronesia
+Continent: Oceania
+Crime_Index: 3
+Download_Speed: 11.94
+Tap_Water_Index: 33
+
+France
+Continent: Europe
+Crime_Index: 5.82
+Download_Speed: 187.10
+Tap_Water_Index: 93.8
+
+Gabon
+Continent: Africa
+Crime_Index: 4.85
+Download_Speed: 39.49
+Tap_Water_Index: 27.2
+
+United Kingdom
+Continent: Europe
+Crime_Index: 5.75
+Download_Speed: 82.80
+Tap_Water_Index: 100
+
+Grenada
+Continent: North America
+Crime_Index: 2.93
+Download_Speed: 80.38
+Tap_Water_Index: 44.4
+
+Georgia
+Continent: Europe, Asia
+Crime_Index: 3.6
+Download_Speed: 26.30
+Tap_Water_Index: 52.3
+
+Ghana
+Continent: Africa
+Crime_Index: 5.8
+Download_Speed: 31.06
+Tap_Water_Index: 20.4
+
+Gambia
+Continent: Africa
+Crime_Index: 4.53
+Download_Speed: 5.51
+Tap_Water_Index: 19
+
+Guinea
+Continent: Africa
+Crime_Index: 4.58
+Download_Speed: 10.34
+Tap_Water_Index: 11
+
+Equatorial Guinea
+Continent: Africa
+Crime_Index: 4.38
+Tap_Water_Index: 29.6
+
+Greece
+Continent: Europe
+Crime_Index: 5.35
+Download_Speed: 50.12
+Tap_Water_Index: 100
+
+Guatemala
+Continent: North America
+Crime_Index: 6.6
+Download_Speed: 49.24
+Tap_Water_Index: 27.2
+
+Guinea-Bissau
+Continent: Africa
+Crime_Index: 5.1
+Tap_Water_Index: 6.6
+
+Guyana
+Continent: South America
+Crime_Index: 5.97
+Download_Speed: 86.10
+Tap_Water_Index: 32.6
+
+Honduras
+Continent: North America
+Crime_Index: 7.05
+Download_Speed: 45.27
+Tap_Water_Index: 30.9
+
+Croatia
+Continent: Europe
+Crime_Index: 5.15
+Download_Speed: 68.11
+Tap_Water_Index: 63.3
+
+Haiti
+Continent: North America
+Crime_Index: 5.93
+Download_Speed: 36.66
+Tap_Water_Index: 13.9
+
+Hungary
+Continent: Europe
+Crime_Index: 4.62
+Download_Speed: 155.56
+Tap_Water_Index: 60.6
+
+Indonesia
+Continent: Asia
+Crime_Index: 6.85
+Download_Speed: 27.65
+Tap_Water_Index: 24.9
+
+Ireland
+Continent: Europe
+Crime_Index: 5.08
+Download_Speed: 93.28
+Tap_Water_Index: 100
+
+Israel
+Continent: Asia
+Crime_Index: 4.85
+Download_Speed: 192.88
+Tap_Water_Index: 93.8
+
+India
+Continent: Asia
+Crime_Index: 5.75
+Download_Speed: 54.56
+Tap_Water_Index: 18.3
+
+Iraq
+Continent: Asia
+Crime_Index: 7.13
+Download_Speed: 32.60
+Tap_Water_Index: 45.9
+
+Iran
+Continent: Asia
+Crime_Index: 7.03
+Download_Speed: 13.51
+Tap_Water_Index: 48.8
+
+Iceland
+Continent: Europe
+Crime_Index: 3.37
+Download_Speed: 259.72
+Tap_Water_Index: 100
+
+Italy
+Continent: Europe
+Crime_Index: 6.22
+Download_Speed: 66.81
+Tap_Water_Index: 97.8
+
+Jamaica
+Continent: North America
+Crime_Index: 5.8
+Download_Speed: 60.63
+Tap_Water_Index: 47.3
+
+Jordan
+Continent: Asia
+Crime_Index: 4.93
+Download_Speed: 132.03
+Tap_Water_Index: 54.4
+
+Japan
+Continent: Asia
+Crime_Index: 4.28
+Download_Speed: 157.05
+Tap_Water_Index: 91.8
+
+Kenya
+Continent: Africa
+Crime_Index: 7.02
+Download_Speed: 10.19
+Tap_Water_Index: 13.7
+
+Kyrgyzstan
+Continent: Asia
+Crime_Index: 5.32
+Download_Speed: 56.06
+Tap_Water_Index: 47.3
+
+Cambodia
+Continent: Asia
+Crime_Index: 6.85
+Download_Speed: 42.87
+Tap_Water_Index: 33.3
+
+Kiribati
+Continent: Oceania
+Crime_Index: 2.45
+Tap_Water_Index: 15.6
+
+Comoros
+Continent: Europe
+Crime_Index: 3.92
+Tap_Water_Index: 15.4
+
+Saint Kitts and Nevis
+Continent: North America
+Crime_Index: 3.52
+Download_Speed: 60.02
+
+North Korea
+Continent: Asia
+Crime_Index: 4.82
+
+South Korea
+Continent: Asia
+Crime_Index: 4.43
+Download_Speed: 170.94
+Tap_Water_Index: 84.6
+
+Kuwait
+Continent: Asia
+Crime_Index: 5.2
+Download_Speed: 166.42
+Tap_Water_Index: 57.2
+
+Kazakhstan
+Continent: Asia
+Crime_Index: 4.47
+Download_Speed: 50.70
+Tap_Water_Index: 56
+
+Laos
+Continent: Asia
+Crime_Index: 6.12
+Download_Speed: 32.68
+Tap_Water_Index: 26.1
+
+Lebanon
+Continent: Asia
+Crime_Index: 7.1
+Download_Speed: 11.24
+Tap_Water_Index: 46.8
+
+Saint Lucia
+Continent: North America
+Crime_Index: 3.53
+Download_Speed: 91.49
+Tap_Water_Index: 42.2
+
+Liechtenstein
+Continent: Europe
+Crime_Index: 2.27
+Download_Speed: 187.01
+
+Sri Lanka
+Continent: Asia
+Crime_Index: 4.92
+Download_Speed: 20.15
+Tap_Water_Index: 46.7
+
+Liberia
+Continent: Africa
+Crime_Index: 5.5
+Download_Speed: 9.23
+Tap_Water_Index: 9.5
+
+Lesotho
+Continent: Africa
+Crime_Index: 3.92
+Download_Speed: 24.14
+Tap_Water_Index: 7.2
+
+Lithuania
+Continent: Europe
+Crime_Index: 3.9
+Download_Speed: 111.17
+Tap_Water_Index: 57.4
+
+Luxembourg
+Continent: Europe
+Crime_Index: 2.85
+Download_Speed: 137.86
+Tap_Water_Index: 97.8
+
+Latvia
+Continent: Europe
+Crime_Index: 3.9
+Download_Speed: 91.78
+Tap_Water_Index: 57.7
+
+Libya
+Continent: Africa
+Crime_Index: 6.93
+Download_Speed: 11.99
+
+Morocco
+Continent: Africa
+Crime_Index: 4.8
+Download_Speed: 22.27
+Tap_Water_Index: 36.7
+
+Monaco
+Continent: Europe
+Crime_Index: 2.58
+Download_Speed: 236.00
+
+Moldova
+Continent: Europe
+Crime_Index: 5.6
+Download_Speed: 132.80
+Tap_Water_Index: 50.8
+
+Montenegro
+Continent: Europe
+Crime_Index: 5.9
+Download_Speed: 87.30
+Tap_Water_Index: 56.8
+
+Madagascar
+Continent: Africa
+Crime_Index: 5.58
+Download_Speed: 34.29
+Tap_Water_Index: 6.2
+
+Marshall Islands
+Continent: Oceania
+Crime_Index: 2.52
+Download_Speed: 22.05
+Tap_Water_Index: 30.3
+
+North Macedonia
+Continent: Europe
+Crime_Index: 5.03
+Download_Speed: 40.70
+Tap_Water_Index: 58.3
+
+Mali
+Continent: Africa
+Crime_Index: 5.93
+Download_Speed: 20.45
+Tap_Water_Index: 8.3
+
+Myanmar
+Continent: Asia
+Crime_Index: 8.15
+Download_Speed: 20.71
+Tap_Water_Index: 30
+
+Mongolia
+Continent: Asia
+Crime_Index: 4.12
+Download_Speed: 66.53
+Tap_Water_Index: 43.8
+
+Mauritania
+Continent: Africa
+Crime_Index: 4.38
+Download_Speed: 23.11
+Tap_Water_Index: 13.6
+
+Malta
+Continent: Europe
+Crime_Index: 5
+Download_Speed: 116.12
+Tap_Water_Index: 100
+
+Mauritius
+Continent: Africa
+Crime_Index: 4.37
+Download_Speed: 50.77
+Tap_Water_Index: 63.6
+
+Maldives
+Continent: Asia
+Crime_Index: 4.27
+Download_Speed: 12.40
+Tap_Water_Index: 44.2
+
+Malawi
+Continent: Africa
+Crime_Index: 4.48
+Download_Speed: 18.36
+Tap_Water_Index: 12.1
+
+Mexico
+Continent: North America
+Crime_Index: 7.57
+Download_Speed: 62.14
+Tap_Water_Index: 50
+
+Malaysia
+Continent: Asia
+Crime_Index: 6.23
+Download_Speed: 113.89
+Tap_Water_Index: 48.2
+
+Mozambique
+Continent: Africa
+Crime_Index: 6.2
+Download_Speed: 14.03
+Tap_Water_Index: 16.5
+
+Namibia
+Continent: Africa
+Crime_Index: 4.3
+Download_Speed: 13.89
+Tap_Water_Index: 18.9
+
+Niger
+Continent: Africa
+Crime_Index: 5.7
+Download_Speed: 6.16
+Tap_Water_Index: 1.7
+
+Nigeria
+Continent: Africa
+Crime_Index: 7.28
+Download_Speed: 19.91
+Tap_Water_Index: 4.3
+
+Nicaragua
+Continent: North America
+Crime_Index: 5.72
+Download_Speed: 52.78
+Tap_Water_Index: 42.2
+
+Netherlands
+Continent: Europe
+Crime_Index: 4.97
+Download_Speed: 143.20
+Tap_Water_Index: 100
+
+Norway
+Continent: Europe
+Crime_Index: 3.75
+Download_Speed: 136.21
+Tap_Water_Index: 100
+
+Nepal
+Continent: Asia
+Crime_Index: 6.57
+Download_Speed: 57.91
+Tap_Water_Index: 25.9
+
+Nauru
+Continent: Oceania
+Crime_Index: 2.05
+
+New Zealand
+Continent: Oceania
+Crime_Index: 4.08
+Download_Speed: 164.84
+Tap_Water_Index: 74.5
+
+Oman
+Continent: Asia
+Crime_Index: 4.4
+Download_Speed: 65.62
+Tap_Water_Index: 46.5
+
+Panama
+Continent: North America
+Crime_Index: 6.98
+Download_Speed: 151.68
+Tap_Water_Index: 41.7
+
+Peru
+Continent: South America
+Crime_Index: 6.4
+Download_Speed: 91.64
+Tap_Water_Index: 42.8
+
+Papua New Guinea
+Continent: Oceania
+Crime_Index: 5.72
+Download_Speed: 13.96
+Tap_Water_Index: 15.8
+
+Philippines
+Continent: Asia
+Crime_Index: 6.63
+Download_Speed: 83.09
+Tap_Water_Index: 34.4
+
+Pakistan
+Continent: Asia
+Crime_Index: 6.03
+Download_Speed: 14.04
+Tap_Water_Index: 15.3
+
+Poland
+Continent: Europe
+Crime_Index: 4.48
+Download_Speed: 154.68
+Tap_Water_Index: 65.7
+
+Palestine State
+Continent: Asia
+Download_Speed: 65.86
+
+Portugal
+Continent: Europe
+Crime_Index: 4.88
+Download_Speed: 172.83
+Tap_Water_Index: 85.7
+
+Palau
+Continent: Oceania
+Crime_Index: 2.7
+
+Paraguay
+Continent: South America
+Crime_Index: 7.52
+Download_Speed: 89.62
+Tap_Water_Index: 45.2
+
+Qatar
+Continent: Asia
+Crime_Index: 5.45
+Download_Speed: 136.89
+Tap_Water_Index: 57
+
+Romania
+Continent: Europe
+Crime_Index: 4.58
+Download_Speed: 212.53
+Tap_Water_Index: 55.4
+
+Serbia
+Continent: Europe
+Crime_Index: 6.22
+Download_Speed: 77.07
+Tap_Water_Index: 60.5
+
+Russia
+Continent: Europe, Asia
+Crime_Index: 6.87
+Download_Speed: 85.94
+Tap_Water_Index: 55.8
+
+Rwanda
+Continent: Africa
+Crime_Index: 3.6
+Download_Speed: 28.06
+Tap_Water_Index: 17
+
+Saudi Arabia
+Continent: Asia
+Crime_Index: 6.23
+Download_Speed: 108.73
+Tap_Water_Index: 51
+
+Solomon Islands
+Continent: Oceania
+Crime_Index: 4.4
+Tap_Water_Index: 14.4
+
+Seychelles
+Continent: Africa
+Crime_Index: 3.9
+Download_Speed: 29.15
+Tap_Water_Index: 45.8
+
+Sudan
+Continent: Africa
+Crime_Index: 6.37
+Download_Speed: 11.70
+Tap_Water_Index: 22.6
+
+Sweden
+Continent: Europe
+Crime_Index: 4.7
+Download_Speed: 154.37
+Tap_Water_Index: 97.9
+
+Singapore
+Continent: Asia
+Crime_Index: 3.47
+Download_Speed: 286.66
+Tap_Water_Index: 88.9
+
+Slovenia
+Continent: Europe
+Crime_Index: 4.37
+Download_Speed: 93.47
+Tap_Water_Index: 70.3
+
+Slovakia
+Continent: Europe
+Crime_Index: 4.72
+Download_Speed: 77.04
+Tap_Water_Index: 64.6
+
+Sierra Leone
+Continent: Africa
+Crime_Index: 4.95
+Download_Speed: 21.86
+Tap_Water_Index: 11.6
+
+San Marino
+Continent: Europe
+Crime_Index: 3.48
+Download_Speed: 100.17
+
+Senegal
+Continent: Africa
+Crime_Index: 5.52
+Download_Speed: 21.08
+Tap_Water_Index: 13
+
+Somalia
+Continent: Africa
+Crime_Index: 6.13
+Download_Speed: 13.19
+
+Suriname
+Continent: South America
+Crime_Index: 4.77
+Download_Speed: 12.25
+Tap_Water_Index: 35.4
+
+South Sudan
+Continent: Africa
+Crime_Index: 6.32
+
+Sao Tome and Principe
+Continent: Africa
+Crime_Index: 1.7
+Tap_Water_Index: 34.1
+
+El Salvador
+Continent: North America
+Crime_Index: 5.92
+Download_Speed: 50.30
+Tap_Water_Index: 40.8
+
+Syria
+Continent: Asia
+Crime_Index: 7.07
+Download_Speed: 3.71
+
+Eswatini
+Continent: Africa
+Crime_Index: 4.38
+Tap_Water_Index: 12.2
+
+Chad
+Continent: Africa
+Crime_Index: 5.5
+
+Togo
+Continent: Africa
+Crime_Index: 5.23
+Download_Speed: 29.07
+Tap_Water_Index: 4.9
+
+Thailand
+Continent: Asia
+Crime_Index: 6.18
+Download_Speed: 219.10
+Tap_Water_Index: 42.7
+
+Tajikistan
+Continent: Asia
+Crime_Index: 5.45
+Download_Speed: 24.86
+Tap_Water_Index: 31.7
+
+Timor-Leste
+Continent: Asia
+Crime_Index: 4.08
+Download_Speed: 4.81
+Tap_Water_Index: 26.2
+
+Turkmenistan
+Continent: Asia
+Crime_Index: 4.4
+Download_Speed: 7.53
+Tap_Water_Index: 47.7
+
+Tunisia
+Continent: Africa
+Crime_Index: 4.45
+Download_Speed: 9.41
+Tap_Water_Index: 49.1
+
+Tonga
+Continent: Oceania
+Crime_Index: 3.7
+Tap_Water_Index: 42.8
+
+Türkiye
+Continent: Asia, Europe
+Crime_Index: 7.03
+Download_Speed: 36.92
+Tap_Water_Index: 47
+
+Trinidad and Tobago
+Continent: South America
+Crime_Index: 5.2
+Download_Speed: 113.09
+Tap_Water_Index: 48.5
+
+Tuvalu
+Continent: Oceania
+Crime_Index: 1.62
+
+Tanzania
+Continent: Africa
+Crime_Index: 6.2
+Download_Speed: 17.79
+Tap_Water_Index: 18.4
+
+Ukraine
+Continent: Europe
+Crime_Index: 6.48
+Download_Speed: 75.70
+Tap_Water_Index: 55.1
+
+Uganda
+Continent: Africa
+Crime_Index: 6.55
+Download_Speed: 12.56
+Tap_Water_Index: 17.7
+
+United States
+Continent: North America
+Crime_Index: 5.67
+Download_Speed: 213.75
+Tap_Water_Index: 89.3
+
+Uruguay
+Continent: South America
+Crime_Index: 3.22
+Download_Speed: 142.77
+Tap_Water_Index: 61.8
+
+Uzbekistan
+Continent: Asia
+Crime_Index: 4.95
+Download_Speed: 65.76
+Tap_Water_Index: 54
+
+Holy See
+Continent: Europe
+Tap_Water_Index: 97.8
+
+Saint Vincent and the Grenadines
+Continent: North America
+Crime_Index: 3.08
+Download_Speed: 82.96
+Tap_Water_Index: 41.1
+
+Venezuela
+Continent: South America
+Crime_Index: 6.72
+Download_Speed: 44.86
+Tap_Water_Index: 43.6
+
+Vietnam
+Continent: Asia
+Crime_Index: 6.55
+Download_Speed: 107.24
+Tap_Water_Index: 50.9
+
+Vanuatu
+Continent: Oceania
+Crime_Index: 2.43
+Tap_Water_Index: 21.4
+
+Samoa
+Continent: Oceania
+Crime_Index: 2.43
+Tap_Water_Index: 40.4
+
+Yemen
+Continent: Asia
+Crime_Index: 6.57
+Download_Speed: 7.38
+
+South Africa
+Continent: Africa
+Crime_Index: 7.18
+Download_Speed: 42.29
+Tap_Water_Index: 23.4
+
+Zambia
+Continent: Africa
+Crime_Index: 4.73
+Download_Speed: 21.26
+Tap_Water_Index: 13.2
+
+Zimbabwe
+Continent: Africa
+Crime_Index: 5.47
+Download_Speed: 14.32
+Tap_Water_Index: 16.2
+
