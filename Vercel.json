@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/api/vector_search/(.*)", "destination": "/api/vector_search" }
+    { "source": "src/pages/api/vector_search/(.*)", "destination": "/api/vector_search" }
   ]
 }
