@@ -1,6 +1,6 @@
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity", "interactiveTransactions"]
+    provider        = "prisma-client-js"
+    previewFeatures = ["referentialIntegrity", "interactiveTransactions"]
 }
 
 // TiDB is highly compatible with the MySQL 5.7 protocol and the common features 
@@ -16,70 +16,71 @@ generator client {
 // Refercene: https://docs.pingcap.com/tidb/dev/mysql-compatibility
 
 datasource db {
-  provider             = "mysql"
-  url                  = env("DATABASE_URL")
-  referentialIntegrity = "prisma"
+    provider             = "mysql"
+    url                  = env("DATABASE_URL")
+    referentialIntegrity = "prisma"
 }
 
 // 
 // https://www.prisma.io/docs/concepts/components/prisma-schema/data-model
 
 model Session {
-  id           String   @id @default(cuid())
-  userId       Int
-  expires      DateTime
-  sessionToken String   @unique
-  accessToken  String   @unique
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  user         User     @relation(fields: [userId], references: [id])
+    id           String   @id @default(cuid())
+    userId       Int
+    expires      DateTime
+    sessionToken String   @unique
+    accessToken  String   @unique
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
+    user         User     @relation(fields: [userId], references: [id])
 }
 
 model User {
-  id       Int   @id @default(autoincrement())
-  email    String   @db.VarChar(255) @unique
-  password  String  @db.VarChar(255)
-  name    String    @db.VarChar(255)
-  country   String  @db.VarChar(2)
-  preferences String @db.VarChar(255)
-  results String @db.VarChar(255)
-  image   String? @db.VarChar(255)
-  sessions Session[]
-  accounts Account[]
+    id          Int       @id @default(autoincrement())
+    email       String    @unique @db.VarChar(255)
+    password    String    @db.VarChar(255)
+    name        String    @db.VarChar(255)
+    country     String    @db.VarChar(2)
+    preferences String    @db.VarChar(255)
+    results     String    @db.VarChar(255)
+    image       String?   @db.VarChar(255)
+    sessions    Session[]
+    accounts    Account[]
 
-	@@map("users")
+    @@map("users")
 }
 
 model Account {
-  id  Int  @id @default(autoincrement())
-  type  String
-  provider  String
-  providerAccountId String
-  token_type        String?
-  refresh_token     String?
-  access_token      String? 
-  id_token          String?
-  scope             String?
-  session_state     String?
-  expires_at        Int?
+    id                Int     @id @default(autoincrement())
+    type              String
+    provider          String
+    providerAccountId String
+    token_type        String?
+    refresh_token     String?
+    access_token      String?
+    id_token          String?
+    scope             String?
+    session_state     String?
+    expires_at        Int?
 
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId Int
+    user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId Int
 
-  @@unique([provider, providerAccountId])
-  @@map("account")
+    @@unique([provider, providerAccountId])
+    @@map("account")
 }
 
 model CountryData {
-  id  String  @id @db.VarChar(2)
-  description   Bytes
-  climate   Bytes
-  currency    Bytes
-  cuisine   Bytes
-  language    Bytes
-  culture   Bytes
-  politics    Bytes
-  @@map("countrydata")
+    id          String @id @db.VarChar(2)
+    description Bytes
+    climate     Bytes
+    currency    Bytes
+    cuisine     Bytes
+    language    Bytes
+    culture     Bytes
+    politics    Bytes
+
+    @@map("countrydata")
 }
 
 // Because special characters cannot be used in the schema definition of the data model.

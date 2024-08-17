@@ -5,7 +5,7 @@ import styles from 'src/components/login-form.module.css';
 import HeaderMain from 'src/components/header-main';
 import HeaderSecondary from 'src/components/header-secondary';
 
-const Home : NextPage = () => {
+const Home: NextPage = () => {
     return (
         <div>
             <Head>

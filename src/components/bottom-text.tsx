@@ -1,7 +1,7 @@
 import styles from './login-form.module.css';
 
 
-export function BottomText (){
+export function BottomText() {
     return (
         <div className={styles.bottomtext}>
             <div className="card-body p-5">

@@ -1,255 +1,299 @@
-.login_box{
+.login_box {
     width: 340px;
     background-image: linear-gradient(to top, #fafafa, #ffffff);
     box-shadow: 0px 15px 15px #e6e6e6;
-    padding:30px;
-    padding-bottom:20px;
+    padding: 30px;
+    padding-bottom: 20px;
     border-radius: 35px;
 }
-.account_box{
+
+.account_box {
     width: 540px;
     background-image: linear-gradient(to top, #fafafa, #ffffff);
     box-shadow: 0px 15px 15px #e6e6e6;
-    padding:30px;
-    padding-bottom:20px;
+    padding: 30px;
+    padding-bottom: 20px;
     border-radius: 35px;
 }
-.results_box{
+
+.results_box {
     width: 1000px;
     background-image: linear-gradient(to top, #fafafa, #ffffff);
     box-shadow: 0px 15px 15px #e6e6e6;
-    padding:30px;
-    padding-bottom:20px;
+    padding: 30px;
+    padding-bottom: 20px;
     border-radius: 35px;
 }
-.dropdownIcon:active>svg{
-    fill:white;
+
+.dropdownIcon:active>svg {
+    fill: white;
 }
-.inputForm{
+
+.inputForm {
     border-radius: 10px;
     border: 2px solid #e4e4e4;
 }
-.quiz_box{
+
+.quiz_box {
     width: 600px;
     background-image: linear-gradient(to top, #fafafa, #ffffff);
     box-shadow: 0px 15px 15px #e6e6e6;
-    padding:30px;
-    padding-bottom:20px;
-    margin-bottom:100px;
+    padding: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 100px;
     border-radius: 35px;
 }
-.buttonLogin{
-    width:125px;
-    margin-left:5px;
+
+.buttonLogin {
+    width: 125px;
+    margin-left: 5px;
     border-radius: 10px;
     border-style: solid;
-    padding:10px;
+    padding: 10px;
     font-weight: 600;
 }
-.saveButton{
-    width:80%;
-    margin-left:5px;
+
+.saveButton {
+    width: 80%;
+    margin-left: 5px;
     border-radius: 10px;
     border-style: solid;
     border: 2px solid #e4e4e4;
-    padding:10px;
+    padding: 10px;
     font-weight: 600;
     background-color: #046b6b;
 }
-.saveButton:hover{
+
+.saveButton:hover {
     background-color: #084747;
 }
-.headerButton{
-   background-color: #046b6b;
-   border-radius: 10px;
-   border: 2px solid #e4e4e4;
+
+.headerButton {
+    background-color: #046b6b;
+    border-radius: 10px;
+    border: 2px solid #e4e4e4;
 }
-.headerButton:hover{
+
+.headerButton:hover {
     background-color: #084747;
 }
-.buttonLogin#primary{
+
+.buttonLogin#primary {
     background-color: #046b6b;
     border: 2px solid #e4e4e4;
 }
-.buttonLogin#primary:hover{
+
+.buttonLogin#primary:hover {
     background-color: #084747;
 }
-.buttonLogin#secondary{
+
+.buttonLogin#secondary {
     background-color: #ffffff;
     color: #303030;
     border: 2px solid #e4e4e4;
 }
-.buttonLogin#secondary:hover{
+
+.buttonLogin#secondary:hover {
     background-color: #f5f5f5;
 }
-.buttonLogin#google{
+
+.buttonLogin#google {
     background-color: #ffffff;
     color: #303030;
     border: 3px solid #e4e4e4;
 }
-.buttonLogin#google:hover{
+
+.buttonLogin#google:hover {
     background-color: #f5f5f5;
 }
-.buttonQuiz{
-    width:125px;
-    margin-left:5px;
+
+.buttonQuiz {
+    width: 125px;
+    margin-left: 5px;
     border-radius: 10px;
     border-style: solid;
-    padding:10px;
+    padding: 10px;
     font-weight: 600;
 }
-.buttonQuiz#primary{
+
+.buttonQuiz#primary {
     background-color: #046b6b;
     border: 2px solid #e4e4e4;
 }
-.buttonQuiz#primary:hover{
+
+.buttonQuiz#primary:hover {
     background-color: #084747;
 }
-.buttonQuiz#secondary{
+
+.buttonQuiz#secondary {
     background-color: #ffffff;
     color: #303030;
     border: 2px solid #e4e4e4;
 }
-.buttonQuiz#secondary:hover{
+
+.buttonQuiz#secondary:hover {
     background-color: #f5f5f5;
 }
-.buttonQuiz#save{
+
+.buttonQuiz#save {
     background-color: #3258aa;
     width: 100px;
     border: 2px solid #e4e4e4;
 }
-.buttonQuiz#save:hover{
+
+.buttonQuiz#save:hover {
     background-color: #244283;
 }
-.extraInputForm{
-    color:#646464;
+
+.extraInputForm {
+    color: #646464;
 }
-.mainHeaderWeb{
+
+.mainHeaderWeb {
     background-color: #fafafa;
-    z-index:10;
+    z-index: 10;
 }
-.mainHeaderWeb_index{
+
+.mainHeaderWeb_index {
     background-color: #00000000;
-    z-index:10;
+    z-index: 10;
 }
-.threecontainer{
+
+.threecontainer {
     width: 100vw;
-    height: 100vh; 
+    height: 100vh;
     position: fixed;
-    top:0;
-    left:0;
-    z-index:2;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
-.infoCard{
-    height:650px;
-    width:100%;
-    top:0;
-    left:0;
-    padding:50px;
+
+.infoCard {
+    height: 650px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 50px;
     position: absolute;
     overflow: hidden;
-    z-index:4;
+    z-index: 4;
 }
-.infoCardMobile{
-    height:650px;
-    width:100%;
-    top:0;
-    left:0;
-    padding:0px;
+
+.infoCardMobile {
+    height: 650px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0px;
     padding-top: 45px;
-    margin-left:-30px;
+    margin-left: -30px;
     position: absolute;
     overflow: hidden;
-    z-index:4;
+    z-index: 4;
 }
-.coverEnd{
-    height:100%;
-    width:100%;
+
+.coverEnd {
+    height: 100%;
+    width: 100%;
     background-image: linear-gradient(to top, #012e41, #35635d);
-    padding:100px;
-    padding-left:0px;
-    padding-right:0px;
-    position:fixed;
-    left:0;top:0;
+    padding: 100px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: fixed;
+    left: 0;
+    top: 0;
     z-index: 50;
     pointer-events: none;
 }
-.coverEnd>div>div>h5{
+
+.coverEnd>div>div>h5 {
     font-size: 19px;
-   line-height: 21px;
-   font-weight: 400;
+    line-height: 21px;
+    font-weight: 400;
 }
-.coverEnd>div>img{
+
+.coverEnd>div>img {
     box-shadow: 0px 5px 15px #2d3d3a;
 }
-.coverEnd>div>div{
+
+.coverEnd>div>div {
     pointer-events: all;
 }
-.infoCardRel{
-    height:200px;
-    width:70%;
-    left:0;
-    margin:10px;
+
+.infoCardRel {
+    height: 200px;
+    width: 70%;
+    left: 0;
+    margin: 10px;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-    z-index:4;
+    z-index: 4;
 }
-.infoCardRelMobile{
-    height:200px;
-    width:90%;
-    left:0;
-    margin:0px;
+
+.infoCardRelMobile {
+    height: 200px;
+    width: 90%;
+    left: 0;
+    margin: 0px;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-    z-index:4;
+    z-index: 4;
 }
-#num1{
-    top:960px;
+
+#num1 {
+    top: 960px;
 }
-#num2{
-    top:1500px;
+
+#num2 {
+    top: 1500px;
 }
-#num3{
-    top:2000px;
+
+#num3 {
+    top: 2000px;
 }
-.infoCardRel>div>div>div>p{
-   font-size: 19px;
-   line-height: 21px;
-   color: #004a58;
-   font-weight: 400;
-}
-.infoCardRelMobile>div>div>div>p{
+
+.infoCardRel>div>div>div>p {
     font-size: 19px;
     line-height: 21px;
     color: #004a58;
     font-weight: 400;
- }
-.infoCardBG{
-    z-index:1;
-    height:650px;
-    width:100%;
-    top:0;
-    left:0;
-    padding:50px;
+}
+
+.infoCardRelMobile>div>div>div>p {
+    font-size: 19px;
+    line-height: 21px;
+    color: #004a58;
+    font-weight: 400;
+}
+
+.infoCardBG {
+    z-index: 1;
+    height: 650px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 50px;
     background-color: #005873;
-    background-image:  linear-gradient(to bottom, #003d55ff, #005f73ff, #0a9396ff, #bae6f7);
-    position:absolute;
+    background-image: linear-gradient(to bottom, #003d55ff, #005f73ff, #0a9396ff, #bae6f7);
+    position: absolute;
     overflow: hidden;
 }
-.bottomtext{
-    height:100px;
-    width:100%;
+
+.bottomtext {
+    height: 100px;
+    width: 100%;
     border-radius: 20px;
-    top:3500px;
+    top: 3500px;
     position: relative;
     overflow: hidden;
-    z-index:55;
+    z-index: 55;
 }
-.bottomtext>div>p{
+
+.bottomtext>div>p {
     font-size: 18px;
     line-height: 21px;
     color: #005f73ff;
     text-align: center;
- }
+}
