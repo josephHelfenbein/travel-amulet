@@ -5,6 +5,5 @@ app = Flask(__name__)
 
 @app.route('/api/vector_search', methods=['GET'])
 def vector_search():
-    
     return'Hello, World!'
 

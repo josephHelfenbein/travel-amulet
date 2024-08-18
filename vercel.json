@@ -1,0 +1,22 @@
+{
+  "builds": [
+    {
+      "src": "api/vector_search.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "src/pages/api/**/*",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/vector_search",
+      "dest": "/api/vector_search.py"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/src/pages/api/$1"
+    }
+  ]
+}
