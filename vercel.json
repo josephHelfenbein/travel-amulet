@@ -6,7 +6,7 @@
     },
     {
       "src": "src/pages/api/**/*",
-      "use": "@vercel/next"
+      "use": "@next.config.js"
     }
   ],
   "routes": [
