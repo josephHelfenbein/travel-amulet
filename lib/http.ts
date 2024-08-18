@@ -8,7 +8,7 @@ export async function fetchUserExistsEmail(email: string): Promise<{
   error?: any;
 }>{
   try {
-    const response = await axios.get(`/api/user/${email}`);
+    const response = await axios.get(`/src/pages/api/user/${email}`);
     if (response.status !== 200) {
       throw new Error(`${response.status} - ${response.data}`);
     }
