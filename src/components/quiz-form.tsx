@@ -294,7 +294,7 @@ export default function QuizForm() {
 
                         // alert(prompt);
                         
-                        axios.get('../api/vector_search', { params: { prompt } }).then((res) => {
+                        axios.get('../api/vector_search.py', { params: { prompt } }).then((res) => {
                             console.log(res.data);
                         })
 
