@@ -3,10 +3,6 @@
     {
       "src": "api/vector_search.py",
       "use": "@vercel/python"
-    },
-    {
-      "src": "src/pages/api/**/*",
-      "use": "@next.config.js"
     }
   ],
   "routes": [
