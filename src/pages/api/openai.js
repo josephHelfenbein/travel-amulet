@@ -4,7 +4,7 @@ const openai = new OpenAI()
 
 
 export default async function handler(req, res) {
-    const { prompt } = req.body;
+    const {prompt} = req.body;
     try {
         const result = await openai.chat.completions.create({
             model: "gpt-4o-mini",
@@ -16,11 +16,11 @@ export default async function handler(req, res) {
                 },
             ],
         });
-
+  
         res.status(200).json(result.choices[0].message.content);
-
-    } catch (error) {
+     
+      } catch (error) {
         console.error('Error in API:', error);
         res.status(500).json({ message: 'An error occurred while processing the request.', error: error.message });
-    }
+      }  
 }
