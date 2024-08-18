@@ -7,12 +7,12 @@ import { PrismaClient } from "@prisma/client";
 // https://pris.ly/d/help/next-js-best-practices
 
 declare global {
-    // allow global `var` declarations
-    // eslint-disable-next-line no-var
-    var prisma: PrismaClient | undefined
-    interface BigInt {
-        toJSON(): string;
-    }
+  // allow global `var` declarations
+  // eslint-disable-next-line no-var
+  var prisma: PrismaClient | undefined
+  interface BigInt {
+    toJSON(): string;
+  }
 }
 
 let prisma: PrismaClient
@@ -25,28 +25,28 @@ const databaseURL = DATABASE_URL
     : `mysql://${TIDB_USER}:${TIDB_PASSWORD}@${TIDB_HOST}:${TIDB_PORT}/${TIDB_DB_NAME}?${SSL_FLAGS}`;
 
 if (process.env.NODE_ENV === 'production') {
-    prisma = new PrismaClient({
-        datasources: {
-            db: {
-                url: databaseURL,
-            },
-        },
-    });
+  prisma = new PrismaClient({
+    datasources: {
+      db: {
+        url: databaseURL,
+      },
+    },
+  });
 } else {
-    if (!global.prisma) {
-        global.prisma = new PrismaClient({
-            datasources: {
-                db: {
-                    url: databaseURL,
-                },
-            },
-        });
-    }
-    prisma = global.prisma
+  if (!global.prisma) {
+    global.prisma = new PrismaClient({
+      datasources: {
+        db: {
+          url: databaseURL,
+        },
+      },
+    });
+  }
+  prisma = global.prisma
 }
 
-BigInt.prototype.toJSON = function () {
-    return this.toString()
+BigInt.prototype.toJSON = function() {       
+  return this.toString()
 }
 
 export default prisma

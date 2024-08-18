@@ -2,13 +2,11 @@ import { useFrame } from '@react-three/fiber';
 import styles from './login-form.module.css';
 import { useState, useEffect } from 'react';
 
-export function InfoTextCard() {
+export function InfoTextCard (){
     const [onMobile, setOnMobile] = useState(false);
-    useEffect(() => {
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-            setOnMobile(true);
-        }
-    }, []);
+    useEffect(()=>{if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+        setOnMobile(true);
+    }}, []);
     return (
         <div>
             {onMobile &&
@@ -26,8 +24,8 @@ export function InfoTextCard() {
                         </div>
                     </div>
                 </div>
-            }
-            {!onMobile &&
+                }
+            {!onMobile && 
                 <div className={styles.infoCardRel} id={styles.num1}>
                     <div className='row g-0'>
                         <div className="col-md-1 align-content-center p-4">
@@ -46,13 +44,11 @@ export function InfoTextCard() {
         </div>
     );
 }
-export function InfoTextCard2() {
+export function InfoTextCard2 (){
     const [onMobile, setOnMobile] = useState(false);
-    useEffect(() => {
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-            setOnMobile(true);
-        }
-    }, []);
+    useEffect(()=>{if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+        setOnMobile(true);
+    }}, []);
     return (
         <div>
             {onMobile &&
@@ -70,8 +66,8 @@ export function InfoTextCard2() {
                         </div>
                     </div>
                 </div>
-            }
-            {!onMobile &&
+                }
+            {!onMobile && 
                 <div className={styles.infoCardRel} id={styles.num2}>
                     <div className='row g-0'>
                         <div className="col-md-1 align-content-center p-4">
@@ -90,77 +86,75 @@ export function InfoTextCard2() {
         </div>
     );
 }
-export function InfoTextCard3() {
+export function InfoTextCard3(){
     const [onMobile, setOnMobile] = useState(false);
-    useEffect(() => {
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-            setOnMobile(true);
-        }
-    }, []);
+    useEffect(()=>{if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+        setOnMobile(true);
+    }}, []);
     return (
         <div>
-            {onMobile &&
-                <div className={styles.infoCardRelMobile} id={styles.num3}>
-                    <div className='row g-0'>
-                        <div className="col-md-1 align-content-center p-4 pb-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="48px" height="48px" fill="#004a58">
-                                <path d="M275-304q0-32 21.5-53.5T350-379q32 0 53.5 21.5T425-304q0 32-21.5 53.5T350-229q-32 0-53.5-21.5T275-304Zm205-71h260q24 0 42 18t18 42v275h-60v-91H220v91h-60v-393h60v242h260v-184Zm152-61L515-654 406-545l10 72-30 28-55-91-95-50 30-28 77 11 113-113-226-113 43-40 272 68 107-107q13-13 32-14.5t33 12.5q13 13 12 30.5T715-849L608-742l67 266-43 40Zm108 245v-124H540v124h200Zm-200 0v-124 124Z"></path>
-                            </svg>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="card-body p-4 pt-0">
-                                <p className="card-text ">Let TravelAmulet guide you to your ideal destination, where every detail is tailored to your tastes.</p>
-                            </div>
+        {onMobile &&
+            <div className={styles.infoCardRelMobile} id={styles.num3}>
+                <div className='row g-0'>
+                    <div className="col-md-1 align-content-center p-4 pb-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="48px" height="48px" fill="#004a58">
+                            <path d="M275-304q0-32 21.5-53.5T350-379q32 0 53.5 21.5T425-304q0 32-21.5 53.5T350-229q-32 0-53.5-21.5T275-304Zm205-71h260q24 0 42 18t18 42v275h-60v-91H220v91h-60v-393h60v242h260v-184Zm152-61L515-654 406-545l10 72-30 28-55-91-95-50 30-28 77 11 113-113-226-113 43-40 272 68 107-107q13-13 32-14.5t33 12.5q13 13 12 30.5T715-849L608-742l67 266-43 40Zm108 245v-124H540v124h200Zm-200 0v-124 124Z"></path>
+                        </svg>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="card-body p-4 pt-0">
+                            <p className="card-text ">Let TravelAmulet guide you to your ideal destination, where every detail is tailored to your tastes.</p>
                         </div>
                     </div>
                 </div>
+            </div>
             }
-            {!onMobile &&
-                <div className={styles.infoCardRel} id={styles.num3}>
-                    <div className='row g-0'>
-                        <div className="col-md-1 align-content-center p-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="48px" height="48px" fill="#004a58">
-                                <path d="M275-304q0-32 21.5-53.5T350-379q32 0 53.5 21.5T425-304q0 32-21.5 53.5T350-229q-32 0-53.5-21.5T275-304Zm205-71h260q24 0 42 18t18 42v275h-60v-91H220v91h-60v-393h60v242h260v-184Zm152-61L515-654 406-545l10 72-30 28-55-91-95-50 30-28 77 11 113-113-226-113 43-40 272 68 107-107q13-13 32-14.5t33 12.5q13 13 12 30.5T715-849L608-742l67 266-43 40Zm108 245v-124H540v124h200Zm-200 0v-124 124Z"></path>
-                            </svg>
-                        </div>
-                        <div className="col-md-8">
-                            <div className="card-body p-5">
-                                <p className="card-text ">Let TravelAmulet guide you to your ideal destination, where every detail is tailored to your tastes.</p>
-                            </div>
+        {!onMobile && 
+            <div className={styles.infoCardRel} id={styles.num3}>
+                <div className='row g-0'>
+                    <div className="col-md-1 align-content-center p-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="48px" height="48px" fill="#004a58">
+                            <path d="M275-304q0-32 21.5-53.5T350-379q32 0 53.5 21.5T425-304q0 32-21.5 53.5T350-229q-32 0-53.5-21.5T275-304Zm205-71h260q24 0 42 18t18 42v275h-60v-91H220v91h-60v-393h60v242h260v-184Zm152-61L515-654 406-545l10 72-30 28-55-91-95-50 30-28 77 11 113-113-226-113 43-40 272 68 107-107q13-13 32-14.5t33 12.5q13 13 12 30.5T715-849L608-742l67 266-43 40Zm108 245v-124H540v124h200Zm-200 0v-124 124Z"></path>
+                        </svg>
+                    </div>
+                    <div className="col-md-8">
+                        <div className="card-body p-5">
+                            <p className="card-text ">Let TravelAmulet guide you to your ideal destination, where every detail is tailored to your tastes.</p>
                         </div>
                     </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
+    </div>
     );
 }
-export function EndingInfoScreen() {
+export function EndingInfoScreen (){
     const [scrollY, setScrollY] = useState(0);
     const [movementY, setMovementY] = useState(0);
-    useEffect(() => {
+    useEffect(()=>{
         const handleScroll = () => {
             setMovementY(window.scrollY - scrollY);
             setScrollY(window.scrollY);
         };
         window.addEventListener('scroll', handleScroll);
-        return () => { window.removeEventListener('scroll', handleScroll); };
+        return ()=>{window.removeEventListener('scroll', handleScroll);};
     }, []);
     const [opacity, setOpacity] = useState(0);
     const [position, setPosition] = useState(0);
-
+    
     const [inView, setInView] = useState(false);
-    useEffect(() => {
-        if (scrollY + movementY > 2400) {
-            setOpacity(Math.min(Math.max(scrollY - 2400, 0) / 4, 100));
-            setPosition(200 - Math.max(scrollY - 2400, 0) / 6);
+    useEffect(()=>{
+        if(scrollY + movementY > 2400){
+            setOpacity(Math.min(Math.max(scrollY - 2400, 0)/4, 100));
+            setPosition(200-Math.max(scrollY - 2400, 0)/6);
         }
-        if (scrollY + movementY > 4500) setInView(true);
+        if(scrollY + movementY > 4500) setInView(true);
         else setInView(false);
-
-    })
-    return (
-        <div className={styles.coverEnd} style={{ opacity: `${opacity}%` }}>
-            <div className='column g-0 text-center p-5' style={{ marginTop: `${position}px` }}>
+        
+    })    
+    return(
+        <div className={styles.coverEnd} style={{opacity:`${opacity}%`}}>
+            <div className='column g-0 text-center p-5' style={{marginTop:`${position}px`}}>
                 <img src="/travelamulet-icon.svg" />
                 {inView &&
                     <div className="p-4">
@@ -168,9 +162,9 @@ export function EndingInfoScreen() {
                         <a href="quiz" className="btn btn-outline-light m-3">Start the Quiz</a>
                     </div>
                 }
-
+                
             </div>
-
+            
         </div>
     );
 }
