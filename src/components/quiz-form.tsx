@@ -297,14 +297,45 @@ export default function QuizForm() {
                         const prompt = createPrompt(values);
                         var country = "";
                         
+                        let crime_index:number;
+                        let download_speed:number;
+                        let tap_water_index:number;
+
+                        if (values.crimeSelect === "3") {
+                            crime_index = 6
+                        } else if (values.crimeSelect === "2") {
+                            crime_index = 4.5
+                        } else {
+                            crime_index = 10
+                        }
+                        
+                        if (values.broadbandSelect === "3") {
+                            download_speed = 50
+                        } else if (values.broadbandSelect === "2") {
+                            download_speed = 100
+                        } else {
+                            download_speed = 0
+                        }
+
+                        if (values.waterSelect === "3") {
+                            tap_water_index = 80
+                        } else if (values.waterSelect === "2") {
+                            tap_water_index = 60
+                        } else {
+                            tap_water_index = 0
+                        }
+
+                        console.log(`Crime_index is ${crime_index} and download speed is ${download_speed} and tap_water_index is ${tap_water_index}`)
+                        
                         axios.get('https://yashpythonapi.vercel.app/api/vector_search', {
                             params: {
                                 prompt: prompt,
-                                crime_index: 4.5,
-                                download_speed: 100,
-                                tap_water_index: 80,
+                                crime_index: crime_index,
+                                download_speed: download_speed,
+                                tap_water_index: tap_water_index,
                             }
                         }).then((res) => {
+                            console.log(values);
                             country = res.data.message.split(': ')[1].trim();
                             const countryCode = findKeyByValue(country);
                             console.log(countryCode);
