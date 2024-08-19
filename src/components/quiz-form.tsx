@@ -335,7 +335,7 @@ export default function QuizForm() {
                                 tap_water_index: tap_water_index,
                             }
                         }).then((res) => {
-                            console.log(values);
+                            console.log(res);
                             let countries: Array<string> = new Array(10);
                             for (let i = 0; i < res.data.message.length; i++) {
                                 countries[i] = findKeyByValue(res.data.countries[i].split(': ')[1].trim()) ?? '';
