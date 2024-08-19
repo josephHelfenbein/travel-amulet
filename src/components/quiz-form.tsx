@@ -9,7 +9,9 @@ import { useState, useEffect } from 'react';
 import { changeUserPreferences } from 'lib/http';
 import axios from 'axios';
 import { findKeyByValue } from './countryvalue';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
+import { PulseLoader } from "react-spinners";
+
 interface Values {
     languageSpeak: string,
     temperatureSelect: string,
@@ -223,6 +225,7 @@ export default function QuizForm() {
 
     const [quizIndex, setQuizIndex] = useState(0);
     const [onMobile, setOnMobile] = useState(false);
+    const [loadingResult, setLoadingResult] = useState(false);
     useEffect(() => {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent))
             setOnMobile(true);
@@ -293,6 +296,7 @@ export default function QuizForm() {
                 ) => {
                     setTimeout((async () => {
                         setCanPress(false);
+                        setLoadingResult(true);
                         if (error == '') changeUserPreferences({ email, preferences: encodeAnswers(values) });
                         const prompt = createPrompt(values);
                         var country = "";
@@ -363,6 +367,12 @@ export default function QuizForm() {
             >{props => (
                 <Form>
                     <div className='row g-2 justify-content-between mb-4 mt-2'>
+                        {loadingResult && 
+                        <div style={{zIndex:"500"}}  className='d-flex position-fixed justify-content-center p-3'>
+                             <PulseLoader color="#b4b4b4" size={50} className='position-fixed top-50 start-50 translate-middle' />
+                        </div>
+                           
+                        }
                         {onMobile &&
                             <svg className="col-1 p-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#505050" height="38px" >
                                 <path d="M560-360q17 0 29.5-12.5T602-402q0-17-12.5-29.5T560-444q-17 0-29.5 12.5T518-402q0 17 12.5 29.5T560-360Zm-30-128h60q0-29 6-42.5t28-35.5q30-30 40-48.5t10-43.5q0-45-31.5-73.5T560-760q-41 0-71.5 23T446-676l54 22q9-25 24.5-37.5T560-704q24 0 39 13.5t15 36.5q0 14-8 26.5T578-596q-33 29-40.5 45.5T530-488ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"></path>
