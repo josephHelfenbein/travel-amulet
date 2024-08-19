@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 import { changeUserPreferences } from 'lib/http';
 import axios from 'axios';
 import { findKeyByValue } from './countryvalue';
-
+import Router, { useRouter } from 'next/router';
 interface Values {
     languageSpeak: string,
     temperatureSelect: string,
@@ -192,6 +192,7 @@ function createPrompt(values: Values) {
     return prompt;
 }
 export default function QuizForm() {
+    const router = useRouter();
     const [error, setError] = useState('');
     const [saveUpdate, setSaveUpdate] = useState('');
     const { data, status } = useSession({
@@ -241,6 +242,7 @@ export default function QuizForm() {
             console.log('Not logged in');
         })
     }, []);
+    const [canPress, setCanPress] = useState(true);
     useEffect(() => {
         if (preferences !== '') {
             const foundValues: Values = decodeAnswers(preferences);
@@ -290,6 +292,7 @@ export default function QuizForm() {
                     { setSubmitting }: FormikHelpers<Values>
                 ) => {
                     setTimeout((async () => {
+                        setCanPress(false);
                         if (error == '') changeUserPreferences({ email, preferences: encodeAnswers(values) });
                         const prompt = createPrompt(values);
                         var country = "";
@@ -309,6 +312,8 @@ export default function QuizForm() {
                             localStorage.setItem('country', countryCode ?? '');
                         }).catch((error) => {
                             console.error('Error:', error.message);
+                        }).finally(()=>{
+                            router.push("/results");
                         });
 
                         localStorage.setItem('prompt', prompt);
@@ -574,9 +579,14 @@ export default function QuizForm() {
                                     }}>Next</button>
                                 </div>
                             }
-                            {quizIndex == 7 &&
+                            {quizIndex == 7 && canPress &&
                                 <div className='col-3'>
                                     <button type="submit" id={styles.primary} className={styles.buttonQuiz + " btn btn-secondary"}>Submit</button>
+                                </div>
+                            }
+                            {quizIndex == 7 && !canPress &&
+                                <div className='col-3'>
+                                    <button id={styles.primary} className={styles.buttonQuiz + " btn btn-secondary"}>Submit</button>
                                 </div>
                             }
                         </div>
@@ -597,9 +607,14 @@ export default function QuizForm() {
                                     }}>Next</button>
                                 </div>
                             }
-                            {quizIndex == 7 &&
+                            {quizIndex == 7 && canPress &&
                                 <div className='col-3'>
                                     <button type="submit" id={styles.primary} className={styles.buttonQuiz + " btn btn-secondary"}>Submit</button>
+                                </div>
+                            }
+                            {quizIndex == 7 && !canPress &&
+                                <div className='col-3'>
+                                    <button id={styles.primary} className={styles.buttonQuiz + " btn btn-secondary"}>Submit</button>
                                 </div>
                             }
                         </div>

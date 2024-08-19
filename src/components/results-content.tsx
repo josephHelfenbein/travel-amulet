@@ -17,11 +17,6 @@ function countryCodeToName(code:string){
     return countriesMap.get(code);
 }
 
-// temporary random country before AI chosen country functionality is finished
-function randomCountry(){
-    const index = Math.round(Math.random()*countryOptions.length);
-    return countryOptions[index];
-}
 
 export default function ResultsContent(){
     const router = useRouter();
@@ -72,11 +67,14 @@ export default function ResultsContent(){
 
     const[explanation, setExplanation] = useState('');
     useEffect(()=>{
-        setFoundCountry(randomCountry().value);
+        const tempCountry = localStorage.getItem("country");
+        if (!tempCountry) router.push("/quiz");
+        setFoundCountry(tempCountry!);
     }, []);
     useEffect(()=>{
         if(foundCountry!==''){
-            const prompt = "Explain reasons of how "+countryCodeToName(foundCountry)+" fits this prompt. Do not choose a different country, explain only "+countryCodeToName(foundCountry)+". Keep it short and simple, and in paragraph form. Don't mention that it's a prompt, say it's from quiz results. If it 100% doesn't fit the prompt, apologize and tell the user to try the quiz again. Prompt: "+"Find a country with cold weather, with hot spicy food, with an LGBTQ+ equality index of over 75, with a crime index of under 4.5, with landmarks, with broadband download speed of over 50 Mbps, with a tap water index of over 60, with political stability and no political tensions, and specifically not Bangladesh, Libya, Lebanon, Afghanistan, Somalia, Iran, Yemen, Syria, Russia, Myanmar, Venezuela, Iraq, South Sudan, Mali, Central African Republic, Burkina Faso, Haiti, Belarus, North Korea, Ukraine, Sudan, Mexico, Israel, Palestine State, or United States.";
+            const promptLocal = localStorage.getItem("prompt")!;
+            const prompt = "Explain reasons of how "+countryCodeToName(foundCountry)+" fits this prompt. Do not choose a different country, explain only "+countryCodeToName(foundCountry)+". Keep it short and simple, and in paragraph form. Don't mention that it's a prompt, say it's from quiz results. If it 100% doesn't fit the prompt, apologize and tell the user to try the quiz again. Prompt: "+promptLocal;
             gptRequest({prompt}).then(async(res)=>{
                 if(res.content){
                     setExplanation(res.content);
