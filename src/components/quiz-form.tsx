@@ -355,6 +355,7 @@ export default function QuizForm() {
                         });
 
                         localStorage.setItem('prompt', prompt);
+                        localStorage.setItem('index', '0');
 
                         setSubmitting(false);
                     }), 500);

@@ -65,16 +65,20 @@ export default function ResultsContent(){
     const [languageShow, setShowLanguage] = useState(false);
     const [politicsShow, setShowPolitics] = useState(false);
 
+    const [countryIndex, setCountryIndex] = useState(0);
+
     const[explanation, setExplanation] = useState('');
     useEffect(()=>{
-        const tempCountry = localStorage.getItem("country");
+        const indexCountry = Number(localStorage.getItem("index"));
+        setCountryIndex(indexCountry);
+        const tempCountry = JSON.parse(localStorage.getItem("country")!);
         if (!tempCountry) router.push("/quiz");
-        setFoundCountry(tempCountry!);
+        setFoundCountry(tempCountry![indexCountry]);
     }, []);
     useEffect(()=>{
         if(foundCountry!==''){
             const promptLocal = localStorage.getItem("prompt")!;
-            const prompt = "Explain reasons of how "+countryCodeToName(foundCountry)+" fits this prompt. Do not choose a different country, explain only "+countryCodeToName(foundCountry)+". Keep it short and simple, and in paragraph form. Don't mention that it's a prompt, say it's from quiz results. If it 100% doesn't fit the prompt, apologize and tell the user to try the quiz again. Prompt: "+promptLocal;
+            const prompt = "Explain reasons of how "+countryCodeToName(foundCountry)+" fits this prompt as the number "+(countryIndex+1)+" choice. Do not choose a different country, explain only "+countryCodeToName(foundCountry)+". Keep it short and simple, and in paragraph form. Don't mention that it's a prompt, say it's from quiz results. If it 100% doesn't fit the prompt, apologize and tell the user to try the quiz again. However, if it only doesn't fit parts of the prompt, and "+(countryIndex+1)+" is greater than 1, then explain how it fits the parts it does fit. If you strongly believe the chosen country does not fit, but another one that's currently being blacklisted by the prompt does, name the country and explain that it's blacklisted. Only do this if the other country you're thinking of is blacklisted. Prompt: "+promptLocal;
             gptRequest({prompt}).then(async(res)=>{
                 if(res.content){
                     setExplanation(res.content);
@@ -129,6 +133,7 @@ export default function ResultsContent(){
                     <h2 className="bd-highlight display-7" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>Here are your results{name}!</h2>
                 </div>
                 }
+                <h6 className="bd-highlight" style={{textAlign:'center', fontWeight:300, color:'#505050'}}>Result #{countryIndex+1}</h6>
                 <h5  className="bd-highlight" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>{`${countryCodeToName(foundCountry)}`}</h5>
                 <div className='d-flex justify-content-center mb-4' >
                     <img
@@ -261,6 +266,20 @@ export default function ResultsContent(){
                     </svg>}
                 </a>
                 {politicsShow && <p className='mb-5'>{politics}</p>}
+               </div>
+               <div className='row g-0 justify-content-end mt-4 bottom-0 mb-4' style={{ width: '100%' }}>
+                {countryIndex != 0 &&
+                    <button type="button" id={styles.secondary} className={styles.buttonQuiz + " btn btn-secondary"} onClick={() => {
+                        localStorage.setItem('index', (countryIndex-1).toString());
+                        window.location.reload();
+                    }}>Result #{countryIndex}</button>
+                }
+                {countryIndex != 9 &&
+                    <button type="button" id={styles.primary} className={styles.buttonQuiz + " btn btn-secondary"} onClick={() => {
+                        localStorage.setItem('index', (countryIndex+1).toString());
+                        window.location.reload();
+                    }}>Result #{countryIndex+2}</button>
+                }
                </div>
                 
         </div>
