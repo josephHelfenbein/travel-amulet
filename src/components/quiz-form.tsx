@@ -336,11 +336,16 @@ export default function QuizForm() {
                             }
                         }).then((res) => {
                             console.log(values);
-                            country = res.data.message.split(': ')[1].trim();
-                            const countryCode = findKeyByValue(country);
-                            console.log(countryCode);
+                            let countries: Array<string> = new Array(10);
+                            for (let i = 0; i < res.data.message.length; i++) {
+                                countries[i] = findKeyByValue(res.data.countries[i].split(': ')[1].trim()) ?? '';
+                            }
+                            // country = res.data.message.split(': ')[1].trim();
+                            // const countryCode = findKeyByValue(country);
 
-                            localStorage.setItem('country', countryCode ?? '');
+                            console.log(countries);
+
+                            localStorage.setItem('country', JSON.stringify(countries));
                         }).catch((error) => {
                             console.error('Error:', error.message);
                         }).finally(()=>{
