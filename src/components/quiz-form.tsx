@@ -325,7 +325,11 @@ export default function QuizForm() {
                             tap_water_index = 0
                         }
 
-                        console.log(`Crime_index is ${crime_index} and download speed is ${download_speed} and tap_water_index is ${tap_water_index}`)
+                        console.log({
+                            crime_index: crime_index,
+                            download_speed: download_speed,
+                            tap_water_index: tap_water_index
+                        })
                         
                         axios.get('https://yashpythonapi.vercel.app/api/vector_search', {
                             params: {
@@ -337,11 +341,9 @@ export default function QuizForm() {
                         }).then((res) => {
                             console.log(res);
                             let countries: Array<string> = new Array(10);
-                            for (let i = 0; i < res.data.message.length; i++) {
-                                countries[i] = findKeyByValue(res.data.countries[i].split(': ')[1].trim()) ?? '';
+                            for (let i = 0; i < res.data.countries.length; i++) {
+                                countries[i] = findKeyByValue(res.data.countries[i]) ?? '';
                             }
-                            // country = res.data.message.split(': ')[1].trim();
-                            // const countryCode = findKeyByValue(country);
 
                             console.log(countries);
 
