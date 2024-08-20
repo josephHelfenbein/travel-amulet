@@ -106,6 +106,7 @@ If signed in, every result shown to the user is saved and visible on the account
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![ThreeJS][ThreeJS]][ThreeJS-url]
 * [![MySQL][MySQL]][MySQL-url]
+* [![Prisma][Prisma]][Prisma-url]
 * [![OpenAI][OpenAI]][OpenAI-url]
 * [![Flask][Flask]][Flask-url]
 * [![Tripadvisor][Tripadvisor]][Tripadvisor-url]
@@ -250,6 +251,8 @@ Project Link: [https://github.com/josephHelfenbein/travel-amulet](https://github
 [MySQL-url]: https://www.mysql.com/
 [OpenAI]: https://img.shields.io/badge/openai%20api-black?logo=openai&style=for-the-badge&logoColor=white
 [OpenAI-url]: https://openai.com/api/
+[Prisma]: https://img.shields.io/badge/prisma-2D3748?logo=prisma&style=for-the-badge&logoColor=white
+[Prisma-url]: https://www.prisma.io/
 [Flask]: https://img.shields.io/badge/flask-4590A1?logo=flask&style=for-the-badge&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
 [Tripadvisor]: https://img.shields.io/badge/tripadvisor%20api-00AF87?logo=tripadvisor&style=for-the-badge&logoColor=white
