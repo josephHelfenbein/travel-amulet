@@ -2,7 +2,6 @@ import OpenAI from "openai";
 
 const openai = new OpenAI()
 
-
 export default async function handler(req, res) {
     const {prompt} = req.body;
     try {
