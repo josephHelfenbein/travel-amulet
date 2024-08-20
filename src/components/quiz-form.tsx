@@ -295,10 +295,10 @@ export default function QuizForm() {
                         setCanPress(false);
                         if (error == '') changeUserPreferences({ email, preferences: encodeAnswers(values) });
                         const prompt = createPrompt(values);
-                        var country = "";
                         
                         let crime_index:number;
                         let download_speed:number;
+                        let mobile_download_speed:number;
                         let tap_water_index:number;
 
                         if (values.crimeSelect === "3") {
@@ -317,6 +317,14 @@ export default function QuizForm() {
                             download_speed = 0
                         }
 
+                        if (values.mobileSelect === "3") {
+                            mobile_download_speed = 50
+                        } else if (values.mobileSelect === "2") {
+                            mobile_download_speed = 100
+                        } else {
+                            mobile_download_speed = 0
+                        }
+
                         if (values.waterSelect === "3") {
                             tap_water_index = 80
                         } else if (values.waterSelect === "2") {
@@ -325,12 +333,14 @@ export default function QuizForm() {
                             tap_water_index = 0
                         }
 
+                        // add countries and 
                         console.log({
                             crime_index: crime_index,
                             download_speed: download_speed,
+                            mobile_download_speed: mobile_download_speed,
                             tap_water_index: tap_water_index
                         })
-                        
+
                         axios.get('https://yashpythonapi.vercel.app/api/vector_search', {
                             params: {
                                 prompt: prompt,
