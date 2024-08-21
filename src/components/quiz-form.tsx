@@ -308,33 +308,33 @@ export default function QuizForm() {
                         let blacklistCountries = values.blacklistCountries;
 
                         if (values.crimeSelect === "3") {
-                            crime_index = 6
+                            crime_index = 5.97
                         } else if (values.crimeSelect === "2") {
-                            crime_index = 4.5
+                            crime_index = 4.97
                         } else {
                             crime_index = 10
                         }
                         
                         if (values.broadbandSelect === "3") {
-                            download_speed = 50
+                            download_speed = 96.67
                         } else if (values.broadbandSelect === "2") {
-                            download_speed = 100
+                            download_speed = 59.71
                         } else {
                             download_speed = 0
                         }
 
                         if (values.mobileSelect === "3") {
-                            mobile_download_speed = 50
+                            mobile_download_speed = 70.65
                         } else if (values.mobileSelect === "2") {
-                            mobile_download_speed = 100
+                            mobile_download_speed = 59.71
                         } else {
                             mobile_download_speed = 0
                         }
 
                         if (values.waterSelect === "3") {
-                            tap_water_index = 80
+                            tap_water_index = 58.375
                         } else if (values.waterSelect === "2") {
-                            tap_water_index = 60
+                            tap_water_index = 45.2
                         } else {
                             tap_water_index = 0
                         }
