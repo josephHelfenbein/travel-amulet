@@ -64,7 +64,7 @@ export default function ResultsContent(){
     const [currencyShow, setShowCurrency] = useState(false);
     const [languageShow, setShowLanguage] = useState(false);
     const [politicsShow, setShowPolitics] = useState(false);
-
+    const [countryList, setCountryList] = useState([]);
     const [countryIndex, setCountryIndex] = useState(0);
 
     const[explanation, setExplanation] = useState('');
@@ -73,6 +73,7 @@ export default function ResultsContent(){
         setCountryIndex(indexCountry);
         const tempCountry = JSON.parse(localStorage.getItem("country")!);
         if (!tempCountry) router.push("/quiz");
+        setCountryList(tempCountry);
         setFoundCountry(tempCountry![indexCountry]);
     }, []);
     useEffect(()=>{
@@ -274,7 +275,7 @@ export default function ResultsContent(){
                         window.location.reload();
                     }}>Result #{countryIndex}</button>
                 }
-                {countryIndex != 9 &&
+                {countryIndex != 9 && countryList[countryIndex+1] &&
                     <button type="button" id={styles.primary} className={styles.buttonQuiz + " btn btn-secondary"} onClick={() => {
                         localStorage.setItem('index', (countryIndex+1).toString());
                         window.location.reload();
