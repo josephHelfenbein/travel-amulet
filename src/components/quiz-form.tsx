@@ -299,11 +299,13 @@ export default function QuizForm() {
                         setLoadingResult(true);
                         if (error == '') changeUserPreferences({ email, preferences: encodeAnswers(values) });
                         const prompt = createPrompt(values);
-                        
+
                         let crime_index:number;
                         let download_speed:number;
                         let mobile_download_speed:number;
                         let tap_water_index:number;
+                        let continent = values.continentList;
+                        let blacklistCountries = values.blacklistCountries;
 
                         if (values.crimeSelect === "3") {
                             crime_index = 6
@@ -339,18 +341,27 @@ export default function QuizForm() {
 
                         // add countries and 
                         console.log({
+                            prompt: prompt,
                             crime_index: crime_index,
                             download_speed: download_speed,
                             mobile_download_speed: mobile_download_speed,
-                            tap_water_index: tap_water_index
-                        })
+                            tap_water_index: tap_water_index,
+                            continent_list: JSON.stringify(continent),
+                            blacklist_countries: JSON.stringify(blacklistCountries),
+                    })
+
+                        blacklistCountries.pop();
+                        continent.shift();
 
                         axios.get('https://yashpythonapi.vercel.app/api/vector_search', {
                             params: {
                                 prompt: prompt,
                                 crime_index: crime_index,
                                 download_speed: download_speed,
+                                mobile_download_speed: mobile_download_speed,
                                 tap_water_index: tap_water_index,
+                                continent_list: JSON.stringify(continent),
+                                blacklist_countries: JSON.stringify(blacklistCountries),
                             }
                         }).then((res) => {
                             console.log(res);
@@ -360,7 +371,6 @@ export default function QuizForm() {
                             }
 
                             console.log(countries);
-
                             localStorage.setItem('country', JSON.stringify(countries));
                         }).catch((error) => {
                             console.error('Error:', error.message);
@@ -369,7 +379,6 @@ export default function QuizForm() {
                         });
 
                         localStorage.setItem('prompt', prompt);
-                        localStorage.setItem('index', '0');
 
                         setSubmitting(false);
                     }), 500);

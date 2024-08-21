@@ -6,8 +6,8 @@ join_with_spaces = lambda list: ', '.join(list)
 reqUrl = "https://countrywise.p.rapidapi.com?country=all"
 
 headersList = {
- "x-rapidapi-key": "76ef446443msh822d07de2344303p111462jsna7f9ba4abf7f",
- "x-rapidapi-host": "countrywise.p.rapidapi.com" 
+ "rapidapi-key": "76ef446443msh822d07de2344303p111462jsna7f9ba4abf7f",
+ "rapidapi-host": "countrywise.p.rapidapi.com" 
 }
 
 payload = "countries=us"
@@ -27,11 +27,14 @@ for country in response.json():
     countryCuisine = country.get('textual').get('cuisine')[0]
     countryReligions = join_with_spaces(country.get('religions').get('labels'))
     countryCrimeIndex = None
+    
     try:
         countryCrimeIndex = country.get('crime_index').get('datasets').get('data')[0]
     except:
         countryCrimeIndex = ""
+    
     countryInternetSpeed = country.get('internet_speed').get('broadband').get('download').get('value')
+    countryMobileInternetSpeed = country.get('internet_speed').get('mobile').get('download').get('value')
     
     countryTapWaterIndex = None
     try:
@@ -110,6 +113,12 @@ for country in response.json():
     output_file2.write(f"Crime Index: {countryCrimeIndex}\n")
     if countryInternetSpeed != "":
         output_file2.write(f"Download Speed: {countryInternetSpeed}\n")
+        
+    if countryMobileInternetSpeed != "":
+        output_file2.write(f"Mobile Download Speed: {countryMobileInternetSpeed}\n")
+    elif countryInternetSpeed != "":
+        output_file2.write(f"Mobile Download Speed: {countryInternetSpeed}\n")
+
     if countryTapWaterIndex != "-1":
         output_file2.write(f"Tap Water Index: {countryTapWaterIndex}\n")
     output_file2.write("\n")
