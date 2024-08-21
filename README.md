@@ -109,7 +109,7 @@ If signed in, every result shown to the user is saved and visible on the account
 * [![Prisma][Prisma]][Prisma-url]
 * [![OpenAI][OpenAI]][OpenAI-url]
 * [![Flask][Flask]][Flask-url]
-* [![Tripadvisor][Tripadvisor]][Tripadvisor-url]
+* [![Google][Google]][Google-url]
 
 ### Powered By
 
@@ -142,15 +142,16 @@ Here are the steps to run the project locally if you want to develop your own pr
 2. Get an OpenAI API key at [https://openai.com/api](https://openai.com/api)
 3. Follow <a href="https://docs.pingcap.com/tidbcloud/vector-search-integrate-with-langchain">this tutorial</a> on a separate instance to get TiDB Vector Search running. The instance can be hosted on <a href="https://vercel.com">Vercel</a> using Python and Flask. Alternatively, you can also follow <a href="https://docs.pingcap.com/tidbcloud/vector-search-get-started-using-sql">this tutorial</a> to run TiDB Vector Search on the same Next.js instance using SQL, but you would have to generate the vector embeddings separately. The country data used for the vector embeddings is from [https://countrywise.io](https://countrywise.io).
 4. If you want to use Sign in with Google or GitHub, you'll need to set up those services. Sign in with Google can be set up at [https://console.cloud.google.com](https://console.cloud.google.com), and GitHub at [https://github.com/settings/developers](https://github.com/settings/developers).
-5. Clone the repo
+5. To get the places, flights and hotels for results working, you'll need to get an API key from [https://developers.google.com/maps](https://developers.google.com/maps).
+6. Clone the repo
    ```sh
    git clone https://github.com/josephHelfenbein/travel-amulet.git
    ```
-6. Install NPM packages
+7. Install NPM packages
    ```sh
    npm install
    ```
-7. Enter your API keys and database URL in a `.env.local` file
+8. Enter your API keys and database URL in a `.env.local` file
    ```js
        DATABASE_URL = "ENTER YOUR DATABASE URL"
        OPENAI_API_KEY = "ENTER YOUR OPENAI API KEY"
@@ -161,8 +162,10 @@ Here are the steps to run the project locally if you want to develop your own pr
        GITHUB_CLIENT_SECRET = "ENTER YOUR GITHUB SECRET KEY"
        GOOGLE_CLIENT_ID = "ENTER YOUR GOOGLE CLIENT ID"
        GOOGLE_CLIENT_SECRET = "ENTER YOUR GOOGLE SECRET KEY"
+
+       NEXT_PUBLIC_GOOGLE_MAPS_KEY = "ENTER YOUR GOOGLE MAPS API KEY"
    ```
-8. Create user database
+9. Create user database
    ```sh
    yarn prisma migrate dev
    ```
@@ -255,5 +258,5 @@ Project Link: [https://github.com/josephHelfenbein/travel-amulet](https://github
 [Prisma-url]: https://www.prisma.io/
 [Flask]: https://img.shields.io/badge/flask-4590A1?logo=flask&style=for-the-badge&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
-[Tripadvisor]: https://img.shields.io/badge/tripadvisor%20api-00AF87?logo=tripadvisor&style=for-the-badge&logoColor=white
-[Tripadvisor-url]: https://tripadvisor-content-api.readme.io/reference/overview
+[Google]: https://img.shields.io/badge/google%20maps%20api-4285F4?logo=google&style=for-the-badge&logoColor=white
+[Google-url]: https://developers.google.com/maps
