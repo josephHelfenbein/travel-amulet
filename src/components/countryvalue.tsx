@@ -789,3 +789,12 @@ export function findKeyByValue(value: string) {
     }
     return null;
 }
+
+export function findValueByKey(key: string) {
+    for (const [k, val] of Object.entries(countryOptions)) {
+        if (val.value === key) {
+            return val.label;
+        }
+    }
+    return null;
+}

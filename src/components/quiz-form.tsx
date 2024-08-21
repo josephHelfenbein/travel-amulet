@@ -8,7 +8,7 @@ import { useSession } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 import { changeUserPreferences } from 'lib/http';
 import axios from 'axios';
-import { findKeyByValue } from './countryvalue';
+import { findKeyByValue, findValueByKey } from './countryvalue';
 import { useRouter } from 'next/router';
 import { PulseLoader } from "react-spinners";
 
@@ -306,6 +306,12 @@ export default function QuizForm() {
                         let tap_water_index:number;
                         let continent = values.continentList;
                         let blacklistCountries = values.blacklistCountries;
+
+                        blacklistCountries.splice(24, 1);
+
+                        for (let i = 0; i < blacklistCountries.length; i++) {
+                            blacklistCountries[i] = findValueByKey(blacklistCountries[i]) ?? '';
+                        }
 
                         if (values.crimeSelect === "3") {
                             crime_index = 5.97
