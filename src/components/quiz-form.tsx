@@ -193,6 +193,35 @@ function createPrompt(values: Values) {
     }
     return prompt;
 }
+function createSimplifiedPrompt(values: Values) {
+    let prompt = "Find a country ";
+    if (values.languageSpeak === "2") prompt += "with people that speak " + values.language + ", ";
+    else if (values.languageSpeak === "3") prompt += "that mostly speaks " + values.language + ", ";
+    if (values.temperatureSelect === "2") prompt += "with cold weather, ";
+    else if (values.temperatureSelect === "3") prompt += "with cool weather, ";
+    else if (values.temperatureSelect === "4") prompt += "with warm weather, ";
+    else if (values.temperatureSelect === "5") prompt += "with hot weather, ";
+    if (values.spicySelect === "2") prompt += "with mild food, ";
+    else if (values.spicySelect === "3") prompt += "with medium spicy food, ";
+    else if (values.spicySelect === "4") prompt += "with hot spicy food, ";
+    else if (values.spicySelect === "5") prompt += "with extra hot spicy food, ";
+    if (values.religionSelect === "2") prompt += "with people that follow " + values.religion + ", ";
+    else if (values.religionSelect === "3") prompt += "with people that mostly follow " + values.religion + ", ";
+    if (values.visitSelect === "2") prompt += "with landmarks, ";
+    else if (values.visitSelect === "3") prompt += "with many landmarks, ";
+    if (values.hikingSelect === "2") prompt += "with places for hiking, ";
+    else if (values.hikingSelect === "3") prompt += "with many places for hiking, ";
+    if (values.beachesSelect === "2") prompt += "with beaches, ";
+    else if (values.beachesSelect === "3") prompt += "with many beaches, ";
+    if (values.conflictSelect === "2") prompt += "with no ongoing conflicts, ";
+    else if (values.conflictSelect === "3") prompt += "with no ongoing conflicts or regional tensions, ";
+    if (values.stabilitySelect === "2") prompt += "with political stability, ";
+    else if (values.stabilitySelect === "3") prompt += "with political stability and no political tensions";
+    if (values.governmentSelect === "2") prompt += "with a government that has a voting system.";
+    else if (values.governmentSelect === "3") prompt += "with a democracy.";
+
+    return prompt;
+}
 export default function QuizForm() {
     const router = useRouter();
     const [error, setError] = useState('');
@@ -371,7 +400,7 @@ export default function QuizForm() {
 
                         axios.get('https://yashpythonapi.vercel.app/api/vector_search', {
                             params: {
-                                prompt: prompt,
+                                prompt: createSimplifiedPrompt(values),
                                 crime_index: crime_index,
                                 download_speed: download_speed,
                                 mobile_download_speed: mobile_download_speed,
