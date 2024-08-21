@@ -1,6 +1,7 @@
 Andorra
 Continent: Europe
 Crime_Index: 3.22
+LGBTQ_Rank: 82
 
 United Arab Emirates
 Continent: Asia
@@ -8,6 +9,7 @@ Crime_Index: 6.37
 Download_Speed: 291.85
 Mobile_Download_Speed: 359.85
 Tap_Water_Index: 51.7
+LGBTQ_Rank: 13
 
 Afghanistan
 Continent: Asia
@@ -15,6 +17,7 @@ Crime_Index: 7.1
 Download_Speed: 3.56
 Mobile_Download_Speed: 7.98
 Tap_Water_Index: 27.8
+LGBTQ_Rank: 1
 
 Antigua and Barbuda
 Continent: North America
@@ -22,6 +25,7 @@ Crime_Index: 2.98
 Download_Speed: 41.86
 Mobile_Download_Speed: 41.86
 Tap_Water_Index: 45.2
+LGBTQ_Rank: 43
 
 Albania
 Continent: Europe
@@ -29,6 +33,7 @@ Crime_Index: 5.17
 Download_Speed: 63.88
 Mobile_Download_Speed: 50.94
 Tap_Water_Index: 50.3
+LGBTQ_Rank: 37
 
 Armenia
 Continent: Asia
@@ -36,6 +41,7 @@ Crime_Index: 2.82
 Download_Speed: 56.90
 Mobile_Download_Speed: 31.16
 Tap_Water_Index: 61.7
+LGBTQ_Rank: 27
 
 Angola
 Continent: Africa
@@ -43,6 +49,7 @@ Crime_Index: 5.58
 Download_Speed: 19.47
 Mobile_Download_Speed: 19.47
 Tap_Water_Index: 12
+LGBTQ_Rank: 57
 
 Argentina
 Continent: South America
@@ -50,6 +57,7 @@ Crime_Index: 5
 Download_Speed: 84.76
 Mobile_Download_Speed: 31.72
 Tap_Water_Index: 59.5
+LGBTQ_Rank: 75
 
 Austria
 Continent: Europe
@@ -57,6 +65,7 @@ Crime_Index: 4.13
 Download_Speed: 99.72
 Mobile_Download_Speed: 83.97
 Tap_Water_Index: 100
+LGBTQ_Rank: 75
 
 Australia
 Continent: Oceania
@@ -64,6 +73,7 @@ Crime_Index: 4
 Download_Speed: 66.58
 Mobile_Download_Speed: 94.28
 Tap_Water_Index: 81.2
+LGBTQ_Rank: 78
 
 Azerbaijan
 Continent: Asia
@@ -71,6 +81,7 @@ Crime_Index: 4.8
 Download_Speed: 39.87
 Mobile_Download_Speed: 52.63
 Tap_Water_Index: 46.5
+LGBTQ_Rank: 27
 
 Bosnia and Herzegovina
 Continent: Europe
@@ -78,6 +89,7 @@ Crime_Index: 5.85
 Download_Speed: 32.54
 Mobile_Download_Speed: 22.29
 Tap_Water_Index: 57.3
+LGBTQ_Rank: 42
 
 Barbados
 Continent: North America
@@ -85,6 +97,7 @@ Crime_Index: 3.07
 Download_Speed: 94.25
 Mobile_Download_Speed: 94.25
 Tap_Water_Index: 47.8
+LGBTQ_Rank: 63
 
 Bangladesh
 Continent: Asia
@@ -92,6 +105,7 @@ Crime_Index: 5.12
 Download_Speed: 47.43
 Mobile_Download_Speed: 24.49
 Tap_Water_Index: 26.9
+LGBTQ_Rank: 28
 
 Belgium
 Continent: Europe
@@ -99,6 +113,7 @@ Crime_Index: 4.43
 Download_Speed: 96.97
 Mobile_Download_Speed: 79.27
 Tap_Water_Index: 93
+LGBTQ_Rank: 77
 
 Burkina Faso
 Continent: Africa
@@ -106,6 +121,7 @@ Crime_Index: 5.92
 Download_Speed: 42.59
 Mobile_Download_Speed: 42.59
 Tap_Water_Index: 7.9
+LGBTQ_Rank: 29
 
 Bulgaria
 Continent: Europe
@@ -113,6 +129,7 @@ Crime_Index: 5.65
 Download_Speed: 80.76
 Mobile_Download_Speed: 102.35
 Tap_Water_Index: 58
+LGBTQ_Rank: 43
 
 Bahrain
 Continent: Asia
@@ -120,11 +137,13 @@ Crime_Index: 4.95
 Download_Speed: 84.51
 Mobile_Download_Speed: 113.87
 Tap_Water_Index: 50.1
+LGBTQ_Rank: 40
 
 Burundi
 Continent: Africa
 Crime_Index: 4.87
 Tap_Water_Index: 5.4
+LGBTQ_Rank: 16
 
 Benin
 Continent: Africa
@@ -132,6 +151,7 @@ Crime_Index: 5.32
 Download_Speed: 24.23
 Mobile_Download_Speed: 24.23
 Tap_Water_Index: 13.6
+LGBTQ_Rank: 37
 
 Brunei
 Continent: Asia
@@ -139,6 +159,7 @@ Crime_Index: 2.85
 Download_Speed: 77.50
 Mobile_Download_Speed: 77.50
 Tap_Water_Index: 79.9
+LGBTQ_Rank: 3
 
 Bolivia
 Continent: South America
@@ -146,6 +167,7 @@ Crime_Index: 4.95
 Download_Speed: 33.19
 Mobile_Download_Speed: 11.09
 Tap_Water_Index: 38.5
+LGBTQ_Rank: 60
 
 Brazil
 Continent: South America
@@ -153,6 +175,7 @@ Crime_Index: 6.77
 Download_Speed: 160.82
 Mobile_Download_Speed: 63.73
 Tap_Water_Index: 45.2
+LGBTQ_Rank: 80
 
 Bahamas
 Continent: North America
@@ -160,11 +183,13 @@ Crime_Index: 3.75
 Download_Speed: 61.91
 Mobile_Download_Speed: 61.91
 Tap_Water_Index: 47.8
+LGBTQ_Rank: 32
 
 Bhutan
 Continent: Asia
 Crime_Index: 3.9
 Tap_Water_Index: 31.5
+LGBTQ_Rank: 48
 
 Botswana
 Continent: Africa
@@ -172,6 +197,7 @@ Crime_Index: 4.35
 Download_Speed: 8.13
 Mobile_Download_Speed: 8.13
 Tap_Water_Index: 20.2
+LGBTQ_Rank: 52
 
 Belarus
 Continent: Europe
@@ -179,6 +205,7 @@ Crime_Index: 5.87
 Download_Speed: 62.14
 Mobile_Download_Speed: 11.87
 Tap_Water_Index: 60.7
+LGBTQ_Rank: 29
 
 Belize
 Continent: North America
@@ -186,6 +213,7 @@ Crime_Index: 4.87
 Download_Speed: 47.07
 Mobile_Download_Speed: 47.07
 Tap_Water_Index: 39.6
+LGBTQ_Rank: 57
 
 Canada
 Continent: North America
@@ -193,6 +221,7 @@ Crime_Index: 3.88
 Download_Speed: 191.54
 Mobile_Download_Speed: 86.32
 Tap_Water_Index: 90.9
+LGBTQ_Rank: 83
 
 Democratic Republic of the Congo
 Continent: Africa
@@ -200,10 +229,12 @@ Crime_Index: 7.35
 Download_Speed: 40.64
 Mobile_Download_Speed: 40.64
 Tap_Water_Index: 13.4
+LGBTQ_Rank: 23
 
 Central African Republic
 Continent: Africa
 Crime_Index: 6.75
+LGBTQ_Rank: 35
 
 Republic of the Congo
 Continent: Africa
@@ -211,6 +242,7 @@ Crime_Index: 4.78
 Download_Speed: 44.92
 Mobile_Download_Speed: 44.92
 Tap_Water_Index: 14.5
+LGBTQ_Rank: 32
 
 Switzerland
 Continent: Europe
@@ -218,6 +250,7 @@ Crime_Index: 4.87
 Download_Speed: 203.52
 Mobile_Download_Speed: 89.85
 Tap_Water_Index: 100
+LGBTQ_Rank: 69
 
 Côte d'Ivoire
 Continent: Africa
@@ -225,6 +258,7 @@ Crime_Index: 6.02
 Download_Speed: 63.79
 Mobile_Download_Speed: 22.56
 Tap_Water_Index: 17
+LGBTQ_Rank: 24
 
 Chile
 Continent: South America
@@ -232,6 +266,7 @@ Crime_Index: 5.18
 Download_Speed: 274.46
 Mobile_Download_Speed: 38.30
 Tap_Water_Index: 66.8
+LGBTQ_Rank: 80
 
 Cameroon
 Continent: Africa
@@ -239,6 +274,7 @@ Crime_Index: 6.27
 Download_Speed: 10.48
 Mobile_Download_Speed: 13.99
 Tap_Water_Index: 7.5
+LGBTQ_Rank: 10
 
 China
 Continent: Asia
@@ -246,6 +282,7 @@ Crime_Index: 6.37
 Download_Speed: 233.38
 Mobile_Download_Speed: 133.57
 Tap_Water_Index: 58.4
+LGBTQ_Rank: 46
 
 Colombia
 Continent: South America
@@ -253,6 +290,7 @@ Crime_Index: 7.75
 Download_Speed: 143.68
 Mobile_Download_Speed: 18.65
 Tap_Water_Index: 50.1
+LGBTQ_Rank: 75
 
 Costa Rica
 Continent: North America
@@ -260,6 +298,7 @@ Crime_Index: 5.53
 Download_Speed: 93.99
 Mobile_Download_Speed: 28.42
 Tap_Water_Index: 55.3
+LGBTQ_Rank: 68
 
 Cuba
 Continent: North America
@@ -267,6 +306,7 @@ Crime_Index: 3.37
 Download_Speed: 12.85
 Mobile_Download_Speed: 5.31
 Tap_Water_Index: 46
+LGBTQ_Rank: 78
 
 Cabo Verde
 Continent: Africa
@@ -274,6 +314,7 @@ Crime_Index: 4.28
 Download_Speed: 13.06
 Mobile_Download_Speed: 13.06
 Tap_Water_Index: 34.5
+LGBTQ_Rank: 65
 
 Cyprus
 Continent: Asia
@@ -281,6 +322,7 @@ Crime_Index: 4.43
 Download_Speed: 80.77
 Mobile_Download_Speed: 60.20
 Tap_Water_Index: 91.7
+LGBTQ_Rank: 59
 
 Czechia
 Continent: Europe
@@ -288,6 +330,7 @@ Crime_Index: 4.68
 Download_Speed: 69.90
 Mobile_Download_Speed: 69.92
 Tap_Water_Index: 65.2
+LGBTQ_Rank: 65
 
 Germany
 Continent: Europe
@@ -295,6 +338,7 @@ Crime_Index: 5.33
 Download_Speed: 87.03
 Mobile_Download_Speed: 60.65
 Tap_Water_Index: 98.6
+LGBTQ_Rank: 80
 
 Djibouti
 Continent: Africa
@@ -302,6 +346,7 @@ Crime_Index: 4.65
 Download_Speed: 17.07
 Mobile_Download_Speed: 32.03
 Tap_Water_Index: 18.2
+LGBTQ_Rank: 35
 
 Denmark
 Continent: Europe
@@ -309,6 +354,7 @@ Crime_Index: 4.02
 Download_Speed: 228.46
 Mobile_Download_Speed: 153.90
 Tap_Water_Index: 95.8
+LGBTQ_Rank: 87
 
 Dominica
 Continent: North America
@@ -316,6 +362,7 @@ Crime_Index: 2.63
 Download_Speed: 87.57
 Mobile_Download_Speed: 87.57
 Tap_Water_Index: 43.5
+LGBTQ_Rank: 19
 
 Dominican Republic
 Continent: North America
@@ -323,6 +370,7 @@ Crime_Index: 5.02
 Download_Speed: 34.85
 Mobile_Download_Speed: 24.03
 Tap_Water_Index: 35.2
+LGBTQ_Rank: 40
 
 Algeria
 Continent: Africa
@@ -330,6 +378,7 @@ Crime_Index: 4.88
 Download_Speed: 12.28
 Mobile_Download_Speed: 20.86
 Tap_Water_Index: 49.1
+LGBTQ_Rank: 15
 
 Ecuador
 Continent: South America
@@ -337,6 +386,7 @@ Crime_Index: 7.07
 Download_Speed: 86.22
 Mobile_Download_Speed: 24.99
 Tap_Water_Index: 46.7
+LGBTQ_Rank: 60
 
 Estonia
 Continent: Europe
@@ -344,6 +394,7 @@ Crime_Index: 4.25
 Download_Speed: 81.26
 Mobile_Download_Speed: 91.34
 Tap_Water_Index: 59.2
+LGBTQ_Rank: 66
 
 Egypt
 Continent: Africa
@@ -351,11 +402,13 @@ Crime_Index: 5.05
 Download_Speed: 59.71
 Mobile_Download_Speed: 24.25
 Tap_Water_Index: 36.7
+LGBTQ_Rank: 13
 
 Eritrea
 Continent: Africa
 Crime_Index: 3.97
 Tap_Water_Index: 6.4
+LGBTQ_Rank: 8
 
 Spain
 Continent: Europe
@@ -363,6 +416,7 @@ Crime_Index: 5.9
 Download_Speed: 188.49
 Mobile_Download_Speed: 40.21
 Tap_Water_Index: 94.8
+LGBTQ_Rank: 80
 
 Ethiopia
 Continent: Africa
@@ -370,6 +424,7 @@ Crime_Index: 5.68
 Download_Speed: 8.77
 Mobile_Download_Speed: 29.49
 Tap_Water_Index: 11.3
+LGBTQ_Rank: 10
 
 Finland
 Continent: Europe
@@ -377,6 +432,7 @@ Crime_Index: 2.98
 Download_Speed: 115.47
 Mobile_Download_Speed: 108.94
 Tap_Water_Index: 100
+LGBTQ_Rank: 80
 
 Fiji
 Continent: Oceania
@@ -384,6 +440,7 @@ Crime_Index: 4.15
 Download_Speed: 16.99
 Mobile_Download_Speed: 25.11
 Tap_Water_Index: 32
+LGBTQ_Rank: 61
 
 Micronesia
 Continent: Oceania
@@ -391,6 +448,7 @@ Crime_Index: 3
 Download_Speed: 11.94
 Mobile_Download_Speed: 11.94
 Tap_Water_Index: 33
+LGBTQ_Rank: 54
 
 France
 Continent: Europe
@@ -398,6 +456,7 @@ Crime_Index: 5.82
 Download_Speed: 187.10
 Mobile_Download_Speed: 82.62
 Tap_Water_Index: 93.8
+LGBTQ_Rank: 77
 
 Gabon
 Continent: Africa
@@ -405,6 +464,7 @@ Crime_Index: 4.85
 Download_Speed: 39.49
 Mobile_Download_Speed: 39.49
 Tap_Water_Index: 27.2
+LGBTQ_Rank: 30
 
 United Kingdom
 Continent: Europe
@@ -412,6 +472,7 @@ Crime_Index: 5.75
 Download_Speed: 82.80
 Mobile_Download_Speed: 43.99
 Tap_Water_Index: 100
+LGBTQ_Rank: 74
 
 Grenada
 Continent: North America
@@ -419,13 +480,15 @@ Crime_Index: 2.93
 Download_Speed: 80.38
 Mobile_Download_Speed: 80.38
 Tap_Water_Index: 44.4
+LGBTQ_Rank: 25
 
 Georgia
-Continent: Asia
+Continent: Europe, Asia
 Crime_Index: 3.6
 Download_Speed: 26.30
 Mobile_Download_Speed: 35.09
 Tap_Water_Index: 52.3
+LGBTQ_Rank: 38
 
 Ghana
 Continent: Africa
@@ -433,6 +496,7 @@ Crime_Index: 5.8
 Download_Speed: 31.06
 Mobile_Download_Speed: 11.43
 Tap_Water_Index: 20.4
+LGBTQ_Rank: 16
 
 Gambia
 Continent: Africa
@@ -440,6 +504,7 @@ Crime_Index: 4.53
 Download_Speed: 5.51
 Mobile_Download_Speed: 5.51
 Tap_Water_Index: 19
+LGBTQ_Rank: 9
 
 Guinea
 Continent: Africa
@@ -447,11 +512,13 @@ Crime_Index: 4.58
 Download_Speed: 10.34
 Mobile_Download_Speed: 10.34
 Tap_Water_Index: 11
+LGBTQ_Rank: 15
 
 Equatorial Guinea
 Continent: Africa
 Crime_Index: 4.38
 Tap_Water_Index: 29.6
+LGBTQ_Rank: 47
 
 Greece
 Continent: Europe
@@ -459,6 +526,7 @@ Crime_Index: 5.35
 Download_Speed: 50.12
 Mobile_Download_Speed: 78.17
 Tap_Water_Index: 100
+LGBTQ_Rank: 68
 
 Guatemala
 Continent: North America
@@ -466,11 +534,13 @@ Crime_Index: 6.6
 Download_Speed: 49.24
 Mobile_Download_Speed: 27.27
 Tap_Water_Index: 27.2
+LGBTQ_Rank: 38
 
 Guinea-Bissau
 Continent: Africa
 Crime_Index: 5.1
 Tap_Water_Index: 6.6
+LGBTQ_Rank: 47
 
 Guyana
 Continent: South America
@@ -478,6 +548,7 @@ Crime_Index: 5.97
 Download_Speed: 86.10
 Mobile_Download_Speed: 21.29
 Tap_Water_Index: 32.6
+LGBTQ_Rank: 24
 
 Honduras
 Continent: North America
@@ -485,6 +556,7 @@ Crime_Index: 7.05
 Download_Speed: 45.27
 Mobile_Download_Speed: 26.71
 Tap_Water_Index: 30.9
+LGBTQ_Rank: 43
 
 Croatia
 Continent: Europe
@@ -492,6 +564,7 @@ Crime_Index: 5.15
 Download_Speed: 68.11
 Mobile_Download_Speed: 92.51
 Tap_Water_Index: 63.3
+LGBTQ_Rank: 58
 
 Haiti
 Continent: North America
@@ -499,6 +572,7 @@ Crime_Index: 5.93
 Download_Speed: 36.66
 Mobile_Download_Speed: 8.38
 Tap_Water_Index: 13.9
+LGBTQ_Rank: 28
 
 Hungary
 Continent: Europe
@@ -506,6 +580,7 @@ Crime_Index: 4.62
 Download_Speed: 155.56
 Mobile_Download_Speed: 46.03
 Tap_Water_Index: 60.6
+LGBTQ_Rank: 54
 
 Indonesia
 Continent: Asia
@@ -513,6 +588,7 @@ Crime_Index: 6.85
 Download_Speed: 27.65
 Mobile_Download_Speed: 23.98
 Tap_Water_Index: 24.9
+LGBTQ_Rank: 14
 
 Ireland
 Continent: Europe
@@ -520,6 +596,7 @@ Crime_Index: 5.08
 Download_Speed: 93.28
 Mobile_Download_Speed: 34.03
 Tap_Water_Index: 100
+LGBTQ_Rank: 73
 
 Israel
 Continent: Asia
@@ -527,6 +604,7 @@ Crime_Index: 4.85
 Download_Speed: 192.88
 Mobile_Download_Speed: 41.83
 Tap_Water_Index: 93.8
+LGBTQ_Rank: 64
 
 India
 Continent: Asia
@@ -534,6 +612,7 @@ Crime_Index: 5.75
 Download_Speed: 54.56
 Mobile_Download_Speed: 54.05
 Tap_Water_Index: 18.3
+LGBTQ_Rank: 65
 
 Iraq
 Continent: Asia
@@ -541,6 +620,7 @@ Crime_Index: 7.13
 Download_Speed: 32.60
 Mobile_Download_Speed: 28.05
 Tap_Water_Index: 45.9
+LGBTQ_Rank: 14
 
 Iran
 Continent: Asia
@@ -548,6 +628,7 @@ Crime_Index: 7.03
 Download_Speed: 13.51
 Mobile_Download_Speed: 34.71
 Tap_Water_Index: 48.8
+LGBTQ_Rank: 4
 
 Iceland
 Continent: Europe
@@ -555,6 +636,7 @@ Crime_Index: 3.37
 Download_Speed: 259.72
 Mobile_Download_Speed: 136.91
 Tap_Water_Index: 100
+LGBTQ_Rank: 92
 
 Italy
 Continent: Europe
@@ -562,6 +644,7 @@ Crime_Index: 6.22
 Download_Speed: 66.81
 Mobile_Download_Speed: 48.72
 Tap_Water_Index: 97.8
+LGBTQ_Rank: 64
 
 Jamaica
 Continent: North America
@@ -569,6 +652,7 @@ Crime_Index: 5.8
 Download_Speed: 60.63
 Mobile_Download_Speed: 31.66
 Tap_Water_Index: 47.3
+LGBTQ_Rank: 26
 
 Jordan
 Continent: Asia
@@ -576,6 +660,7 @@ Crime_Index: 4.93
 Download_Speed: 132.03
 Mobile_Download_Speed: 23.12
 Tap_Water_Index: 54.4
+LGBTQ_Rank: 22
 
 Japan
 Continent: Asia
@@ -583,6 +668,7 @@ Crime_Index: 4.28
 Download_Speed: 157.05
 Mobile_Download_Speed: 44.50
 Tap_Water_Index: 91.8
+LGBTQ_Rank: 54
 
 Kenya
 Continent: Africa
@@ -590,6 +676,7 @@ Crime_Index: 7.02
 Download_Speed: 10.19
 Mobile_Download_Speed: 22.44
 Tap_Water_Index: 13.7
+LGBTQ_Rank: 17
 
 Kyrgyzstan
 Continent: Asia
@@ -597,6 +684,7 @@ Crime_Index: 5.32
 Download_Speed: 56.06
 Mobile_Download_Speed: 27.25
 Tap_Water_Index: 47.3
+LGBTQ_Rank: 26
 
 Cambodia
 Continent: Asia
@@ -604,26 +692,31 @@ Crime_Index: 6.85
 Download_Speed: 42.87
 Mobile_Download_Speed: 26.40
 Tap_Water_Index: 33.3
+LGBTQ_Rank: 48
 
 Kiribati
 Continent: Oceania
 Crime_Index: 2.45
 Tap_Water_Index: 15.6
+LGBTQ_Rank: 30
 
 Comoros
 Continent: Europe
 Crime_Index: 3.92
 Tap_Water_Index: 15.4
+LGBTQ_Rank: 16
 
 Saint Kitts and Nevis
 Continent: North America
 Crime_Index: 3.52
 Download_Speed: 60.02
 Mobile_Download_Speed: 60.02
+LGBTQ_Rank: 35
 
 North Korea
 Continent: Asia
 Crime_Index: 4.82
+LGBTQ_Rank: 14
 
 South Korea
 Continent: Asia
@@ -631,6 +724,7 @@ Crime_Index: 4.43
 Download_Speed: 170.94
 Mobile_Download_Speed: 173.95
 Tap_Water_Index: 84.6
+LGBTQ_Rank: 44
 
 Kuwait
 Continent: Asia
@@ -638,6 +732,7 @@ Crime_Index: 5.2
 Download_Speed: 166.42
 Mobile_Download_Speed: 216.96
 Tap_Water_Index: 57.2
+LGBTQ_Rank: 15
 
 Kazakhstan
 Continent: Asia
@@ -645,6 +740,7 @@ Crime_Index: 4.47
 Download_Speed: 50.70
 Mobile_Download_Speed: 35.71
 Tap_Water_Index: 56
+LGBTQ_Rank: 29
 
 Laos
 Continent: Asia
@@ -652,6 +748,7 @@ Crime_Index: 6.12
 Download_Speed: 32.68
 Mobile_Download_Speed: 29.84
 Tap_Water_Index: 26.1
+LGBTQ_Rank: 49
 
 Lebanon
 Continent: Asia
@@ -659,6 +756,7 @@ Crime_Index: 7.1
 Download_Speed: 11.24
 Mobile_Download_Speed: 33.71
 Tap_Water_Index: 46.8
+LGBTQ_Rank: 17
 
 Saint Lucia
 Continent: North America
@@ -666,12 +764,14 @@ Crime_Index: 3.53
 Download_Speed: 91.49
 Mobile_Download_Speed: 91.49
 Tap_Water_Index: 42.2
+LGBTQ_Rank: 22
 
 Liechtenstein
 Continent: Europe
 Crime_Index: 2.27
 Download_Speed: 187.01
 Mobile_Download_Speed: 187.01
+LGBTQ_Rank: 66
 
 Sri Lanka
 Continent: Asia
@@ -679,6 +779,7 @@ Crime_Index: 4.92
 Download_Speed: 20.15
 Mobile_Download_Speed: 20.64
 Tap_Water_Index: 46.7
+LGBTQ_Rank: 34
 
 Liberia
 Continent: Africa
@@ -686,6 +787,7 @@ Crime_Index: 5.5
 Download_Speed: 9.23
 Mobile_Download_Speed: 9.23
 Tap_Water_Index: 9.5
+LGBTQ_Rank: 20
 
 Lesotho
 Continent: Africa
@@ -693,6 +795,7 @@ Crime_Index: 3.92
 Download_Speed: 24.14
 Mobile_Download_Speed: 24.14
 Tap_Water_Index: 7.2
+LGBTQ_Rank: 40
 
 Lithuania
 Continent: Europe
@@ -700,6 +803,7 @@ Crime_Index: 3.9
 Download_Speed: 111.17
 Mobile_Download_Speed: 83.47
 Tap_Water_Index: 57.4
+LGBTQ_Rank: 40
 
 Luxembourg
 Continent: Europe
@@ -707,6 +811,7 @@ Crime_Index: 2.85
 Download_Speed: 137.86
 Mobile_Download_Speed: 97.08
 Tap_Water_Index: 97.8
+LGBTQ_Rank: 79
 
 Latvia
 Continent: Europe
@@ -714,12 +819,14 @@ Crime_Index: 3.9
 Download_Speed: 91.78
 Mobile_Download_Speed: 84.19
 Tap_Water_Index: 57.7
+LGBTQ_Rank: 51
 
 Libya
 Continent: Africa
 Crime_Index: 6.93
 Download_Speed: 11.99
 Mobile_Download_Speed: 16.85
+LGBTQ_Rank: 11
 
 Morocco
 Continent: Africa
@@ -727,12 +834,14 @@ Crime_Index: 4.8
 Download_Speed: 22.27
 Mobile_Download_Speed: 36.64
 Tap_Water_Index: 36.7
+LGBTQ_Rank: 11
 
 Monaco
 Continent: Europe
 Crime_Index: 2.58
 Download_Speed: 236.00
 Mobile_Download_Speed: 236.00
+LGBTQ_Rank: 53
 
 Moldova
 Continent: Europe
@@ -740,6 +849,7 @@ Crime_Index: 5.6
 Download_Speed: 132.80
 Mobile_Download_Speed: 32.18
 Tap_Water_Index: 50.8
+LGBTQ_Rank: 36
 
 Montenegro
 Continent: Europe
@@ -747,6 +857,7 @@ Crime_Index: 5.9
 Download_Speed: 87.30
 Mobile_Download_Speed: 59.09
 Tap_Water_Index: 56.8
+LGBTQ_Rank: 52
 
 Madagascar
 Continent: Africa
@@ -754,6 +865,7 @@ Crime_Index: 5.58
 Download_Speed: 34.29
 Mobile_Download_Speed: 12.66
 Tap_Water_Index: 6.2
+LGBTQ_Rank: 35
 
 Marshall Islands
 Continent: Oceania
@@ -761,6 +873,7 @@ Crime_Index: 2.52
 Download_Speed: 22.05
 Mobile_Download_Speed: 22.05
 Tap_Water_Index: 30.3
+LGBTQ_Rank: 62
 
 North Macedonia
 Continent: Europe
@@ -768,6 +881,7 @@ Crime_Index: 5.03
 Download_Speed: 40.70
 Mobile_Download_Speed: 80.79
 Tap_Water_Index: 58.3
+LGBTQ_Rank: 45
 
 Mali
 Continent: Africa
@@ -775,6 +889,7 @@ Crime_Index: 5.93
 Download_Speed: 20.45
 Mobile_Download_Speed: 20.45
 Tap_Water_Index: 8.3
+LGBTQ_Rank: 29
 
 Myanmar
 Continent: Asia
@@ -782,6 +897,7 @@ Crime_Index: 8.15
 Download_Speed: 20.71
 Mobile_Download_Speed: 23.69
 Tap_Water_Index: 30
+LGBTQ_Rank: 23
 
 Mongolia
 Continent: Asia
@@ -789,6 +905,7 @@ Crime_Index: 4.12
 Download_Speed: 66.53
 Mobile_Download_Speed: 12.71
 Tap_Water_Index: 43.8
+LGBTQ_Rank: 43
 
 Mauritania
 Continent: Africa
@@ -796,6 +913,7 @@ Crime_Index: 4.38
 Download_Speed: 23.11
 Mobile_Download_Speed: 17.43
 Tap_Water_Index: 13.6
+LGBTQ_Rank: 8
 
 Malta
 Continent: Europe
@@ -803,6 +921,7 @@ Crime_Index: 5
 Download_Speed: 116.12
 Mobile_Download_Speed: 66.34
 Tap_Water_Index: 100
+LGBTQ_Rank: 86
 
 Mauritius
 Continent: Africa
@@ -810,6 +929,7 @@ Crime_Index: 4.37
 Download_Speed: 50.77
 Mobile_Download_Speed: 49.66
 Tap_Water_Index: 63.6
+LGBTQ_Rank: 51
 
 Maldives
 Continent: Asia
@@ -817,6 +937,7 @@ Crime_Index: 4.27
 Download_Speed: 12.40
 Mobile_Download_Speed: 83.71
 Tap_Water_Index: 44.2
+LGBTQ_Rank: 14
 
 Malawi
 Continent: Africa
@@ -824,6 +945,7 @@ Crime_Index: 4.48
 Download_Speed: 18.36
 Mobile_Download_Speed: 21.94
 Tap_Water_Index: 12.1
+LGBTQ_Rank: 13
 
 Mexico
 Continent: North America
@@ -831,6 +953,7 @@ Crime_Index: 7.57
 Download_Speed: 62.14
 Mobile_Download_Speed: 25.86
 Tap_Water_Index: 50
+LGBTQ_Rank: 75
 
 Malaysia
 Continent: Asia
@@ -838,6 +961,7 @@ Crime_Index: 6.23
 Download_Speed: 113.89
 Mobile_Download_Speed: 85.59
 Tap_Water_Index: 48.2
+LGBTQ_Rank: 13
 
 Mozambique
 Continent: Africa
@@ -845,6 +969,7 @@ Crime_Index: 6.2
 Download_Speed: 14.03
 Mobile_Download_Speed: 17.98
 Tap_Water_Index: 16.5
+LGBTQ_Rank: 51
 
 Namibia
 Continent: Africa
@@ -852,6 +977,7 @@ Crime_Index: 4.3
 Download_Speed: 13.89
 Mobile_Download_Speed: 26.59
 Tap_Water_Index: 18.9
+LGBTQ_Rank: 38
 
 Niger
 Continent: Africa
@@ -859,6 +985,7 @@ Crime_Index: 5.7
 Download_Speed: 6.16
 Mobile_Download_Speed: 6.16
 Tap_Water_Index: 1.7
+LGBTQ_Rank: 27
 
 Nigeria
 Continent: Africa
@@ -866,6 +993,7 @@ Crime_Index: 7.28
 Download_Speed: 19.91
 Mobile_Download_Speed: 25.79
 Tap_Water_Index: 4.3
+LGBTQ_Rank: 4
 
 Nicaragua
 Continent: North America
@@ -873,6 +1001,7 @@ Crime_Index: 5.72
 Download_Speed: 52.78
 Mobile_Download_Speed: 12.70
 Tap_Water_Index: 42.2
+LGBTQ_Rank: 43
 
 Netherlands
 Continent: Europe
@@ -880,6 +1009,7 @@ Crime_Index: 4.97
 Download_Speed: 143.20
 Mobile_Download_Speed: 120.36
 Tap_Water_Index: 100
+LGBTQ_Rank: 83
 
 Norway
 Continent: Europe
@@ -887,6 +1017,7 @@ Crime_Index: 3.75
 Download_Speed: 136.21
 Mobile_Download_Speed: 141.40
 Tap_Water_Index: 100
+LGBTQ_Rank: 88
 
 Nepal
 Continent: Asia
@@ -894,10 +1025,12 @@ Crime_Index: 6.57
 Download_Speed: 57.91
 Mobile_Download_Speed: 12.64
 Tap_Water_Index: 25.9
+LGBTQ_Rank: 71
 
 Nauru
 Continent: Oceania
 Crime_Index: 2.05
+LGBTQ_Rank: 51
 
 New Zealand
 Continent: Oceania
@@ -905,6 +1038,7 @@ Crime_Index: 4.08
 Download_Speed: 164.84
 Mobile_Download_Speed: 70.01
 Tap_Water_Index: 74.5
+LGBTQ_Rank: 77
 
 Oman
 Continent: Asia
@@ -912,6 +1046,7 @@ Crime_Index: 4.4
 Download_Speed: 65.62
 Mobile_Download_Speed: 75.22
 Tap_Water_Index: 46.5
+LGBTQ_Rank: 6
 
 Panama
 Continent: North America
@@ -919,6 +1054,7 @@ Crime_Index: 6.98
 Download_Speed: 151.68
 Mobile_Download_Speed: 18.84
 Tap_Water_Index: 41.7
+LGBTQ_Rank: 37
 
 Peru
 Continent: South America
@@ -926,6 +1062,7 @@ Crime_Index: 6.4
 Download_Speed: 91.64
 Mobile_Download_Speed: 17.10
 Tap_Water_Index: 42.8
+LGBTQ_Rank: 61
 
 Papua New Guinea
 Continent: Oceania
@@ -933,6 +1070,7 @@ Crime_Index: 5.72
 Download_Speed: 13.96
 Mobile_Download_Speed: 17.32
 Tap_Water_Index: 15.8
+LGBTQ_Rank: 28
 
 Philippines
 Continent: Asia
@@ -940,6 +1078,7 @@ Crime_Index: 6.63
 Download_Speed: 83.09
 Mobile_Download_Speed: 26.36
 Tap_Water_Index: 34.4
+LGBTQ_Rank: 57
 
 Pakistan
 Continent: Asia
@@ -947,6 +1086,7 @@ Crime_Index: 6.03
 Download_Speed: 14.04
 Mobile_Download_Speed: 17.17
 Tap_Water_Index: 15.3
+LGBTQ_Rank: 30
 
 Poland
 Continent: Europe
@@ -954,11 +1094,13 @@ Crime_Index: 4.48
 Download_Speed: 154.68
 Mobile_Download_Speed: 57.19
 Tap_Water_Index: 65.7
+LGBTQ_Rank: 55
 
 Palestine State
 Continent: Asia
 Download_Speed: 65.86
 Mobile_Download_Speed: 65.86
+LGBTQ_Rank: 6
 
 Portugal
 Continent: Europe
@@ -966,10 +1108,12 @@ Crime_Index: 4.88
 Download_Speed: 172.83
 Mobile_Download_Speed: 99.93
 Tap_Water_Index: 85.7
+LGBTQ_Rank: 75
 
 Palau
 Continent: Oceania
 Crime_Index: 2.7
+LGBTQ_Rank: 30
 
 Paraguay
 Continent: South America
@@ -977,6 +1121,7 @@ Crime_Index: 7.52
 Download_Speed: 89.62
 Mobile_Download_Speed: 18.11
 Tap_Water_Index: 45.2
+LGBTQ_Rank: 33
 
 Qatar
 Continent: Asia
@@ -984,6 +1129,7 @@ Crime_Index: 5.45
 Download_Speed: 136.89
 Mobile_Download_Speed: 286.42
 Tap_Water_Index: 57
+LGBTQ_Rank: 7
 
 Romania
 Continent: Europe
@@ -991,6 +1137,7 @@ Crime_Index: 4.58
 Download_Speed: 212.53
 Mobile_Download_Speed: 60.74
 Tap_Water_Index: 55.4
+LGBTQ_Rank: 48
 
 Serbia
 Continent: Europe
@@ -998,13 +1145,15 @@ Crime_Index: 6.22
 Download_Speed: 77.07
 Mobile_Download_Speed: 53.05
 Tap_Water_Index: 60.5
+LGBTQ_Rank: 47
 
 Russia
-Continent: Asia
+Continent: Europe, Asia
 Crime_Index: 6.87
 Download_Speed: 85.94
 Mobile_Download_Speed: 24.64
 Tap_Water_Index: 55.8
+LGBTQ_Rank: 16
 
 Rwanda
 Continent: Africa
@@ -1012,6 +1161,7 @@ Crime_Index: 3.6
 Download_Speed: 28.06
 Mobile_Download_Speed: 18.10
 Tap_Water_Index: 17
+LGBTQ_Rank: 27
 
 Saudi Arabia
 Continent: Asia
@@ -1019,11 +1169,13 @@ Crime_Index: 6.23
 Download_Speed: 108.73
 Mobile_Download_Speed: 125.19
 Tap_Water_Index: 51
+LGBTQ_Rank: 14
 
 Solomon Islands
 Continent: Oceania
 Crime_Index: 4.4
 Tap_Water_Index: 14.4
+LGBTQ_Rank: 18
 
 Seychelles
 Continent: Africa
@@ -1031,6 +1183,7 @@ Crime_Index: 3.9
 Download_Speed: 29.15
 Mobile_Download_Speed: 29.15
 Tap_Water_Index: 45.8
+LGBTQ_Rank: 52
 
 Sudan
 Continent: Africa
@@ -1038,6 +1191,7 @@ Crime_Index: 6.37
 Download_Speed: 11.70
 Mobile_Download_Speed: 7.50
 Tap_Water_Index: 22.6
+LGBTQ_Rank: 12
 
 Sweden
 Continent: Europe
@@ -1045,6 +1199,7 @@ Crime_Index: 4.7
 Download_Speed: 154.37
 Mobile_Download_Speed: 103.43
 Tap_Water_Index: 97.9
+LGBTQ_Rank: 77
 
 Singapore
 Continent: Asia
@@ -1052,6 +1207,7 @@ Crime_Index: 3.47
 Download_Speed: 286.66
 Mobile_Download_Speed: 99.07
 Tap_Water_Index: 88.9
+LGBTQ_Rank: 52
 
 Slovenia
 Continent: Europe
@@ -1059,6 +1215,7 @@ Crime_Index: 4.37
 Download_Speed: 93.47
 Mobile_Download_Speed: 70.65
 Tap_Water_Index: 70.3
+LGBTQ_Rank: 68
 
 Slovakia
 Continent: Europe
@@ -1066,6 +1223,7 @@ Crime_Index: 4.72
 Download_Speed: 77.04
 Mobile_Download_Speed: 51.36
 Tap_Water_Index: 64.6
+LGBTQ_Rank: 45
 
 Sierra Leone
 Continent: Africa
@@ -1073,12 +1231,14 @@ Crime_Index: 4.95
 Download_Speed: 21.86
 Mobile_Download_Speed: 21.86
 Tap_Water_Index: 11.6
+LGBTQ_Rank: 16
 
 San Marino
 Continent: Europe
 Crime_Index: 3.48
 Download_Speed: 100.17
 Mobile_Download_Speed: 100.17
+LGBTQ_Rank: 68
 
 Senegal
 Continent: Africa
@@ -1086,12 +1246,14 @@ Crime_Index: 5.52
 Download_Speed: 21.08
 Mobile_Download_Speed: 31.26
 Tap_Water_Index: 13
+LGBTQ_Rank: 11
 
 Somalia
 Continent: Africa
 Crime_Index: 6.13
 Download_Speed: 13.19
 Mobile_Download_Speed: 16.08
+LGBTQ_Rank: 7
 
 Suriname
 Continent: South America
@@ -1099,15 +1261,18 @@ Crime_Index: 4.77
 Download_Speed: 12.25
 Mobile_Download_Speed: 42.06
 Tap_Water_Index: 35.4
+LGBTQ_Rank: 38
 
 South Sudan
 Continent: Africa
 Crime_Index: 6.32
+LGBTQ_Rank: 17
 
 Sao Tome and Principe
 Continent: Africa
 Crime_Index: 1.7
 Tap_Water_Index: 34.1
+LGBTQ_Rank: 47
 
 El Salvador
 Continent: North America
@@ -1115,21 +1280,25 @@ Crime_Index: 5.92
 Download_Speed: 50.30
 Mobile_Download_Speed: 26.48
 Tap_Water_Index: 40.8
+LGBTQ_Rank: 38
 
 Syria
 Continent: Asia
 Crime_Index: 7.07
 Download_Speed: 3.71
 Mobile_Download_Speed: 13.43
+LGBTQ_Rank: 21
 
 Eswatini
 Continent: Africa
 Crime_Index: 4.38
 Tap_Water_Index: 12.2
+LGBTQ_Rank: 23
 
 Chad
 Continent: Africa
 Crime_Index: 5.5
+LGBTQ_Rank: 16
 
 Togo
 Continent: Africa
@@ -1137,6 +1306,7 @@ Crime_Index: 5.23
 Download_Speed: 29.07
 Mobile_Download_Speed: 29.07
 Tap_Water_Index: 4.9
+LGBTQ_Rank: 16
 
 Thailand
 Continent: Asia
@@ -1144,6 +1314,7 @@ Crime_Index: 6.18
 Download_Speed: 219.10
 Mobile_Download_Speed: 40.67
 Tap_Water_Index: 42.7
+LGBTQ_Rank: 65
 
 Tajikistan
 Continent: Asia
@@ -1151,6 +1322,7 @@ Crime_Index: 5.45
 Download_Speed: 24.86
 Mobile_Download_Speed: 8.14
 Tap_Water_Index: 31.7
+LGBTQ_Rank: 37
 
 Timor-Leste
 Continent: Asia
@@ -1158,6 +1330,7 @@ Crime_Index: 4.08
 Download_Speed: 4.81
 Mobile_Download_Speed: 3.34
 Tap_Water_Index: 26.2
+LGBTQ_Rank: 31
 
 Turkmenistan
 Continent: Asia
@@ -1165,6 +1338,7 @@ Crime_Index: 4.4
 Download_Speed: 7.53
 Mobile_Download_Speed: 7.53
 Tap_Water_Index: 47.7
+LGBTQ_Rank: 8
 
 Tunisia
 Continent: Africa
@@ -1172,18 +1346,21 @@ Crime_Index: 4.45
 Download_Speed: 9.41
 Mobile_Download_Speed: 22.12
 Tap_Water_Index: 49.1
+LGBTQ_Rank: 14
 
 Tonga
 Continent: Oceania
 Crime_Index: 3.7
 Tap_Water_Index: 42.8
+LGBTQ_Rank: 29
 
 Türkiye
-Continent: Asia
+Continent: Asia, Europe
 Crime_Index: 7.03
 Download_Speed: 36.92
 Mobile_Download_Speed: 35.92
 Tap_Water_Index: 47
+LGBTQ_Rank: 38
 
 Trinidad and Tobago
 Continent: South America
@@ -1191,10 +1368,12 @@ Crime_Index: 5.2
 Download_Speed: 113.09
 Mobile_Download_Speed: 32.87
 Tap_Water_Index: 48.5
+LGBTQ_Rank: 37
 
 Tuvalu
 Continent: Oceania
 Crime_Index: 1.62
+LGBTQ_Rank: 24
 
 Tanzania
 Continent: Africa
@@ -1202,6 +1381,7 @@ Crime_Index: 6.2
 Download_Speed: 17.79
 Mobile_Download_Speed: 22.79
 Tap_Water_Index: 18.4
+LGBTQ_Rank: 12
 
 Ukraine
 Continent: Europe
@@ -1209,6 +1389,7 @@ Crime_Index: 6.48
 Download_Speed: 75.70
 Mobile_Download_Speed: 27.23
 Tap_Water_Index: 55.1
+LGBTQ_Rank: 47
 
 Uganda
 Continent: Africa
@@ -1216,6 +1397,7 @@ Crime_Index: 6.55
 Download_Speed: 12.56
 Mobile_Download_Speed: 32.94
 Tap_Water_Index: 17.7
+LGBTQ_Rank: 16
 
 United States
 Continent: North America
@@ -1223,6 +1405,7 @@ Crime_Index: 5.67
 Download_Speed: 213.75
 Mobile_Download_Speed: 97.09
 Tap_Water_Index: 89.3
+LGBTQ_Rank: 75
 
 Uruguay
 Continent: South America
@@ -1230,6 +1413,7 @@ Crime_Index: 3.22
 Download_Speed: 142.77
 Mobile_Download_Speed: 75.69
 Tap_Water_Index: 61.8
+LGBTQ_Rank: 83
 
 Uzbekistan
 Continent: Asia
@@ -1237,10 +1421,12 @@ Crime_Index: 4.95
 Download_Speed: 65.76
 Mobile_Download_Speed: 26.24
 Tap_Water_Index: 54
+LGBTQ_Rank: 13
 
 Holy See
 Continent: Europe
 Tap_Water_Index: 97.8
+LGBTQ_Rank: 33
 
 Saint Vincent and the Grenadines
 Continent: North America
@@ -1248,6 +1434,7 @@ Crime_Index: 3.08
 Download_Speed: 82.96
 Mobile_Download_Speed: 82.96
 Tap_Water_Index: 41.1
+LGBTQ_Rank: 18
 
 Venezuela
 Continent: South America
@@ -1255,6 +1442,7 @@ Crime_Index: 6.72
 Download_Speed: 44.86
 Mobile_Download_Speed: 11.43
 Tap_Water_Index: 43.6
+LGBTQ_Rank: 50
 
 Vietnam
 Continent: Asia
@@ -1262,22 +1450,26 @@ Crime_Index: 6.55
 Download_Speed: 107.24
 Mobile_Download_Speed: 51.65
 Tap_Water_Index: 50.9
+LGBTQ_Rank: 55
 
 Vanuatu
 Continent: Oceania
 Crime_Index: 2.43
 Tap_Water_Index: 21.4
+LGBTQ_Rank: 48
 
 Samoa
 Continent: Oceania
 Crime_Index: 2.43
 Tap_Water_Index: 40.4
+LGBTQ_Rank: 39
 
 Yemen
 Continent: Asia
 Crime_Index: 6.57
 Download_Speed: 7.38
 Mobile_Download_Speed: 8.87
+LGBTQ_Rank: 8
 
 South Africa
 Continent: Africa
@@ -1285,6 +1477,7 @@ Crime_Index: 7.18
 Download_Speed: 42.29
 Mobile_Download_Speed: 43.80
 Tap_Water_Index: 23.4
+LGBTQ_Rank: 71
 
 Zambia
 Continent: Africa
@@ -1292,6 +1485,7 @@ Crime_Index: 4.73
 Download_Speed: 21.26
 Mobile_Download_Speed: 19.59
 Tap_Water_Index: 13.2
+LGBTQ_Rank: 13
 
 Zimbabwe
 Continent: Africa
@@ -1299,4 +1493,5 @@ Crime_Index: 5.47
 Download_Speed: 14.32
 Mobile_Download_Speed: 35.21
 Tap_Water_Index: 16.2
+LGBTQ_Rank: 21
 

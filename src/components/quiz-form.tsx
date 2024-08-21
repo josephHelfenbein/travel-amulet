@@ -306,6 +306,7 @@ export default function QuizForm() {
                         let tap_water_index:number;
                         let continent = values.continentList;
                         let blacklistCountries = values.blacklistCountries;
+                        let lgbtq_rank:number;
 
                         blacklistCountries.splice(24, 1);
 
@@ -314,7 +315,7 @@ export default function QuizForm() {
                         }
 
                         if (values.crimeSelect === "3") {
-                            crime_index = 5.97
+                            crime_index = 4.25
                         } else if (values.crimeSelect === "2") {
                             crime_index = 4.97
                         } else {
@@ -345,6 +346,17 @@ export default function QuizForm() {
                             tap_water_index = 0
                         }
 
+                        if (values.lgbtqSelect === "3") {
+                            lgbtq_rank = 59.5
+                        } else if (values.lgbtqSelect === "2") {
+                            lgbtq_rank = 45.2
+                        } else {
+                            lgbtq_rank = 0
+                        }
+
+                        blacklistCountries.pop();
+                        continent.shift();
+
                         // add countries and 
                         console.log({
                             prompt: prompt,
@@ -354,10 +366,8 @@ export default function QuizForm() {
                             tap_water_index: tap_water_index,
                             continent_list: JSON.stringify(continent),
                             blacklist_countries: JSON.stringify(blacklistCountries),
-                    })
-
-                        blacklistCountries.pop();
-                        continent.shift();
+                            lgbtq_rank: lgbtq_rank,
+                        })
 
                         axios.get('https://yashpythonapi.vercel.app/api/vector_search', {
                             params: {
@@ -368,15 +378,18 @@ export default function QuizForm() {
                                 tap_water_index: tap_water_index,
                                 continent_list: JSON.stringify(continent),
                                 blacklist_countries: JSON.stringify(blacklistCountries),
+                                lgbtq_rank: lgbtq_rank,
                             }
                         }).then((res) => {
-                            console.log(res);
+                            console.log(res.data);
+                            const data = res.data[0].countries;
+                            console.log(data);
+
                             let countries: Array<string> = new Array(10);
-                            for (let i = 0; i < res.data.countries.length; i++) {
-                                countries[i] = findKeyByValue(res.data.countries[i]) ?? '';
+                            for (let i = 0; i < data.length; i++) {
+                                countries[i] = findKeyByValue(data[i]) ?? '';
                             }
 
-                            console.log(countries);
                             localStorage.setItem('country', JSON.stringify(countries));
                         }).catch((error) => {
                             console.error('Error:', error.message);

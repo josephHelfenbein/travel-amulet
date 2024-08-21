@@ -35,6 +35,7 @@ for country in response.json():
     
     countryInternetSpeed = country.get('internet_speed').get('broadband').get('download').get('value')
     countryMobileInternetSpeed = country.get('internet_speed').get('mobile').get('download').get('value')
+    countryLGBTQRank = country.get('lgbtq_index').get('datasets').get('data')[0]
     
     countryTapWaterIndex = None
     try:
@@ -110,15 +111,17 @@ for country in response.json():
     
     output_file2.write(f"{countryName}\n")
     output_file2.write(f"Continent: {continent}\n")
-    output_file2.write(f"Crime Index: {countryCrimeIndex}\n")
+    output_file2.write(f"Crime_Index: {countryCrimeIndex}\n")
     if countryInternetSpeed != "":
-        output_file2.write(f"Download Speed: {countryInternetSpeed}\n")
+        output_file2.write(f"Download_Speed: {countryInternetSpeed}\n")
         
     if countryMobileInternetSpeed != "":
-        output_file2.write(f"Mobile Download Speed: {countryMobileInternetSpeed}\n")
+        output_file2.write(f"Mobile_Download_Speed: {countryMobileInternetSpeed}\n")
     elif countryInternetSpeed != "":
-        output_file2.write(f"Mobile Download Speed: {countryInternetSpeed}\n")
+        output_file2.write(f"Mobile_Download_Speed: {countryInternetSpeed}\n")
 
     if countryTapWaterIndex != "-1":
-        output_file2.write(f"Tap Water Index: {countryTapWaterIndex}\n")
+        output_file2.write(f"Tap_Water_Index: {countryTapWaterIndex}\n")
+    
+    output_file2.write(f"LGBTQ_Rank: {countryLGBTQRank}\n")
     output_file2.write("\n")
