@@ -337,8 +337,6 @@ export default function QuizForm() {
                         let blacklistCountries = values.blacklistCountries;
                         let lgbtq_rank:number;
 
-                        blacklistCountries.splice(24, 1);
-
                         for (let i = 0; i < blacklistCountries.length; i++) {
                             blacklistCountries[i] = findValueByKey(blacklistCountries[i]) ?? '';
                         }
@@ -382,10 +380,7 @@ export default function QuizForm() {
                         } else {
                             lgbtq_rank = 0
                         }
-
-                        blacklistCountries.pop();
-                        continent.shift();
-
+                        
                         // add countries and 
                         console.log({
                             prompt: prompt,
