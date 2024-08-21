@@ -206,6 +206,8 @@ Yash Jani - [![LinkedIn][linkedin-shield]][linkedin-url-yash] - yashjani144@gmai
 
 Project Link: [https://github.com/josephHelfenbein/travel-amulet](https://github.com/josephHelfenbein/travel-amulet)
 
+* [Best README Template](https://github.com/othneildrew/Best-README-Template)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -258,5 +260,5 @@ Project Link: [https://github.com/josephHelfenbein/travel-amulet](https://github
 [Prisma-url]: https://www.prisma.io/
 [Flask]: https://img.shields.io/badge/flask-4590A1?logo=flask&style=for-the-badge&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
-[Google]: https://img.shields.io/badge/google%20maps%20api-4285F4?logo=google&style=for-the-badge&logoColor=white
+[Google]: https://img.shields.io/badge/google%20maps%20api-4285F4?logo=google%20maps&style=for-the-badge&logoColor=white
 [Google-url]: https://developers.google.com/maps
