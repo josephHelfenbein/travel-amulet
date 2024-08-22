@@ -142,7 +142,7 @@ Here are the steps to run the project locally if you want to develop your own pr
 2. Get an OpenAI API key at [https://openai.com/api](https://openai.com/api)
 3. Follow <a href="https://docs.pingcap.com/tidbcloud/vector-search-integrate-with-langchain">this tutorial</a> on a separate instance to get TiDB Vector Search running. The instance can be hosted on <a href="https://vercel.com">Vercel</a> using Python and Flask. Alternatively, you can also follow <a href="https://docs.pingcap.com/tidbcloud/vector-search-get-started-using-sql">this tutorial</a> to run TiDB Vector Search on the same Next.js instance using SQL, but you would have to generate the vector embeddings separately. The country data used for the vector embeddings is from [https://countrywise.io](https://countrywise.io).
 
-> **Note:** The Python API for vector search can be accessed [here](insert-your-link-here). You can deploy this API to a background server or use the link directly in your project.
+> **Note:** The Python API for vector search can be accessed [here](https://github.com/YashedP/travel-amulet-backend-server). You can deploy this API to a background server or use the link directly in your project.
 
 5. If you want to use Sign in with Google or GitHub, you'll need to set up those services. Sign in with Google can be set up at [https://console.cloud.google.com](https://console.cloud.google.com), and GitHub at [https://github.com/settings/developers](https://github.com/settings/developers).
 6. To get the places, flights and hotels for results working, you'll need to get an API key from [https://developers.google.com/maps](https://developers.google.com/maps).
