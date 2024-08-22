@@ -116,16 +116,26 @@ export default function HotelsContent(){
         setFoundCountry(tempCountry![indexCountry]);
     }, []);
 
+    const [lat, setLat] = useState(27.672932021393862);
+    const [lng, setLng] = useState(85.31184012689732);
+
     useEffect(()=>{
         if(foundCountry!=="") {
-            const data = null;
-
+            try{
+                const data = JSON.parse(localStorage.getItem("cities")!);
+                const index = Number(localStorage.getItem("mapIndex"));
+                setLat(data[index].lat);
+                setLng(data[index].lng);
+            }
+            catch(e){
+               router.push('/results');
+            }
+            
             
         }
     }, [foundCountry]);
 
-    const [lat, setLat] = useState(27.672932021393862);
-    const [lng, setLng] = useState(85.31184012689732);
+    
     // Add lat, lng as dependencies
     const mapCenter = useMemo(() => ({ lat: lat, lng: lng }), [lat, lng]);
 
@@ -160,7 +170,7 @@ export default function HotelsContent(){
             />
             <GoogleMap
                 options={mapOptions}
-                zoom={5}
+                zoom={14}
                 center={mapCenter}
                 mapTypeId={google.maps.MapTypeId.ROADMAP}
                 mapContainerStyle={{ width: '80vw', height: '400px' }}

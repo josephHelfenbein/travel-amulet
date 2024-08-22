@@ -11,7 +11,7 @@ export default async function handler(
         axios.get('https://maps.googleapis.com/maps/api/place/textsearch/json', {
             params: {
                 query: `Top landmarks in ${query}`,
-                key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API
+                key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
             }
         }).then((response) => {
             let places = response.data.results

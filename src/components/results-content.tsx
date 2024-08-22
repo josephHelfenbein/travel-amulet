@@ -19,6 +19,25 @@ function countryCodeToName(code:string){
     return countriesMap.get(code);
 }
 
+function citiesListing(cityNames:string[], setError:Function){
+    const router = useRouter();
+    let returnList = [<h5 key='0' className="bd-highlight" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>Top Found Cities</h5>];
+    let currentKey=1;
+    for(let i=1; i<6; i++){
+        if(cityNames[i])
+        returnList.push(
+            <div key={`${currentKey++}`} style={{backgroundColor:'#fefefe', borderRadius: '10px', borderStyle: 'solid', border: '2px solid #e4e4e4'}} className="d-flex justify-content-between mb-1 m-3 p-3">
+                <p key={`${currentKey++}`} style={{fontWeight:600}} >{cityNames[i]}</p>
+                <button key={`${currentKey++}`} onClick={()=>{
+                    localStorage.setItem("mapIndex", i.toString());
+                    router.push('/hotels');
+                }}id={styles.primary} className={styles.buttonQuiz + ' p-3'} style={{width:'250px', color:'white', textDecoration:'none', fontWeight:500}}>See hotel & flight options</button>
+            </div>
+        )
+    }
+    if(returnList.length == 1) setError("Could not find any cities.");
+    return returnList;
+}
 
 export default function ResultsContent(){
     const router = useRouter();
@@ -70,6 +89,10 @@ export default function ResultsContent(){
     const [countryIndex, setCountryIndex] = useState(0);
 
     const[explanation, setExplanation] = useState('');
+
+    const[citiesNames, setCitiesNames] = useState([""]);
+    const[citiesAddress, setCitiesAddress] = useState([""]);
+    const[citiesLatLng, setCitiesLatLng] = useState([[0.0, 0.0]]);
     useEffect(()=>{
         const indexCountry = Number(localStorage.getItem("index"));
         setCountryIndex(indexCountry);
@@ -144,10 +167,54 @@ export default function ResultsContent(){
                 });
             }
             console.log(cities);
+            const cityList = [""];
+            const cityAddressList = [""];
+            const cityLatLngList = [[0.0, 0.0]];
+            for(let i=0; i<cities.length; i++){
+                if(!cities[i].city.includes(',')) continue;
+                cityList.push(cities[i].name);
+                cityAddressList.push(cities[i].city);
+                cityLatLngList.push([cities[i].lat, cities[i].lng]);
+            }
+            setCitiesNames(cityList);
+            setCitiesAddress(cityAddressList);
+            setCitiesLatLng(cityLatLngList);
+
             localStorage.setItem("cities", JSON.stringify(cities));
         }).catch((error) => {
-            console.log(error);
-        })
+            axios.get('/api/cities', {
+                params: {
+                    query: `${currentCountry.toLowerCase()}`
+                }
+            }).then((res) => {
+                let list = res.data;
+                for (let i = 0; i < list.length; i++) {
+                    cities.push({
+                        "name": list[i].name,
+                        "city": list[i].formatted_address,
+                        "lat": list[i].geometry.location.lat,
+                        "lng": list[i].geometry.location.lng,
+                    });
+                }
+                console.log(cities);
+                const cityList = [""];
+                const cityAddressList = [""];
+                const cityLatLngList = [[0.0, 0.0]];
+                for(let i=0; i<cities.length; i++){
+                    if(!cities[i].city.includes(',')) continue;
+                    cityList.push(cities[i].name);
+                    cityAddressList.push(cities[i].city);
+                    cityLatLngList.push([cities[i].lat, cities[i].lng]);
+                }
+                setCitiesNames(cityList);
+                setCitiesAddress(cityAddressList);
+                setCitiesLatLng(cityLatLngList);
+    
+                localStorage.setItem("cities", JSON.stringify(cities));
+            }).catch((error) => {
+                console.log(error);
+            });
+        });
 
     }, []);
     useEffect(()=>{
@@ -159,37 +226,41 @@ export default function ResultsContent(){
                     setExplanation(res.content);
                 }
             });
-        fetchCountryData(foundCountry).then(async(res)=>{
-            if(res.content){
-                let bufferItem = res.content.description;
-                let bufferString = Buffer.from(bufferItem).toString('utf-8');
-                setDesc(bufferString);
-                bufferItem = res.content.climate;
-                bufferString = Buffer.from(bufferItem).toString('utf-8');
-                setClimate(bufferString);
-                bufferItem = res.content.cuisine;
-                bufferString = Buffer.from(bufferItem).toString('utf-8');
-                setCuisine(bufferString);
-                bufferItem = res.content.culture;
-                bufferString = Buffer.from(bufferItem).toString('utf-8');
-                setCulture(bufferString);
-                bufferItem = res.content.currency;
-                bufferString = Buffer.from(bufferItem).toString('utf-8');
-                setCurrency(bufferString);
-                bufferItem = res.content.language;
-                bufferString = Buffer.from(bufferItem).toString('utf-8');
-                setLanguage(bufferString);
-                bufferItem = res.content.politics;
-                bufferString = Buffer.from(bufferItem).toString('utf-8');
-                setPolitics(bufferString);
-            }
-        })
+            fetchCountryData(foundCountry).then(async(res)=>{
+                if(res.content){
+                    let bufferItem = res.content.description;
+                    let bufferString = Buffer.from(bufferItem).toString('utf-8');
+                    setDesc(bufferString);
+                    bufferItem = res.content.climate;
+                    bufferString = Buffer.from(bufferItem).toString('utf-8');
+                    setClimate(bufferString);
+                    bufferItem = res.content.cuisine;
+                    bufferString = Buffer.from(bufferItem).toString('utf-8');
+                    setCuisine(bufferString);
+                    bufferItem = res.content.culture;
+                    bufferString = Buffer.from(bufferItem).toString('utf-8');
+                    setCulture(bufferString);
+                    bufferItem = res.content.currency;
+                    bufferString = Buffer.from(bufferItem).toString('utf-8');
+                    setCurrency(bufferString);
+                    bufferItem = res.content.language;
+                    bufferString = Buffer.from(bufferItem).toString('utf-8');
+                    setLanguage(bufferString);
+                    bufferItem = res.content.politics;
+                    bufferString = Buffer.from(bufferItem).toString('utf-8');
+                    setPolitics(bufferString);
+                }
+            }).catch((e)=>{
+                window.location.reload();
+            })
+        
     }
     }, [foundCountry]);
     useEffect(()=>{
         if(email!=='' && foundCountry!=='')
         newResult({email:email, country:foundCountry});
     }, [foundCountry, email])
+    const [citiesError, setCitiesError] = useState("");
     return (
         <div>
                 {onMobile &&
@@ -355,6 +426,12 @@ export default function ResultsContent(){
                         window.location.reload();
                     }}>Result #{countryIndex+2}</button>
                 }
+               </div>
+               <div>
+                {
+                    citiesNames.length>1 && citiesListing(citiesNames, setCitiesError)
+                }
+                {   citiesError!=='' && <p>{citiesError}</p>}
                </div>
                 
         </div>
