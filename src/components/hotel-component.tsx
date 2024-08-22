@@ -10,6 +10,7 @@ import { SyncLoader } from "react-spinners";
 import { GoogleMap, MarkerF, useLoadScript} from '@react-google-maps/api';
 import React, {useMemo} from "react";
 import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
+import {Tooltip, IconButton} from "@mui/material";
 
 const countriesMap = new Map();
 for(let i=0; i<countryOptions.length; i++){
@@ -62,7 +63,7 @@ const PlacesAutocomplete = ({onAddressSelect}:{onAddressSelect?:(address:string)
         className={styles.autocompleteInput}
         disabled={!ready}
         onChange={(e) => setValue(e.target.value)}
-        placeholder="123 Stariway To Heaven"
+        placeholder="Please enter your city or address to find the closest airport."
         />
 
         {status === 'OK' && (
@@ -109,11 +110,16 @@ export default function HotelsContent(){
     const [countryIndex, setCountryIndex] = useState(0);
 
     useEffect(()=>{
-        const indexCountry = Number(localStorage.getItem("index"));
-        setCountryIndex(indexCountry);
-        const tempCountry = JSON.parse(localStorage.getItem("country")!);
-        if (!tempCountry) router.push("/quiz");
-        setFoundCountry(tempCountry![indexCountry]);
+        try{
+            const indexCountry = Number(localStorage.getItem("index"));
+            setCountryIndex(indexCountry);
+            const tempCountry = JSON.parse(localStorage.getItem("country")!);
+            if (!tempCountry) router.push("/quiz");
+            setFoundCountry(tempCountry![indexCountry]);
+        }
+        catch{
+            router.push("/results");
+        }
     }, []);
 
     const [lat, setLat] = useState(27.672932021393862);
@@ -137,7 +143,7 @@ export default function HotelsContent(){
 
     
     // Add lat, lng as dependencies
-    const mapCenter = useMemo(() => ({ lat: lat, lng: lng }), [lat, lng]);
+    const cityLocation = useMemo(() => ({ lat: lat, lng: lng }), [lat, lng]);
 
     const libraries = useMemo(() => ['places'], []);
 
@@ -155,28 +161,58 @@ export default function HotelsContent(){
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string,
         libraries: libraries as any,
     });
-
+    const[addressLoc, setLoc] = useState([0.0, 0.0]);
+    const addressFind = useMemo(() => ({ lat: addressLoc[0], lng: addressLoc[1] }), [addressLoc]);
+    const mapCenter = useMemo(()=>{
+        if(addressLoc[0]==0.0&&addressLoc[1]==0.0) return{lat, lng};
+        else return {lat:(lat+addressLoc[0])/2, lng:(lng+addressLoc[1])/2};
+        }, [addressLoc, lat, lng]);
+    const zoomAmount = useMemo(()=>{
+        if(addressLoc[0]==0.0&&addressLoc[1]==0.0) return 12;
+        else return Math.min(8/Math.pow(Math.pow(lat - addressLoc[0], 2)+Math.pow(lng - addressLoc[1], 2),1/8), 11);
+    }, [addressLoc, lat, lng]);
     if(!isLoaded) return <p>Loading...</p>;
     return (
         <div>
-            <PlacesAutocomplete 
-                onAddressSelect={(address)=>{
-                    getGeocode({address:address}).then((results)=>{
-                        const {lat, lng} = getLatLng(results[0]);
-                        setLat(lat);
-                        setLng(lng);
-                    })
-                }}
-            />
+            <div className="d-flex justify-content-center mb-3">
+                <Tooltip title="Any address you type will not be saved." placement="bottom">
+                    <IconButton>
+                        <svg
+                            viewBox="0 0 16 16"
+                            width="24"
+                            height="24"
+                            fill="gray"
+                        >
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16">
+                            </path>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0">
+                            </path>
+                        </svg>
+                    </IconButton>
+                </Tooltip>
+                <PlacesAutocomplete 
+                    onAddressSelect={(address)=>{
+                        getGeocode({address:address}).then((results)=>{
+                            const {lat:latNew, lng:lngNew} = getLatLng(results[0]);
+                            setLoc([latNew, lngNew]);
+                        })
+                    }}
+                />
+                
+            </div>
+           
             <GoogleMap
                 options={mapOptions}
-                zoom={14}
+                zoom={zoomAmount}
                 center={mapCenter}
                 mapTypeId={google.maps.MapTypeId.ROADMAP}
                 mapContainerStyle={{ width: '80vw', height: '400px' }}
                 onLoad={() => console.log('Map Component Loaded...')}
             >
-                <MarkerF position={mapCenter} />
+                <MarkerF position={cityLocation} />
+                {addressLoc[0]!=lat && addressLoc[1]!=lng&&
+                    <MarkerF position={addressFind} />
+                }
             </GoogleMap>
         </div>
     );

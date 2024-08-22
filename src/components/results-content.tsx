@@ -93,6 +93,7 @@ export default function ResultsContent(){
     const[citiesNames, setCitiesNames] = useState([""]);
     const[citiesAddress, setCitiesAddress] = useState([""]);
     const[citiesLatLng, setCitiesLatLng] = useState([[0.0, 0.0]]);
+    const [citiesError, setCitiesError] = useState("");
     useEffect(()=>{
         const indexCountry = Number(localStorage.getItem("index"));
         setCountryIndex(indexCountry);
@@ -215,7 +216,7 @@ export default function ResultsContent(){
     
                 localStorage.setItem("cities", JSON.stringify(cities));
             }).catch((error) => {
-                console.log(error);
+                setCitiesError(`There was an error fetching the Google Maps API: ${error}`);
             });
         });
 
@@ -263,7 +264,7 @@ export default function ResultsContent(){
         if(email!=='' && foundCountry!=='')
         newResult({email:email, country:foundCountry});
     }, [foundCountry, email])
-    const [citiesError, setCitiesError] = useState("");
+    
     return (
         <div>
                 {onMobile &&
