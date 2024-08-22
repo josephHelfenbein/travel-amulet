@@ -29,7 +29,7 @@ function citiesListing(cityNames:string[], setError:Function){
             <div key={`${currentKey++}`} style={{backgroundColor:'#fefefe', borderRadius: '10px', borderStyle: 'solid', border: '2px solid #e4e4e4'}} className="d-flex justify-content-between mb-1 m-3 p-3">
                 <p key={`${currentKey++}`} style={{fontWeight:600}} >{cityNames[i]}</p>
                 <button key={`${currentKey++}`} onClick={()=>{
-                    localStorage.setItem("mapIndex", i.toString());
+                    localStorage.setItem("mapIndex", (i-1).toString());
                     router.push('/hotels');
                 }}id={styles.primary} className={styles.buttonQuiz + ' p-3'} style={{width:'250px', color:'white', textDecoration:'none', fontWeight:500}}>See hotel & flight options</button>
             </div>

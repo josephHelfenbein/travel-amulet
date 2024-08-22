@@ -200,20 +200,22 @@ export default function HotelsContent(){
                 />
                 
             </div>
+           <div className={styles.googleMap}>
+               <GoogleMap
+                    options={mapOptions}
+                    zoom={zoomAmount}
+                    center={mapCenter}
+                    mapTypeId={google.maps.MapTypeId.ROADMAP}
+                    mapContainerStyle={{ width: '80vw', height: '400px', boxShadow: '0px 5px 15px #c3ccca', borderRadius:'20px', border:'2px solid #e4e4e4' }}
+                    onLoad={() => console.log('Map Component Loaded...')}
+                >
+                    <MarkerF position={cityLocation} />
+                    {addressLoc[0]!=lat && addressLoc[1]!=lng&&
+                        <MarkerF position={addressFind} />
+                    }
+                </GoogleMap>
+           </div>
            
-            <GoogleMap
-                options={mapOptions}
-                zoom={zoomAmount}
-                center={mapCenter}
-                mapTypeId={google.maps.MapTypeId.ROADMAP}
-                mapContainerStyle={{ width: '80vw', height: '400px' }}
-                onLoad={() => console.log('Map Component Loaded...')}
-            >
-                <MarkerF position={cityLocation} />
-                {addressLoc[0]!=lat && addressLoc[1]!=lng&&
-                    <MarkerF position={addressFind} />
-                }
-            </GoogleMap>
         </div>
     );
 }
