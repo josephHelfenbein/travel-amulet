@@ -4,9 +4,11 @@ import {useSession} from 'next-auth/react';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { countryOptions } from "./countryoptions";
+import React from "react";
 import styles from './login-form.module.css';
 import {fetchCountryData, gptRequest, newResult} from '../../lib/http';
 import { SyncLoader } from "react-spinners";
+import { list } from "postcss";
 
 const countriesMap = new Map();
 for(let i=0; i<countryOptions.length; i++){
@@ -75,6 +77,73 @@ export default function ResultsContent(){
         if (!tempCountry) router.push("/quiz");
         setCountryList(tempCountry);
         setFoundCountry(tempCountry![indexCountry]);
+
+        const currentCountry = countryCodeToName(tempCountry![indexCountry]);
+        console.log(`${currentCountry}`);
+
+        // let places: any[] = [];
+        // let cities: any;
+        // axios.get("/api/cities", {
+        //     params: {
+        //         query: `${currentCountry}`
+        //     }
+        // }).then((res) => {
+        //     cities = res.data;
+
+        //     console.log(cities[0]);
+
+        //     const promises: Promise<void>[] = [];
+
+        //     for (let i = 0; i < cities.length && i < 5; i++) {
+        //         console.log(cities[i].formatted_address);
+        //         const promise = axios.get('/api/places', {
+        //             params: {
+        //                 query: `${cities[i].formatted_address}`
+        //             }
+        //         }).then((res) => {
+        //             places.push({"city": cities[i], "places": res.data});
+        //         }).catch((error) => {
+        //             console.log(error);
+        //         })
+
+        //         promises.push(promise);
+        //     }           
+            
+        //     Promise.all(promises).then(() => {
+        //         console.log(places);
+        //     })
+        // }).catch((error) => {
+        //     console.log(error);
+        // });
+
+        interface City {
+            name: string;
+            city: string;
+            lat: number;
+            lng: number;
+        }
+        
+        let cities: City[] = [];
+        axios.get('/api/cities', {
+            params: {
+                query: `${currentCountry}`
+            }
+        }).then((res) => {
+            let list = res.data;
+            for (let i = 0; i < list.length; i++) {
+                cities.push({
+                    "name": list[i].name,
+                    "city": list[i].formatted_address,
+                    "lat": list[i].geometry.location.lat,
+                    "lng": list[i].geometry.location.lng,
+                });
+            }
+            console.log(cities);
+            localStorage.setItem("cities", JSON.stringify(cities));
+        }).catch((error) => {
+            console.log(error);
+        })
+
     }, []);
     useEffect(()=>{
         if(foundCountry!==''){

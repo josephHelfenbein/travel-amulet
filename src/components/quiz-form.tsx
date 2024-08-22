@@ -383,7 +383,7 @@ export default function QuizForm() {
                         
                         // add countries and 
                         console.log({
-                            prompt: prompt,
+                            prompt: createSimplifiedPrompt(values),
                             crime_index: crime_index,
                             download_speed: download_speed,
                             mobile_download_speed: mobile_download_speed,
