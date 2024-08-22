@@ -5,7 +5,7 @@ from tidb_vector.peewee import VectorField
 
 # Init OpenAI client
 # In this example, we use the text-embedding-3-small model to generate embeddings
-client = OpenAI(api_key=os.environ.get('sk-proj-6I18dU7UN8t7ZJI2emFMT3BlbkFJElrgVjcVgZUsj0GXONT9'))
+client = OpenAI(api_key=getpass.getpass("OpenAI API Key:"))
 embedding_model = "text-embedding-3-small"
 embedding_dimensions = 1536
 
