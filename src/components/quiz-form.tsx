@@ -415,13 +415,13 @@ export default function QuizForm() {
                             }
 
                             localStorage.setItem('country', JSON.stringify(countries));
+                            localStorage.setItem('prompt', prompt);
+                            localStorage.setItem('index', '0');
                         }).catch((error) => {
                             console.error('Error:', error.message);
                         }).finally(()=>{
                             router.push("/results");
-                        });
-
-                        localStorage.setItem('prompt', prompt);
+                        });                        
 
                         setSubmitting(false);
                     }), 500);
