@@ -73,10 +73,16 @@ export default function ResultsContent(){
     useEffect(()=>{
         const indexCountry = Number(localStorage.getItem("index"));
         setCountryIndex(indexCountry);
-        const tempCountry = JSON.parse(localStorage.getItem("country")!);
-        if (!tempCountry) router.push("/quiz");
-        setCountryList(tempCountry);
-        setFoundCountry(tempCountry![indexCountry]);
+        let tempCountry;
+        try{
+            tempCountry = JSON.parse(localStorage.getItem("country")!);
+            if (!tempCountry) router.push("/quiz");
+            setCountryList(tempCountry);
+            setFoundCountry(tempCountry![indexCountry]);
+        }
+        catch(e){
+            router.push("/quiz");
+        }
 
         const currentCountry = countryCodeToName(tempCountry![indexCountry]);
         console.log(`${currentCountry}`);
@@ -122,7 +128,6 @@ export default function ResultsContent(){
             lat: number;
             lng: number;
         }
-        
         let cities: City[] = [];
         axios.get('/api/cities', {
             params: {

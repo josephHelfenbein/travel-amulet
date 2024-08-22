@@ -141,17 +141,20 @@ Here are the steps to run the project locally if you want to develop your own pr
 1. Create a TiDB Cloud Serverless account at [https://tidbcloud.com/free-trial](https://tidbcloud.com/free-trial)
 2. Get an OpenAI API key at [https://openai.com/api](https://openai.com/api)
 3. Follow <a href="https://docs.pingcap.com/tidbcloud/vector-search-integrate-with-langchain">this tutorial</a> on a separate instance to get TiDB Vector Search running. The instance can be hosted on <a href="https://vercel.com">Vercel</a> using Python and Flask. Alternatively, you can also follow <a href="https://docs.pingcap.com/tidbcloud/vector-search-get-started-using-sql">this tutorial</a> to run TiDB Vector Search on the same Next.js instance using SQL, but you would have to generate the vector embeddings separately. The country data used for the vector embeddings is from [https://countrywise.io](https://countrywise.io).
-4. If you want to use Sign in with Google or GitHub, you'll need to set up those services. Sign in with Google can be set up at [https://console.cloud.google.com](https://console.cloud.google.com), and GitHub at [https://github.com/settings/developers](https://github.com/settings/developers).
-5. To get the places, flights and hotels for results working, you'll need to get an API key from [https://developers.google.com/maps](https://developers.google.com/maps).
-6. Clone the repo
+
+> **Note:** The Python API for vector search can be accessed [here](https://github.com/YashedP/travel-amulet-backend-server). You can deploy this API to a background server or use the link directly in your project.
+
+5. If you want to use Sign in with Google or GitHub, you'll need to set up those services. Sign in with Google can be set up at [https://console.cloud.google.com](https://console.cloud.google.com), and GitHub at [https://github.com/settings/developers](https://github.com/settings/developers).
+6. To get the places, flights and hotels for results working, you'll need to get an API key from [https://developers.google.com/maps](https://developers.google.com/maps).
+7. Clone the repo
    ```sh
    git clone https://github.com/josephHelfenbein/travel-amulet.git
    ```
-7. Install NPM packages
+8. Install NPM packages
    ```sh
    npm install
    ```
-8. Enter your API keys and database URL in a `.env.local` file
+9. Enter your API keys and database URL in a `.env.local` file
    ```js
        DATABASE_URL = "ENTER YOUR DATABASE URL"
        OPENAI_API_KEY = "ENTER YOUR OPENAI API KEY"
@@ -165,11 +168,11 @@ Here are the steps to run the project locally if you want to develop your own pr
 
        NEXT_PUBLIC_GOOGLE_MAPS_KEY = "ENTER YOUR GOOGLE MAPS API KEY"
    ```
-9. Create user database
+10. Create user database
    ```sh
    yarn prisma migrate dev
    ```
-10. Change git remote url to avoid accidental pushes to base project
+11. Change git remote url to avoid accidental pushes to base project
    ```sh
    git remote set-url origin josephHelfenbein/travel-amulet
    git remote -v # confirm the changes
