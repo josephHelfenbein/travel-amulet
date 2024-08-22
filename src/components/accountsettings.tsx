@@ -96,30 +96,36 @@ export default function AccountSettings(){
                     { setSubmitting }: FormikHelpers<Values>
                 ) => {setTimeout(
                     (async () => {
-                        if(name===values.name&&country===values.singleSelect)
-                            setError('Nothing was changed!');
-                        else{
-                            if(country !== values.singleSelect){
-                                const changed = await changeUserCountry({email:email, country:values.singleSelect});
-                                if (changed){
-                                    setError('Updated!');
+                        try{
+                            if(name===values.name&&country===values.singleSelect)
+                                setError('Nothing was changed!');
+                            else{
+                                if(country !== values.singleSelect){
+                                    const changed = await changeUserCountry({email:email, country:values.singleSelect});
+                                    if (changed){
+                                        setError('Updated!');
+                                    }
                                 }
-                            }
-                            if(name !== values.name){
-                                const changed = await changeUserName({email:email, name:values.name});
-                                if(changed){
-                                    const newSession = {
-                                        ...data,
-                                        user:{
-                                            ...data?.user,
-                                            name: values.name
-                                        },
-                                    };
-                                    await update(newSession);
-                                    setError("Updated! You'll have to log in again to see changes to your name.");
+                                if(name !== values.name){
+                                    const changed = await changeUserName({email:email, name:values.name});
+                                    if(changed){
+                                        const newSession = {
+                                            ...data,
+                                            user:{
+                                                ...data?.user,
+                                                name: values.name
+                                            },
+                                        };
+                                        await update(newSession);
+                                        setError("Updated! You'll have to log in again to see changes to your name.");
+                                    }
                                 }
-                            }
-                        }   
+                        }
+                        }
+                        catch(e){
+                            setError("There was an error saving. Maybe try reloading.");
+                        }
+                           
                         setSubmitting(false);
                     }), 500);
                 }}

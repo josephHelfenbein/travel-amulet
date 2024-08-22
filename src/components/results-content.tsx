@@ -93,22 +93,25 @@ export default function ResultsContent(){
     const[citiesNames, setCitiesNames] = useState([""]);
     const[citiesAddress, setCitiesAddress] = useState([""]);
     const[citiesLatLng, setCitiesLatLng] = useState([[0.0, 0.0]]);
+    const[currentCountry, setCurrentCountry]=useState('');
     useEffect(()=>{
         const indexCountry = Number(localStorage.getItem("index"));
         setCountryIndex(indexCountry);
         let tempCountry;
         try{
             tempCountry = JSON.parse(localStorage.getItem("country")!);
-            if (!tempCountry) router.push("/quiz");
+            if (tempCountry==null) router.push("/quiz");
             setCountryList(tempCountry);
             setFoundCountry(tempCountry![indexCountry]);
+            setCurrentCountry(countryCodeToName(tempCountry![indexCountry]));
+            console.log(`${currentCountry}`);
         }
         catch(e){
             router.push("/quiz");
+            window.location.reload();
         }
-
-        const currentCountry = countryCodeToName(tempCountry![indexCountry]);
-        console.log(`${currentCountry}`);
+        
+       
 
         // let places: any[] = [];
         // let cities: any;

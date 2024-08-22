@@ -9,9 +9,11 @@ const Home : NextPage = () => {
     return (
         <div>
             <Head>
-                <title>Quiz</title>
+                <title>Quiz - TravelAmulet</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="favicon.png" />
+                <link rel='icon' href='/favicon.svg' />
+                <link rel='mask-icon' href='/favicon.svg' color='#000000' />
+                <meta name="theme-color" content="#ffffff" />
             </Head>
             <main className={styles.loginBG}>
                 <HeaderSecondary />

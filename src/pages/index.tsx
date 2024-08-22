@@ -16,9 +16,11 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>TravelAmulet</title>
         <meta name='description' content='Home Page' />
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/favicon.svg' />
+        <link rel='mask-icon' href='/favicon.svg' color='#000000' />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
       <main>
         <HeaderMain />
