@@ -96,6 +96,8 @@ of the country. The prompt string is also fed into the OpenAI API, which then us
 
 If signed in, every result shown to the user is saved and visible on the account settings page.
 
+A list of cities found in the country is available on the bottom of the page, which redirect to a hotel and flights page. A map of the city is shown, and the nearest airport is found. The nearest hotels are also found and displayed to search for more information. If entering your location into the input field, the nearest airport to you will be found, and you can search for flight prices from the airport to the city.
+
 
 
 
@@ -110,6 +112,7 @@ If signed in, every result shown to the user is saved and visible on the account
 * [![OpenAI][OpenAI]][OpenAI-url]
 * [![Flask][Flask]][Flask-url]
 * [![Google][Google]][Google-url]
+* [![Amadeus][Amadeus]][Amadeus-url]
 
 ### Powered By
 
@@ -145,7 +148,7 @@ Here are the steps to run the project locally if you want to develop your own pr
 > **Note:** The Python API for vector search can be accessed [here](https://github.com/YashedP/travel-amulet-backend-server). You can deploy this API to a background server or use the link directly in your project.
 
 5. If you want to use Sign in with Google or GitHub, you'll need to set up those services. Sign in with Google can be set up at [https://console.cloud.google.com](https://console.cloud.google.com), and GitHub at [https://github.com/settings/developers](https://github.com/settings/developers).
-6. To get the places, flights and hotels for results working, you'll need to get an API key from [https://developers.google.com/maps](https://developers.google.com/maps).
+6. To get the places, flights and hotels for results working, you'll need to get an API key from [https://developers.google.com/maps](https://developers.google.com/maps), and an API key from [https://developers.amadeus.com](https://developers.amadeus.com).
 7. Clone the repo
    ```sh
    git clone https://github.com/josephHelfenbein/travel-amulet.git
@@ -167,6 +170,8 @@ Here are the steps to run the project locally if you want to develop your own pr
        GOOGLE_CLIENT_SECRET = "ENTER YOUR GOOGLE SECRET KEY"
 
        NEXT_PUBLIC_GOOGLE_MAPS_KEY = "ENTER YOUR GOOGLE MAPS API KEY"
+       AMADEUS_KEY = "ENTER YOUR AMADEUS API KEY"
+       AMADEUS_SECRET = "ENTER YOUR AMADEUS API SECRET KEY"
    ```
 10. Create user database
    ```sh
@@ -265,3 +270,5 @@ Project Link: [https://github.com/josephHelfenbein/travel-amulet](https://github
 [Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
 [Google]: https://img.shields.io/badge/google%20maps%20api-4285F4?logo=google%20maps&style=for-the-badge&logoColor=white
 [Google-url]: https://developers.google.com/maps
+[Amadeus]: https://img.shields.io/badge/amadeus%20api-1b69bc.svg?logo=data:image/svg%2bxml;base64,PHN2ZyB3aWR0aD0iNjkuMjY3NjI0IiBoZWlnaHQ9Ijg0LjgxODM3NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjkuMjY3NjI0IDg0LjgxODM3NSI+PHBhdGggZD0iTSA1MS4xMjgzNzUsNjUuODUyMTI1IEMgNDcuMjQwNzUsNjcuMzg0MjUgMzcuODE1LDcwLjQ0Njc1IDMwLjg2NjI1LDcwLjQ0Njc1IGMgLTcuNTQwMTI1LDAgLTEzLjE5Mzg3NSwtMi41OTEyNSAtMTMuMTkzODc1LC0xMC44MzgzNzUgMCwtNy4xODUgMy44ODUyNSwtMTEuMzA3NjI1IDE0LjI1NTM3NSwtMTEuNjYxNjI1IGwgMTkuMjAwNjI1LC0wLjcwNjUgeiBNIDQwLjI5LDAgQyAyNC4wMzMyNSwwIDExLjMxMDU1LDQuMDA2Mzc1IDYuMzYyMyw2LjQ4MSBsIDMuODg4MTg4LDEzLjY2NDUgYyAwLDAgMTIuNDg4NzYyLC00LjQ3NiAyNC43Mzc3NjIsLTQuNDc2IDEwLjQ4NDg3NSwwIDE1LjkwMjg3NSwyLjk0Mzc1IDE1LjkwMjg3NSwxMy4zMSB2IDUuODkxNjI1IEggMzQuOTg4MjUgQyA4LjAxMjIxMjUsMzQuODcxMTI1IDAsNDcuMjQwMjUgMCw2MC45MDU3NSBjIDAsMTguMTM5Njc1IDE0LjEzNzc1LDIzLjkxMjYyNSAyNi45NzgsMjMuOTEyNjI1IDE0Ljk2MDUsMCAyMy42NzkyNSwtNi4yNDI2NzUgMjQuNzM4MjUsLTYuMjQyNjc1IDAuODI1NzUsMCAzLjg4ODI1LDMuMjk2ODc1IDE3LjU1MTM3NSwzLjI5Njg3NSB2IC01Ny43MjIyIEMgNjkuMjY3NjI1LDYuODM1IDU4LjU0OTM3NSwwIDQwLjI5LDAgWiIgc3R5bGU9ImZpbGw6I2ZmZmZmZjtzdHJva2Utd2lkdGg6MC4xMjUiIC8+PC9zdmc+Cg==&style=for-the-badge&logoColor=white
+[Amadeus-url]: https://developers.amadeus.com/
