@@ -110,6 +110,40 @@ export async function fetchCountryData(id:string): Promise<{
     return {error, content:null};
   }
 }
+export async function findAirport(params:{lat:number, lng:number}): Promise<{
+  content:string|null;
+  error?:any;
+}>{
+  try{
+    const newParams = JSON.stringify({lat: params.lat, lng: params.lng});
+    const response = await axios.get(`/api/closestAirport?query=${newParams}`);
+    if(response.status !== 200){
+      throw new Error(`${response.status} - ${response.data}`);
+    }
+    return {content: JSON.stringify(response.data)};
+  }
+  catch(error){
+    console.error(error);
+    return {error, content:null};
+  }
+}
+export async function findFlights(params:{from:string, to:string, depart:string, return:string|null, travelers:Number}): Promise<{
+  content:string|null;
+  error?:any;
+}>{
+  try{
+    const newParams = JSON.stringify({from:params.from, to:params.to, depart:params.depart, return:params.return, travelers:params.travelers});
+    const response = await axios.get(`/api/findflights?query=${newParams}`);
+    if(response.status !== 200){
+      throw new Error(`${response.status} - ${response.data}`);
+    }
+    return {content:JSON.stringify(response.data)};
+  }
+  catch(error){
+    console.error(error);
+    return{error, content:null};
+  }
+}
 export async function gptRequest(params:{prompt:string}): Promise<{
   content:string|null;
   error?:any;

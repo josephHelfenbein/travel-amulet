@@ -8,7 +8,6 @@ import React from "react";
 import styles from './login-form.module.css';
 import {fetchCountryData, gptRequest, newResult} from '../../lib/http';
 import { SyncLoader } from "react-spinners";
-import { list } from "postcss";
 
 const countriesMap = new Map();
 for(let i=0; i<countryOptions.length; i++){
@@ -294,13 +293,13 @@ export default function ResultsContent(){
                         />
                 </div>
                <div className='mb-5'>
-                <p>{description}</p>
+                <p className="p-3">{description}</p>
                </div>
                <div className='mb-5'>
                 
                <h5  className="bd-highlight" style={{textAlign:'center', fontWeight:400, color:'#505050'}}>{`Why ${countryCodeToName(foundCountry)}?`}</h5>
                 {explanation != '' && 
-                    <p>{explanation}</p>
+                    <p className="p-3">{explanation}</p>
                 }
                 {explanation == '' &&
                 <div className='d-flex justify-content-center p-3'>
@@ -435,7 +434,7 @@ export default function ResultsContent(){
                 {
                     citiesNames.length>1 && citiesListing(citiesNames, setCitiesError)
                 }
-                {   citiesError!=='' && <p>{citiesError}</p>}
+                {   citiesError!=='' && <p className="p-3">{citiesError}</p>}
                </div>
                 
         </div>

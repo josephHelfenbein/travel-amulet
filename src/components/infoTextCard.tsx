@@ -61,7 +61,7 @@ export function InfoTextCard2 (){
                         </div>
                         <div className="col-md-4">
                             <div className="card-body p-4 pt-0">
-                                <p className="card-text ">Our AI-powered platform then analyzes your answers to recommend the perfect country for your next trip, along with the best hotel and flight options to suit your budget.</p>
+                                <p className="card-text ">Our AI-powered platform then analyzes your answers to recommend the perfect country for your next trip. It then recommends cities, and finds flight pricing and hotels.</p>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ export function InfoTextCard2 (){
                         </div>
                         <div className="col-md-8">
                             <div className="card-body p-5">
-                                <p className="card-text ">Our AI-powered platform then analyzes your answers to recommend the perfect country for your next trip, along with the best hotel and flight options to suit your budget.</p>
+                                <p className="card-text ">Our AI-powered platform then analyzes your answers to recommend the perfect country for your next trip. It then recommends cities, and finds flight pricing and hotels.</p>
                             </div>
                         </div>
                     </div>
