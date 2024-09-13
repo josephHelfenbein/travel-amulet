@@ -212,6 +212,9 @@ Joseph Helfenbein - [![LinkedIn][linkedin-shield]][linkedin-url-joseph] - joseph
 
 Yash Jani - [![LinkedIn][linkedin-shield]][linkedin-url-yash] - yashjani144@gmail.com
 
+
+This project was submitted to the TiDB Future App Hackathon 2024 hackathon. Devpost link: [https://devpost.com/software/travelamulet](https://devpost.com/software/travelamulet)
+
 Project Link: [https://github.com/josephHelfenbein/travel-amulet](https://github.com/josephHelfenbein/travel-amulet)
 
 * [Best README Template](https://github.com/othneildrew/Best-README-Template)
